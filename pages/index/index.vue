@@ -172,7 +172,7 @@
 			github: function() {
 				const that = this
 				uni.setClipboardData({
-					data: 'https://github.com/dingyong0214/ThorUI',
+					data: 'https://github.com/dingyong0214/ThorUI-uniapp',
 					success(res) {
 						uni.getClipboardData({
 							success(res) {
