@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "数字键盘",
+  "usingComponents": {
+    "tui-button": "/components/button/button",
+    "tui-keyboard": "/components/keyboard/keyboard",
+    "tui-keyboard-input": "/components/keyboard-input/keyboard-input"
+  }
+}

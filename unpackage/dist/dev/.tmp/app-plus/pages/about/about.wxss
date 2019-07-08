@@ -1,0 +1,155 @@
+
+.container {
+	padding: 0 50rpx 40rpx 50rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	overflow: hidden;
+}
+.tui-flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	padding-top: 40px;
+}
+.tui-cube-box {
+	width: 60px;
+	height: 60px;
+	position: relative;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-animation: tui-go 4s linear infinite;
+	        animation: tui-go 4s linear infinite;
+}
+@-webkit-keyframes tui-go {
+0% {
+		-webkit-transform: rotateX(0) rotateY(0);
+		transform: rotateX(0) rotateY(0);
+}
+100% {
+		-webkit-transform: rotateX(360deg) rotateY(360deg);
+		transform: rotateX(360deg) rotateY(360deg);
+}
+}
+@keyframes tui-go {
+0% {
+		-webkit-transform: rotateX(0) rotateY(0);
+		transform: rotateX(0) rotateY(0);
+}
+100% {
+		-webkit-transform: rotateX(360deg) rotateY(360deg);
+		transform: rotateX(360deg) rotateY(360deg);
+}
+}
+.tui-cube {
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	padding: 5px;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	font-size: 24rpx;
+	color: #fff;
+	text-align: center;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.tui-cube-1 {
+	background: #fff;
+	-webkit-transform: rotateY(90deg) translateZ(-30px);
+	transform: rotateY(90deg) translateZ(-30px);
+	color: #333 !important;
+}
+.tui-cube-2 {
+	background: #8a5966;
+	-webkit-transform: rotateY(90deg) translateZ(30px);
+	transform: rotateY(90deg) translateZ(30px);
+}
+.tui-cube-3 {
+	background: -webkit-gradient(linear, right top, left top, from(#5677fc), to(#5c8dff));
+	background: -webkit-linear-gradient(right, #5677fc, #5c8dff);
+	background: -o-linear-gradient(right, #5677fc, #5c8dff);
+	background: linear-gradient(-90deg, #5677fc, #5c8dff);
+	-webkit-transform: rotateX(90deg) translateZ(30px);
+	transform: rotateX(90deg) translateZ(30px);
+}
+.tui-cube-4 {
+	background: #ed3f14;
+	-webkit-transform: rotateX(90deg) translateZ(-30px);
+	transform: rotateX(90deg) translateZ(-30px);
+}
+.tui-cube-5 {
+	background: #ff7900;
+	-webkit-transform: translateZ(30px);
+	transform: translateZ(30px);
+}
+.tui-cube-6 {
+	background: #19be6b;
+	-webkit-transform: translateZ(-30px);
+	transform: translateZ(-30px);
+}
+.tui-content-box {
+	width: 100%;
+	margin-top: 50px;
+	padding: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background: #fff;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
+	-webkit-box-shadow: 0 0 10rpx #eee;
+	        box-shadow: 0 0 10rpx #eee;
+}
+.tui-content {
+	color: #333;
+	font-size: 30rpx;
+	line-height: 44rpx;
+	padding: 10rpx 0;
+	text-align: justify;
+}
+.tui-content-email {
+	color: #5677fc !important;
+}
+.tui-footer {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding-top: 30rpx;
+}
+.tui-applets {
+	width: 80px;
+	height: 80px;
+	display: block;
+}
+.tui-footer-text {
+	font-size: 24rpx;
+	color: #999;
+	padding-left: 20rpx;
+	width: 300rpx;
+}
+

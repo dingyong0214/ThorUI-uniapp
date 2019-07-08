@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "发表评论",
+  "backgroundColorTop": "#fff",
+  "backgroundColorBottom": "#fff",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-button": "/components/button/button"
+  }
+}

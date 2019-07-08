@@ -1,0 +1,434 @@
+<template>
+	<div>
+		<div class="tui-slider-box tui-white">
+			<slider class="tui-slider" interval="5000" auto-play="true" show-indicators="true">
+				<div class="tui-frame" @click="goDetail">
+					<image class="tui-slider-img" :class="[isIos?'':'tui-img-radius']" resize="cover" src="../../static/images/mall/banner/2.jpg"></image>
+				</div>
+				<div class="tui-frame" @click="goDetail">
+					<image class="tui-slider-img" :class="[isIos?'':'tui-img-radius']" resize="cover" src="../../static/images/mall/banner/4.jpg"></image>
+				</div>
+				<div class="tui-frame" @click="goDetail">
+					<image class="tui-slider-img" :class="[isIos?'':'tui-img-radius']" resize="cover" src="../../static/images/mall/banner/5.jpg"></image>
+				</div>
+				<indicator class="tui-indicator"></indicator>
+			</slider>
+		</div>
+		<tabs @change="changeTab" :index="tabIndex">
+			<tab-bar class="tui-white">
+				<div v-for="(tabBar,index) in tabBars" :key="index" class="tab-bar-item" :ref="tabBar.id + index">
+					<text class="tab-bar-title" :class="[tabIndex==index ? 'tui-active' : '']">{{tabBar.name}}</text>
+				</div>
+			</tab-bar>
+			<tab-content>
+				<list class="tui-list" @loadmore="loadMore(index1)" :ref="'tab'+index1" loadmoreoffset="10" v-for="(tab,index1) in newsitems"
+				 :key="index1">
+					<refresh class="tui-refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+						<loading-indicator class="tui-loading"></loading-indicator>
+						<text :class="[iosRefresh?'ios-arrow':'']" v-if="isIos">{{arrow}}</text>
+						<text class="refresh-text">{{refreshText}}</text>
+					</refresh>
+					<cell v-for="(newsitem,index2) in tab.data" :key="index2">
+						<media-list :data="newsitem" @close="close(index1,index2)" :lastChild="index2===tab.data.length-1" @click="goDetail(newsitem)"></media-list>
+					</cell>
+					<cell class="tui-loadmore">
+						<text class="loadmore-line" v-if="!tab.canPullUp"></text>
+						<text class="loadmore-text" :class="[isIos?'tui-gray':'tui-white']">{{tab.loadingText}}</text>
+					</cell>
+				</list>
+			</tab-content>
+		</tabs>
+	</div>
+</template>
+
+<script>
+	import tabContent from '@/components/tabNvue/tabContent.nvue'
+	import tabBar from '@/components/tabNvue/tabBar.nvue'
+	import tabs from '@/components/tabNvue/tabs.nvue'
+	import mediaList from '@/components/tabNvue/mediaList.nvue'
+	const dom = weex.requireModule('dom')
+	export default {
+		components: {
+			tabContent,
+			tabBar,
+			tabs,
+			mediaList
+		},
+		data() {
+			return {
+				isIos: false,
+				arrow: "",
+				iosRefresh: false,
+				refreshing: false,
+				refreshText: "下拉可以刷新",
+				tabIndex: 0,
+				newsitems: [],
+				newsData: [{
+					title: "温故知心习近平这些话要牢记",
+					imgArr: ["../../static/images/product/2.jpg", "../../static/images/product/3.jpg",
+						"../../static/images/product/4.jpg"
+					],
+					badgeType: 1,
+					badgeText: "要闻",
+					subContent: "央视网新闻"
+				}, {
+					title: "美国会表决通过新驻华大使 月底有望赴华",
+					imgArr: [],
+					badgeType: 2,
+					badgeText: "要闻",
+					subContent: "央视网新闻"
+				}, {
+					title: "哪些专业毕业后收入高?计算机、金融专业排前列金融专业排前列金融专业排前列金融专业排前列金融专业排前列",
+					imgArr: ["../../static/images/product/2.jpg", "../../static/images/product/3.jpg",
+						"../../static/images/product/4.jpg"
+					],
+					badgeType: 3,
+					badgeText: "本地资讯",
+					subContent: "粤港精英联盟"
+				}, {
+					title: "科创板交易系统准备就绪,不存在首批名单",
+					imgArr: [],
+					badgeType: 4,
+					badgeText: "朋友都看过",
+					subContent: "百科故事大全"
+				}, {
+					title: "哪些专业毕业后收入高?计算机、金融专业排前列金融专业排前列金融专业排前列金融专业排前列金融专业排前列",
+					imgArr: ["../../static/images/product/2.jpg", "../../static/images/product/3.jpg",
+						"../../static/images/product/4.jpg"
+					],
+					badgeType: 1,
+					badgeText: "本地资讯",
+					subContent: "粤港精英联盟"
+				}, {
+					title: "温故知心习近平这些话要牢记",
+					imgArr: ["../../static/images/product/2.jpg", "../../static/images/product/3.jpg",
+						"../../static/images/product/4.jpg"
+					],
+					badgeType: 1,
+					badgeText: "要闻",
+					subContent: "央视网新闻"
+				}, {
+					title: "温故知心习近平这些话要牢记",
+					imgArr: ["../../static/images/product/2.jpg", "../../static/images/product/3.jpg",
+						"../../static/images/product/4.jpg"
+					],
+					badgeType: 1,
+					badgeText: "要闻",
+					subContent: "央视网新闻"
+				}, {
+					title: "美国会表决通过新驻华大使 月底有望赴华",
+					imgArr: [],
+					badgeType: 2,
+					badgeText: "要闻",
+					subContent: "央视网新闻"
+				}, {
+					title: "哪些专业毕业后收入高?计算机、金融专业排前列金融专业排前列金融专业排前列金融专业排前列金融专业排前列",
+					imgArr: ["../../static/images/product/2.jpg", "../../static/images/product/3.jpg",
+						"../../static/images/product/4.jpg"
+					],
+					badgeType: 3,
+					badgeText: "本地资讯",
+					subContent: "粤港精英联盟"
+				}, {
+					title: "科创板交易系统准备就绪,不存在首批名单",
+					imgArr: [],
+					badgeType: 4,
+					badgeText: "朋友都看过",
+					subContent: "百科故事大全"
+				}, {
+					title: "哪些专业毕业后收入高?计算机、金融专业排前列金融专业排前列金融专业排前列金融专业排前列金融专业排前列",
+					imgArr: ["../../static/images/product/2.jpg", "../../static/images/product/3.jpg",
+						"../../static/images/product/4.jpg"
+					],
+					badgeType: 1,
+					badgeText: "本地资讯",
+					subContent: "粤港精英联盟"
+				}, {
+					title: "温故知心习近平这些话要牢记",
+					imgArr: ["../../static/images/product/2.jpg", "../../static/images/product/3.jpg",
+						"../../static/images/product/4.jpg"
+					],
+					badgeType: 1,
+					badgeText: "要闻",
+					subContent: "央视网新闻"
+				}],
+				tabBars: [{
+					name: '热门',
+					id: 'hot'
+				}, {
+					name: '娱乐',
+					id: 'yule'
+				}, {
+					name: '体育',
+					id: 'sports'
+				}, {
+					name: '国内',
+					id: 'domestic'
+				}, {
+					name: '财经',
+					id: 'finance'
+				}, {
+					name: '科技',
+					id: 'keji'
+				}, {
+					name: '教育',
+					id: 'education'
+				}, {
+					name: '汽车',
+					id: 'car'
+				}]
+			}
+		},
+		created() {
+			setTimeout(() => {
+				this.newsitems = this.randomfn();
+				uni.getSystemInfo({
+					success: (res) => {
+						this.isIos = "ios" == res.platform.toLocaleLowerCase()
+					}
+				})
+			}, 150)
+		},
+		methods: {
+			pullrefresh(e, ispullDowm) {
+				const key = e == 0 ? "" : this.tabBars[e].id;
+				const pageIndex = ispullDowm ? 1 : this.newsitems[e].pageIndex;
+				if (ispullDowm) {
+					this.newsitems[e].data = [];
+					this.newsitems[e].loadingText = "正在加载...";
+					this.newsitems[e].pageIndex = 2
+					setTimeout(() => {
+						this.newsitems[e].data = this.newsData || [];
+						this.refreshing = false;
+						//这里实际判断应该是数据条数是不是小于每页条数【或者能判断第一页就加载完全部数据】
+						if (this.newsitems[e].pageIndex > 3) {
+							this.newsitems[e].loadingText = "没有更多了";
+							this.newsitems[e].canPullUp = false;
+						} else {
+							this.newsitems[e].canPullUp = true;
+							this.$refs['tab' + e][0].resetLoadmore()
+						}
+					}, 0)
+				} else {
+					const list = this.newsData || []
+					this.newsitems[e].data = this.newsitems[e].data.concat(list)
+					this.newsitems[e].pageIndex++;
+					if (this.newsitems[e].pageIndex > 3) {
+						this.newsitems[e].loadingText = '没有更多了';
+						this.newsitems[e].canPullUp = false;
+					}
+				}
+			},
+			goDetail(e) {
+				uni.navigateTo({
+					url: '../extend-view/newsDetail/newsDetail'
+				})
+			},
+			loadMore(e) {
+				if (!this.newsitems[e].canPullUp) {
+					this.newsitems[e].loadingText = '没有更多了';
+					return
+				}
+				setTimeout(() => {
+					this.pullrefresh(e)
+				}, 200);
+			},
+			async changeTab(e) {
+				this.tabIndex = e.index;
+				if (this.newsitems[this.tabIndex].pageIndex === 1) {
+					this.pullrefresh(this.tabIndex);
+				}
+				const el = this.$refs[this.tabBars[e.index].id + e.index][0]
+				let elSize = await this.getElSize(el);
+				if (elSize.left + elSize.width > 750) {
+					let index = e.index - 4;
+					let newEl = this.$refs[this.tabBars[index].id + index][0]
+					dom.scrollToElement(newEl, {});
+					return;
+				}
+				if (elSize.left < 0) {
+					dom.scrollToElement(el, {});
+				}
+			},
+			getElSize(el) { //得到元素的size
+				return new Promise((res, rej) => {
+					const result = dom.getComponentRect(el, option => {
+						res(option.size);
+					})
+				})
+			},
+			randomfn() {
+				let ary = [];
+				for (let i = 0, length = this.tabBars.length; i < length; i++) {
+					let aryItem = {
+						loadingText: "正在加载...",
+						data: [],
+						canPullUp: true,
+						pageIndex: 1
+					};
+					if (i === 0) {
+						aryItem.pageIndex = 2;
+						aryItem.data = aryItem.data.concat(this.newsData);
+					}
+					ary.push(aryItem);
+				}
+				return ary;
+			},
+			onrefresh(event) {
+				this.iosRefresh = false;
+				this.arrow = "";
+				this.refreshText = "正在刷新...";
+				this.refreshing = true;
+				setTimeout(() => {
+					this.pullrefresh(this.tabIndex, true)
+				}, 200);
+			},
+			onpullingdown(event) {
+				if (this.refreshing) {
+					return;
+				}
+				this.iosRefresh = this.isIos
+				if (Math.abs(event.pullingDistance) > Math.abs(event.viewHeight)) {
+					this.arrow = "↑";
+					this.refreshText = "释放立即刷新";
+				} else {
+					this.arrow = "↓";
+					this.refreshText = "下拉可以刷新";
+				}
+			}
+		}
+	}
+</script>
+
+<style>
+	.tui-white {
+		background-color: #FFFFFF !important;
+	}
+   .tui-gray{
+		background-color: #fafafa;
+	}
+	.tui-slider-box {
+		width: 750px;
+		align-items: center;
+		justify-content: center;
+	}
+	.tui-slider {
+		width: 690px;
+		height: 220px;
+		border-radius: 12px;
+		overflow: hidden;
+	}
+	.tui-img-radius{
+		border-radius: 12px;
+	}
+	.tui-frame {
+		width: 690px;
+		height: 220px;
+		background-color: #fff;
+	}
+	.tui-slider-img {
+		width: 690px;
+		height: 220px;
+	}
+
+	.tui-indicator {
+		width: 690px;
+		height: 20px;
+		item-color: rgba(255, 255, 255, 0.4);
+		item-selected-color: #FFFFFF;
+		item-size: 14px;
+		position: absolute;
+		bottom: 24px; 
+		left: 0;
+	}
+
+	.tui-loading {
+		margin-right: 15px;
+		height: 60px;
+		width: 60px;
+		color: #999999;
+	}
+
+	.tui-list {
+		/* border-bottom-width: 1px;
+		border-bottom-style: solid;
+		border-bottom-color: #E6E6E6; */
+	}
+
+
+	.tab-bar-item {
+		height: 100px;
+		width: 150px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+
+	.tab-bar-title {
+		height: 100px;
+		line-height: 100px;
+		font-size: 32px;
+		color: #999;
+		font-weight: 400;
+	}
+
+	.tui-active {
+		color: #5677fc;
+		font-size: 36px;
+		font-weight: bold;
+		border-bottom-width: 6px;
+		border-style: solid;
+		border-color: #5677fc;
+		width: 80px;
+		text-align: center;
+	}
+
+	.tui-loadmore {
+		height: 100px;
+		width: 750px;
+		flex-direction: column;
+		justify-content: center;
+		position: relative;
+		align-items: center;
+	}
+
+	.loadmore-text {
+		font-size: 26px;
+		text-align: center;
+		color: #999999;
+		padding-left: 6px;
+		padding-right: 6px;
+	}
+
+	.loadmore-line {
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		border-bottom-color: #e5e5e5;
+		width: 320px;
+		position: absolute;
+		z-index: -1;
+	}
+
+	.tui-refresh {
+		width: 750px;
+		height: 80px;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.refresh-text {
+		text-align: center;
+		font-size: 26px;
+		color: #999999;
+	}
+
+	.ios-arrow {
+		color: #999999;
+		font-size: 42px;
+		font-weight: 300;
+		padding-right: 20px;
+		margin-left: -75px;
+	}
+</style>

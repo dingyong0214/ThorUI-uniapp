@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "Badge",
+  "usingComponents": {
+    "tui-badge": "/components/badge/badge"
+  }
+}

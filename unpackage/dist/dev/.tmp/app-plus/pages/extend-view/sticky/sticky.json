@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "吸顶容器",
+  "usingComponents": {
+    "tui-sticky": "/components/sticky/sticky"
+  }
+}

@@ -1,0 +1,213 @@
+
+page {
+	background: #fff;
+	color: #333;
+}
+.container {
+	padding: 8rpx 30rpx 110rpx 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-cmt-title {
+	font-size: 30rpx;
+	font-weight: bold;
+	position: relative;
+	padding: 20rpx 0;
+	margin-bottom: 20rpx;
+}
+.tui-cmt-title::after {
+	content: '';
+	position: absolute;
+	left: -18rpx;
+	top: 32%;
+	width: 6rpx;
+	height: 36%;
+	background: #5677fc;
+}
+.tui-cmt-cell {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	padding-bottom: 44rpx;
+}
+.tui-avatar {
+	width: 64rpx;
+	height: 64rpx;
+	-webkit-border-radius: 32rpx;
+	        border-radius: 32rpx;
+	display: block;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+}
+.tui-cmt-detail {
+	padding-left: 16rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-header-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	font-size: 30rpx;
+}
+.tui-cmt-nickname {
+	color: #5677fc;
+}
+.tui-fabulous {
+	color: #9a9a9a;
+}
+.tui-fabulous text {
+	padding-right: 4rpx;
+	font-size: 24rpx;
+}
+.tui-cmt-content {
+	font-size: 32rpx;
+	color: #333;
+	text-align: justify;
+	padding-top: 8rpx;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.tui-reply-box {
+	-webkit-border-radius: 8rpx;
+	        border-radius: 8rpx;
+	overflow: hidden;
+	margin-top: 16rpx;
+}
+.tui-cell-class {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: start !important;
+	-webkit-justify-content: flex-start !important;
+	    -ms-flex-pack: start !important;
+	        justify-content: flex-start !important;
+	padding: 20rpx !important;
+	text-align: justify;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.tui-cell-last {
+	color: #5677fc;
+}
+.tui-flex-1 {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	width: 100%;
+}
+.tui-reply-nickname {
+	font-size: 24rpx;
+	color: #7a7a7a;
+	padding-bottom: 8rpx;
+}
+.tui-footer {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	font-size: 24rpx;
+	margin-top: 16rpx;
+	color: #9a9a9a;
+}
+.tui-primary {
+	color: #5677fc !important;
+}
+.tui-ml {
+	margin-left: 16rpx;
+}
+.tui-cell-last .tui-icon-class {
+	width: 40rpx !important;
+	margin-left: -10rpx;
+}
+.tui-operation {
+	width: 100%;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.95);
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 99999;
+}
+.tui-operation-inner {
+	height: 100rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	padding-bottom: env(safe-area-inset-bottom);
+}
+.tui-safearea-bottom {
+	width: 100%;
+	height: env(safe-area-inset-bottom);
+}
+.tui-operation::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	border-top: 1rpx solid #eaeef1;
+	-webkit-transform: scaleY(0.5);
+	-ms-transform: scaleY(0.5);
+	    transform: scaleY(0.5);
+}
+.tui-btn-comment {
+	height: 64rpx;
+	width: 100%;
+	background: #ededed;
+	color: #999;
+	-webkit-border-radius: 8rpx;
+	        border-radius: 8rpx;
+	font-size: 28rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding-left: 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding-top: 0;
+}
+

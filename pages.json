@@ -1,0 +1,500 @@
+{
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "Thor UI",
+			"app-plus": {
+				"bounce": "vertical"
+			}
+		}
+	}, {
+		"path": "pages/about/about",
+		"style": {}
+	}, {
+		"path": "pages/basic/basic",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "基础组件"
+		}
+	}, {
+		"path": "pages/basic-view/badge/badge",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Badge"
+		}
+	}, {
+		"path": "pages/basic-view/button/button",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Button"
+		}
+	}, {
+		"path": "pages/basic-view/card/card",
+		"style": {
+			"backgroundColorTop": "#EDEDED",
+			"backgroundColorBottom": "#EDEDED",
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Card"
+		}
+	}, {
+		"path": "pages/basic-view/color/color",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Color"
+		}
+	}, {
+		"path": "pages/basic-view/flex/flex",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Flex"
+		}
+	}, {
+		"path": "pages/basic-view/footer/footer",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Footer"
+		}
+	}, {
+		"path": "pages/basic-view/grid/grid",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Grid"
+		}
+	}, {
+		"path": "pages/basic-view/icon/icon",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "icon"
+		}
+	}, {
+		"path": "pages/basic-view/list/list",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "List"
+		}
+	}, {
+		"path": "pages/basic-view/load/load",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Loading"
+		}
+	}, {
+		"path": "pages/basic-view/other/other",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Other"
+		}
+	}, {
+		"path": "pages/basic-view/tag/tag",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Tag"
+		}
+	}, {
+		"path": "pages/drawer/drawer",
+		"style": {
+			"navigationBarTitleText": "drawer 抽屉"
+		}
+	}, {
+		"path": "pages/extend/extend",
+		"style": {
+			"navigationBarTitleText": "extend"
+		}
+	}, {
+		"path": "pages/extend-view/actionsheet/actionsheet",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "操作菜单"
+		}
+	}, {
+		"path": "pages/extend-view/chat/chat",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#ebedf6",
+			"backgroundColorBottom": "#ebedf6",
+			"navigationBarTitleText": "技术交流群"
+		}
+	}, {
+		"path": "pages/extend-view/friendsList/friendsList",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#F5F6FA",
+			"backgroundColorBottom": "#F5F6FA",
+			"navigationBarTitleText": "联系人 ",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/extend-view/keyboard/keyboard",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "数字键盘"
+		}
+	}, {
+		"path": "pages/extend-view/lockscreen/lockscreen",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "解锁ThorUI",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/extend-view/luckdraw/luckdraw",
+		"style": {
+			"navigationBarBackgroundColor": "#FC4034",
+			"navigationBarTitleText": "抽奖"
+		}
+	}, {
+		"path": "pages/extend-view/mall/mall",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#F7F7F7",
+			"backgroundColorBottom": "#F7F7F7",
+			"navigationBarTitleText": "Thorui商城",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50
+		}
+	}, {
+		"path": "pages/extend-view/msgList/msgList",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#F5F6FA",
+			"backgroundColorBottom": "#F5F6FA",
+			"navigationBarTitleText": "消息 ",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/extend-view/msgtips/msgtips",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "消息提示"
+		}
+	}, {
+		"path": "pages/extend-view/news/news",
+		"style": {
+			"navigationBarTitleText": "新闻列表",
+			"backgroundColorTop": "#f2f2f2",
+			"backgroundColorBottom": "#f2f2f2",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50
+		}
+	}, {
+		"path": "pages/extend-view/news-cmt/news-cmt",
+		"style": {
+			"navigationBarTitleText": "发表评论",
+			"backgroundColorTop": "#fff",
+			"backgroundColorBottom": "#fff"
+		}
+	}, {
+		"path": "pages/extend-view/news-cmt-list/news-cmt-list",
+		"style": {
+			"navigationBarTitleText": "评论",
+			"backgroundColorTop": "#fff",
+			"backgroundColorBottom": "#fff",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 0
+		}
+	}, {
+		"path": "pages/extend-view/news-cmt-reply/news-cmt-reply",
+		"style": {
+			"navigationBarTitleText": "回复",
+			"backgroundColorTop": "#fff",
+			"backgroundColorBottom": "#fff",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 0
+		}
+	}, {
+		"path": "pages/extend-view/newsDetail/newsDetail",
+		"style": {
+			"navigationBarTitleText": "新闻详情",
+			"backgroundColorTop": "#fff",
+			"backgroundColorBottom": "#fff",
+			"onReachBottomDistance": 0
+		}
+	}, {
+		"path": "pages/extend-view/news-search/news-search",
+		"style": {
+			"navigationBarTitleText": "搜索",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#fff",
+			"backgroundColorBottom": "#fff"
+		}
+	}, {
+		"path": "pages/extend-view/news-video/news-video",
+		"style": {
+			"navigationBarTitleText": "新闻详情",
+			"backgroundColorTop": "#fff",
+			"backgroundColorBottom": "#fff",
+			"onReachBottomDistance": 0
+		}
+	}, {
+		"path": "pages/extend-view/numberbox/numberbox",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "数字输入框 "
+		}
+	}, {
+		"path": "pages/extend-view/popup/popup",
+		"style": {
+			"navigationBarTitleText": "弹层、下拉选择",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/extend-view/productDetail/productDetail",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#F7F7F7",
+			"backgroundColorBottom": "#F7F7F7",
+			"navigationBarTitleText": "商品详情 ",
+			"navigationStyle": "custom",
+			"app-plus": {
+				"titleNView": false
+			}
+		}
+	}, {
+		"path": "pages/extend-view/productList/productList",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#F7F7F7",
+			"backgroundColorBottom": "#F7F7F7",
+			"navigationBarTitleText": "商品列表 ",
+			"onReachBottomDistance": 50,
+			"navigationStyle": "custom",
+			"app-plus": {
+				"titleNView": false
+			}
+		}
+	}, {
+		"path": "pages/extend-view/rate/rate",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "Rate评分"
+		}
+	}, {
+		"path": "pages/extend-view/rollingNews/rollingNews",
+		"style": {
+			"navigationBarTitleText": "滚动消息"
+		}
+	}, {
+		"path": "pages/extend-view/sticky/sticky",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "吸顶容器"
+		}
+	}, {
+		"path": "pages/extend-view/template/template",
+		"style": {
+			"navigationBarTitleText": "模板"
+		}
+	}, {
+		"path": "pages/extend-view/timeaxis/timeaxis",
+		"style": {
+			"navigationBarTitleText": "时间轴"
+		}
+	}, {
+		"path": "pages/indexList/indexList",
+		"style": {
+			"navigationBarTitleText": "索引列表",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/location/location",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "拖拽定位",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/log/log",
+		"style": {
+			 "navigationBarTitleText": "更新日志"
+		}
+	}, {
+		"path": "pages/login/login",
+		"style": {
+			"backgroundColorTop": "#5677FC",
+			"backgroundColorBottom": "#ffffff",
+			"navigationBarTitleText": ""
+		}
+	}, {
+		"path": "pages/longlat/longlat",
+		"style": {
+			"navigationBarTitleText": "地址解析"
+		}
+	}, {
+		"path": "pages/maps/maps",
+		"style": {
+			"navigationBarTitleText": "选择位置",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/my/my",
+		"style": {
+			"backgroundColorTop": "#5677FC"
+		}
+	}, {
+		"path": "pages/navbar-1/navbar-1",
+		"style": {
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "顶部选项卡",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/navbar-2/navbar-2",
+		"style": {
+			"navigationBarTitleText": "商品分类",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#fcfcfc",
+			"backgroundColorBottom": "#fcfcfc",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/news/news",
+		"style": {
+			"navigationBarTitleText": "新闻列表",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50
+		}
+	}, {
+		"path": "pages/picker/picker",
+		"style": {
+			"navigationBarTitleText": "picker三级联动"
+		}
+	}, {
+		"path": "pages/picker-view/picker-view",
+		"style": {
+			"navigationBarTitleText": "picker-view"
+		}
+	}, {
+		"path": "pages/product/product",
+		"style": {
+			"navigationBarTitleText": "商品列表",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50
+		}
+	}, {
+		"path": "pages/qrcode/qrcode",
+		"style": {
+			"backgroundColorTop": "#fff",
+			"backgroundColorBottom": "#fff",
+			"navigationBarTitleText": "二维码"
+		}
+	}, {
+		"path": "pages/selectCity/selectCity",
+		"style": {
+			"navigationBarTitleText": "城市选择",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			}
+		}
+	}, {
+		"path": "pages/swipe-action/swipe-action",
+		"style": {
+			"navigationBarTitleText": "滑动菜单"
+		}
+	}, {
+		"path": "pages/weather/weather",
+		"style": {
+			"navigationBarTitleText": "实时天气"
+		}
+	}, {
+		"path": "pages/productNvue/productNvue",
+		"style": {
+			"navigationBarTitleText": "",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"app-plus": {
+				"titleNView": false,
+				"bounce": "none"
+			}
+		}
+	}],
+	"globalStyle": {
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#5677FC",
+		"navigationBarTitleText": "Thor UI",
+		"navigationBarTextStyle": "white",
+		"backgroundColor": "#fafafa",
+		"backgroundColorTop": "#fafafa",
+		"backgroundColorBottom": "#fafafa"
+	},
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#5677FC",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "code",
+				"iconPath": "static/images/tabbar/code_gray.png",
+				"selectedIconPath": "static/images/tabbar/code_active.png"
+			},
+			{
+				"pagePath": "pages/extend/extend",
+				"text": "extend",
+				"iconPath": "static/images/tabbar/extend_gray.png",
+				"selectedIconPath": "static/images/tabbar/extend_active.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "thor",
+				"iconPath": "static/images/tabbar/thor_gray.png",
+				"selectedIconPath": "static/images/tabbar/thor_active.png"
+			}
+		]
+	}
+}
