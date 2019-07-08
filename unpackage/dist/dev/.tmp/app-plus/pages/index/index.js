@@ -272,7 +272,7 @@ var _default =
     github: function github() {
       var that = this;
       uni.setClipboardData({
-        data: 'https://github.com/dingyong0214/ThorUI',
+        data: 'https://github.com/dingyong0214/ThorUI-uniapp',
         success: function success(res) {
           uni.getClipboardData({
             success: function success(res) {

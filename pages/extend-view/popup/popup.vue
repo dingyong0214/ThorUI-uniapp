@@ -99,7 +99,7 @@
 		<tui-bottom-popup :show="popupShow" @close="popup">
 			<view class="tui-share">
 				<view class="tui-share-title">分享到</view>
-				<scroll-view scroll-x>
+				<scroll-view scroll-x="true" style="padding-right:20upx">
 					<view class="tui-share-top">
 						<view class="tui-share-item" :class="[shareList[0].share.length-1===index?'tui-item-last':'']" v-for="(item,index) in shareList[0].share"
 						 :key="index" @tap="popup">
@@ -110,9 +110,10 @@
 						</view>
 						<view class="tui-empty">!</view>
 					</view>
+					
 				</scroll-view>
 
-				<scroll-view scroll-x class="tui-mt">
+				<scroll-view scroll-x="true" class="tui-mt">
 					<view class="tui-share-bottom">
 						<view class="tui-share-item" :class="[shareList[1].operate.length-1===index?'tui-item-last':'']" v-for="(item,index) in shareList[1].operate"
 						 :key="index" @tap="popup">
@@ -679,7 +680,6 @@
 		background: #e8e8e8;
 		position: relative;
 		padding-bottom: env(safe-area-inset-bottom);
-		/* padding-bottom: 150upx; */
 	}
 
 	.tui-share-title {
@@ -692,25 +692,20 @@
 
 	.tui-share-top,
 	.tui-share-bottom {
-		width: 100%;
-		height: 126upx;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		padding: 30upx 20upx 30upx 30upx;
+		min-width: 101%;
+		padding:0 20upx 0 30upx;
+		white-space: nowrap;
 	}
 
 	.tui-mt {
-		margin-top: 40upx;
 		padding-bottom: 150upx;
 	}
 
 	.tui-share-item {
 		width: 126upx;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		display: inline-block;
 		margin-right: 24upx;
+		text-align: center;
 	}
 
 	.tui-item-last {
@@ -718,7 +713,8 @@
 	}
 
 	.tui-empty {
-		margin-left: 18upx;
+		display: inline-block;
+		width: 30upx;
 		visibility: hidden;
 	}
 
@@ -737,6 +733,7 @@
 		color: #7E7E7E;
 		line-height: 24upx;
 		padding: 20upx 0;
+		white-space: nowrap;
 	}
 
 	.tui-btn-cancle {

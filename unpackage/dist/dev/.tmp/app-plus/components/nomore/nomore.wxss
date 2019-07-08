@@ -1,14 +1,22 @@
 
-.tui-loadmore {
+.tui-loadmore-none {
 	width: 48%;
 	margin: 1.5em auto;
 	line-height: 1.5em;
 	font-size: 24rpx;
-	text-align: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 .tui-nomore {
+	width: 100%;
+	height: 100%;
 	position: relative;
-	text-align: center;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -18,10 +26,10 @@
 	    -ms-flex-pack: center;
 	        justify-content: center;
 	margin-top: 10rpx;
-	padding-bottom: 44rpx;
+	padding-bottom: 6rpx;
 }
 .tui-nomore::before {
-	content: '';
+	content: ' ';
 	position: absolute;
 	border-bottom: 1rpx solid #e5e5e5;
 	-webkit-transform: scaleY(0.5);
@@ -29,30 +37,31 @@
 	    transform: scaleY(0.5);
 	width: 360rpx;
 	top: 18rpx;
+	left: 0;
 }
-.tui-text {
-	position: absolute;
+.tui-nomore-text {
 	color: #999;
 	font-size: 24rpx;
 	text-align: center;
 	padding: 0 18rpx;
 	height: 36rpx;
 	line-height: 36rpx;
+	position: relative;
 	z-index: 1;
 }
 .tui-nomore-dot {
 	position: relative;
 	text-align: center;
+	-webkit-display: flex;
 	display: -webkit-box;
-	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
 	-webkit-justify-content: center;
+	-webkit-box-pack: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
 	margin-top: 10rpx;
-	padding-bottom: 40rpx;
+	padding-bottom: 6rpx;
 }
 .tui-nomore-dot::before {
 	content: '';
@@ -65,7 +74,7 @@
 	top: 18rpx;
 }
 .tui-dot-text {
-	position: absolute;
+	position: relative;
 	color: #e5e5e5;
 	font-size: 10px;
 	text-align: center;
@@ -73,11 +82,11 @@
 	height: 36rpx;
 	line-height: 36rpx;
 	-webkit-transform: scale(0.8);
-	    -ms-transform: scale(0.8);
-	        transform: scale(0.8);
+	-ms-transform: scale(0.8);
+	    transform: scale(0.8);
 	-webkit-transform-origin: center center;
-	    -ms-transform-origin: center center;
-	        transform-origin: center center;
+	-ms-transform-origin: center center;
+	    transform-origin: center center;
 	z-index: 1;
 }
 

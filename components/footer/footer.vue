@@ -67,8 +67,9 @@
 
 	.tui-fixed {
 		position: fixed;
-		bottom: env(safe-area-inset-bottom);
 		z-index: 9999;
+		bottom: 0;
+		bottom: env(safe-area-inset-bottom);
 	}
 
 	.tui-footer-link {
