@@ -11,10 +11,10 @@
 						<tui-tag size="small" type="white" shape="circle" :plain="true">查看详情</tui-tag>
 						<view>
 							<button @tap.stop="like(index)" class="tui-btn">
-								<tui-icon :name="item.like?'like-fill':'like'" :color="item.like?'#f54f46':'#fff'" size="20" class="tui-l-icon"></tui-icon>
+								<tui-icon :name="item.like?'like-fill':'like'" :color="item.like?'#f54f46':'#fff'" :size="20" class="tui-l-icon"></tui-icon>
 							</button>
 							<button open-type="share" @tap.stop="onshare" class="tui-btn" :data-id="index">
-								<tui-icon name="partake" color="#fff" size="20" class="tui-r-icon"></tui-icon>
+								<tui-icon name="partake" color="#fff" :size="20" class="tui-r-icon"></tui-icon>
 							</button>
 						</view>
 					</view>
@@ -32,10 +32,10 @@
 						<tui-tag size="small" type="white" shape="circle" :plain="true">查看详情</tui-tag>
 						<view>
 							<button @tap.stop="like(index)" class="tui-btn">
-								<tui-icon :name="item.like?'like-fill':'like'" :color="item.like?'#f54f46':'#fff'" size="20" class="tui-l-icon"></tui-icon>
+								<tui-icon :name="item.like?'like-fill':'like'" :color="item.like?'#f54f46':'#fff'" :size="20" class="tui-l-icon"></tui-icon>
 							</button>
 							<button open-type="share" @tap.stop="onshare" class="tui-btn" :data-id="index">
-								<tui-icon name="partake" color="#fff" size="20" class="tui-r-icon"></tui-icon>
+								<tui-icon name="partake" color="#fff" :size="20" class="tui-r-icon"></tui-icon>
 							</button>
 						</view>
 					</view>

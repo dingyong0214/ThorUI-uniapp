@@ -2,14 +2,13 @@
 .btn-box {
 	padding: 30rpx
 }
-.first {
+.btn-box:first-child{
 	margin-top: 50rpx
 }
 .d-container {
 	width: 400rpx;
 	padding: 80rpx 30rpx
 }
-
 /*底部抽屉样式 start*/
 .mask-screen {
 	width: 100%;
@@ -86,6 +85,5 @@
 	background: #5677FC;
 	color: #fff;
 }
-
 /*底部抽屉样式 end*/
 

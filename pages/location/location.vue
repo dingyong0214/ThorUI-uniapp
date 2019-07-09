@@ -13,7 +13,7 @@
 			</view>
 		</view>
 
-		<map id="maps" :longitude="longitude" :latitude="latitude" scale="16" show-location @regionchange="regionchange">
+		<map id="maps" :longitude="longitude" :latitude="latitude" :scale="16" show-location @regionchange="regionchange">
 			<cover-image class="cover-image" src="../../static/images/maps/location.png" />
 		</map>
 		<!-- #ifdef MP-WEIXIN || MP-BAIDU  -->

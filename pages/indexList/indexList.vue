@@ -4,11 +4,15 @@
 			<view class="search-bar">
 				<view class="search-bar-form">
 					<view class="search-bar-box">
-						<icon class="icon-search-in-box" type="search" size="16"></icon>
+						<!-- #ifdef APP-PLUS || MP-->
+						<icon class="icon-search-in-box" type="search" :size="16"></icon>
+						<!-- #endif -->
 						<input confirm-type="search" class="search-bar-input" placeholder="请输入搜索关键词" placeholder-class="phcolor" :value="inputVal"
 						 @input="inputTyping" @confirm="searchCity" />
 						<view class="icon-clear" v-if="inputShowed" @tap="clearInput">
-							<icon type="clear" size="15"></icon>
+							<!-- #ifdef APP-PLUS || MP-->
+							<icon type="clear" :size="15"></icon>
+							<!-- #endif -->
 						</view>
 					</view>
 				</view>
@@ -16,7 +20,7 @@
 			</view>
 			<view class="tui-list search-result" v-if="inputShowed">
 				<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index) in searchResult" :key="index"
-				 @tap="selectCity" :data-name="item" hover-stay-time='150'>
+				 @tap="selectCity" :data-name="item" :hover-stay-time='150'>
 					<view class="tui-list-cell-navigate">
 						<image :src="'../../static/images/news/'+((index%2===0 && index!==0)?'avatar_2.jpg':'avatar_1.jpg')" class="img"></image>
 						<view class="content">
@@ -32,10 +36,10 @@
 						<view class="tui-list-cell-divider" :id="list.letter">
 							{{list.letter}}
 						</view>
-						<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index) in list.data" :key="index" @tap="selectCity"
-						 :data-name="item.name" hover-stay-time='150'>
-							<view class="tui-list-cell-navigate" :class="[list.data.length-1==index?'last':'']">
-								<image :src="'../../static/images/news/'+((index%2===0 && index!==0)?'avatar_1.jpg':'avatar_2.jpg')" class="img"></image>
+						<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index2) in list.data" :key="index2"
+						 @tap="selectCity" :data-name="item.name" :hover-stay-time='150'>
+							<view class="tui-list-cell-navigate" :class="[list.data.length-1==index2?'last':'']">
+								<image :src="'../../static/images/news/'+((index2%2===0 && index2!==0)?'avatar_1.jpg':'avatar_2.jpg')" class="img"></image>
 								<view class="content">
 									<view class="title">{{item.name}}</view>
 									<view class="sub-title">{{item.mobile}}</view>
@@ -50,11 +54,11 @@
 		<view class="tui-indexed-list-bar" :style="{height:indexBarHeight+'px'}" @touchstart="touchStart" @touchmove.stop="touchMove"
 		 @touchend.stop="touchEnd" @touchcancel.stop="touchCancel" v-if="!inputShowed">
 			<text v-for="(items,index)  in lists" :key="index" class="tui-indexed-list-text" :style="{height:indexBarItemHeight+'px'}">
-				{{items.letter}}
+				{{items.letter=="well"?"#":items.letter}}
 			</text>
 		</view>
 		<view class="tui-indexed-list-alert" v-if="touchmove && lists[touchmoveIndex].letter">
-			{{lists[touchmoveIndex].letter}}
+			{{lists[touchmoveIndex].letter=="well"?"#":lists[touchmoveIndex].letter}}
 		</view>
 	</view>
 </template>

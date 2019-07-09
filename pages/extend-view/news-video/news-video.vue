@@ -49,7 +49,7 @@
 						</view>
 						<view class="tui-footer">
 							{{item.time}}
-							<view class="tui-primary tui-ml" hover-class="opcity" hover-start-time="150" @tap="cmtReply">回复</view>
+							<view class="tui-primary tui-ml" hover-class="opcity" :hover-start-time="150" @tap="cmtReply">回复</view>
 						</view>
 					</view>
 				</view>
@@ -61,14 +61,14 @@
 					<view class="tui-btn-comment" @tap="btnCmt">发表你的评论...</view>
 				</view>
 				<view class="tui-operation-right tui-right-flex tui-col-5">
-					<view class="tui-operation-item" hover-class="opcity" hover-stay-time="150" @tap="cmtAll">
+					<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150" @tap="cmtAll">
 						<tui-icon name="message" size="30" color='#444'></tui-icon>
 						<tui-badge type="white" size="small" tui-badge-class="tui-badge-class">501</tui-badge>
 					</view>
 					<view class="tui-operation-item" @tap="collection">
 						<tui-icon :name="isCollection?'star-fill':'star'" size="29" :color="isCollection?'#5677fc':'#444'"></tui-icon>
 					</view>
-					<view class="tui-operation-item" hover-class="opcity" hover-stay-time="150">
+					<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150">
 						<button open-type="share" class="tui-share-btn">
 							<tui-icon name="share" size="31" color='#444'></tui-icon>
 						</button>

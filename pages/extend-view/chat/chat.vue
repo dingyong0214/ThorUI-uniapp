@@ -3,21 +3,21 @@
 		<!--tabbar-->
 		<view class="tui-operation tui-chat-operation">
 			<view class='tui-right-flex tui-input-box'>
-				<view hover-class="tui-opcity" hover-stay-time="150" class="tui-voice">
-					<tui-icon name="voice" size="34" color='#333'></tui-icon>
+				<view hover-class="tui-opcity" :hover-stay-time="150" class="tui-voice">
+					<tui-icon name="voice" :size="34" color='#333'></tui-icon>
 				</view>
 				<input class="tui-chat-input"></input>
 			</view>
-			<view hover-class="tui-opcity" hover-stay-time="150">
-				<tui-icon name="imface" size="26" color='#333'></tui-icon>
+			<view hover-class="tui-opcity" :hover-stay-time="150">
+				<tui-icon name="imface" :size="26" color='#333'></tui-icon>
 			</view>
-			<view hover-class="tui-opcity" hover-stay-time="150">
-				<tui-icon name="add" size="30" color='#333'></tui-icon>
+			<view hover-class="tui-opcity" :hover-stay-time="150">
+				<tui-icon name="add" :ize="30" color='#333'></tui-icon>
 			</view>
 		</view>
 		<!--tabbar-->
 		<view class="tui-chat-content">
-			<tui-loadmore :visible="loadding" index="3" type="primary" text=" "></tui-loadmore>
+			<tui-loadmore :visible="loadding" :index="3" type="primary" text=" "></tui-loadmore>
 			<view v-show="show">
 				<view class="tui-label">对方已通过您的好友请求</view>
 				<view class="tui-chat-center">星期四 11:02</view>

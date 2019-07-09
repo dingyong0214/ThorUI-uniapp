@@ -24,7 +24,7 @@
 
 <script>
 	export default {
-		name: "swipe-action",
+		name: "tuiSwipeAction",
 		props: {
 			// name: '删除',
 			// color: '#fff',
@@ -162,7 +162,7 @@
 				}
 				const dataset = event.currentTarget.dataset;
 				this.$emit('click', {
-					index: dataset.index,
+					index: Number(dataset.index),
 					item: this.params
 				})
 				

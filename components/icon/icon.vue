@@ -5,7 +5,7 @@
 
 <script>
 	export default {
-		name: "icon",
+		name: "tuiIcon",
 		props: {
 			name: {
 				type: String,

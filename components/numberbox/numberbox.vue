@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name: "numberbox",
+		name: "tuiNumberbox",
 		props: {
 			value: {
 				type: Number,

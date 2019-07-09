@@ -217,7 +217,7 @@ var qrCode = __webpack_require__(/*! ../../libs/weapp-qrcode.js */ "../../../../
   },
   methods: {
     spread: function spread(e) {
-      var index = e.currentTarget.dataset.index;
+      var index = Number(e.currentTarget.dataset.index);
       var couponList = this.couponList;
       if (!couponList[index].spread) {
         this.couponQrCode(couponList[index].code, "couponQrcode" + index);

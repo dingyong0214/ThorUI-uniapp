@@ -59,7 +59,7 @@
         <image :src="item" class='tui-upload-img' @tap="previewImage" mode="aspectFill" :id="item"></image>
         <tui-icon color="#ed3f14" size="24" name="close-fill" class="tui-upload-del" :index="index" @click="deleteImage"></tui-icon>
       </view>
-      <view class="tui-upload-item tui-upload-add" v-if="files.length < 9" hover-class="tui-opcity" hover-stay-time="150" @tap="chooseImage">
+      <view class="tui-upload-item tui-upload-add" v-if="files.length < 9" hover-class="tui-opcity" :hover-stay-time="150" @tap="chooseImage">
         <text>+</text>
       </view>
     </view>
@@ -70,15 +70,15 @@
 
   <view class="tui-operation">
     <view class="tui-operation-left tui-col-7">
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="kefu" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">客服</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="shop" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">店铺</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="cart" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">购物车</view>
         <tui-badge type="danger" size="small">18</tui-badge>
@@ -91,11 +91,11 @@
 
   <view class="tui-operation tui-top40">
     <view class="tui-operation-left tui-col-4">
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="kefu" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">客服</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="cart" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">购物车</view>
         <tui-badge type="danger" size="small">9</tui-badge>
@@ -109,15 +109,15 @@
 
   <view class="tui-operation tui-top40">
     <view class="tui-operation-left tui-col-5">
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="kefu" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">客服</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="shop" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">店铺</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="cart" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">购物车</view>
         <tui-badge type="danger" size="small">9</tui-badge>
@@ -131,15 +131,15 @@
 
   <view class="tui-operation tui-top40">
     <view class="tui-operation-left tui-col-7">
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="kefu" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">客服</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="shop" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">店铺</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="cart" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">购物车</view>
         <tui-badge type="danger" size="small">18</tui-badge>
@@ -152,11 +152,11 @@
 
   <view class="tui-operation tui-top40">
     <view class="tui-operation-left tui-col-5">
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="kefu" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">客服</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="cart" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">购物车</view>
         <tui-badge type="danger" size="small">9</tui-badge>
@@ -174,15 +174,15 @@
 
   <view class="tui-operation tui-top40">
     <view class="tui-operation-left tui-col-5">
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="kefu" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">客服</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="shop" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">店铺</view>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="cart" size="22" color='#333'></tui-icon>
         <view class="tui-operation-text tui-scale-small">购物车</view>
         <tui-badge type="danger" size="small">9</tui-badge>
@@ -204,14 +204,14 @@
       <view class="tui-btn-comment">发表你的ThorUI言论</view>
     </view>
     <view class="tui-operation-right tui-right-flex tui-col-5">
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="message" size="30" color='#444'></tui-icon>
         <tui-badge type="danger" size="small">18</tui-badge>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="star" size="30" color='#444'></tui-icon>
       </view>
-      <view class="tui-operation-item" hover-class="tui-opcity" hover-stay-time="150">
+      <view class="tui-operation-item" hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="share" size="30" color='#444'></tui-icon>
       </view>
     </view>
@@ -219,15 +219,15 @@
 
   <view class="tui-operation tui-chat-operation tui-top40">
     <view class='tui-right-flex tui-input-box'>
-      <view hover-class="tui-opcity" hover-stay-time="150">
+      <view hover-class="tui-opcity" :hover-stay-time="150">
         <tui-icon name="voice" size="34" color='#333' class="tui-voice-icon"></tui-icon>
       </view>
       <input class="tui-chat-input"></input>
     </view>
-    <view hover-class="tui-opcity" hover-stay-time="150">
+    <view hover-class="tui-opcity" :hover-stay-time="150">
       <tui-icon name="imface" size="26" color='#333'></tui-icon>
     </view>
-    <view hover-class="tui-opcity" hover-stay-time="150">
+    <view hover-class="tui-opcity" :hover-stay-time="150">
       <tui-icon name="add" size="30" color='#333'></tui-icon>
     </view>
   </view>

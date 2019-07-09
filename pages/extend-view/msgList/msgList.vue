@@ -14,7 +14,10 @@
 		<!--searchbox-->
 		<view class="tui-searchbox">
 			<view class="tui-search-input" @tap="search">
+				<!-- #ifdef APP-PLUS || MP -->
 				<icon type="search" size='15' color='#999'></icon>
+				<!-- #endif -->
+
 				<text class="tui-search-text">搜索</text>
 			</view>
 		</view>

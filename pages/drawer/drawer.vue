@@ -1,8 +1,11 @@
 <template>
 	<view class="container">
-		<view class="btn-box first">
+		<!-- #ifdef APP-PLUS || MP-->
+		<view class="btn-box">
 			<button class="btn-primary" hover-class="btn-hover" @tap="showModal">从底部弹出</button>
 		</view>
+		<!-- #endif -->
+		
 		<view class="btn-box ">
 			<button class="btn-primary" hover-class="btn-hover" @tap="rDrawer">从右边弹出</button>
 		</view>
@@ -104,8 +107,7 @@
 	.btn-box {
 		padding: 30upx
 	}
-
-	.first {
+	.btn-box:first-child{
 		margin-top: 50upx
 	}
 

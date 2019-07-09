@@ -109,7 +109,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "timeaxis-item",
+  name: "tuiTimeaxisItem",
   props: {
     //节点背景色
     bgcolor: {

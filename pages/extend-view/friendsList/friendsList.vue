@@ -5,7 +5,9 @@
 			<!--searchbox-->
 			<view class="tui-searchbox">
 				<view class="tui-search-input" @tap="search">
-					<icon type="search" size='15' color='#999'></icon>
+					<!-- #ifdef APP-PLUS || MP -->
+					<icon type="search" :size='15' color='#999'></icon>
+					<!-- #endif -->
 					<text class="tui-search-text">搜索</text>
 				</view>
 			</view>
@@ -40,13 +42,13 @@
 			<view class="tui-safearea-bottom"></view>
 		</scroll-view>
 		<view class="tui-indexed-list-bar" :style="{height:indexBarHeight+'px'}" @touchstart.stop="touchStart"
-		 @touchmove.stop="touchMove" @touchend.stop="touchEnd" @touchcancel.stop="touchCancel" v-if="!inputShowed">
+		 @touchmove.stop="touchMove" @touchend.stop="touchEnd" @touchcancel.stop="touchCancel">
 			<view v-for="(items,index3) in lists" :key="index3" class="tui-indexed-list-text" :style="{height:indexBarItemHeight+'px'}">
-				{{items.letter}}
+				{{items.letter=="well"?"#":items.letter}}
 			</view>
 		</view>
 		<view class="tui-indexed-list-alert" v-if="touchmove && lists[touchmoveIndex].letter">
-			<text>{{lists[touchmoveIndex].letter}}</text>
+			<text>{{lists[touchmoveIndex].letter=="well"?"#":lists[touchmoveIndex].letter}}</text>
 		</view>
 	</view>
 </template>

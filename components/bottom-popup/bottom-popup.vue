@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name:"bottom-popup",
+		name:"tuiBottomPopup",
 		props: {
 			//是否需要mask
 			mask: {

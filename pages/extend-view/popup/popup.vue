@@ -54,8 +54,8 @@
 				<view class="tui-seizeaseat-30"></view>
 			</scroll-view>
 			<view class="tui-drop-btnbox">
-				<view class="tui-drop-btn btn-white" hover-class="tui-white-hover" hover-stay-time="150" @tap="reset">重置</view>
-				<view class="tui-drop-btn btn-primary" hover-class="btn-hover" hover-stay-time="150" @tap="btnCloseDrop">确定</view>
+				<view class="tui-drop-btn btn-white" hover-class="tui-white-hover" :hover-stay-time="150" @tap="reset">重置</view>
+				<view class="tui-drop-btn btn-primary" hover-class="btn-hover" :hover-stay-time="150" @tap="btnCloseDrop">确定</view>
 			</view>
 		</tui-top-dropdown>
 		<!--header 顶部下拉选择框-->
@@ -99,11 +99,11 @@
 		<tui-bottom-popup :show="popupShow" @close="popup">
 			<view class="tui-share">
 				<view class="tui-share-title">分享到</view>
-				<scroll-view scroll-x="true" style="padding-right:20upx">
+				<scroll-view scroll-x style="padding-right:20upx">
 					<view class="tui-share-top">
 						<view class="tui-share-item" :class="[shareList[0].share.length-1===index?'tui-item-last':'']" v-for="(item,index) in shareList[0].share"
 						 :key="index" @tap="popup">
-							<view class="tui-share-icon" hover-class="tui-hover" hover-stay-time="150">
+							<view class="tui-share-icon" hover-class="tui-hover" :hover-stay-time="150">
 								<tui-icon :name="item.icon" :color="item.color" size="36"></tui-icon>
 							</view>
 							<view class="tui-share-text">{{item.name}}</view>
@@ -113,11 +113,11 @@
 					
 				</scroll-view>
 
-				<scroll-view scroll-x="true" class="tui-mt">
+				<scroll-view scroll-x class="tui-mt">
 					<view class="tui-share-bottom">
 						<view class="tui-share-item" :class="[shareList[1].operate.length-1===index?'tui-item-last':'']" v-for="(item,index) in shareList[1].operate"
 						 :key="index" @tap="popup">
-							<view class="tui-share-icon" hover-class="tui-hover" hover-stay-time="150">
+							<view class="tui-share-icon" hover-class="tui-hover" :hover-stay-time="150">
 								<tui-icon :name="item.icon" color="#404040" :size="item.size" :bold="index===2"></tui-icon>
 							</view>
 							<view class="tui-share-text">{{item.name}}</view>

@@ -107,7 +107,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "tag",
+  name: "tuiTag",
   props: {
     type: {
       type: String,

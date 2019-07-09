@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tuiView = function tuiView() {return __webpack_require__.e(/*! import() | components/list-view/list-view */ "components/list-view/list-view").then(__webpack_require__.bind(null, /*! @/components/list-view/list-view */ "../../../../../work/uniapp/ThorUI/components/list-view/list-view.vue"));};var tuiCell = function tuiCell() {return __webpack_require__.e(/*! import() | components/list-cell/list-cell */ "components/list-cell/list-cell").then(__webpack_require__.bind(null, /*! @/components/list-cell/list-cell */ "../../../../../work/uniapp/ThorUI/components/list-cell/list-cell.vue"));};var tuiIcon = function tuiIcon() {return __webpack_require__.e(/*! import() | components/icon/icon */ "components/icon/icon").then(__webpack_require__.bind(null, /*! @/components/icon/icon */ "../../../../../work/uniapp/ThorUI/components/icon/icon.vue"));};var tuiTag = function tuiTag() {return __webpack_require__.e(/*! import() | components/tag/tag */ "components/tag/tag").then(__webpack_require__.bind(null, /*! @/components/tag/tag */ "../../../../../work/uniapp/ThorUI/components/tag/tag.vue"));};var tuiBadge = function tuiBadge() {return __webpack_require__.e(/*! import() | components/badge/badge */ "components/badge/badge").then(__webpack_require__.bind(null, /*! @/components/badge/badge */ "../../../../../work/uniapp/ThorUI/components/badge/badge.vue"));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tuiListView = function tuiListView() {return __webpack_require__.e(/*! import() | components/list-view/list-view */ "components/list-view/list-view").then(__webpack_require__.bind(null, /*! @/components/list-view/list-view */ "../../../../../work/uniapp/ThorUI/components/list-view/list-view.vue"));};var tuiListCell = function tuiListCell() {return __webpack_require__.e(/*! import() | components/list-cell/list-cell */ "components/list-cell/list-cell").then(__webpack_require__.bind(null, /*! @/components/list-cell/list-cell */ "../../../../../work/uniapp/ThorUI/components/list-cell/list-cell.vue"));};var tuiIcon = function tuiIcon() {return __webpack_require__.e(/*! import() | components/icon/icon */ "components/icon/icon").then(__webpack_require__.bind(null, /*! @/components/icon/icon */ "../../../../../work/uniapp/ThorUI/components/icon/icon.vue"));};var tuiTag = function tuiTag() {return __webpack_require__.e(/*! import() | components/tag/tag */ "components/tag/tag").then(__webpack_require__.bind(null, /*! @/components/tag/tag */ "../../../../../work/uniapp/ThorUI/components/tag/tag.vue"));};var tuiBadge = function tuiBadge() {return __webpack_require__.e(/*! import() | components/badge/badge */ "components/badge/badge").then(__webpack_require__.bind(null, /*! @/components/badge/badge */ "../../../../../work/uniapp/ThorUI/components/badge/badge.vue"));};var _default =
 
 
 
@@ -269,8 +269,8 @@ __webpack_require__.r(__webpack_exports__);
 
 {
   components: {
-    tuiView: tuiView,
-    tuiCell: tuiCell,
+    tuiListView: tuiListView,
+    tuiListCell: tuiListCell,
     tuiIcon: tuiIcon,
     tuiTag: tuiTag,
     tuiBadge: tuiBadge },

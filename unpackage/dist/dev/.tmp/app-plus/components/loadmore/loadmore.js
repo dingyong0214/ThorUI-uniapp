@@ -107,7 +107,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "loadmore",
+  name: "tuiLoadmore",
   props: {
     //显示文本
     text: {

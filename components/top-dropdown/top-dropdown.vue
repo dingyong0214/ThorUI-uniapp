@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name: "top-dropdown",
+		name: "tuiTopDropdown",
 		props: {
 			//是否需要mask
 			mask: {

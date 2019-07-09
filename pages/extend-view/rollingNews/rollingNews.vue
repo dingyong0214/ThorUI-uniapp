@@ -2,16 +2,16 @@
 	<view class="container">
 		<view class='tui-notice-board'>
 			<view class="tui-icon-bg">
-				<tui-icon name-="news-fill" size='24' color='#f54f46'></tui-icon>
+				<tui-icon name-="news-fill" :size='24' color='#f54f46'></tui-icon>
 			</view>
-			<view class="tui-scorll-view" bindtap='detail'>
+			<view class="tui-scorll-view" @tap='detail'>
 				<view class="tui-notice" :class="[animation?'tui-animation':'']">B站10分日本动漫已消失，9.9分仅剩12部，这一部动漫包揽三席！</view>
 			</view>
 		</view>
 
 		<view class="tui-subject">纵向滚动</view>
 		<view class="tui-rolling-news">
-			<tui-icon name-="news-fill" size='28' color='#5677fc'></tui-icon>
+			<tui-icon name-="news-fill" :size='28' color='#5677fc'></tui-icon>
 			<swiper vertical autoplay circular interval="3000" class="tui-swiper">
 				<swiper-item v-for="(item,index) in newsList" :key="index" class="tui-swiper-item">
 					<view class="tui-news-item" @tap='detail'>{{item}}</view>
@@ -23,8 +23,8 @@
 		<view class="tui-searchbox">
 
 			<view class="tui-rolling-search">
-				<!-- <icon type="search" class="tui-rolling-icon"  size='16' color='#999'></icon> -->
-				<tui-icon  name-="search" size='18' color='#999'></tui-icon>
+				<!-- <icon type="search" class="tui-rolling-icon"  :size='16' color='#999'></icon> -->
+				<tui-icon  name="search" :size='18' color='#999'></tui-icon>
 				<swiper vertical autoplay circular interval="3000" class="tui-swiper">
 					<swiper-item v-for="(item,index) in hotSearch" :key="index" class="tui-swiper-item">
 						<view class="tui-news-item" @tap='detail'>{{item}}</view>
@@ -36,8 +36,8 @@
 
 		<view class="tui-subject">横向滚动</view>
 		<view class="tui-rolling-news">
-			<tui-icon  name-="news-fill" size='28' color='#5677fc'></tui-icon>
-			<swiper autoplay circular interval="3000" class="tui-swiper">
+			<tui-icon  name-="news-fill" :size='28' color='#5677fc'></tui-icon>
+			<swiper autoplay circular :interval="3000" class="tui-swiper">
 				<swiper-item v-for="(item,index) in newsList" :key="index" class="tui-swiper-item">
 					<view class="tui-news-item" @tap='detail'>{{item}}</view>
 				</swiper-item>
@@ -96,6 +96,9 @@
 		align-items: center;
 		position: fixed;
 		top: 0;
+		/* #ifdef H5 */
+		top: 44px;
+		/* #endif */
 		z-index: 999;
 	}
 

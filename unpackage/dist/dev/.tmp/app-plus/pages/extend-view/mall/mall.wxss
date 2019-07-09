@@ -203,6 +203,7 @@ page {
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	background: #e41f19;
+	
 }
 .tui-hot-search {
 	color: #fff;

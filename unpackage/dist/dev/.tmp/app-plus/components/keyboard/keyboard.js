@@ -119,6 +119,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
+  name: "tuiKeyboard",
   props: {
     //是否需要mask
     mask: {
@@ -164,7 +165,7 @@ var _default =
       }
       var dataset = e.currentTarget.dataset;
       this.$emit('click', {
-        index: dataset.index });
+        index: Number(dataset.index) });
 
     } } };exports.default = _default;
 

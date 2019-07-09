@@ -8,9 +8,9 @@
 		<tui-keyboard-input :inputvalue="pwdArr"></tui-keyboard-input>
 		<tui-keyboard :show="true" :action="false" :mask="false" @click="keyboardClick">
 			<view class="tui-flex">
-				<view hover-class="opcity" hover-stay-time="150">忘记密码</view>
-				<view class="tui-fingerprint-box" hover-class="opcity" hover-stay-time="150">
-					<tui-icon name="fingerprint" size='18' color='#5677fc'></tui-icon>
+				<view hover-class="opcity" :hover-stay-time="150">忘记密码</view>
+				<view class="tui-fingerprint-box" hover-class="opcity" :hover-stay-time="150">
+					<tui-icon name="fingerprint" :size='18' color='#5677fc'></tui-icon>
 					<text class="tui-text">指纹解锁</text>
 				</view>
 			</view>

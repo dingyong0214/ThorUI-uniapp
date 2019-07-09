@@ -9,6 +9,7 @@
 
 <script>
 	export default {
+		name:"KeyboardInput",
 		props: {
 			//背景颜色
 			bgcolor: {

@@ -7,7 +7,7 @@
 
 <script>
 	export default {
-		name: "loadmore",
+		name: "tuiLoadmore",
 		props: {
 			//显示文本
 			text: {

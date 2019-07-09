@@ -14,7 +14,7 @@
 				<tui-timeaxis-item bgcolor="none">
 					<template v-slot:node>
 						<view class="tui-node tui-bg-primary">
-							<tui-icon name="check" color="#fff" size="14" :bold="true"></tui-icon>
+							<tui-icon name="check" color="#fff" :size="14" :bold="true"></tui-icon>
 						</view>
 					</template>
 
@@ -30,7 +30,7 @@
 				<tui-timeaxis-item bgcolor="none">
 					<template v-slot:node>
 						<view class="tui-node">
-							<tui-icon name="people" color="#fff" size="13"></tui-icon>
+							<tui-icon name="people" color="#fff" :size="13"></tui-icon>
 						</view>
 					</template>
 					<template v-slot:content>
@@ -44,7 +44,7 @@
 				<tui-timeaxis-item bgcolor="none">
 					<template v-slot:node>
 						<view class="tui-node">
-							<tui-icon name="transport" color="#fff" size="13"></tui-icon>
+							<tui-icon name="transport" color="#fff" :size="13"></tui-icon>
 						</view>
 					</template>
 					<template v-slot:content>
@@ -78,7 +78,7 @@
 				<tui-timeaxis-item bgcolor="none">
 					<template v-slot:node>
 						<view class="tui-node">
-							<tui-icon name="home" color="#fff" size="12"></tui-icon>
+							<tui-icon name="home" color="#fff" :size="12"></tui-icon>
 						</view>
 					</template>
 					<template v-slot:content>
@@ -91,7 +91,7 @@
 				<tui-timeaxis-item bgcolor="none">
 					<template v-slot:node>
 						<view class="tui-node">
-							<tui-icon name="order" color="#fff" size="12"></tui-icon>
+							<tui-icon name="order" color="#fff" :size="12"></tui-icon>
 						</view>
 					</template>
 					<template v-slot:content>
@@ -104,7 +104,7 @@
 				<tui-timeaxis-item bgcolor="none">
 					<template v-slot:node>
 						<view class="tui-node">
-							<tui-icon name="notice" color="#fff" size="12"></tui-icon>
+							<tui-icon name="notice" color="#fff" :size="12"></tui-icon>
 						</view>
 					</template>
 					<template v-slot:content>
@@ -117,7 +117,7 @@
 				<tui-timeaxis-item bgcolor="none">
 					<template v-slot:node>
 						<view class="tui-node">
-							<tui-icon name="order" color="#fff" size="12"></tui-icon>
+							<tui-icon name="order" color="#fff" :size="12"></tui-icon>
 						</view>
 					</template>
 					<template v-slot:content>

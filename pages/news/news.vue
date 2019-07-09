@@ -2,7 +2,7 @@
 	<view class="container">
 		<view class="list-view">
 			<view v-for="(item,index) in newsList" :key="index" class="list-cell list-item" :class="[(newsList.length-1)==index?'last':'']"
-			 hover-class="hover" hover-stay-time="150" @tap="detail">
+			 hover-class="hover" :hover-stay-time="150" @tap="detail">
 				<view class="cell-title-box" :class="[item.img==0?'':'min']">
 					<view class="cell-title" :class="[item.img==0?'pdr0':'']">{{item.title}}</view>
 					<image :src="'../../static/images/product/'+item.img+'.jpg'" class="img" v-if="item.img!=0"></image>

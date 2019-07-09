@@ -6,7 +6,7 @@
 
 <script>
 	export default {
-		name:"grid",
+		name:"tuiGrid",
 		props: {
 			//是否去掉上线条
 			unlined: {

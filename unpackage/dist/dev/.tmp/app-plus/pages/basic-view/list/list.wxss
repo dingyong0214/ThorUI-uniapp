@@ -2,10 +2,10 @@
 .container {
 	padding-bottom: env(safe-area-inset-bottom);
 }
-.tui-view {
+.tui-list-view {
 	padding-top: 40rpx !important
 }
-.tui-cell-name {
+.tui-list-cell-name {
 	padding-left: 20rpx;
 	vertical-align: middle;
 	line-height: 30rpx;

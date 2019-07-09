@@ -110,6 +110,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
+  name: "tuiDrawer",
   props: {
     visible: {
       type: Boolean,

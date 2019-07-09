@@ -8,7 +8,7 @@
 
 <script>
 	export default {
-		name: "nomore",
+		name: "tuiNomore",
 		props: {
 			//是否可见
 			visible: {

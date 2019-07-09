@@ -8,7 +8,9 @@
 						<input confirm-type="search" class="search-bar-input" placeholder="输入城市名称或首字母查询" placeholder-class="phcolor"
 						 :value="inputVal" :focus="inputShowed" @input="inputTyping" />
 						<view class="icon-clear" v-if="inputVal" @tap="clearInput">
-							<icon type="clear" size="15"></icon>
+							<!-- #ifdef APP-PLUS || MP -->
+							<icon type="clear" :size="15"></icon>
+							<!-- #endif -->
 						</view>
 					</view>
 					<label class="search-bar-label" v-if="!inputShowed" @tap="showInput">
@@ -19,7 +21,7 @@
 			</view>
 			<view class="tui-list search-result" v-if="inputShowed">
 				<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index) in searchResult" :key="index"
-				 @tap="selectCity" :data-name="item" hover-stay-time='150'>
+				 @tap="selectCity" :data-name="item" :hover-stay-time='150'>
 					<view class="tui-list-cell-navigate">
 						{{item}}
 					</view>
@@ -29,14 +31,14 @@
 				<view class="current-city">
 					<view class="title">定位城市</view>
 					<view class="city-name">
-						<tui-icon  name="position-fill" color="#5677fc" size="18"></tui-icon>
+						<tui-icon  name="position-fill" color="#5677fc" :size="18"></tui-icon>
 						{{localCity}}
 					</view>
 				</view>
 				<view class="hot-city">
 					<view class="title">热门城市</view>
 					<view class="city-names">
-						<view class="city-name-item" v-for="(item,index) in hotCity" :key="index" hover-class="tap-city" hover-stay-time="150"
+						<view class="city-name-item" v-for="(item,index) in hotCity" :key="index" hover-class="tap-city" :hover-stay-time="150"
 						 @tap="selectCity" :data-name="item">
 							{{item}}
 						</view>
@@ -47,8 +49,8 @@
 						<view class="tui-list-cell-divider" :id="index === 0 ? 'suoyin' : list.letter">
 							{{list.letter}}
 						</view>
-						<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index) in list.data" :key="index" @tap="selectCity"
-						 :data-name="item.cityName" hover-stay-time='150'>
+						<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index2) in list.data" :key="index2" @tap="selectCity"
+						 :data-name="item.cityName" :hover-stay-time='150'>
 							<view class="tui-list-cell-navigate" :class="[list.data.length-1==index?'last':'']">
 								{{item.cityName}}
 							</view>
@@ -419,6 +421,7 @@
 
 	.tui-indexed-list-text {
 		font-size: 22upx;
+		white-space: nowrap;
 	}
 
 	.tui-indexed-list-bar.active {

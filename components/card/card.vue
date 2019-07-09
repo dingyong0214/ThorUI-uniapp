@@ -22,7 +22,7 @@
 
 <script>
 	export default {
-		name: "card",
+		name: "tuiCard",
 		props: {
 			//是否铺满
 			full: {

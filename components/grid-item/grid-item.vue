@@ -1,6 +1,6 @@
 <template>
 	<view class="tui-grid-class tui-grid" :class="[bottom?'':'tui-grid-bottom','tui-grid-'+(cell<2?3:cell)]" :hover-class="hover?'tui-item-hover':''"
-	 hover-stay-time="150" :style="{background:bgcolor}" @tap="handleClick">
+	 :hover-stay-time="150" :style="{background:bgcolor}" @tap="handleClick">
 		<view class='tui-grid-bg'>
 			<slot></slot>
 		</view>
@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name: "grid-item",
+		name: "tuiGridItem",
 		props: {
 			cell: {
 				type: Number,

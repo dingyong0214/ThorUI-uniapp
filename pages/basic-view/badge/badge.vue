@@ -18,7 +18,7 @@
 			<view class="tui-badge-dot tui-badge-small"></view>
 			<view class="tui-badge-dot tui-white tui-badge-small"></view>
 			<view class="tui-badge-class">
-				<tui-badge dot="true" type="black" size="small"></tui-badge>
+				<tui-badge :dot="true" type="black" size="small"></tui-badge>
 			</view>
 
 			<view class="tui-badge-dot tui-warning tui-badge-small"></view>

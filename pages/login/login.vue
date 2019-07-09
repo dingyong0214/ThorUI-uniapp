@@ -18,7 +18,7 @@
 					<tui-button size="mini" :type="type" shape="circle" :plain="true" :disabled="disabled" @click="btnSend">{{btnText}}</tui-button>
 				</view>
 				<button class="btn-primary tui-btn-submit" hover-class="btn-hover" form-type="submit">登录</button>
-				<view class="tui-protocol" hover-class="opcity" hover-stay-time="150">点击"登录"即表示已同意
+				<view class="tui-protocol" hover-class="opcity" :hover-stay-time="150">点击"登录"即表示已同意
 					<text class="tui-protocol-red" @tap="protocol">《用户协议》</text>
 				</view>
 			</view>

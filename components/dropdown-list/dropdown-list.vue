@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name: "dropdown-list",
+		name: "tuiDropdownList",
 		props: {
 			//控制显示
 			show: {

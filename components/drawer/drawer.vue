@@ -10,6 +10,7 @@
 
 <script>
 	export default {
+		name:"tuiDrawer",
 		props: {
 			visible: {
 				type: Boolean,

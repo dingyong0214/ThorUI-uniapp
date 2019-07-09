@@ -13,6 +13,7 @@
 
 <script>
 	export default {
+		name:"tuiTips",
 		props: {
 			//top bottom center
 			position: {

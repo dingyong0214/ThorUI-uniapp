@@ -124,7 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 var _default =
 {
-  name: "swipe-action",
+  name: "tuiSwipeAction",
   props: {
     // name: '删除',
     // color: '#fff',
@@ -262,7 +262,7 @@ var _default =
       }
       var dataset = event.currentTarget.dataset;
       this.$emit('click', {
-        index: dataset.index,
+        index: Number(dataset.index),
         item: this.params });
 
 

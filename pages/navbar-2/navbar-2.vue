@@ -2,7 +2,9 @@
 	<view class="container">
 		<view class="tui-searchbox">
 			<view class="tui-search-input" @tap="search">
+				<!-- #ifdef APP-PLUS || MP -->
 				<icon type="search" size='13' color='#999'></icon>
+				<!-- #endif -->
 				<text class="tui-search-text">搜索Thorui商品</text>
 			</view>
 		</view>
@@ -13,11 +15,11 @@
 				<text>{{item}}</text>
 			</view>
 		</scroll-view>
-		<block v-for="(item,index) in tabbar" :key="index" >
-			<scroll-view scroll-y class="right-box" :style="{height:height+'px'}" v-if="currentTab===index">
+		<block v-for="(item,index) in tabbar" :key="index">
+			<scroll-view scroll-y class="right-box" :style="{height:height+'px'}" v-if="currentTab==index">
 				<!--内容部分 start 自定义可删除-->
 				<view class="page-view">
-					<swiper indicator-dots autoplay circular interval="5000" duration="150" class="swiper">
+					<swiper indicator-dots autoplay circular :interval="5000" :duration="150" class="swiper">
 						<swiper-item v-if="index%2===0" @tap.stop="detail">
 							<image src="../../static/images/mall/banner/2.jpg" class="slide-image" />
 						</swiper-item>
@@ -142,7 +144,11 @@
 		onLoad: function(options) {
 			uni.getSystemInfo({
 				success: (res) => {
-					this.height = res.windowHeight - uni.upx2px(92)
+					let header = 92;
+					// #ifdef H5
+					header = 0;
+					// #endif
+					this.height = res.windowHeight - uni.upx2px(header)
 				}
 			});
 

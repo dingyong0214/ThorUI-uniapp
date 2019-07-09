@@ -127,6 +127,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");var tuiIcon = function tuiIcon() {return __webpack_require__.e(/*! import() | components/icon/icon */ "components/icon/icon").then(__webpack_require__.bind(null, /*! @/components/icon/icon */ "../../../../../work/uniapp/ThorUI/components/icon/icon.vue"));};var tuiTimeAxis = function tuiTimeAxis() {return __webpack_require__.e(/*! import() | components/time-axis/time-axis */ "components/time-axis/time-axis").then(__webpack_require__.bind(null, /*! @/components/time-axis/time-axis */ "../../../../../work/uniapp/ThorUI/components/time-axis/time-axis.vue"));};var tuiTimeaxisItem = function tuiTimeaxisItem() {return __webpack_require__.e(/*! import() | components/timeaxis-item/timeaxis-item */ "components/timeaxis-item/timeaxis-item").then(__webpack_require__.bind(null, /*! @/components/timeaxis-item/timeaxis-item */ "../../../../../work/uniapp/ThorUI/components/timeaxis-item/timeaxis-item.vue"));};var _default =
 
 
@@ -169,8 +171,12 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
         version: "1.2.0",
         date: "2019-07-01",
         log: ["1.新增组件NumberBox数字框:可设置步长，支持浮点数，支持调整样式(可单独设置)", "2.新增组件Rate评分:可设置星星数，可设置大小颜色",
-        "3.新增聊天模板，包含：消息列表，好友列表，聊天界面等", "4.新增商城模板,包含：商城首页，商城列表，商城详情等", "5.优化部分体验"] }].
+        "3.新增聊天模板，包含：消息列表，好友列表，聊天界面等", "4.新增商城模板,包含：商城首页，商城列表，商城详情等", "5.优化部分体验"] },
 
+      {
+        version: "1.2.1",
+        date: "2019-07-10",
+        log: ["1.修复部分兼容性问题", "2.修复部分已知bug"] }].
       reverse() };
 
   },

@@ -115,7 +115,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 var _default =
 {
-  name: "footer",
+  name: "tuiFooter",
   props: {
     //type target url delta appid path extradata bindsuccess bindfail text color size
     //链接设置  数据格式对应上面注释的属性值

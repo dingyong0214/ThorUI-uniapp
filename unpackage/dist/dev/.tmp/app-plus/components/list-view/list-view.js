@@ -109,7 +109,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "list-view",
+  name: "tuiListView",
   props: {
     title: {
       type: String,

@@ -108,7 +108,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "button",
+  name: "tuiButton",
   props: {
     // primary, white, danger, warning, green, gray,gradual
     type: {

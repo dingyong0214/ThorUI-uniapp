@@ -145,6 +145,8 @@ var _default =
           name: "基础组件",
           page: "basic" }] },
 
+
+
       {
         id: 'map',
         name: '地图',
@@ -161,6 +163,8 @@ var _default =
         {
           name: "天气",
           page: "weather" }] },
+
+
 
 
       {
@@ -205,6 +209,7 @@ var _default =
           page: "drawer" }] },
 
 
+
       {
         id: 'swipe',
         name: '滑动菜单',
@@ -212,6 +217,7 @@ var _default =
         pages: [{
           name: "滑动菜单",
           page: "swipe-action" }] },
+
 
 
       {

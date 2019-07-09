@@ -227,6 +227,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 var _default =
 {
   data: function data() {
@@ -242,7 +244,11 @@ var _default =
   onLoad: function onLoad(options) {var _this = this;
     uni.getSystemInfo({
       success: function success(res) {
-        _this.height = res.windowHeight - uni.upx2px(92);
+        var header = 92;
+
+
+
+        _this.height = res.windowHeight - uni.upx2px(header);
       } });
 
 

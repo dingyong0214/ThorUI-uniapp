@@ -1,23 +1,27 @@
 <template>
 	<view class="container">
+		<!-- #ifdef APP-PLUS || MP -->
 		<view class="tui-header">功能开发中，敬请期待！最新完成：
 			<text class="tui-current" @tap="currentStep">聊天模板</text>
 		</view>
+		<!-- #endif -->
 		<view class="tui-template">
 			<tui-time-axis>
-				<tui-timeaxis-item v-for="(item,index) in stepList" :key="index">
-					<template v-slot:node>
-						<view class="tui-node">
-							<tui-icon :name="index==0?'satisfied':'circle-fill'" :color="item.state==1?'#5c8dff':'#ddd'" size="18"></tui-icon>
-						</view>
-					</template>
-					<template v-slot:content>
-						<view class="tui-content-template" :class="[item.state==1?'':'tui-template-gray']" :data-index="index" @tap="template">
-							<view class="tui-version-date">{{item.name+item.stateText}}</view>
-							<view v-for="(model,index2) in item.desc" :key="index2">{{model}}</view>
-						</view>
-					</template>
-				</tui-timeaxis-item>
+				<block v-for="(item,index) in stepList" :key="index">
+					<tui-timeaxis-item>
+						<template v-slot:node>
+							<view class="tui-node">
+								<tui-icon :name="index==0?'satisfied':'circle-fill'" :color="item.state==1?'#5c8dff':'#ddd'" :size="18"></tui-icon>
+							</view>
+						</template>
+						<template v-slot:content>
+							<view class="tui-content-template" :class="[item.state==1?'':'tui-template-gray']" :data-index="index" @tap="template">
+								<view class="tui-version-date">{{item.name+item.stateText}}</view>
+								<view v-for="(model,index2) in item.desc" :key="index2">{{model}}</view>
+							</view>
+						</template>
+					</tui-timeaxis-item>
+				</block>
 			</tui-time-axis>
 		</view>
 

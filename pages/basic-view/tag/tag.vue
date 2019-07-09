@@ -36,10 +36,10 @@
 			空心标签
 		</view>
 		<view class="flex-box">
-			<tui-tag plain="true">组件标签</tui-tag>
+			<tui-tag :plain="true">组件标签</tui-tag>
 			<!-- <view class="tui-tag tui-tag-outline">默认标签</view> -->
 			<view class="tui-tag tui-tag-outline tui-primary-outline">空心标签</view>
-			<tui-tag plain="true" type="danger">空心标签</tui-tag>
+			<tui-tag :plain="true" type="danger">空心标签</tui-tag>
 			<!-- <view class="tui-tag tui-tag-outline tui-danger-outline">空心标签</view> -->
 			<view class="tui-tag tui-tag-outline tui-warning-outline">空心标签</view>
 			<view class="tui-tag tui-tag-outline tui-green-outline">空心标签</view>
@@ -52,7 +52,7 @@
 			<view class="tui-tag-small tui-tag-outline tui-warning-outline">空心标签</view>
 			<view class="tui-tag-small tui-tag-outline tui-green-outline">空心标签</view>
 			<view class="tui-tag-small tui-tag-outline tui-gray-outline">空心标签</view>
-			<tui-tag plain="true" size="small">组件标签</tui-tag>
+			<tui-tag :plain="true" size="small">组件标签</tui-tag>
 		</view>
 
 		<view class="title">
@@ -87,7 +87,7 @@
 			<view class="tui-tag-small tui-light-green tui-tag-fillet">实心标签</view>
 		</view>
 		<view class="flex-box">
-			<tui-tag shape="circle" plain="true">组件标签</tui-tag>
+			<tui-tag shape="circle" :plain="true">组件标签</tui-tag>
 			<!-- <view class="tui-tag tui-tag-outline tui-tag-outline-fillet">默认标签</view> -->
 			<view class="tui-tag tui-tag-outline tui-primary-outline tui-tag-outline-fillet">空心标签</view>
 			<view class="tui-tag tui-tag-outline tui-danger-outline tui-tag-outline-fillet">空心标签</view>
@@ -96,7 +96,7 @@
 			<view class="tui-tag tui-tag-outline tui-gray-outline tui-tag-outline-fillet">空心标签</view>
 		</view>
 		<view class="flex-box">
-			<tui-tag shape="circle" plain="true" size="small">组件标签</tui-tag>
+			<tui-tag shape="circle" :plain="true" size="small">组件标签</tui-tag>
 			<!-- <view class="tui-tag-small tui-tag-outline tui-tag-outline-fillet">默认标签</view> -->
 			<view class="tui-tag-small tui-tag-outline tui-primary-outline tui-tag-outline-fillet">空心标签</view>
 			<view class="tui-tag-small tui-tag-outline tui-danger-outline tui-tag-outline-fillet">空心标签</view>
@@ -155,9 +155,9 @@
 			<view class="tui-tag-small tui-danger tui-tag-fillet-right">实心标签</view>
 			<view class="tui-tag-small tui-light-green tui-tag-fillet-right">实心标签</view>
 			<view class="tui-tag-small tui-light-brownish tui-tag-fillet-right">实心标签</view>
-			<tui-tag shape="circleRight" size="small" plain="true" type="primary"> 组件标签</tui-tag>
-			<tui-tag shape="circleLeft" size="small" plain="true" type="danger">组件标签</tui-tag>
-			<tui-tag shape="circleLeft" size="small" plain="true" type="green">组件标签</tui-tag>
+			<tui-tag shape="circleRight" size="small" :plain="true" type="primary"> 组件标签</tui-tag>
+			<tui-tag shape="circleLeft" size="small" :plain="true" type="danger">组件标签</tui-tag>
+			<tui-tag shape="circleLeft" size="small" :plain="true" type="green">组件标签</tui-tag>
 		</view>
 	</view>
 </template>

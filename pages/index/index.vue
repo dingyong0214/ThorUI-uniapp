@@ -45,7 +45,9 @@
 							name: "基础组件",
 							page: "basic"
 						}]
-					}, {
+					},
+					// #ifdef APP-PLUS || MP
+					{
 						id: 'map',
 						name: '地图',
 						open: false,
@@ -63,6 +65,8 @@
 							page: "weather"
 						}]
 					},
+					// #endif
+
 					{
 						id: 'index',
 						name: '索引列表',
@@ -105,6 +109,7 @@
 							page: "drawer"
 						}]
 					},
+					// #ifdef APP-PLUS || MP
 					{
 						id: 'swipe',
 						name: '滑动菜单',
@@ -114,6 +119,7 @@
 							page: "swipe-action"
 						}]
 					},
+					// #endif
 					{
 						id: 'class',
 						name: '分类菜单',
@@ -138,7 +144,7 @@
 							}, {
 								name: "商品列表",
 								page: "product"
-							}// #ifdef APP-PLUS
+							} // #ifdef APP-PLUS
 							, {
 								name: "商品列表Nvue",
 								page: "productNvue"

@@ -308,6 +308,7 @@ page {
 }
 .tui-indexed-list-text {
 	font-size: 22rpx;
+	white-space: nowrap;
 }
 .tui-indexed-list-bar.active {
 	background-color: rgb(200, 200, 200);

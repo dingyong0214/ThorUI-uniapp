@@ -109,7 +109,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 var _default =
 {
-  name: "rate",
+  name: "tuiRate",
   props: {
     //数量
     quantity: {

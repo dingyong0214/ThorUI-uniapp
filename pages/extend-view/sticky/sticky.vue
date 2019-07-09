@@ -18,7 +18,7 @@
 			<template v-slot:content>
 				<!--内容 start-->
 				<view class="list-view">
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -32,7 +32,7 @@
 						</view>
 					</view>
 
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -46,7 +46,7 @@
 						</view>
 					</view>
 
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -61,7 +61,7 @@
 					</view>
 
 
-					<view class="list-item item-last" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item item-last" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -94,7 +94,7 @@
 			<template v-slot:content>
 				<!--内容 start-->
 				<view class="list-view">
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -108,7 +108,7 @@
 						</view>
 					</view>
 
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -122,7 +122,7 @@
 						</view>
 					</view>
 
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -137,7 +137,7 @@
 					</view>
 
 
-					<view class="list-item item-last" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item item-last" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -170,7 +170,7 @@
 			<template v-slot:content>
 				<!--内容-->
 				<view class="list-view">
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -184,7 +184,7 @@
 						</view>
 					</view>
 
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -198,7 +198,7 @@
 						</view>
 					</view>
 
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -211,7 +211,7 @@
 							-888.00
 						</view>
 					</view>
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -224,7 +224,7 @@
 							-99.00
 						</view>
 					</view>
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -237,7 +237,7 @@
 							-60.00
 						</view>
 					</view>
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -250,7 +250,7 @@
 							-888.00
 						</view>
 					</view>
-					<view class="list-item" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -265,7 +265,7 @@
 					</view>
 
 
-					<view class="list-item item-last" hover-class="hover" hover-stay-time="150" bindtap="detail">
+					<view class="list-item item-last" hover-class="hover" :hover-stay-time="150" bindtap="detail">
 						<view class="content-box">
 							<image src='../../../static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">

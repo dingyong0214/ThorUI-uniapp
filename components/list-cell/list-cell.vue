@@ -1,13 +1,13 @@
 <template>
 	<view class="tui-cell-class tui-list-cell" :class="{'tui-cell-arrow':arrow,'tui-cell-last':last}" :hover-class="hover?'tui-cell-hover':''"
-	 :style="{background: bgcolor,fontSize: px(size),color:color}" hover-stay-time="150" @tap="handleClick">
+	 :style="{background: bgcolor,fontSize: px(size),color:color}" :hover-stay-time="150" @tap="handleClick">
 		<slot></slot>
 	</view>
 </template>
 
 <script>
 	export default {
-		name: "list-cell",
+		name: "tuiListCell",
 		props: {
 			arrow: {
 				type: Boolean,

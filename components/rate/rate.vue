@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name: "rate",
+		name: "tuiRate",
 		props: {
 			//数量
 			quantity: {

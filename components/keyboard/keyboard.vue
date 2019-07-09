@@ -6,7 +6,7 @@
 			<view class="tui-keyboard-grids">
 				<!--{{(index==9 || index==10 || index==11)?'tui-grid-bottom':''}}-->
 				<view class="tui-keyboard-grid" :class="[(index==9 || index==11)?'tui-bg-gray':'']" v-for="(item,index) in itemList"
-				 :key="index" hover-class="tui-keyboard-hover" hover-stay-time="150" @tap="handleClick" :data-index="index">
+				 :key="index" hover-class="tui-keyboard-hover" :hover-stay-time="150" @tap="handleClick" :data-index="index">
 					<view v-if="index<11" class="tui-keyboard-item" :class="[index==9?'tui-fontsize-32':'']">{{getKeyBoard(index,action)}}</view>
 					<view v-else class="tui-keyboard-item">
 						<view class="tui-icon tui-keyboard-delete"></view>
@@ -19,6 +19,7 @@
 
 <script>
 	export default {
+		name:"tuiKeyboard",
 		props: {
 			//是否需要mask
 			mask: {
@@ -64,7 +65,7 @@
 				}
 				const dataset = e.currentTarget.dataset;
 				this.$emit('click', {
-					index: dataset.index
+					index: Number(dataset.index)
 				})
 			}
 		}

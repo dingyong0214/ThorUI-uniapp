@@ -106,7 +106,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "grid",
+  name: "tuiGrid",
   props: {
     //是否去掉上线条
     unlined: {

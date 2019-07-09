@@ -145,6 +145,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 var amap = __webpack_require__(/*! ../../libs/amap-wx.js */ "../../../../../work/uniapp/ThorUI/libs/amap-wx.js");var _default =
 {
@@ -283,7 +289,7 @@ var amap = __webpack_require__(/*! ../../libs/amap-wx.js */ "../../../../../work
           }
         },
         fail: function fail(res) {
-          console.log(res.errMsg, " at pages\\maps\\maps.vue:186");
+          console.log(res.errMsg, " at pages\\maps\\maps.vue:192");
         } });
 
 

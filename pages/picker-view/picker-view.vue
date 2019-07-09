@@ -24,8 +24,8 @@
 		<view class="tui-mask-screen" :class="[showPickerStatus?'tui-mask-show':'']" @tap="hidePicker"></view>
 		<view class="tui-picker-box" :class="[showPickerStatus?'tui-pickerbox-show':'']">
 			<view class="picker-header list-item">
-				<view class="btn-cancle" hover-class="opcity" hover-stay-time="150" @tap.stop="hidePicker">取消</view>
-				<view class="btn-sure" hover-class="opcity" hover-stay-time="150" @tap.stop="picker">确定</view>
+				<view class="btn-cancle" hover-class="opcity" :hover-stay-time="150" @tap.stop="hidePicker">取消</view>
+				<view class="btn-sure" hover-class="opcity" :hover-stay-time="150" @tap.stop="picker">确定</view>
 			</view>
 			<picker-view indicator-style="height: 50px;" class="picker-view" :value="value" @change="columnPicker">
 				<picker-view-column>

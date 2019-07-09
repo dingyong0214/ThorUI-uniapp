@@ -11,7 +11,7 @@
 			</view>
 		</view>
 		<!--banner-->
-		<swiper indicator-dots autoplay circular interval="5000" duration="150" class="tui-banner-swiper">
+		<swiper indicator-dots autoplay circular :interval="5000" :duration="150" class="tui-banner-swiper">
 			<swiper-item v-for="(item,index) in banner" :key="index" @tap.stop="bannerDetail">
 				<view class="tui-banner-title">{{item.title}}</view>
 				<image :src="'../../../static/images/news/'+item.img" class="tui-slide-image" mode="widthFix" />
@@ -60,7 +60,7 @@
           <view class="tui-sub-source">央视网新闻</view>
           <view class="tui-sub-cmt">
             <view>5123评论</view>
-            <tui-tag size="small" plain="{{true}}" shape="circleRight" tui-tag-class="tui-tag">
+            <tui-tag size="small" :plain="true" shape="circleRight" tui-tag-class="tui-tag">
               <view class="tui-scale">置顶</view>
             </tui-tag>
           </view>
@@ -77,7 +77,7 @@
           <view class="tui-sub-source">央视网新闻</view>
           <view class="tui-sub-cmt">
             <view>5123评论</view>
-            <tui-tag size="small" plain="{{true}}" shape="circleRight" tui-tag-class="tui-tag">
+            <tui-tag size="small" :plain="true" shape="circleRight" tui-tag-class="tui-tag">
               <view class="tui-scale">置顶</view>
             </tui-tag>
           </view>
@@ -99,7 +99,7 @@
           <view class="tui-sub-source">央视网新闻</view>
           <view class="tui-sub-cmt">
             <view>5123评论</view>
-            <tui-tag size="small" plain="{{true}}" shape="circleRight" tui-tag-class="tui-tag">
+            <tui-tag size="small" :plain="true" shape="circleRight" tui-tag-class="tui-tag">
               <view class="tui-scale">置顶</view>
             </tui-tag>
           </view>
@@ -122,7 +122,7 @@
           <view class="tui-sub-source">央视网新闻</view>
           <view class="tui-sub-cmt">
             <view>5123评论</view>
-            <tui-tag size="small" plain="{{true}}" shape="circleRight" tui-tag-class="tui-tag">
+            <tui-tag size="small" :plain="true" shape="circleRight" tui-tag-class="tui-tag">
               <view class="tui-scale">置顶</view>
             </tui-tag>
           </view>

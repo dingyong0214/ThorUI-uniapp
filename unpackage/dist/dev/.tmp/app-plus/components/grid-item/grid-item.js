@@ -109,7 +109,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "grid-item",
+  name: "tuiGridItem",
   props: {
     cell: {
       type: Number,

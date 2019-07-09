@@ -105,7 +105,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "icon",
+  name: "tuiIcon",
   props: {
     name: {
       type: String,

@@ -7,7 +7,7 @@
 
 <script>
 	export default {
-		name: "loading",
+		name: "tuiLoading",
 		props: {
 			text: {
 				type: String,

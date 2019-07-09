@@ -8,7 +8,7 @@
 
 <script>
 	export default {
-		name: "button",
+		name: "tuiButton",
 		props: {
 			// primary, white, danger, warning, green, gray,gradual
 			type: {

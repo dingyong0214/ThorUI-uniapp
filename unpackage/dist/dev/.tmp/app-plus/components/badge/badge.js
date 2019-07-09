@@ -106,7 +106,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "badge",
+  name: "tuiBadge",
   props: {
     //primary,warning,green,danger,white，black，gray
     type: {

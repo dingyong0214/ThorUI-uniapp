@@ -108,7 +108,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  name: "nomore",
+  name: "tuiNomore",
   props: {
     //是否可见
     visible: {

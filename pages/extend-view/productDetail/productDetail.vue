@@ -17,7 +17,7 @@
 
 		<!--banner-->
 		<view class="tui-banner-swiper">
-			<swiper autoplay="true" interval="5000" duration="150" :circular="true" :style="{height:scrollH + 'px'}" @change="bannerChange">
+			<swiper :autoplay="true" :interval="5000" :duration="150" :circular="true" :style="{height:scrollH + 'px'}" @change="bannerChange">
 				<block v-for="(item,index) in banner" :key="index">
 					<swiper-item :data-index="index" @tap.stop="previewImage">
 						<image :src="item" class="tui-slide-image" :style="{height:scrollH+'px'}" />
@@ -175,15 +175,15 @@
 		<!--底部操作栏-->
 		<view class="tui-operation">
 			<view class="tui-operation-left tui-col-5">
-				<view class="tui-operation-item" hover-class="opcity" hover-stay-time="150">
+				<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150">
 					<tui-icon name="kefu" size="22" color='#333'></tui-icon>
 					<view class="tui-operation-text tui-scale-small">客服</view>
 				</view>
-				<view class="tui-operation-item" hover-class="opcity" hover-stay-time="150">
+				<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150">
 					<tui-icon name="shop" size="22" color='#333'></tui-icon>
 					<view class="tui-operation-text tui-scale-small">店铺</view>
 				</view>
-				<view class="tui-operation-item" hover-class="opcity" hover-stay-time="150">
+				<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150">
 					<tui-icon name="cart" size="22" color='#333'></tui-icon>
 					<view class="tui-operation-text tui-scale-small">购物车</view>
 					<tui-badge type="danger" size="small">9</tui-badge>
@@ -211,7 +211,7 @@
 				</view>
 				<view class="tui-menu-itembox">
 					<block v-for="(item,index) in topMenu" :key="index">
-						<view class="tui-menu-item" hover-class="tui-opcity" hover-stay-time="150" @tap="common">
+						<view class="tui-menu-item" hover-class="tui-opcity" :hover-stay-time="150" @tap="common">
 							<view class="tui-badge-box">
 								<tui-icon :name="item.icon" color="#fff" :size="item.size"></tui-icon>
 								<tui-badge type="red" tui-badge-class="tui-menu-badge" size="small" v-if="item.badge">{{item.badge}}</tui-badge>

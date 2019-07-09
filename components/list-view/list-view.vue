@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name: "list-view",
+		name: "tuiListView",
 		props: {
 			title: {
 				type: String,

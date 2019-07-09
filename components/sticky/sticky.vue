@@ -12,7 +12,7 @@
 
 <script>
 	export default {
-		name: "sticky",
+		name: "tuiSticky",
 		props: {
 			scrollTop: {
 				type: Number
@@ -44,7 +44,7 @@
 				const top = this.top;
 				const height = this.height;
 				const scrollTop = this.scrollTop
-				this.isFixed= (scrollTop >= top && scrollTop < top + height) ? true : false
+				this.isFixed = (scrollTop >= top && scrollTop < top + height) ? true : false
 			},
 			updateScrollChange() {
 				if (this.timer) {
@@ -57,7 +57,7 @@
 					query.select(className).boundingClientRect((res) => {
 						if (res) {
 							this.top = res.top;
-							this.height= res.height
+							this.height = res.height
 						}
 					}).exec()
 				}, 0)
@@ -71,6 +71,6 @@
 		width: 100%;
 		position: fixed;
 		top: 0;
-		z-index: 100;
+		z-index: 99999;
 	}
 </style>

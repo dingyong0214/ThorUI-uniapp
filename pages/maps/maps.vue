@@ -3,22 +3,28 @@
 		<view class="search-bar">
 			<view class="search-bar-form">
 				<view class="search-bar-box">
+					<!-- #ifdef APP-PLUS || MP -->
 					<icon class="icon-search-in-box" type="search" size="16"></icon>
+					<!-- #endif -->
 					<input confirm-type="search" class="search-bar-input" placeholder="请输入您的目的地" :value="inputVal" :focus="inputShowed"
 					 @confirm="bindInput" @input="inputTyping" />
 					<view class="icon-clear" v-if="inputVal" @tap="clearInput">
+						<!-- #ifdef APP-PLUS || MP -->
 						<icon type="clear" size="14"></icon>
+						<!-- #endif -->
 					</view>
 				</view>
 				<label class="search-bar-label" v-show="!inputShowed" @tap="showInput">
+					<!-- #ifdef APP-PLUS || MP -->
 					<icon class="icon-search" type="search" size="16"></icon>
+					<!-- #endif -->
 					<view class="search-bar-text">请输入您的目的地</view>
 				</label>
 			</view>
 			<view class="cancel-btn" @tap="hideInput" v-show="inputShowed">取消</view>
 		</view>
-		<map :latitude="lat" :longitude="lng" :markers="covers" @markertap="marker" scale="12"></map>
-		<scroll-view scroll-y="true" class="scrollView" :style="{height:scrollH +'px'}">
+		<map :latitude="lat" :longitude="lng" :markers="covers" @markertap="marker" :scale="12"></map>
+		<scroll-view scroll-y class="scrollView" :style="{height:scrollH +'px'}">
 			<view class="tui-list">
 				<view class="tui-list-cell" :class="[index==address.length-1?'tui-cell-last':'']" v-for="(item,index) in address"
 				 :key="index">
@@ -29,11 +35,11 @@
 							{{item.address}}
 						</view>
 						<view class="addr-opera ">
-							<view class="opera-box " hover-class="opcity " hover-stay-time="150 " @tap="call " :data-id="item.id" v-if="item.tel">
+							<view class="opera-box " hover-class="opcity " :hover-stay-time="150 " @tap="call " :data-id="item.id" v-if="item.tel">
 								<image src="../../static/images/my/call.png " class="mini-img"></image>
 								<view class="text">打电话</view>
 							</view>
-							<view class="opera-box " hover-class="opcity" hover-stay-time="150" @tap="go" :data-id="item.id">
+							<view class="opera-box " hover-class="opcity" :hover-stay-time="150" @tap="go" :data-id="item.id">
 								<image src="../../static/images/my/go.png" class="mini-img"></image>
 								<view class="text">到这里</view>
 							</view>

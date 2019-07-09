@@ -65,7 +65,7 @@
 				<block v-for="(item,index) in productList" :key="index" v-if="(index+1)%2!=0 || isList">
 					<!-- <template is="productItem" data="{{item,index:index,isList:isList}}" /> -->
 					<!--商品列表-->
-					<view class="tui-pro-item" :class="[isList?'tui-flex-list':'']" hover-class="hover" hover-start-time="150" @tap="detail">
+					<view class="tui-pro-item" :class="[isList?'tui-flex-list':'']" hover-class="hover" :hover-start-time="150" @tap="detail">
 						<image :src="'../../../static/images/mall/product/'+item.img+'.jpg'" class="tui-pro-img" :class="[isList?'tui-proimg-list':'']"
 						 mode="widthFix" />
 						<view class="tui-pro-content">
@@ -86,7 +86,7 @@
 				<block v-for="(item,index) in productList" :key="index" v-if="(index+1)%2==0">
 					<!-- <template is="productItem" data="{{item,index:index}}" /> -->
 					<!--商品列表-->
-					<view class="tui-pro-item" :class="[isList?'tui-flex-list':'']" hover-class="hover" hover-start-time="150" @tap="detail">
+					<view class="tui-pro-item" :class="[isList?'tui-flex-list':'']" hover-class="hover" :hover-start-time="150" @tap="detail">
 						<image :src="'../../../static/images/mall/product/'+item.img+'.jpg'" class="tui-pro-img" :class="[isList?'tui-proimg-list':'']"
 						 mode="widthFix" />
 						<view class="tui-pro-content">
@@ -119,8 +119,8 @@
 				<view class="tui-seizeaseat-30"></view>
 			</scroll-view>
 			<view class="tui-drop-btnbox">
-				<view class="tui-drop-btn tui-btn-white" hover-class="tui-white-hover" hover-stay-time="150" @tap="reset">重置</view>
-				<view class="tui-drop-btn tui-btn-red" hover-class="tui-red-hover" hover-stay-time="150" @tap="btnSure">确定</view>
+				<view class="tui-drop-btn tui-btn-white" hover-class="tui-white-hover" :hover-stay-time="150" @tap="reset">重置</view>
+				<view class="tui-drop-btn tui-btn-red" hover-class="tui-red-hover" :hover-stay-time="150" @tap="btnSure">确定</view>
 			</view>
 		</tui-top-dropdown>
 		<!---顶部下拉筛选弹层 属性-->
@@ -263,8 +263,8 @@
 				</scroll-view>
 				<view class="tui-attr-btnbox">
 					<view class="tui-attr-safearea">
-						<view class="tui-drawer-btn tui-drawerbtn-black" hover-class="tui-white-hover" hover-stay-time="150">重置</view>
-						<view class="tui-drawer-btn tui-drawerbtn-primary" hover-class="tui-red-hover" hover-stay-time="150" @tap="closeDrawer">确定(80万+件商品)</view>
+						<view class="tui-drawer-btn tui-drawerbtn-black" hover-class="tui-white-hover" :hover-stay-time="150">重置</view>
+						<view class="tui-drawer-btn tui-drawerbtn-primary" hover-class="tui-red-hover" :hover-stay-time="150" @tap="closeDrawer">确定(80万+件商品)</view>
 					</view>
 				</view>
 			</view>

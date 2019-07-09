@@ -6,7 +6,7 @@
 
 <script>
 	export default {
-		name: "badge",
+		name: "tuiBadge",
 		props: {
 			//primary,warning,green,danger,white，black，gray
 			type: {

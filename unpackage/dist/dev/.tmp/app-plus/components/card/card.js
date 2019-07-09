@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 var _default =
 {
-  name: "card",
+  name: "tuiCard",
   props: {
     //是否铺满
     full: {

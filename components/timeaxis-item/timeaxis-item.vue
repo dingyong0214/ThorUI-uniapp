@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name: "timeaxis-item",
+		name: "tuiTimeaxisItem",
 		props: {
 			//节点背景色
 			bgcolor: {

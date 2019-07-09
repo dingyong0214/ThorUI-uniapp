@@ -5,7 +5,7 @@
 			默认按钮
 		</view>
 		<tui-button @click="detail" type="primary" >页面主操作</tui-button>
-		<tui-button type="primary" disabled="true" loading="true">页面主操作 Disabled</tui-button>
+		<tui-button type="primary" :disabled="true" :loading="true">页面主操作 Disabled</tui-button>
 		<!--注释部分为直接引入thorui.css写法-->
 		<!-- <button class="tui-btn tui-btn-block tui-primary" hover-class="tui-primary-hover">页面主操作</button> -->
 		<!-- <button class="tui-btn tui-btn-block tui-primary tui-dark-disabled" loading disabled>页面主操作 Disabled</button> -->
@@ -22,8 +22,8 @@
 		<view class="title">
 			空心按钮
 		</view>
-		<tui-button @click="detail" type="primary" plain="true">页面主操作</tui-button>
-		<tui-button type="primary" plain="true" disabled="true" loading="true">页面主操作
+		<tui-button @click="detail" type="primary" :plain="true">页面主操作</tui-button>
+		<tui-button type="primary" :plain="true" :disabled="true" :loading="true">页面主操作
 			Disabled</tui-button>
 		<!-- <button class="tui-btn tui-btn-block tui-primary-outline" hover-class="tui-outline-hover">页面主操作</button>
   <button class="tui-btn tui-btn-block tui-primary-outline tui-dark-disabled" disabled loading>页面主操作 Disabled</button> -->
@@ -43,7 +43,7 @@
 		<button class="tui-btn tui-btn-block tui-green tui-fillet" hover-class="tui-green-hover">页面辅助操作</button>
 		<button class="tui-btn tui-btn-block tui-primary-outline tui-outline-fillet" hover-class="tui-outline-hover">页面主操作</button>
 		<button class="tui-btn tui-btn-block tui-danger-outline tui-outline-fillet" hover-class="tui-outline-hover">页面辅助操作</button>
-		<tui-button @click="detail" type="warning" plain="true" shape="circle">页面主操作</tui-button>
+		<tui-button @click="detail" type="warning" :plain="true" shape="circle">页面主操作</tui-button>
 		<!-- <button class="tui-btn tui-btn-block tui-warning-outline tui-outline-fillet" hover-class="tui-outline-hover">页面辅助操作</button> -->
 
 		<view class="title">
@@ -66,7 +66,7 @@
 			<button class="tui-btn tui-btn-small tui-primary" hover-class="tui-primary-hover">主要</button>
 			<button class="tui-btn tui-btn-small tui-white" hover-class="tui-white-hover">次要</button>
 			<button class="tui-btn tui-btn-small tui-danger" hover-class="tui-danger-hover">辅助</button>
-			<tui-button @click="detail" type="primary" size="mini" plain="true" class="tui-mbtm">主操作</tui-button>
+			<tui-button @click="detail" type="primary" size="mini" :plain="true" class="tui-mbtm">主操作</tui-button>
 			<!-- <button class="tui-btn tui-btn-mini tui-primary-outline" hover-class="tui-outline-hover">主操作</button> -->
 			<button class="tui-btn tui-btn-mini tui-danger-outline" hover-class="tui-outline-hover">辅助操作</button>
 			<button class="tui-btn tui-btn-mini tui-green-outline" hover-class="tui-outline-hover">辅助操作</button>

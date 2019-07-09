@@ -1,84 +1,84 @@
 <template>
 	<view class="container">
 		<!--内容部分-->
-		<tui-view title="不带箭头，无点击效果" color="#777" class="tui-view">
-			<tui-cell @click="detail" :hover="false">
+		<tui-list-view title="不带箭头，无点击效果" color="#777" class="tui-list-view">
+			<tui-list-cell @click="detail" :hover="false">
 				不带箭头，无点击效果
-			</tui-cell>
-			<tui-cell @click="detail" :hover="false">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :hover="false">
 				不带箭头，无点击效果
-			</tui-cell>
-			<tui-cell @click="detail" :hover="false">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :hover="false">
 				不带箭头，无点击效果
-			</tui-cell>
-		</tui-view>
+			</tui-list-cell>
+		</tui-list-view>
 
-		<tui-view title="带箭头，有点击效果" class="tui-view">
-			<tui-cell @click="detail" :arrow="true">
+		<tui-list-view title="带箭头，有点击效果" class="tui-list-view">
+			<tui-list-cell @click="detail" :arrow="true">
 				带箭头，有点击效果
-			</tui-cell>
-			<tui-cell @click="detail" :arrow="true">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :arrow="true">
 				带箭头，有点击效果
-			</tui-cell>
-			<tui-cell @click="detail" :arrow="true">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :arrow="true">
 				带箭头，有点击效果
-			</tui-cell>
-		</tui-view>
+			</tui-list-cell>
+		</tui-list-view>
 
-		<tui-view title="无上下线条" unlined="all" class="tui-view">
-			<tui-cell @click="detail" :arrow="true">
+		<tui-list-view title="无上下线条" unlined="all" class="tui-list-view">
+			<tui-list-cell @click="detail" :arrow="true">
 				无上下线条,可单独设置，改变颜色
-			</tui-cell>
-			<tui-cell @click="detail" :arrow="true" color="#19be6b">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :arrow="true" color="#19be6b">
 				无上下线条,可单独设置，改变颜色
-			</tui-cell>
-			<tui-cell @click="detail" :arrow="true">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :arrow="true">
 				无上下线条,可单独设置，改变颜色
-			</tui-cell>
-		</tui-view>
+			</tui-list-cell>
+		</tui-list-view>
 
-		<tui-view title="无线条" unlined="all" class="tui-view">
-			<tui-cell @click="detail" :last="true" size="36">
+		<tui-list-view title="无线条" unlined="all" class="tui-list-view">
+			<tui-list-cell @click="detail" :last="true" size="36">
 				无线条，无箭头，大字体
-			</tui-cell>
-			<tui-cell @click="detail" :last="true" size="36">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :last="true" size="36">
 				无线条，无箭头，大字体
-			</tui-cell>
-			<tui-cell @click="detail" :last="true" size="36">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :last="true" size="36">
 				无线条，无箭头，大字体
-			</tui-cell>
-			<tui-cell last="true" @click="detail" size="36">
+			</tui-list-cell>
+			<tui-list-cell :last="true" @click="detail" size="36">
 				无线条，无箭头，大字体
-			</tui-cell>
-		</tui-view>
-		<tui-view title="菜单列表" class="tui-view">
-			<tui-cell @click="detail" :arrow="true" class="tui-list">
+			</tui-list-cell>
+		</tui-list-view>
+		<tui-list-view title="菜单列表" class="tui-list-view">
+			<tui-list-cell @click="detail" :arrow="true" class="tui-list">
 				<tui-icon name="wealth-fill" size="24" color="#ff7900"></tui-icon>
-				<text class="tui-cell-name">我的钱包</text>
-			</tui-cell>
-			<tui-cell @click="detail" :arrow="true" class="tui-list">
+				<text class="tui-list-cell-name">我的钱包</text>
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :arrow="true" class="tui-list">
 				<tui-icon name="service-fill" size="24" color="#5677fc"></tui-icon>
-				<view class="tui-cell-name">服务窗</view>
-			</tui-cell>
-			<tui-cell @click="detail" :arrow="true" class="tui-list">
+				<view class="tui-list-cell-name">服务窗</view>
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :arrow="true" class="tui-list">
 				<tui-icon name="explore-fill" size="24" color="#19be6b"></tui-icon>
-				<view class="tui-cell-name">发现</view>
+				<view class="tui-list-cell-name">发现</view>
 				<tui-tag size="small" type="light-green" shape="circle" class="tui-right">探索发现</tui-tag>
-			</tui-cell>
-			<tui-cell @click="detail" :arrow="true" class="tui-list">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :arrow="true" class="tui-list">
 				<tui-icon name="shop-fill" size="23" color="#ed3f14"></tui-icon>
-				<view class="tui-cell-name">我的店铺</view>
+				<view class="tui-list-cell-name">我的店铺</view>
 				<view class="tui-right">进入店铺</view>
-			</tui-cell>
-			<tui-cell @click="detail" :arrow="true" last="true" class="tui-list">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" :arrow="true" last="true" class="tui-list">
 				<image src="../../../static/images/my/thorui.png" class="logo" mode="widthFix"></image>
-				<text class="tui-cell-name">关于</text>
+				<text class="tui-list-cell-name">关于</text>
 				<view class="tui-right">Thor UI</view>
-			</tui-cell>
-		</tui-view>
+			</tui-list-cell>
+		</tui-list-view>
 
-		<tui-view title="消息列表" class="tui-view">
-			<tui-cell @click="detail" class="tui-msg">
+		<tui-list-view title="消息列表" class="tui-list-view">
+			<tui-list-cell @click="detail" class="tui-msg">
 				<view class="tui-msg-box">
 					<image src="../../../static/images/news/avatar_1.jpg" class="tui-msg-pic" mode="widthFix"></image>
 					<view class="tui-msg-item">
@@ -90,8 +90,8 @@
 					<view class="tui-msg-time">10:22</view>
 					<tui-badge type="danger" class="tui-badge">9</tui-badge>
 				</view>
-			</tui-cell>
-			<tui-cell @click="detail" class="tui-msg">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" class="tui-msg">
 				<view class="tui-msg-box">
 					<image src="../../../static/images/news/avatar_2.jpg" class="tui-msg-pic" mode="widthFix"></image>
 					<view class="tui-msg-item">
@@ -103,8 +103,8 @@
 					<view class="tui-msg-time">09:08</view>
 					<tui-badge type="gray" class="tui-badge">2</tui-badge>
 				</view>
-			</tui-cell>
-			<tui-cell @click="detail" class="tui-msg">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" class="tui-msg">
 				<view class="tui-msg-box">
 					<image src="../../../static/images/news/3.jpg" class="tui-msg-pic" mode="widthFix"></image>
 					<view class="tui-msg-item">
@@ -116,8 +116,8 @@
 					<view class="tui-msg-time">08:16</view>
 					<tui-badge type="danger" :dot="true"></tui-badge>
 				</view>
-			</tui-cell>
-			<tui-cell @click="detail" class="tui-msg">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" class="tui-msg">
 				<view class="tui-msg-box">
 					<image src="../../../static/images/news/4.jpg" class="tui-msg-pic" mode="widthFix"></image>
 					<view class="tui-msg-item">
@@ -129,8 +129,8 @@
 					<view class="tui-msg-time">昨天</view>
 					<tui-badge type="danger" class="tui-badge">2</tui-badge>
 				</view>
-			</tui-cell>
-			<tui-cell @click="detail" class="tui-msg">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" class="tui-msg">
 				<view class="tui-msg-box">
 					<image src="../../../static/images/news/avatar_1.jpg" class="tui-msg-pic" mode="widthFix"></image>
 					<view class="tui-msg-item">
@@ -142,8 +142,8 @@
 					<view class="tui-msg-time">昨天</view>
 					<tui-badge type="danger" class="tui-badge">3</tui-badge>
 				</view>
-			</tui-cell>
-			<tui-cell @click="detail" last="true" class="tui-msg">
+			</tui-list-cell>
+			<tui-list-cell @click="detail" last="true" class="tui-msg">
 				<view class="tui-msg-box">
 					<image src="../../../static/images/news/avatar_2.jpg" class="tui-msg-pic" mode="widthFix"></image>
 					<view class="tui-msg-item">
@@ -155,22 +155,22 @@
 					<view class="tui-msg-time">星期五</view>
 					<tui-badge type="danger" class="tui-badge">2</tui-badge>
 				</view>
-			</tui-cell>
-		</tui-view>
+			</tui-list-cell>
+		</tui-list-view>
 		<!--内容部分-->
 	</view>
 </template>
 
 <script>
-	import tuiView from "@/components/list-view/list-view"
-	import tuiCell from "@/components/list-cell/list-cell"
+	import tuiListView from "@/components/list-view/list-view"
+	import tuiListCell from "@/components/list-cell/list-cell"
 	import tuiIcon from "@/components/icon/icon"
 	import tuiTag from "@/components/tag/tag"
 	import tuiBadge from "@/components/badge/badge"
 	export default {
 		components: {
-			tuiView,
-			tuiCell,
+			tuiListView,
+			tuiListCell,
 			tuiIcon,
 			tuiTag,
 			tuiBadge
@@ -196,11 +196,11 @@
 		padding-bottom: env(safe-area-inset-bottom);
 	}
 
-	.tui-view {
+	.tui-list-view {
 		padding-top: 40upx !important
 	}
 
-	.tui-cell-name {
+	.tui-list-cell-name {
 		padding-left: 20upx;
 		vertical-align: middle;
 		line-height: 30upx;

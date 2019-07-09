@@ -120,7 +120,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 var _default =
 {
-  name: "actionsheet",
+  name: "tuiActionsheet",
   props: {
     //点击遮罩 是否可关闭
     maskClosable: {

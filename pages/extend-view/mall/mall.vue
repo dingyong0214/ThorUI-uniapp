@@ -14,12 +14,14 @@
 		<!--tabbar-->
 		<!--header-->
 		<view class="tui-header">
-			<view class="tui-category" hover-class="opcity" hover-stay-time="150" @tap="classify">
-				<tui-icon name="manage-fill" color="#fff" size="22"></tui-icon>
+			<view class="tui-category" hover-class="opcity" :hover-stay-time="150" @tap="classify">
+				<tui-icon name="manage-fill" color="#fff" :size="22"></tui-icon>
 				<view class="tui-category-scale">分类</view>
 			</view>
 			<view class="tui-rolling-search">
-				<icon type="search" size='13' color='#999'></icon>
+				<!-- #ifdef APP-PLUS || MP -->
+				<icon type="search" :size='13' color='#999'></icon>
+				<!-- #endif -->
 				<swiper vertical autoplay circular interval="8000" class="tui-swiper">
 					<swiper-item v-for="(item,index) in hotSearch" :key="index" class="tui-swiper-item" @tap="search">
 						<view class="tui-hot-item">{{item}}</view>
@@ -41,7 +43,8 @@
 				<view class="tui-primary-bg tui-route-right"></view>
 				<!--banner-->
 				<view class="tui-banner-box">
-					<swiper :indicator-dots="true" :autoplay="true" interval="5000" duration="150" class="tui-banner-swiper" :circular="true">
+					<swiper :indicator-dots="true" :autoplay="true" :interval="5000" :duration="150" class="tui-banner-swiper"
+					 :circular="true">
 						<swiper-item v-for="(item,index) in banner" :key="index" @tap.stop="detail">
 							<view class="tui-banner-title">{{item.title}}</view>
 							<image :src="'../../../static/images/mall/banner/'+item" class="tui-slide-image" mode="scaleToFill" />
@@ -61,7 +64,7 @@
 		<view class="tui-product-box tui-pb-20 tui-bg-white">
 			<view class="tui-group-name" @tap="more">
 				<text>新人专享</text>
-				<tui-icon name="arrowright" size="20" color="#555"></tui-icon>
+				<tui-icon name="arrowright" :size="20" color="#555"></tui-icon>
 			</view>
 			<view class="tui-activity-box" @tap="detail">
 				<image src="../../../static/images/mall/activity/activity_1.jpg" class="tui-activity-img" mode="widthFix"></image>
@@ -72,13 +75,12 @@
 		<view class="tui-product-box tui-pb-20 tui-bg-white">
 			<view class="tui-group-name" @tap="more">
 				<text>新品推荐</text>
-				<tui-icon name="arrowright" size="20" color="#555"></tui-icon>
+				<tui-icon name="arrowright" :size="20" color="#555"></tui-icon>
 			</view>
 			<view class="tui-new-box">
 				<view class="tui-new-item" :class="[index!=0 && index!=1 ?'tui-new-mtop':'']" v-for="(item,index) in newProduct"
 				 :key="index" @tap="detail">
-					<image :src="'../../../static/images/mall/new/'+(item.type==1?'new':'discount')+'.png'" class="tui-new-label"
-					 v-if="item.isLabel"></image>
+					<image :src="'../../../static/images/mall/new/'+(item.type==1?'new':'discount')+'.png'" class="tui-new-label" v-if="item.isLabel"></image>
 					<view class="tui-title-box">
 						<view class="tui-new-title">{{item.name}}</view>
 						<view class="tui-new-price">
@@ -99,7 +101,7 @@
 				<view class="tui-product-container">
 					<block v-for="(item,index) in productList" :key="index" v-if="(index+1)%2!=0">
 						<!--商品列表-->
-						<view class="tui-pro-item" hover-class="hover" hover-start-time="150" @tap="detail">
+						<view class="tui-pro-item" hover-class="hover" :hover-start-time="150" @tap="detail">
 							<image :src="'../../../static/images/mall/product/'+item.img+'.jpg'" class="tui-pro-img" mode="widthFix" />
 							<view class="tui-pro-content">
 								<view class="tui-pro-tit">{{item.name}}</view>
@@ -119,7 +121,7 @@
 				<view class="tui-product-container">
 					<block v-for="(item,index) in productList" :key="index" v-if="(index+1)%2==0">
 						<!--商品列表-->
-						<view class="tui-pro-item" hover-class="hover" hover-start-time="150" @tap="detail">
+						<view class="tui-pro-item" hover-class="hover" :hover-start-time="150" @tap="detail">
 							<image :src="'../../../static/images/mall/product/'+item.img+'.jpg'" class="tui-pro-img" mode="widthFix" />
 							<view class="tui-pro-content">
 								<view class="tui-pro-tit">{{item.name}}</view>
@@ -140,7 +142,7 @@
 		</view>
 
 		<!--加载loadding-->
-		<tui-loadmore :visible="loadding" index="3" type="red"></tui-loadmore>
+		<tui-loadmore :visible="loadding" :index="3" type="red"></tui-loadmore>
 		<!-- <tui-nomore visible="{{!pullUpOn}}"></tui-nomore> -->
 		<!--加载loadding-->
 		<view class="tui-safearea-bottom"></view>
@@ -549,6 +551,9 @@
 		padding-top: 100upx;
 		box-sizing: border-box;
 		background: #e41f19;
+		/* #ifdef H5 */
+		padding-top: 20upx !important;
+		/* #endif */
 	}
 
 	.tui-hot-search {

@@ -117,7 +117,7 @@
 		},
 		methods: {
 			spread: function(e) {
-				let index = e.currentTarget.dataset.index
+				let index =Number(e.currentTarget.dataset.index) 
 				let couponList = this.couponList
 				if (!couponList[index].spread) {
 					this.couponQrCode(couponList[index].code, "couponQrcode" + index)

@@ -1,14 +1,16 @@
 <template>
 	<view class="container">
+		<!-- #ifdef APP-PLUS || MP -->
 		<view class="tui-header">Hi，欢迎使用Thor UI！当前版本：
 			<text class="tui-version">V{{version}}</text>
 		</view>
+		<!-- #endif -->
 		<view class="tui-log">
 			<tui-time-axis>
 				<tui-timeaxis-item v-for="(item,index) in logList" :key="index">
 					<template v-slot:node>
 						<view class="tui-node">
-							<tui-icon name="explore-fill" :color="version==item.version?'#5c8dff':'#ddd'" size="18"></tui-icon>
+							<tui-icon name="explore-fill" :color="version==item.version?'#5c8dff':'#ddd'" :size="18"></tui-icon>
 						</view>
 					</template>
 					<template v-slot:content>
@@ -71,6 +73,10 @@
 					log: ["1.新增组件NumberBox数字框:可设置步长，支持浮点数，支持调整样式(可单独设置)", "2.新增组件Rate评分:可设置星星数，可设置大小颜色",
 						"3.新增聊天模板，包含：消息列表，好友列表，聊天界面等", "4.新增商城模板,包含：商城首页，商城列表，商城详情等", "5.优化部分体验"
 					]
+				}, {
+					version: "1.2.1",
+					date: "2019-07-10",
+					log: ["1.修复部分兼容性问题","2.修复部分已知bug"]
 				}].reverse()
 			}
 		},

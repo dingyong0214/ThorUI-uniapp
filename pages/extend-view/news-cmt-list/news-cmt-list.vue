@@ -29,7 +29,7 @@
 					</view>
 					<view class="tui-footer">
 						{{item.time}}
-						<view class="tui-primary tui-ml" hover-class="opcity" hover-start-time="150" @tap="cmtReply">回复</view>
+						<view class="tui-primary tui-ml" hover-class="opcity" :hover-start-time="150" @tap="cmtReply">回复</view>
 					</view>
 				</view>
 			</view>
