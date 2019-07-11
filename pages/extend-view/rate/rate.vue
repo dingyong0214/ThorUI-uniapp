@@ -14,11 +14,11 @@
 		</view>
 		<view class="tui-rate-box">
 			<view class="tui-title">设置尺寸大小(缩小)</view>
-			<tui-rate :current="index" @change="change" size="16"></tui-rate>
+			<tui-rate :current="index" @change="change" :size="16"></tui-rate>
 		</view>
 		<view class="tui-rate-box">
 			<view class="tui-title">设置尺寸大小(放大)</view>
-			<tui-rate :current="index" @change="change" size="26"></tui-rate>
+			<tui-rate :current="index" @change="change" :size="26"></tui-rate>
 		</view>
 		<view class="tui-rate-box">
 			<view class="tui-title"> 设置颜色</view>

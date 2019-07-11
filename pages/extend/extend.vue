@@ -105,8 +105,14 @@
 					bg: this.getRandom()
 				}, {
 					name: "Rate评分",
-					desc: "Rate评分:可设置星星数，可设置大小颜色，支持手势touch选择。",
+					desc: "Rate评分:可设置大小颜色，支持手势touch选择。",
 					page: "rate",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "Modal弹框",
+					desc: "Modal弹框:可设置按钮数，按钮样式，提示文字样式等，还可自定义弹框内容。",
+					page: "modal",
 					like: false,
 					bg: this.getRandom()
 				}, {

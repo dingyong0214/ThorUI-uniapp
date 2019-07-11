@@ -205,8 +205,14 @@ __webpack_require__.r(__webpack_exports__);
         bg: this.getRandom() },
       {
         name: "Rate评分",
-        desc: "Rate评分:可设置星星数，可设置大小颜色，支持手势touch选择。",
+        desc: "Rate评分:可设置大小颜色，支持手势touch选择。",
         page: "rate",
+        like: false,
+        bg: this.getRandom() },
+      {
+        name: "Modal弹框",
+        desc: "Modal弹框:可设置按钮数，按钮样式，提示文字样式等，还可自定义弹框内容。",
+        page: "modal",
         like: false,
         bg: this.getRandom() },
       {
@@ -264,9 +270,9 @@ __webpack_require__.r(__webpack_exports__);
         content: "ThorUI：" + title,
         href: 'https://thorui.cn/' },
       function () {
-        console.log('分享成功', " at pages\\extend\\extend.vue:167");
+        console.log('分享成功', " at pages\\extend\\extend.vue:173");
       }, function (e) {
-        console.log('分享失败：' + JSON.stringify(e), " at pages\\extend\\extend.vue:169");
+        console.log('分享失败：' + JSON.stringify(e), " at pages\\extend\\extend.vue:175");
       });
 
       return false;

@@ -59,7 +59,7 @@
 				}
 				const index = e.currentTarget.dataset.index;
 				this.$emit('change', {
-					index: index + 1
+					index: Number(index) + 1
 				})
 			},
 			touchMove(e) {
@@ -82,6 +82,16 @@
 				})
 			}
 		},
+		// #ifdef H5
+		mounted() {
+			const className = '.tui-rate-box';
+			let query = uni.createSelectorQuery().in(this)
+			query.select(className).boundingClientRect((res) => {
+				this.pageX = res.left || 0
+			}).exec()
+		},
+
+		// #endif
 		onReady() {
 			const className = '.tui-rate-box';
 			let query = uni.createSelectorQuery().in(this)

@@ -57,7 +57,8 @@
     "pages/qrcode/qrcode",
     "pages/selectCity/selectCity",
     "pages/swipe-action/swipe-action",
-    "pages/weather/weather"
+    "pages/weather/weather",
+    "pages/extend-view/modal/modal"
   ],
   "subPackages": [],
   "window": {

@@ -176,7 +176,11 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
       {
         version: "1.2.1",
         date: "2019-07-10",
-        log: ["1.修复部分兼容性问题", "2.修复部分已知bug"] }].
+        log: ["1.修复部分兼容性问题", "2.修复部分已知bug"] },
+      {
+        version: "1.2.2",
+        date: "2019-07-11",
+        log: ["1.新增组件Modal弹框:可设置按钮数，按钮样式，提示文字样式等，还可自定义弹框内容。", "2.修复已知bug", "3.ThorUI组件文档地址：http://www.donarui.com/"] }].
       reverse() };
 
   },

@@ -7,11 +7,23 @@ ThorUI组件库，uni-app代码片段分享
 
 [https://www.thorui.cn/](https://www.thorui.cn/)
 
+# ThorUI组件文档
 
-本项目稳定后，会同步更新到微信小程序，支付宝小程序，百度小程序，头条小程序等
+[http://www.donarui.com/](http://www.donarui.com/)
+
+
+本项目已同步更新到[微信小程序(原生小程序代码)](https://github.com/dingyong0214/ThorUI)，后续会更新到支付宝小程序，百度小程序，头条小程序等
+
+## 更新日志
+
+# V1.2.2
+1.新增组件Modal弹框:可设置按钮数，按钮样式，提示文字样式等，还可自定义弹框内容。 
+
+2.修复部分已知bug。
 
 # V1.2.1
 1.修复部分兼容性问题。
+
 2.修复部分已知bug。
 
 # V1.2.0

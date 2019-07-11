@@ -348,7 +348,7 @@
 	}, {
 		"path": "pages/log/log",
 		"style": {
-			 "navigationBarTitleText": "更新日志"
+			"navigationBarTitleText": "更新日志"
 		}
 	}, {
 		"path": "pages/login/login",
@@ -462,6 +462,13 @@
 				"titleNView": false,
 				"bounce": "none"
 			}
+		}
+	}, {
+		"path": "pages/extend-view/modal/modal",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "modal"
 		}
 	}],
 	"globalStyle": {

@@ -16,7 +16,7 @@
 					<template v-slot:content>
 						<view class="tui-content-log" :class="[version==item.version?'':'tui-log-gray']">
 							<view class="tui-version-date">{{logList.length-1==index?item.version:'V'+item.version}}（{{item.date}}）</view>
-							<view v-for="(model,index2) in item.log"  :key="index2" class="tui-log-text">{{model}}</view>
+							<view v-for="(model,index2) in item.log" :key="index2" class="tui-log-text">{{model}}</view>
 						</view>
 					</template>
 				</tui-timeaxis-item>
@@ -76,7 +76,11 @@
 				}, {
 					version: "1.2.1",
 					date: "2019-07-10",
-					log: ["1.修复部分兼容性问题","2.修复部分已知bug"]
+					log: ["1.修复部分兼容性问题", "2.修复部分已知bug"]
+				}, {
+					version: "1.2.2",
+					date: "2019-07-11",
+					log: ["1.新增组件Modal弹框:可设置按钮数，按钮样式，提示文字样式等，还可自定义弹框内容。", "2.修复已知bug", "3.ThorUI组件文档地址：http://www.donarui.com/"]
 				}].reverse()
 			}
 		},

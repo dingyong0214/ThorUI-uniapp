@@ -159,7 +159,7 @@ var _default =
       }
       var index = e.currentTarget.dataset.index;
       this.$emit('change', {
-        index: index + 1 });
+        index: Number(index) + 1 });
 
     },
     touchMove: function touchMove(e) {
@@ -181,6 +181,16 @@ var _default =
         index: index });
 
     } },
+
+
+
+
+
+
+
+
+
+
 
   onReady: function onReady() {var _this = this;
     var className = '.tui-rate-box';

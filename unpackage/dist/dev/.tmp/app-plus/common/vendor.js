@@ -1056,6 +1056,23 @@ createPage(_mall.default);
 
 /***/ }),
 
+/***/ "../../../../../work/uniapp/ThorUI/main.js?{\"page\":\"pages%2Fextend-view%2Fmodal%2Fmodal\"}":
+/*!************************************************************************************!*\
+  !*** D:/work/uniapp/ThorUI/main.js?{"page":"pages%2Fextend-view%2Fmodal%2Fmodal"} ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../work/uniapp/ThorUI/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _modal = _interopRequireDefault(__webpack_require__(/*! ./pages/extend-view/modal/modal.vue */ "../../../../../work/uniapp/ThorUI/pages/extend-view/modal/modal.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_modal.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
 /***/ "../../../../../work/uniapp/ThorUI/main.js?{\"page\":\"pages%2Fextend-view%2FmsgList%2FmsgList\"}":
 /*!****************************************************************************************!*\
   !*** D:/work/uniapp/ThorUI/main.js?{"page":"pages%2Fextend-view%2FmsgList%2FmsgList"} ***!
@@ -1679,7 +1696,7 @@ _vue.default.use(_vuex.default);
 
 var store = new _vuex.default.Store({
   state: {
-    version: "1.2.1",
+    version: "1.2.2",
     isLogin: uni.getStorageSync("thorui_mobile") ? true : false,
     mobile: uni.getStorageSync("thorui_mobile") || "echo.",
     memberId: uni.getStorageSync("memberId") || 0,
