@@ -1,8 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "消息提示",
-  "usingComponents": {
-    "tui-tips": "/components/tips/tips"
-  }
-}

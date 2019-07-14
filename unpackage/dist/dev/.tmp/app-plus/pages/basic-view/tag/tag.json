@@ -1,8 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "Tag",
-  "usingComponents": {
-    "tui-tag": "/components/tag/tag"
-  }
-}

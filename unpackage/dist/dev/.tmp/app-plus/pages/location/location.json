@@ -1,8 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "拖拽定位",
-  "disableScroll": true,
-  "bounce": "none",
-  "usingComponents": {}
-}
