@@ -117,8 +117,7 @@ page {
 .tui-rolling-search {
 	width: 100%;
 	height: 60rpx;
-	-webkit-border-radius: 35rpx;
-	        border-radius: 35rpx;
+	border-radius: 35rpx;
 	padding: 0 40rpx 0 30rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -229,8 +228,7 @@ page {
 .tui-hot-tag {
 	background: rgba(255, 255, 255, 0.15);
 	padding: 10rpx 24rpx;
-	-webkit-border-radius: 30rpx;
-	        border-radius: 30rpx;
+	border-radius: 30rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -288,8 +286,7 @@ page {
 .tui-banner-swiper {
 	width: 100%;
 	height: 240rpx;
-	-webkit-border-radius: 12rpx;
-	        border-radius: 12rpx;
+	border-radius: 12rpx;
 	overflow: hidden;
 	-webkit-transform: translateY(0);
 	    -ms-transform: translateY(0);
@@ -320,8 +317,7 @@ page {
 	    -ms-flex-positive: 1;
 	        flex-grow: 1;
 	background: rgba(255, 255, 255, 0.8);
-	-webkit-border-radius: 16rpx;
-	        border-radius: 16rpx;
+	border-radius: 16rpx;
 	overflow: hidden;
 }
 .tui-banner-swiper .wx-swiper-dot-active::before {
@@ -407,8 +403,7 @@ page {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-border-radius: 12rpx;
-	        border-radius: 12rpx;
+	border-radius: 12rpx;
 	overflow: hidden;
 }
 .tui-activity-img {
@@ -448,8 +443,7 @@ page {
 	        align-items: center;
 	background: #f5f2f9;
 	position: relative;
-	-webkit-border-radius: 12rpx;
-	        border-radius: 12rpx;
+	border-radius: 12rpx;
 }
 .tui-new-mtop {
 	margin-top: 2%;
@@ -497,8 +491,7 @@ page {
 .tui-new-label {
 	width: 56rpx;
 	height: 56rpx;
-	-webkit-border-top-left-radius: 12rpx;
-	        border-top-left-radius: 12rpx;
+	border-top-left-radius: 12rpx;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -540,8 +533,7 @@ page {
 	background: #fff;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	-webkit-border-radius: 12rpx;
-	        border-radius: 12rpx;
+	border-radius: 12rpx;
 	overflow: hidden;
 }
 .tui-pro-img {

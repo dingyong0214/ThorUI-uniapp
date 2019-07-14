@@ -495,8 +495,7 @@
 	width: 44rpx;
 	height: 6rpx;
 	background: #5677fc;
-	-webkit-border-radius: 6rpx;
-	        border-radius: 6rpx;
+	border-radius: 6rpx;
 	bottom: -10rpx;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
@@ -573,8 +572,7 @@
 	    -ms-flex-pack: center;
 	        justify-content: center;
 	padding: 18rpx 12rpx;
-	-webkit-border-radius: 40rpx;
-	        border-radius: 40rpx;
+	border-radius: 40rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	background: #f2f2f2;
@@ -586,10 +584,8 @@
 }
 .tui-btmItem-active {
 	padding-bottom: 60rpx;
-	-webkit-border-bottom-left-radius: 0;
-	        border-bottom-left-radius: 0;
-	-webkit-border-bottom-right-radius: 0;
-	        border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 .tui-bold {
 	font-weight: bold;
@@ -650,8 +646,7 @@
 }
 .tui-drop-btn {
 	width: 50% !important;
-	-webkit-border-radius: 0 !important;
-	        border-radius: 0 !important;
+	border-radius: 0 !important;
 	font-size: 32rpx !important;
 	text-align: center;
 	height: 100rpx;
@@ -659,8 +654,7 @@
 	border: 0;
 }
 .tui-btn-white {
-	-webkit-border-radius: 0;
-	        border-radius: 0;
+	border-radius: 0;
 }
 /*header 下拉选择*/
 .top-dropdown {
@@ -695,8 +689,7 @@
 }
 .tui-selected-list {
 	background: #fff;
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 	overflow: hidden;
 	-webkit-transform: translateZ(0);
 	        transform: translateZ(0);
@@ -769,8 +762,7 @@
 	background: #fafafa;
 	height: 126rpx;
 	width: 126rpx;
-	-webkit-border-radius: 32rpx;
-	        border-radius: 32rpx;
+	border-radius: 32rpx;
 }
 .tui-share-text {
 	font-size: 24rpx;

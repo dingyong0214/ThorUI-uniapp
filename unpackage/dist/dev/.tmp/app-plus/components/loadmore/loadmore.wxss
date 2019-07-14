@@ -45,8 +45,7 @@ to {
 	width: 28rpx;
 	height: 28rpx;
 	border: 1px solid #8f8d8e;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	margin: 0 6px;
 	display: inline-block;
 	vertical-align: middle;
@@ -82,8 +81,7 @@ to {
 	width: 28rpx;
 	height: 28rpx;
 	background: 0 0;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	border: 2px solid;
 	border-color: #e5e5e5 #e5e5e5 #e5e5e5 #8f8d8e;
 	-webkit-animation: tui-rotate 0.7s linear infinite;

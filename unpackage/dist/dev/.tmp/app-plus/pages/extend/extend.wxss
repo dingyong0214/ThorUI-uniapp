@@ -39,8 +39,7 @@ page {
 	width: 100%;
 	padding: 30rpx 20rpx;
 	margin-bottom: 10rpx;
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	color: #fff;
@@ -58,8 +57,7 @@ page {
 	left: 0;
 	top: 0;
 	background: rgba(0, 0, 0, 0.2);
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 .tui-title {
 	font-size: 40rpx;
@@ -107,18 +105,11 @@ page {
 }
 .tui-bg-1 {
 	background: #282537;
-	background-image: -webkit-radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
 	background-image: -o-radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
 	background-image: radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
 }
 .tui-bg-2 {
 	background: #092756;
-	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%),
-		-webkit-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%),
-		-webkit-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%),
-		-webkit-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%),
-		-webkit-linear-gradient(315deg, #670d10 0%, #092756 100%);
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%),
 		-o-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%),
 		-o-linear-gradient(315deg, #670d10 0%, #092756 100%);
@@ -128,7 +119,6 @@ page {
 }
 .tui-bg-3 {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#8b9da9), to(#fff6e4));
-	background-image: -webkit-linear-gradient(#8b9da9, #fff6e4);
 	background-image: -o-linear-gradient(#8b9da9, #fff6e4);
 	background-image: linear-gradient(#8b9da9, #fff6e4);
 	-webkit-box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
@@ -136,12 +126,9 @@ page {
 }
 .tui-bg-4 {
 	background: rgb(105, 155, 200);
-	background: -webkit-gradient(radial, top left, 0px, top left, 100%, color-stop(0%, rgba(105, 155, 200, 1)), color-stop(57%, rgba(181, 197, 216, 1)));
 	background: -webkit-radial-gradient(top left, ellipse cover, rgba(105, 155, 200, 1) 0%, rgba(181, 197, 216, 1) 57%);
 }
 .tui-bg-5 {
-	background-image: -webkit-linear-gradient(45deg, rgba(194, 233, 221, 0.5) 1%, rgba(104, 119, 132, 0.5) 100%),
-		-webkit-linear-gradient(135deg, #494d71 0%, rgba(217, 230, 185, 0.5) 80%);
 	background-image: -o-linear-gradient(45deg, rgba(194, 233, 221, 0.5) 1%, rgba(104, 119, 132, 0.5) 100%),
 		-o-linear-gradient(135deg, #494d71 0%, rgba(217, 230, 185, 0.5) 80%);
 	background-image: linear-gradient(45deg, rgba(194, 233, 221, 0.5) 1%, rgba(104, 119, 132, 0.5) 100%),
@@ -149,10 +136,6 @@ page {
 }
 .tui-bg-6 {
 	background: rgb(244, 226, 156);
-	background: -webkit-linear-gradient(-45deg, rgba(244, 226, 156, 0) 0%, rgba(59, 41, 58, 1) 100%),
-		-webkit-linear-gradient(left, rgba(244, 226, 156, 1) 0%, rgba(130, 96, 87, 1) 100%);
-	background: -webkit-linear-gradient(315deg, rgba(244, 226, 156, 0) 0%, rgba(59, 41, 58, 1) 100%),
-		-webkit-linear-gradient(left, rgba(244, 226, 156, 1) 0%, rgba(130, 96, 87, 1) 100%);
 	background: -o-linear-gradient(315deg, rgba(244, 226, 156, 0) 0%, rgba(59, 41, 58, 1) 100%),
 		-o-linear-gradient(left, rgba(244, 226, 156, 1) 0%, rgba(130, 96, 87, 1) 100%);
 	background: linear-gradient(135deg, rgba(244, 226, 156, 0) 0%, rgba(59, 41, 58, 1) 100%),

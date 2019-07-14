@@ -427,7 +427,7 @@
                             nativeMarker = new plus.maps.Marker(point);
                             nativeMarker.setIcon('__uniappmarker@3x.png');
                             nativeMap.addOverlay(nativeMarker);
-                            centerPoint = point;
+                            //centerPoint = point;
                             nativeMap.showUserLocation(true);
                             if (plus.os.name !== 'Android') {
                                 nativeMap.setCenter(point);
@@ -442,9 +442,9 @@
 
 
                     nativeMap.onstatuschanged = function(evt) { //切换坐标中心
-                        if (!centerPoint) {
-                            return;
-                        }
+                        // if (!centerPoint) {
+                        //     return;
+                        // }
                         if (centerPoint && evt.center) {
                             if (centerPoint.latitude === evt.center.latitude &&
                                 centerPoint.longitude === evt.center.longitude) {

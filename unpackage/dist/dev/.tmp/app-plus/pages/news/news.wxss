@@ -40,8 +40,7 @@
 	top: 6rpx;
 	width: 146rpx;
 	height: 146rpx;
-	-webkit-border-radius: 4rpx;
-	        border-radius: 4rpx;
+	border-radius: 4rpx;
 }
 .sub-title {
 	padding-top: 24rpx;
@@ -59,8 +58,7 @@
 .tag {
 	padding: 5rpx 10rpx;
 	font-size: 24rpx;
-	-webkit-border-radius: 4rpx;
-	        border-radius: 4rpx;
+	border-radius: 4rpx;
 	margin-right: 20rpx;
 }
 .b-red {

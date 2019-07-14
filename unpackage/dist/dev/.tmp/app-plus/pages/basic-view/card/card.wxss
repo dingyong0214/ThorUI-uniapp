@@ -36,7 +36,6 @@ page {
 	        box-sizing: border-box;
 	padding: 20rpx 30rpx;
 	background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.6)));
-	background: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.6));
 	background: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.6));
 	background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
 }

@@ -216,8 +216,7 @@
 .search-box {
 		width: 672rpx;
 		/* border:1upx solid #DBE1EF; */
-		-webkit-border-radius: 10rpx;
-		        border-radius: 10rpx;
+		border-radius: 10rpx;
 		-webkit-box-sizing: border-box;
 		        box-sizing: border-box;
 		margin: 80rpx auto 40rpx auto;
@@ -237,8 +236,7 @@
 		    transform: scale(0.5);
 		left: 0;
 		top: 0;
-		-webkit-border-radius: 20rpx;
-		        border-radius: 20rpx;
+		border-radius: 20rpx;
 }
 .s-input {
 		height: 86rpx;

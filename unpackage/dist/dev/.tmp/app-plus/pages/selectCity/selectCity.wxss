@@ -32,8 +32,7 @@ page {
 	    -ms-flex: 1;
 	        flex: 1;
 	position: relative;
-	-webkit-border-radius: 32rpx;
-	        border-radius: 32rpx;
+	border-radius: 32rpx;
 	background: #f2f5f7;
 }
 .search-bar-box {
@@ -84,8 +83,7 @@ page {
 	bottom: 0;
 	left: 0;
 	z-index: 2;
-	-webkit-border-radius: 32rpx;
-	        border-radius: 32rpx;
+	border-radius: 32rpx;
 	color: #ccc;
 	background: #f2f5f7;
 }
@@ -220,8 +218,7 @@ page {
 	height: 56rpx;
 	margin-top: 16rpx;
 	/* border: solid 1upx #ccc; */
-	-webkit-border-radius: 28rpx;
-	        border-radius: 28rpx;
+	border-radius: 28rpx;
 	font-size: 28rpx;
 	color: #333;
 	position: relative;
@@ -241,8 +238,7 @@ page {
 	box-sizing: border-box;
 	left: 0;
 	top: 0;
-	-webkit-border-radius: 56rpx;
-	        border-radius: 56rpx;
+	border-radius: 56rpx;
 	border: 1px solid #ccc;
 }
 .tap-city {
@@ -322,8 +318,7 @@ page {
 	top: 50%;
 	margin-left: -80rpx;
 	margin-top: -80rpx;
-	-webkit-border-radius: 80rpx;
-	        border-radius: 80rpx;
+	border-radius: 80rpx;
 	text-align: center;
 	line-height: 160rpx;
 	font-size: 70rpx;

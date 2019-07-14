@@ -116,8 +116,7 @@ page {
 	width: 100%;
 	height: 72rpx;
 	background: #f5f6fa;
-	-webkit-border-radius: 36rpx;
-	        border-radius: 36rpx;
+	border-radius: 36rpx;
 	font-size: 30rpx;
 	color: #A8ABB8;
 	display: -webkit-box;
@@ -151,8 +150,7 @@ page {
 .tui-msg-pic {
 	width: 100rpx;
 	height: 100rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	display: block;
 	margin-right: 24rpx;
 }

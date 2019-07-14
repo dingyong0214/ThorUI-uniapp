@@ -4,10 +4,8 @@
 	position: fixed;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	-webkit-border-bottom-right-radius: 24rpx;
-	        border-bottom-right-radius: 24rpx;
-	-webkit-border-bottom-left-radius: 24rpx;
-	        border-bottom-left-radius: 24rpx;
+	border-bottom-right-radius: 24rpx;
+	border-bottom-left-radius: 24rpx;
 	-webkit-transform: translateZ(0);
 	        transform: translateZ(0);
 	overflow: hidden;

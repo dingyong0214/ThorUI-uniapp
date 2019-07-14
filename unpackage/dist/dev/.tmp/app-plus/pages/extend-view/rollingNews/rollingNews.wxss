@@ -132,8 +132,7 @@
 .tui-rolling-search {
 	width: 100%;
 	height: 70rpx;
-	-webkit-border-radius: 35rpx;
-	        border-radius: 35rpx;
+	border-radius: 35rpx;
 	padding: 0 40rpx 0 30rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;

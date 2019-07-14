@@ -26,8 +26,7 @@ page {
 .tui-avatar {
 	width: 160rpx;
 	height: 160rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 }
 .tui-nickname {
 	font-weight: bold;

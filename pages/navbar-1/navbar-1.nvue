@@ -197,17 +197,17 @@
 					this.newsitems[e].data = [];
 					this.newsitems[e].loadingText = "正在加载...";
 					this.newsitems[e].pageIndex = 2
+					this.newsitems[e].data = this.newsData || [];
+					//这里实际判断应该是数据条数是不是小于每页条数【或者能判断第一页就加载完全部数据】
+					if (this.newsitems[e].pageIndex > 3) {
+						this.newsitems[e].loadingText = "没有更多了";
+						this.newsitems[e].canPullUp = false;
+					} else {
+						this.newsitems[e].canPullUp = true;
+						this.$refs['tab' + e][0].resetLoadmore()
+					}
 					setTimeout(() => {
-						this.newsitems[e].data = this.newsData || [];
 						this.refreshing = false;
-						//这里实际判断应该是数据条数是不是小于每页条数【或者能判断第一页就加载完全部数据】
-						if (this.newsitems[e].pageIndex > 3) {
-							this.newsitems[e].loadingText = "没有更多了";
-							this.newsitems[e].canPullUp = false;
-						} else {
-							this.newsitems[e].canPullUp = true;
-							this.$refs['tab' + e][0].resetLoadmore()
-						}
 					}, 0)
 				} else {
 					const list = this.newsData || []
@@ -304,28 +304,34 @@
 	.tui-white {
 		background-color: #FFFFFF !important;
 	}
-   .tui-gray{
+
+	.tui-gray {
 		background-color: #fafafa;
 	}
+
 	.tui-slider-box {
 		width: 750px;
 		align-items: center;
 		justify-content: center;
 	}
+
 	.tui-slider {
 		width: 690px;
 		height: 220px;
 		border-radius: 12px;
 		overflow: hidden;
 	}
-	.tui-img-radius{
+
+	.tui-img-radius {
 		border-radius: 12px;
 	}
+
 	.tui-frame {
 		width: 690px;
 		height: 220px;
 		background-color: #fff;
 	}
+
 	.tui-slider-img {
 		width: 690px;
 		height: 220px;
@@ -338,7 +344,7 @@
 		item-selected-color: #FFFFFF;
 		item-size: 14px;
 		position: absolute;
-		bottom: 24px; 
+		bottom: 24px;
 		left: 0;
 	}
 
@@ -362,7 +368,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		box-sizing: border-box;
 	}
 
 	.tab-bar-title {

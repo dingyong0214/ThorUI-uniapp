@@ -60,8 +60,7 @@
 	height: 82rpx;
 	background: #e9edfc;
 	line-height: 82rpx;
-	-webkit-border-radius: 6rpx;
-	        border-radius: 6rpx;
+	border-radius: 6rpx;
 	font-size: 30rpx;
 	color: #333;
 	text-align: center;

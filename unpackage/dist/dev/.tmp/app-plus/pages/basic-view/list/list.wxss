@@ -47,8 +47,7 @@
 .tui-msg-pic {
 	width: 100rpx;
 	height: 100rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	display: block;
 	margin-right: 24rpx;
 }

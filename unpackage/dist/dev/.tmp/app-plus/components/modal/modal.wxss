@@ -14,8 +14,7 @@
 	    -ms-transform: translate(-50%, -50%) scale(0);
 	        transform: translate(-50%, -50%) scale(0);
 	opacity: 0;
-	-webkit-border-radius: 24rpx;
-	        border-radius: 24rpx;
+	border-radius: 24rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	padding: 40rpx 60rpx;
@@ -90,8 +89,7 @@
 	height: 68rpx;
 	line-height: 68rpx;
 	position: relative;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 	font-size: 24rpx;
 	overflow: visible;
 }
@@ -108,8 +106,7 @@
 	    transform: scale(0.5, 0.5);
 	left: 0;
 	top: 0;
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 .tui-btn-width {
 	width: 80% !important;
@@ -223,11 +220,9 @@
 	opacity: 0.6;
 }
 .tui-circle-btn {
-	-webkit-border-radius: 40rpx !important;
-	        border-radius: 40rpx !important;
+	border-radius: 40rpx !important;
 }
 .tui-circle-btn::after {
-	-webkit-border-radius: 80rpx !important;
-	        border-radius: 80rpx !important;
+	border-radius: 80rpx !important;
 }
 

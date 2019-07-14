@@ -216,8 +216,7 @@
 .tui-tag {
   padding: 16rpx 26rpx;
   font-size: 28rpx;
-  -webkit-border-radius: 6rpx;
-          border-radius: 6rpx;
+  border-radius: 6rpx;
   /* display: inline-block;
   vertical-align: middle; */
   line-height: 28rpx;
@@ -225,8 +224,7 @@
 .tui-tag-small {
   padding: 10rpx 16rpx;
   font-size: 24rpx;
-  -webkit-border-radius: 6rpx;
-          border-radius: 6rpx;
+  border-radius: 6rpx;
   /* display: inline-block;
   vertical-align: middle; */
   line-height: 24rpx;
@@ -251,37 +249,29 @@
   box-sizing: border-box;
   left: 0;
   top: 0;
-  -webkit-border-radius: 80rpx;
-          border-radius: 80rpx;
+  border-radius: 80rpx;
   border: 1px solid #5677fc;
 }
 .tui-tag-fillet {
-  -webkit-border-radius: 50rpx;
-          border-radius: 50rpx;
+  border-radius: 50rpx;
 }
 .tui-white.tui-tag-fillet::after {
-  -webkit-border-radius: 80rpx;
-          border-radius: 80rpx;
+  border-radius: 80rpx;
 }
 .tui-tag-outline-fillet::after {
-  -webkit-border-radius: 80rpx;
-          border-radius: 80rpx;
+  border-radius: 80rpx;
 }
 .tui-tag-fillet-left {
-  -webkit-border-radius: 50rpx 0 0 50rpx;
-          border-radius: 50rpx 0 0 50rpx;
+  border-radius: 50rpx 0 0 50rpx;
 }
 .tui-tag-fillet-right {
-  -webkit-border-radius: 0 50rpx 50rpx 0;
-          border-radius: 0 50rpx 50rpx 0;
+  border-radius: 0 50rpx 50rpx 0;
 }
 .tui-tag-fillet-left.tui-tag-outline::after {
-  -webkit-border-radius: 100rpx 0 0 100rpx;
-          border-radius: 100rpx 0 0 100rpx;
+  border-radius: 100rpx 0 0 100rpx;
 }
 .tui-tag-fillet-right.tui-tag-outline::after {
-  -webkit-border-radius: 0 100rpx 100rpx 0;
-          border-radius: 0 100rpx 100rpx 0;
+  border-radius: 0 100rpx 100rpx 0;
 }
 
 /* tag end*/

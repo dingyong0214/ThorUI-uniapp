@@ -58,7 +58,10 @@
     "pages/selectCity/selectCity",
     "pages/swipe-action/swipe-action",
     "pages/weather/weather",
-    "pages/extend-view/modal/modal"
+    "pages/extend-view/modal/modal",
+    "pages/extend-view/countdown/countdown",
+    "pages/extend-view/carousel/carousel",
+    "pages/extend-view/divider/divider"
   ],
   "subPackages": [],
   "window": {
@@ -125,6 +128,6 @@
     "autoclose": false
   },
   "appname": "ThorUI",
-  "compilerVersion": "2.0.1",
+  "compilerVersion": "2.1.0",
   "usingComponents": {}
 }

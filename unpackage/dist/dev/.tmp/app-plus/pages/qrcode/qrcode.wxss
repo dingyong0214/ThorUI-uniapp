@@ -41,8 +41,7 @@ page {
 	width: 100%;
 	-webkit-box-shadow: 0 0 12rpx 0 #eaeef1;
 	        box-shadow: 0 0 12rpx 0 #eaeef1;
-	-webkit-border-radius: 2rpx;
-	        border-radius: 2rpx;
+	border-radius: 2rpx;
 }
 .coupon {
 	height: 160rpx;
@@ -72,8 +71,7 @@ page {
 	top: 64rpx;
 	height: 36rpx;
 	width: 36rpx;
-	-webkit-border-radius: 18rpx;
-	        border-radius: 18rpx;
+	border-radius: 18rpx;
 	background: #fff
 }
 .circle-right {
@@ -82,8 +80,7 @@ page {
 	right: -25rpx;
 	height: 36rpx;
 	width: 36rpx;
-	-webkit-border-radius: 18rpx;
-	        border-radius: 18rpx;
+	border-radius: 18rpx;
 	background: #fff
 }
 .left-tit-box {

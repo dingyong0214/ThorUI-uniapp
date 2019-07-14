@@ -470,6 +470,28 @@
 			"navigationBarTextStyle": "black",
 			"navigationBarTitleText": "modal"
 		}
+	}, {
+		"path": "pages/extend-view/countdown/countdown",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "倒计时"
+		}
+	}, {
+		"path": "pages/extend-view/carousel/carousel",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"backgroundColorTop": "#fff",
+			"navigationBarTitleText": "卡片轮播"
+		}
+	}, {
+		"path": "pages/extend-view/divider/divider",
+		"style": {
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "分隔符"
+		}
 	}],
 	"globalStyle": {
 		"backgroundTextStyle": "dark",

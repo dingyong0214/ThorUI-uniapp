@@ -17,8 +17,7 @@
 	background: #ddd;
 	height: 44rpx;
 	width: 44rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;

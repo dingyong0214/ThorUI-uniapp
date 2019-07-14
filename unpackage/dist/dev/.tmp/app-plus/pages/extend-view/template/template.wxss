@@ -37,8 +37,7 @@
 		padding: 3px 0;
 }
 .tui-content-template {
-		-webkit-border-radius: 10rpx;
-		        border-radius: 10rpx;
+		border-radius: 10rpx;
 		position: relative;
 		padding: 20rpx 26rpx;
 		font-size: 28rpx;

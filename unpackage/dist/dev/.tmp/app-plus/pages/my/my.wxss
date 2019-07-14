@@ -233,8 +233,7 @@
 .avatar-img {
 	width: 160rpx;
 	height: 160rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	-webkit-align-self: center;
 	    -ms-flex-item-align: center;
 	        align-self: center;
@@ -293,8 +292,7 @@
 	-webkit-align-items: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 	background-color: #FFFFFF;
 	margin: -30rpx 30rpx 26rpx 30rpx;
 	-webkit-box-shadow: 0 15rpx 10rpx -15rpx #efefef;
@@ -351,8 +349,7 @@
 	padding: 40rpx 74rpx 40rpx 95rpx;
 	margin: 0 30rpx;
 	background-color: #FFFFFF;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	-webkit-box-shadow: 0 0 10rpx #efefef;

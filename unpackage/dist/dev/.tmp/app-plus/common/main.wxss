@@ -76,18 +76,15 @@ button::after {
   height: 90rpx;
   line-height: 90rpx;
   background: -webkit-gradient(linear, right top, left top, from(#5677fc), to(#5c8dff));
-  background: -webkit-linear-gradient(right, #5677fc, #5c8dff);
   background: -o-linear-gradient(right, #5677fc, #5c8dff);
   background: linear-gradient(-90deg, #5677fc, #5c8dff);
-  -webkit-border-radius: 45rpx;
-          border-radius: 45rpx;
+  border-radius: 45rpx;
   color: #fff;
   font-size: 36rpx;
 }
 .btn-hover {
   color: #d5d4d9;
   background: -webkit-gradient(linear, right top, left top, from(#4a67d6), to(#4e77d9));
-  background: -webkit-linear-gradient(right, #4a67d6, #4e77d9);
   background: -o-linear-gradient(right, #4a67d6, #4e77d9);
   background: linear-gradient(-90deg, #4a67d6, #4e77d9);
 }
@@ -110,7 +107,6 @@ button::after {
 .btn-disabled {
   color: #fafbfc !important;
   background: -webkit-gradient(linear, right top, left top, from(#cad8fb), to(#c9d3fb));
-  background: -webkit-linear-gradient(right, #cad8fb, #c9d3fb);
   background: -o-linear-gradient(right, #cad8fb, #c9d3fb);
   background: linear-gradient(-90deg, #cad8fb, #c9d3fb);
 }

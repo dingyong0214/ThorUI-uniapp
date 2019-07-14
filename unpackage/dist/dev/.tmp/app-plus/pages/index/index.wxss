@@ -148,8 +148,7 @@
 .kind-list_item {
 	margin: 10px 0;
 	background-color: #fff;
-	-webkit-border-radius: 2px;
-	        border-radius: 2px;
+	border-radius: 2px;
 	overflow: hidden;
 }
 .kind-list_item:first-child {

@@ -129,8 +129,7 @@
 .tui-tips-content {
 		word-wrap: break-word;
 		word-break: break-all;
-		-webkit-border-radius: 8rpx;
-		        border-radius: 8rpx;
+		border-radius: 8rpx;
 		padding: 18rpx 30rpx;
 }
 	/*底部消息提醒 start*/

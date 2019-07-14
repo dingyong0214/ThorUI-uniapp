@@ -148,8 +148,7 @@ page {
 	padding-top: 8rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	-webkit-border-radius: 24rpx;
-	        border-radius: 24rpx;
+	border-radius: 24rpx;
 }
 .result-box {
 	width: 100%;
@@ -172,8 +171,7 @@ page {
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
 	background: #fff;
-	-webkit-border-radius: 24rpx;
-	        border-radius: 24rpx;
+	border-radius: 24rpx;
 }
 .list-item::after {
 	left: 0;
@@ -181,8 +179,7 @@ page {
 .badge {
 	height: 16rpx;
 	width: 16rpx;
-	-webkit-border-radius: 8rpx;
-	        border-radius: 8rpx;
+	border-radius: 8rpx;
 	background: #5677fc;
 	margin-right: 20rpx;
 	-webkit-flex-shrink: 0;
@@ -229,8 +226,7 @@ page {
 	bottom: 80rpx;
 	right: 60rpx;
 	background: rgba(255, 255, 255, 0.94);
-	-webkit-border-radius: 38rpx;
-	        border-radius: 38rpx;
+	border-radius: 38rpx;
 }
 .current-img {
 	width: 42rpx;

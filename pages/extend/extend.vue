@@ -116,6 +116,24 @@
 					like: false,
 					bg: this.getRandom()
 				}, {
+					name: "倒计时",
+					desc: "倒计时:时分秒倒计时，支持设置大小，颜色等",
+					page: "countdown",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "分隔符",
+					desc: "Divider分隔符：可设置占据高度，线条宽度，颜色等",
+					page: "divider",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "卡片轮播",
+					desc: "卡片轮播:包含顶部轮播，秒杀商品轮播等",
+					page: "carousel",
+					like: false,
+					bg: this.getRandom()
+				}, {
 					name: "新闻模板",
 					desc: "新闻模板包含：新闻列表，新闻详情，评论等。",
 					page: "news",

@@ -4,8 +4,7 @@
 	width: 650rpx;
 	background-color: #fc4034;
 	margin: 100rpx auto;
-	-webkit-border-radius: 40rpx;
-	        border-radius: 40rpx;
+	border-radius: 40rpx;
 	-webkit-box-shadow: 0 10px 0 #d80014;
 	        box-shadow: 0 10px 0 #d80014;
 	position: relative;
@@ -14,8 +13,7 @@
 	width: 580rpx;
 	height: 530rpx;
 	background-color: #d80014;
-	-webkit-border-radius: 40rpx;
-	        border-radius: 40rpx;
+	border-radius: 40rpx;
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -28,8 +26,7 @@
 .tui-dot {
 	position: absolute;
 	display: block;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	height: 20rpx;
 	width: 20rpx;
 }
@@ -178,8 +175,7 @@
 	height: 150rpx;
 	width: 168rpx;
 	background-color: #fcecec;
-	-webkit-border-radius: 15rpx;
-	        border-radius: 15rpx;
+	border-radius: 15rpx;
 	-webkit-box-shadow: 0 4px 0 #fcc8d0;
 	        box-shadow: 0 4px 0 #fcc8d0;
 }
@@ -223,8 +219,7 @@
 	position: absolute;
 	top: 188rpx;
 	left: 206rpx;
-	-webkit-border-radius: 15rpx;
-	        border-radius: 15rpx;
+	border-radius: 15rpx;
 	height: 150rpx;
 	width: 168rpx;
 	background-color: #fc4034;

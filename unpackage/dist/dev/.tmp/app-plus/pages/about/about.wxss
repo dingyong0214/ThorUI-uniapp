@@ -87,7 +87,6 @@
 }
 .tui-cube-3 {
 	background: -webkit-gradient(linear, right top, left top, from(#5677fc), to(#5c8dff));
-	background: -webkit-linear-gradient(right, #5677fc, #5c8dff);
 	background: -o-linear-gradient(right, #5677fc, #5c8dff);
 	background: linear-gradient(-90deg, #5677fc, #5c8dff);
 	-webkit-transform: rotateX(90deg) translateZ(30px);
@@ -115,8 +114,7 @@
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	background: #fff;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 	-webkit-box-shadow: 0 0 10rpx #eee;
 	        box-shadow: 0 0 10rpx #eee;
 }

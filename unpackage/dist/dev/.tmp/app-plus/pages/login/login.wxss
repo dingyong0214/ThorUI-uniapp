@@ -14,8 +14,7 @@ page {
 	width: 138rpx;
 	display: block;
 	margin: 10rpx auto 0 auto;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 }
 .tui-login-name {
 	width: 128rpx;
@@ -84,8 +83,7 @@ page {
 .tui-btn-class {
 	width: 196rpx !important;
 	height: 54rpx !important;
-	-webkit-border-radius: 27rpx !important;
-	        border-radius: 27rpx !important;
+	border-radius: 27rpx !important;
 	font-size: 28rpx !important;
 	padding: 0 !important;
 	line-height: 54rpx !important;

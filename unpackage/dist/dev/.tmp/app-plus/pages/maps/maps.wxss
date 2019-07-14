@@ -100,8 +100,7 @@ map {
 	-webkit-flex: auto;
 	-ms-flex: auto;
 	    flex: auto;
-	-webkit-border-radius: 5px;
-	        border-radius: 5px;
+	border-radius: 5px;
 	background: #f0f0f0;
 }
 .search-bar-text {
@@ -137,8 +136,7 @@ map {
 	bottom: 0;
 	left: 0;
 	z-index: 2;
-	-webkit-border-radius: 3px;
-	        border-radius: 3px;
+	border-radius: 3px;
 	text-align: center;
 	color: #9b9b9b;
 	background: #f0f0f0;

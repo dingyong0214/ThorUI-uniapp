@@ -53,8 +53,7 @@
 		font-size: 28rpx;
 		background: #fff;
 		padding: 0 28rpx;
-		-webkit-border-radius: 25rpx;
-		        border-radius: 25rpx;
+		border-radius: 25rpx;
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
@@ -76,8 +75,7 @@
 		height: 200%;
 		width: 200%;
 		border: 1rpx solid #eaeef1;
-		-webkit-border-radius: 60rpx;
-		        border-radius: 60rpx;
+		border-radius: 60rpx;
 		-webkit-transform-origin: 0 0;
 		-ms-transform-origin: 0 0;
 		    transform-origin: 0 0;

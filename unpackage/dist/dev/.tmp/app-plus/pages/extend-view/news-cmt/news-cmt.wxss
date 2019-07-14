@@ -9,8 +9,7 @@ page {
           box-sizing: border-box;
 }
 .tui-cells {
-  -webkit-border-radius: 4rpx;
-          border-radius: 4rpx;
+  border-radius: 4rpx;
   height: 280rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -31,8 +30,7 @@ page {
       transform: scale(0.5);
   left: 0;
   top: 0;
-  -webkit-border-radius: 8rpx;
-          border-radius: 8rpx;
+  border-radius: 8rpx;
 }
 .tui-textarea {
   height: 210rpx;

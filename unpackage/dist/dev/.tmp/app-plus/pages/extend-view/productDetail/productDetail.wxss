@@ -1097,8 +1097,7 @@ page {
 	margin-left: 20rpx;
 }
 .tui-icon {
-	-webkit-border-radius: 16px;
-	        border-radius: 16px;
+	border-radius: 16px;
 }
 .tui-icon-back {
 	height: 32px !important;
@@ -1162,8 +1161,7 @@ page {
 .tui-menu-item {
 	width: 22%;
 	height: 160rpx;
-	-webkit-border-radius: 24rpx;
-	        border-radius: 24rpx;
+	border-radius: 24rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -1235,15 +1233,12 @@ page {
 	color: #ff201f;
 }
 .tui-border-radius {
-	-webkit-border-bottom-left-radius: 24rpx;
-	        border-bottom-left-radius: 24rpx;
-	-webkit-border-bottom-right-radius: 24rpx;
-	        border-bottom-right-radius: 24rpx;
+	border-bottom-left-radius: 24rpx;
+	border-bottom-right-radius: 24rpx;
 	overflow: hidden;
 }
 .tui-radius-all {
-	-webkit-border-radius: 24rpx;
-	        border-radius: 24rpx;
+	border-radius: 24rpx;
 	overflow: hidden;
 }
 .tui-mtop {
@@ -1360,8 +1355,7 @@ page {
 	background: none;
 	margin: 0;
 	padding: 0;
-	-webkit-border-radius: 0;
-	        border-radius: 0;
+	border-radius: 0;
 }
 .tui-tag-share {
 	display: -webkit-box;
@@ -1544,8 +1538,7 @@ page {
 .tui-acatar {
 	width: 60rpx;
 	height: 60rpx;
-	-webkit-border-radius: 30rpx;
-	        border-radius: 30rpx;
+	border-radius: 30rpx;
 	display: block;
 	margin-right: 16rpx;
 }
@@ -1722,10 +1715,8 @@ page {
 /*底部操作栏*/
 /*底部选择弹层*/
 .tui-popup-class {
-	-webkit-border-top-left-radius: 24rpx;
-	        border-top-left-radius: 24rpx;
-	-webkit-border-top-right-radius: 24rpx;
-	        border-top-right-radius: 24rpx;
+	border-top-left-radius: 24rpx;
+	border-top-right-radius: 24rpx;
 	padding-bottom: env(safe-area-inset-bottom);
 }
 .tui-popup-box {
@@ -1763,8 +1754,7 @@ page {
 .tui-popup-img {
 	height: 200rpx;
 	width: 200rpx;
-	-webkit-border-radius: 24rpx;
-	        border-radius: 24rpx;
+	border-radius: 24rpx;
 	display: block;
 }
 .tui-popup-price {
@@ -1818,8 +1808,7 @@ page {
 	padding: 0 26rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	-webkit-border-radius: 32rpx;
-	        border-radius: 32rpx;
+	border-radius: 32rpx;
 	margin-right: 20rpx;
 	margin-bottom: 20rpx;
 	font-size: 26rpx;
@@ -1836,8 +1825,7 @@ page {
 	border: 1rpx solid #e41f19;
 	width: 100%;
 	height: 100%;
-	-webkit-border-radius: 40rpx;
-	        border-radius: 40rpx;
+	border-radius: 40rpx;
 	left: 0;
 	top: 0;
 }

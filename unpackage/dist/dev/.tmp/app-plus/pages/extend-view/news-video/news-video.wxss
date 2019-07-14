@@ -94,8 +94,7 @@ page {
 .tui-avatar {
 	width: 64rpx;
 	height: 64rpx;
-	-webkit-border-radius: 32rpx;
-	        border-radius: 32rpx;
+	border-radius: 32rpx;
 	display: block;
 	-webkit-flex-shrink: 0;
 	    -ms-flex-negative: 0;
@@ -140,8 +139,7 @@ page {
 	word-wrap: break-word;
 }
 .tui-reply-box {
-	-webkit-border-radius: 8rpx;
-	        border-radius: 8rpx;
+	border-radius: 8rpx;
 	overflow: hidden;
 	margin-top: 16rpx;
 }
@@ -302,8 +300,7 @@ page {
 	width: 84%;
 	background: #ededed;
 	color: #999;
-	-webkit-border-radius: 8rpx;
-	        border-radius: 8rpx;
+	border-radius: 8rpx;
 	font-size: 28rpx;
 	display: -webkit-box;
 	display: -webkit-flex;

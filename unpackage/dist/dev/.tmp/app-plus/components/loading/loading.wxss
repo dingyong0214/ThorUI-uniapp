@@ -30,15 +30,13 @@
 	font-size: 26rpx;
 	color: #fff;
 	background: rgba(0, 0, 0, .7);
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 }
 .tui-loading-center {
 	width: 50rpx;
 	height: 50rpx;
 	border: 3px solid #fff;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	margin: 0 6px;
 	display: inline-block;
 	vertical-align: middle;

@@ -33,8 +33,7 @@ page {
 	    -ms-flex: 1;
 	        flex: 1;
 	position: relative;
-	-webkit-border-radius: 32rpx;
-	        border-radius: 32rpx;
+	border-radius: 32rpx;
 	background: #f2f5f7;
 }
 .search-bar-box {
@@ -139,8 +138,7 @@ page {
 .img {
 	width: 120rpx;
 	height: 120rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 }
 .content {
 	width: 80%;
@@ -235,8 +233,7 @@ page {
 	right: 90rpx;
 	top: 50%;
 	margin-top: -60rpx;
-	-webkit-border-radius: 16rpx;
-	        border-radius: 16rpx;
+	border-radius: 16rpx;
 	text-align: center;
 	line-height: 120rpx;
 	font-size: 50rpx;

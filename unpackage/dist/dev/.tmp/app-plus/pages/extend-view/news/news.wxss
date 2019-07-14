@@ -24,8 +24,7 @@ page {
 .tui-rolling-search {
 	width: 100%;
 	height: 60rpx;
-	-webkit-border-radius: 35rpx;
-	        border-radius: 35rpx;
+	border-radius: 35rpx;
 	padding: 0 40rpx 0 30rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -91,7 +90,6 @@ page {
 	font-size: 34rpx;
 	font-weight: bold;
 	background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.7)));
-	background: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.7));
 	background: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.7));
 	background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
 	-webkit-box-sizing: border-box;
@@ -129,8 +127,7 @@ page {
 	    -ms-flex-positive: 1;
 	        flex-grow: 1;
 	background: rgba(255, 255, 255, 0.9);
-	-webkit-border-radius: 8rpx;
-	        border-radius: 8rpx;
+	border-radius: 8rpx;
 }
 .tui-banner-swiper .wx-swiper-dot-active::before {
 	background: #5677fc;
@@ -316,8 +313,7 @@ page {
 }
 .tui-icon-class {
 	background: rgba(0, 0, 0, 0.5);
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	padding: 26rpx;
 }
 

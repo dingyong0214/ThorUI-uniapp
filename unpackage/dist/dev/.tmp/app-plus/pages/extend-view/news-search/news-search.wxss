@@ -24,8 +24,7 @@ page {
 .tui-search-input {
 	width: 100%;
 	height: 66rpx;
-	-webkit-border-radius: 35rpx;
-	        border-radius: 35rpx;
+	border-radius: 35rpx;
 	padding: 0 30rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;

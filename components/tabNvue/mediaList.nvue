@@ -50,7 +50,7 @@
 		width: 750px;
 		padding-left: 30px;
 		background-color: #fff;
-		padding-bottom: env(safe-area-inset-bottom);
+		/* padding-bottom: env(safe-area-inset-bottom); */
 	}
 
 	.tui-list-view:active {

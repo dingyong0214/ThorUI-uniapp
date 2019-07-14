@@ -79,8 +79,7 @@ page {
 .tui-chat-input {
 	background: #fff;
 	height: 72rpx;
-	-webkit-border-radius: 6rpx;
-	        border-radius: 6rpx;
+	border-radius: 6rpx;
 	padding-left: 20rpx;
 	padding-right: 20rpx;
 	-webkit-box-flex: 1;
@@ -104,8 +103,7 @@ page {
 }
 .tui-chatbox {
 	max-width: 66%;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 	position: relative;
 	padding: 20rpx 22rpx;
 	font-size: 32rpx;
@@ -159,8 +157,7 @@ page {
 	-webkit-flex-shrink: 0;
 	    -ms-flex-negative: 0;
 	        flex-shrink: 0;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	display: block;
 }
 .tui-left {
@@ -202,8 +199,7 @@ page {
 	margin-top: 36rpx;
 	padding: 12rpx 16rpx;
 	text-align: center;
-	-webkit-border-radius: 8rpx;
-	        border-radius: 8rpx;
+	border-radius: 8rpx;
 	margin-left: 50%;
 	-webkit-transform: translateX(-50%);
 	    -ms-transform: translateX(-50%);
@@ -226,15 +222,13 @@ page {
 	    transform: scale(0.5);
 	left: 0;
 	top: 0;
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 .tui-chat-img {
 	max-width: 200rpx;
 	/* min-height: 80upx; */
 	display: block;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 }
 .tui-chat-flex {
 	display: -webkit-box;

@@ -218,11 +218,11 @@
 					this.productList = [];
 					this.loadingText = "正在加载...";
 					this.pageIndex = 2;
+					this.productList = this.loadData || [];
+					this.$refs.waterfall.resetLoadmore()
 					setTimeout(() => {
-						this.productList = this.loadData || [];
-						this.refreshing = false;
-						this.$refs.waterfall.resetLoadmore()
-					}, 100)
+					   this.refreshing = false;
+					}, 0)
 				} else {
 					this.productList = this.productList.concat(this.loadData)
 					this.pageIndex++;
@@ -238,7 +238,7 @@
 						return
 					}
 					this.pullrefresh()
-				}, 150);
+				}, 100);
 			},
 			onrefresh(event) {
 				uni.showToast({
@@ -251,7 +251,7 @@
 				this.refreshing = true;
 				setTimeout(() => {
 					this.pullrefresh('down');
-				}, 200);
+				}, 100);
 			},
 			onpullingdown(event) {
 				if (this.refreshing) {
@@ -432,7 +432,7 @@
 		font-weight: 400;
 		color: #333333;
 		line-height: 38px;
-		word-break: break-all;
+		/* word-break: break-all; */
 		lines: 2;
 		text-overflow: ellipsis
 	}

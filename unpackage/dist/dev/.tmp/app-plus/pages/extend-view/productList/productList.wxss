@@ -39,8 +39,7 @@ page {
 	width: 100%;
 	height: 30px;
 	margin-right: 30rpx;
-	-webkit-border-radius: 15px;
-	        border-radius: 15px;
+	border-radius: 15px;
 	font-size: 12px;
 	background: #f7f7f7;
 	padding: 3px 10px;
@@ -77,8 +76,7 @@ page {
 	-webkit-align-items: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	-webkit-border-radius: 15px;
-	        border-radius: 15px;
+	border-radius: 15px;
 	background: rgba(0, 0, 0, 0.5);
 	color: #fff;
 }
@@ -193,8 +191,7 @@ page {
 	margin-right: 20rpx;
 	white-space: nowrap;
 	height: 60rpx;
-	-webkit-border-radius: 40rpx;
-	        border-radius: 40rpx;
+	border-radius: 40rpx;
 }
 .tui-bottom-item:last-child {
 	margin-right: 0;
@@ -211,17 +208,14 @@ page {
 	border: 1rpx solid #e41f19;
 	width: 100%;
 	height: 100%;
-	-webkit-border-radius: 40rpx;
-	        border-radius: 40rpx;
+	border-radius: 40rpx;
 	left: 0;
 	top: 0;
 }
 .tui-btmItem-tap {
 	position: relative;
-	-webkit-border-bottom-left-radius: 0;
-	        border-bottom-left-radius: 0;
-	-webkit-border-bottom-right-radius: 0;
-	        border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 .tui-btmItem-tap::after {
 	content: "";
@@ -326,10 +320,8 @@ page {
 	width: 100%;
 	position: absolute;
 	background: #fff;
-	-webkit-border-bottom-left-radius: 24rpx;
-	        border-bottom-left-radius: 24rpx;
-	-webkit-border-bottom-right-radius: 24rpx;
-	        border-bottom-right-radius: 24rpx;
+	border-bottom-left-radius: 24rpx;
+	border-bottom-right-radius: 24rpx;
 	overflow: hidden;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -465,8 +457,7 @@ page {
 .tui-input {
 	border: 0;
 	height: 64rpx;
-	-webkit-border-radius: 32rpx;
-	        border-radius: 32rpx;
+	border-radius: 32rpx;
 	width: 45%;
 	background: #f7f7f7;
 	text-align: center;
@@ -506,8 +497,7 @@ page {
 	padding: 0 4rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	-webkit-border-radius: 32rpx;
-	        border-radius: 32rpx;
+	border-radius: 32rpx;
 	margin-right: 5%;
 	margin-bottom: 5%;
 }
@@ -567,8 +557,7 @@ page {
 	width: 47%;
 	text-align: center;
 	height: 60rpx;
-	-webkit-border-radius: 30rpx;
-	        border-radius: 30rpx;
+	border-radius: 30rpx;
 	-webkit-flex-shrink: 0;
 	    -ms-flex-negative: 0;
 	        flex-shrink: 0;
@@ -632,8 +621,7 @@ page {
 	background: #fff;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	-webkit-border-radius: 12rpx;
-	        border-radius: 12rpx;
+	border-radius: 12rpx;
 	overflow: hidden;
 	-webkit-transition: all 0.15s ease-in-out;
 	-o-transition: all 0.15s ease-in-out;
@@ -656,8 +644,7 @@ page {
 	-webkit-flex-shrink: 0;
 	    -ms-flex-negative: 0;
 	        flex-shrink: 0;
-	-webkit-border-radius: 12rpx;
-	        border-radius: 12rpx;
+	border-radius: 12rpx;
 }
 .tui-pro-content {
 	display: -webkit-box;

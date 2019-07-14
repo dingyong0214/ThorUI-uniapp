@@ -1188,7 +1188,7 @@
 
 /*checkbox 选项框大小  */
 
-.tui-checkbox .wx-checkbox-input {
+.tui-checkbox .uni-checkbox-input {
   width: 36upx;
   height: 36upx;
   border-radius: 50%;
@@ -1196,7 +1196,7 @@
 
 /*checkbox选中后样式  */
 
-.tui-checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+.tui-checkbox .uni-checkbox-input.uni-checkbox-input-checked {
   background: #5c8dff;
   width: 38upx !important;
   height: 38upx !important;
@@ -1205,7 +1205,7 @@
 
 /*checkbox选中后图标样式  */
 
-.tui-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+.tui-checkbox .uni-checkbox-input.uni-checkbox-input-checked::before {
   width: 30upx;
   height: 30upx;
   line-height: 30upx;

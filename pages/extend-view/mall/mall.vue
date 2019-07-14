@@ -46,7 +46,6 @@
 					<swiper :indicator-dots="true" :autoplay="true" :interval="5000" :duration="150" class="tui-banner-swiper"
 					 :circular="true">
 						<swiper-item v-for="(item,index) in banner" :key="index" @tap.stop="detail">
-							<view class="tui-banner-title">{{item.title}}</view>
 							<image :src="'../../../static/images/mall/banner/'+item" class="tui-slide-image" mode="scaleToFill" />
 						</swiper-item>
 					</swiper>
