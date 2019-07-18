@@ -109,7 +109,6 @@
 							page: "drawer"
 						}]
 					},
-					// #ifdef APP-PLUS || MP
 					{
 						id: 'swipe',
 						name: '滑动菜单',
@@ -119,7 +118,6 @@
 							page: "swipe-action"
 						}]
 					},
-					// #endif
 					{
 						id: 'class',
 						name: '分类菜单',

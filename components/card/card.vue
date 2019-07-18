@@ -31,36 +31,44 @@
 			},
 			image: {
 				type: Object,
-				default: {
-					url: "", //图片地址
-					height: 60, //图片高度
-					width: 60, //图片宽度
-					circle: false
+				default: function() {
+					return {
+						url: "", //图片地址
+						height: 60, //图片高度
+						width: 60, //图片宽度
+						circle: false
+					}
 				}
 			},
 			//标题
 			title: {
 				type: Object,
-				default: {
-					text: "", //标题文字
-					size: 30, //字体大小
-					color: "#7A7A7A" //字体颜色
+				default: function() {
+					return {
+						text: "", //标题文字
+						size: 30, //字体大小
+						color: "#7A7A7A" //字体颜色
+					}
 				}
 			},
 			//标签，时间等
 			tag: {
 				type: Object,
-				default: {
-					text: "", //标签文字
-					size: 24, //字体大小
-					color: "#b2b2b2" //字体颜色
+				default: function() {
+					return {
+						text: "", //标签文字
+						size: 24, //字体大小
+						color: "#b2b2b2" //字体颜色
+					}
 				}
 			},
 			header: {
 				type: Object,
-				default: {
-					bgcolor: "#fff", //背景颜色
-					line: false //是否去掉底部线条
+				default: function() {
+					return {
+						bgcolor: "#fff", //背景颜色
+						line: false //是否去掉底部线条
+					}
 				}
 			},
 			//是否设置外边框

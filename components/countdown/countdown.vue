@@ -68,11 +68,13 @@
 			//剩余时间 
 			time: {
 				type: Object,
-				default: {
+				default: function() {
+					return {
 						hours: 0,
 						minute: 0,
 						second: 0
 					}
+				}
 			},
 			//是否包含小时
 			hours: {

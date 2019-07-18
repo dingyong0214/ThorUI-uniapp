@@ -11,15 +11,15 @@
 		</view>
 		<view class="tui-number-box">
 			<view class="tui-title">设置最小值和最大值</view>
-			<tui-numberbox min="1" max="10" :value="value2" @change="change2"></tui-numberbox>
+			<tui-numberbox :min="1" :max="10" :value="value2" @change="change2"></tui-numberbox>
 		</view>
 		<view class="tui-number-box">
 			<view class="tui-title">设置步长 0.1</view>
-			<tui-numberbox step="0.1" :value="value3" @change="change3"></tui-numberbox>
+			<tui-numberbox :step="0.1" :value="value3" @change="change3"></tui-numberbox>
 		</view>
 		<view class="tui-number-box">
 			<view class="tui-title">设置步长 10</view>
-			<tui-numberbox step="10" :value="value4" @change="change4"></tui-numberbox>
+			<tui-numberbox :step="10" :value="value4" @change="change4"></tui-numberbox>
 		</view>
 		<view class="tui-number-box">
 			<view class="tui-title">禁用状态</view>
@@ -27,7 +27,7 @@
 		</view>
 		<view class="tui-number-box">
 			<view class="tui-title">设置大小</view>
-			<tui-numberbox height="70" width="140" iconsize="30" :value="value5" @change="change5"></tui-numberbox>
+			<tui-numberbox :height="70" :width="140" :iconsize="30" :value="value5" @change="change5"></tui-numberbox>
 		</view>
 		<view class="tui-number-box">
 			<view class="tui-title">调整颜色</view>

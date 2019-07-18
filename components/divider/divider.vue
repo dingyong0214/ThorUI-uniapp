@@ -49,7 +49,9 @@
 			//渐变色值，to right ，提供两个色值即可，由浅至深
 			gradualColor: {
 				type: Array,
-				default: ["#eee", "#ccc"]
+				default: function(){
+					return ["#eee", "#ccc"]
+				}
 			}
 		},
 		methods: {

@@ -35,10 +35,12 @@
 			//菜单按钮数组，自定义文本颜色，红色参考色：#e53a37
 			itemList: {
 				type: Array,
-				default: [{
-					text: "确定",
-					color: "#1a1a1a"
-				}]
+				default: function() {
+					return [{
+						text: "确定",
+						color: "#1a1a1a"
+					}]
+				}
 			},
 			//提示文字
 			tips: {
@@ -124,8 +126,8 @@
 		width: 100%;
 		height: 100upx;
 		background: #fff;
-		box-sizing: border-box;
-		padding: 0 30upx;
+		/* box-sizing: border-box;
+		padding: 0 30upx; */
 		display: flex;
 		align-items: center;
 		justify-content: center;

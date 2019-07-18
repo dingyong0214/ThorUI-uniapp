@@ -70,7 +70,12 @@
 					name: "购物券",
 					code: "xyz0900100200",
 					invalidTime: "2019-07-01",
+					// #ifdef APP-PLUS || MP
 					spread: true,
+					// #endif
+					// #ifdef H5
+					spread: false,
+					// #endif
 					sendTime: "2019-06-01",
 					suitStore: "全部",
 					useDescribe: ["1、可在任何适用商家内消费", "2、解释权归Thor所有"]
@@ -99,7 +104,7 @@
 					suitStore: "如家按摩店",
 					useDescribe: ["1、可在任何适用商家内消费", "2、解释权归Thor所有"]
 				}],
-				qrcode_w: 130
+				qrcode_w: uni.upx2px(240)
 			}
 		},
 		onLoad: function(options) {
@@ -110,20 +115,24 @@
 					}
 				}
 			});
-			const W = uni.getSystemInfoSync().windowWidth;
-			const qrcode_w = uni.upx2px(260);
-			this.qrcode_w = qrcode_w;
+			//const W = uni.getSystemInfoSync().windowWidth;
+			//const qrcode_w = uni.upx2px(260);
+			//this.qrcode_w = qrcode_w;
+			// #ifdef APP-PLUS || MP
 			this.couponQrCode(this.couponList[0].code, "couponQrcode0")
+			// #endif
 		},
 		methods: {
 			spread: function(e) {
-				let index =Number(e.currentTarget.dataset.index) 
+				let index = Number(e.currentTarget.dataset.index)
 				let couponList = this.couponList
 				if (!couponList[index].spread) {
-					this.couponQrCode(couponList[index].code, "couponQrcode" + index)
+					setTimeout(()=>{
+						this.couponQrCode(couponList[index].code, "couponQrcode" + index)
+					},50)
 				}
 				couponList[index].spread = !couponList[index].spread;
-				this.scouponList = couponList
+				this.couponList = couponList
 			},
 			// 二维码生成工具
 			couponQrCode(text, canvasId) {
@@ -169,8 +178,12 @@
 		align-items: center;
 		position: fixed;
 		top: 0;
+		/* #ifdef H5 */
+		top: 44px;
+		/* #endif */
 		z-index: 999999
 	}
+
 
 	.coupon-num {
 		color: #5677fc;
@@ -253,6 +266,7 @@
 		color: #999;
 		line-height: 24upx;
 		padding-top: 7upx;
+		white-space: nowrap;
 	}
 
 	.right-detail {

@@ -71,6 +71,9 @@
 		width: 100%;
 		position: fixed;
 		top: 0;
+		/* #ifdef H5 */
+		top: 44px;
+		/* #endif */
 		z-index: 99999;
 	}
 </style>

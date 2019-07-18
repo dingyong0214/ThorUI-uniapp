@@ -1,7 +1,7 @@
 <template>
 	<view class="tui-swipeout-wrap">
 		<view class="tui-swipeout-item" :class="[isShowBtn?'swipe-action-show':'']" @touchstart="handlerTouchstart"
-		 @touchmove="handlerTouchmove" @touchend="handlerTouchend" :style="{transform:'translate(' + position.pageX + 'px,0);'}">
+		 @touchmove="handlerTouchmove" @touchend="handlerTouchend" :style="{transform:'translate(' + position.pageX + 'px,0)'}">
 			<view class="tui-swipeout-content">
 				<slot name="content"></slot>
 			</view>
@@ -34,7 +34,9 @@
 			// background: '#ed3f14'
 			actions: {
 				type: Array,
-				default: []
+				default: function(){
+					return []
+				}
 			},
 			//是否可关闭，默认可关闭，可以单独控制
 			closable: {
@@ -52,7 +54,9 @@
 			},
 			params: {
 				type: Object,
-				default: {}
+				default: function(){
+					return {}
+				}
 			}
 		},
 		watch: {

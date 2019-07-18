@@ -11,7 +11,7 @@
 			<view hover-class="tui-opcity" :hover-stay-time="150">
 				<tui-icon name="imface" :size="26" color='#333'></tui-icon>
 			</view>
-			<view hover-class="tui-opcity" :hover-stay-time="150">
+			<view hover-class="tui-opcity" :hover-stay-time="150" class="tui-pr">
 				<tui-icon name="add" :ize="30" color='#333'></tui-icon>
 			</view>
 		</view>
@@ -207,8 +207,11 @@
 
 	.tui-chat-operation {
 		background: #f6f6f6 !important;
-		padding-right: 18upx;
-		box-sizing: border-box;
+		/* padding-right: 18upx; */
+		/* box-sizing: border-box; */
+	}
+	.tui-pr{
+		padding-right: 16rpx;
 	}
 
 	.tui-right-flex {
