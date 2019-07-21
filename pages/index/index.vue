@@ -18,7 +18,7 @@
 						<view class="kind-list_item-bd" :class="{'kind-list_item-bd_show':item.open}">
 							<view class="tui-cells" :class="{'tui-cells_show':item.open}">
 								<block v-for="page in item.pages">
-									<navigator :url="'../'+page.page+'/'+page.page" class="tui-cell tui-cell_access">
+									<navigator :url="getPageUrl(page.page)" class="tui-cell tui-cell_access">
 										<view class="tui-cell_bd">{{page.name}}</view>
 										<view class="tui-cell_ft tui-cell_ft_in-access"></view>
 									</navigator>
@@ -77,6 +77,9 @@
 						}, {
 							name: "索引列表",
 							page: "indexList"
+						}, {
+							name: "吸顶效果",
+							page: "friendsList"
 						}]
 					},
 					{
@@ -190,6 +193,13 @@
 				uni.navigateTo({
 					url: '../extend-view/mall/mall'
 				})
+			},
+			getPageUrl(page){
+				let pageUrl='../'+page+'/'+page;
+				if(page=='friendsList'){
+					pageUrl='../extend-view/'+page+'/'+page;
+				}
+				return pageUrl
 			}
 		}
 	}

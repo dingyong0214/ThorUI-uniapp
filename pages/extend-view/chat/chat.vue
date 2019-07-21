@@ -234,10 +234,7 @@
 		flex: 1;
 	}
 
-	.tui-voice .tui-icon-class {
-		margin-left: 12upx;
-		margin-right: 12upx;
-	}
+	
 
 	.tui-opcity {
 		opacity: 0.5;

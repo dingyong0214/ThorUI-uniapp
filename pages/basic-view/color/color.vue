@@ -47,7 +47,7 @@
 			</view>
 			<view class="item tui-translucent">
 				<view>translucent</view>
-				<view class="color">rgba(0,0,0,.7)</view>
+				<view class="color">rgba(0,0,0,0.7)</view>
 			</view>
 		</view>
 		<view class="title">

@@ -31,7 +31,7 @@
 		</view>
 		<view class="tui-number-box">
 			<view class="tui-title">调整颜色</view>
-			<tui-numberbox bgcolor="rgba(0,0,0,.5)" color="#fff" iconcolor="rgba(0,0,0,.5)" :value="value6" @change="change6"></tui-numberbox>
+			<tui-numberbox bgcolor="rgba(0,0,0,0.5)" color="#fff" iconcolor="rgba(0,0,0,0.5)" :value="value6" @change="change6"></tui-numberbox>
 		</view>
 		<view class="tui-number-box">
 			<view class="tui-title"> 获取输入的值：{{value7}}</view>

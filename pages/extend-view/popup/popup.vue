@@ -9,31 +9,31 @@
 					<view>价格</view>
 					<view class="tui-price-arrow">
 						<view class="tui-icon-box tui-arrow-up">
-							<tui-icon name="turningup" size="12" color="#444"></tui-icon>
+							<tui-icon name="turningup" :size="12" color="#444"></tui-icon>
 						</view>
 						<view class="tui-icon-box tui-arrow-down">
-							<tui-icon name="turningdown" size="12" color="#444"></tui-icon>
+							<tui-icon name="turningdown" :size="12" color="#444"></tui-icon>
 						</view>
 
 					</view>
 				</view>
 				<view class="tui-top-item tui-screen" @tap="screen">
 					<text class="tui-bold">筛选</text>
-					<tui-icon name="screen" size="12" color="#5677fc" :bold="true"></tui-icon>
+					<tui-icon name="screen" :size="12" color="#5677fc" :bold="true"></tui-icon>
 				</view>
 			</view>
 			<view class="tui-header-bottom">
 				<view class="tui-bottom-item" :class="[proDropIndex==0?'tui-btmItem-active':'']" @tap="btnDropChange(0)">
 					<view class="tui-bottom-text" :class="[proDropIndex==0?'tui-active':'']">品牌</view>
-					<tui-icon :name="proDropIndex==0?'arrowup':'arrowdown'" size="14" :color="proDropIndex==0?'#5677fc':'#444'"></tui-icon>
+					<tui-icon :name="proDropIndex==0?'arrowup':'arrowdown'" :size="14" :color="proDropIndex==0?'#5677fc':'#444'"></tui-icon>
 				</view>
 				<view class="tui-bottom-item" :class="[proDropIndex==1?'tui-btmItem-active':'']" @tap="btnDropChange(1)">
 					<view class="tui-bottom-text" :class="[proDropIndex==1?'tui-active':'']">类型</view>
-					<tui-icon :name="proDropIndex==1?'arrowup':'arrowdown'" size="14" :color="proDropIndex==1?'#5677fc':'#444'"></tui-icon>
+					<tui-icon :name="proDropIndex==1?'arrowup':'arrowdown'" :size="14" :color="proDropIndex==1?'#5677fc':'#444'"></tui-icon>
 				</view>
 				<view class="tui-bottom-item" :class="[proDropIndex==2?'tui-btmItem-active':'']" @tap="btnDropChange(2)">
 					<view class="tui-bottom-text" :class="[proDropIndex==2?'tui-active':'']">适用手机</view>
-					<tui-icon :name="proDropIndex==2?'arrowup':'arrowdown'" size="14" :color="proDropIndex==2?'#5677fc':'#444'"></tui-icon>
+					<tui-icon :name="proDropIndex==2?'arrowup':'arrowdown'" :size="14" :color="proDropIndex==2?'#5677fc':'#444'"></tui-icon>
 				</view>
 			</view>
 
@@ -43,12 +43,12 @@
 
 		<!--header 顶部下拉选择框-->
 
-		<tui-top-dropdown :show="dropShow" paddingbtm="110" translatey="216" @close="btnCloseDrop">
+		<tui-top-dropdown :show="dropShow" :paddingbtm="110" :translatey="216" @close="btnCloseDrop">
 			<scroll-view class="tui-scroll-box" scroll-y scroll-with-animation :scroll-top="scrollTop">
 				<view class="tui-seizeaseat-20"></view>
 				<view class="tui-drop-item" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in proDropData" :key="index"
 				 @tap.stop="btnSelected" :data-index="index">
-					<tui-icon name="check" size="16" color="#5677fc" :bold="true" v-if="item.selected"></tui-icon>
+					<tui-icon name="check" :size="16" color="#5677fc" :bold="true" v-if="item.selected"></tui-icon>
 					<text class="tui-ml tui-middle">{{item.name}}</text>
 				</view>
 				<view class="tui-seizeaseat-30"></view>
@@ -66,11 +66,11 @@
 
 		<!--下拉选择框 dropdownlist-->
 		<view class="tui-drop-input-box">
-			<tui-dropdown-list :show="dropdownShow" top="94" height="400">
+			<tui-dropdown-list :show="dropdownShow" :top="94" :height="400">
 				<template v-slot:selectionbox>
 					<tui-button type="white" shape="circle" @click="dropDownList">下拉选择框
 						<view class="tui-animation" :class="[dropdownShow?'tui-animation-show':'']">
-							<tui-icon name="turningdown" size="20" ></tui-icon>
+							<tui-icon name="turningdown" :size="20" ></tui-icon>
 						</view>
 					</tui-button>
 				</template>
@@ -104,7 +104,7 @@
 						<view class="tui-share-item" :class="[shareList[0].share.length-1===index?'tui-item-last':'']" v-for="(item,index) in shareList[0].share"
 						 :key="index" @tap="popup">
 							<view class="tui-share-icon" hover-class="tui-hover" :hover-stay-time="150">
-								<tui-icon :name="item.icon" :color="item.color" size="36"></tui-icon>
+								<tui-icon :name="item.icon" :color="item.color" :size="36"></tui-icon>
 							</view>
 							<view class="tui-share-text">{{item.name}}</view>
 						</view>
@@ -399,7 +399,7 @@
 			btnSelected: function(e) {
 				let index = e.currentTarget.dataset.index;
 				let obj = this.proDropData[index];
-				Vue.set(obj, 'selected', !obj.selected)
+				this.$set(obj, 'selected', !obj.selected)
 			},
 			reset() {
 				let arr = this.proDropData;
@@ -752,6 +752,6 @@
 	}
 
 	.tui-hover {
-		background: rgba(0, 0, 0, .2)
+		background: rgba(0, 0, 0, 0.2)
 	}
 </style>

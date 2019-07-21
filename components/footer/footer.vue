@@ -105,7 +105,7 @@
 	}
 
 	.tui-link-hover {
-		opacity: .5
+		opacity: 0.5
 	}
 
 	.tui-footer-copyright {

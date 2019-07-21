@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "回到顶部",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-scroll-top": "/components/scroll-top/scroll-top"
+  }
+}

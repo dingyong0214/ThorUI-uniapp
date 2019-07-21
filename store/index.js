@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	state: {
-		version: "1.3.0",
+		version: "1.3.1",
 		isLogin: uni.getStorageSync("thorui_mobile") ? true : false,
 		mobile: uni.getStorageSync("thorui_mobile") || "echo.",
 		memberId: uni.getStorageSync("memberId") || 0,
@@ -14,7 +14,7 @@ const store = new Vuex.Store({
 		userInfo: { // 用户信息
 			longitude: null, // 经度
 			latitude: null, // 纬度
-			locationCity: '', // 定位城市
+			locationCity: '' // 定位城市
 		},
 		appInfo: { // APP整体数据
 			commonDataVersion: '0', // 公共数据的大版本号
@@ -35,18 +35,18 @@ const store = new Vuex.Store({
 	mutations: {
 		login(state, payload) {
 			if (payload) {
-				state.mobile = payload.mobile
-				state.memberId = payload.memberId
+				state.mobile = payload.mobile;
+				state.memberId = payload.memberId;
 			}
-			state.isLogin = true
+			state.isLogin = true;
 		},
 		logout(state) {
-			state.mobile = ""
-			state.memberId = 0
-			state.isLogin = false
+			state.mobile = "";
+			state.memberId = 0;
+			state.isLogin = false;
 		},
 		setOpenid(state, openid) {
-			state.openid = openid
+			state.openid = openid;
 		},
 		// 设置用户信息
 		setUserInfo(state, payload) {

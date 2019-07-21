@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-		name:"tuiTips",
+		name: "tuiTips",
 		props: {
 			//top bottom center
 			position: {
@@ -38,7 +38,7 @@
 				} = options;
 				clearTimeout(this.timer);
 				this.show = true;
-				this.duration = duration < 2000 ? 2000 : duration;
+				// this.duration = duration < 2000 ? 2000 : duration;
 				this.type = type;
 				this.msg = options.msg;
 				this.timer = setTimeout(() => {

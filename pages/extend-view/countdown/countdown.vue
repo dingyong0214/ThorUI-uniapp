@@ -6,11 +6,11 @@
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">默认使用</view>
-			<tui-countdown :time="timeList[0]"></tui-countdown>
+			<tui-countdown :time="timeList[0]" ></tui-countdown>
 		</view>
 		<view class="tui-countdown">
-			<view class="tui-countdown-text">改变颜色</view>
-			<tui-countdown :time="timeList[1]" color="#e41f19" bcolor="#e41f19" coloncolor="#e41f19"></tui-countdown>
+			<view class="tui-countdown-text">改变颜色,缩放字体</view>
+			<tui-countdown :time="timeList[1]" color="#e41f19" bcolor="#e41f19" coloncolor="#e41f19" :scale="true"></tui-countdown>
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">边框与背景重合</view>
@@ -22,15 +22,15 @@
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">改变大小</view>
-			<tui-countdown :time="timeList[1]" :minheight="36" :minwidth="36" :size="30" :colonsize="36"></tui-countdown>
+			<tui-countdown :time="timeList[1]" :height="30" :width="30" :size="26" :colonsize="32"></tui-countdown>
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">去掉小时</view>
-			<tui-countdown :time="timeList[2]" :hours="false"></tui-countdown>
+			<tui-countdown :time="timeList[2]" :hours="false" :scale="true"></tui-countdown>
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">倒计时结束执行事件</view>
-			<tui-countdown :time="timeList[3]" color="#e41f19" bcolor="#e41f19" coloncolor="#e41f19" @end="endOfTime"></tui-countdown>
+			<tui-countdown :time="timeList[3]" color="#e41f19" bcolor="#e41f19" coloncolor="#e41f19" :scale="true" @end="endOfTime"></tui-countdown>
 		</view>
 
 	</view>

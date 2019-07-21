@@ -11,12 +11,12 @@
 			//primary,warning,green,danger,white，black，gray
 			type: {
 				type: String,
-				default: 'primary',
+				default: 'primary'
 			},
 			// '', small
 			size: {
 				type: String,
-				default: '',
+				default: ''
 			},
 			//是否是圆点
 			dot: {

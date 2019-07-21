@@ -1,0 +1,13 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColorTop": "#F5F6FA",
+  "backgroundColorBottom": "#F5F6FA",
+  "navigationBarTitleText": "消息 ",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-badge": "/components/badge/badge",
+    "tui-list-cell": "/components/list-cell/list-cell"
+  }
+}

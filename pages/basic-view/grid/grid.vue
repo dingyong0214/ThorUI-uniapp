@@ -200,13 +200,7 @@
 	}
 
 
-	/* .tui-grid-four {
-		padding: 30upx 20upx;
-	}
-
-	.tui-grid-five {
-		padding: 20upx;
-	} */
+	
 
 	.tui-grid-label {
 		display: block;

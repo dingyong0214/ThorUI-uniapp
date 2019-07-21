@@ -492,7 +492,50 @@
 			"navigationBarTextStyle": "black",
 			"navigationBarTitleText": "分隔符"
 		}
-	}],
+	}, {
+		"path": "pages/extend-view/button/button",
+		"style": {
+			"navigationBarTitleText": "扩展Button",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/tips/tips",
+		"style": {
+			"navigationBarTitleText": "扩展tips",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/alert/alert",
+		"style": {
+			"navigationBarTitleText": "扩展alert",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/toast/toast",
+		"style": {
+			"navigationBarTitleText": "扩展toast",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/goTop/goTop",
+		"style": {
+			"navigationBarTitleText": "回到顶部",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}    ,{
+            "path" : "pages/extend-view/formValidation/formValidation",
+            "style" : {
+				"navigationBarTitleText": "表单验证",
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTextStyle": "black"
+			}
+        }
+    ],
 	"globalStyle": {
 		"backgroundTextStyle": "dark",
 		"navigationBarBackgroundColor": "#5677FC",

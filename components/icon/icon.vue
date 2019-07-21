@@ -1,6 +1,6 @@
 <template>
-	<view class="tui-icon-class tui-icon" :class="'tui-icon-'+name" :style="{ color: color, fontSize: size + 'px' ,fontWeight:bold?'bold':'normal'}"
-	  @tap="handleClick(index)" ></view>
+	<view class="tui-icon-class tui-icon" :class="'tui-icon-'+name" :style="{ color: color, fontSize: size + 'px',fontWeight:bold?'bold':'normal'}"
+	 @tap="handleClick(index)"></view>
 </template>
 
 <script>
@@ -32,9 +32,11 @@
 				default: 0
 			}
 		},
-		methods:{
+		methods: {
 			handleClick(index) {
-				this.$emit('click',{index}) 
+				this.$emit('click', {
+					index
+				})
 			}
 		}
 	}

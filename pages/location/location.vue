@@ -8,7 +8,7 @@
 				</view>
 				<view class="info">
 					<view class="badge orange"></view>
-					<view class="ellipsis"> {{current_long}},{{current_lat}}</view>
+					<view class="ellipsis"> {{current_long + "," + current_lat}}</view>
 				</view>
 			</view>
 		</view>

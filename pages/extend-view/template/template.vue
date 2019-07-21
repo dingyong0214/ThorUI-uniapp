@@ -139,8 +139,6 @@
 		background: #5c8dff;
 		border: 1upx solid #5c8dff;
 		display: inline-block;
-		/* word-break: break-all;
-  word-wrap: break-word; */
 	}
 
 	.tui-content-template::before {

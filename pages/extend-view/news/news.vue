@@ -2,7 +2,14 @@
 	<view class="tui-container">
 		<view class="tui-searchbox">
 			<view class="tui-rolling-search">
-				<icon type="search" size='13' color='#999'></icon>
+				<!-- #ifdef APP-PLUS || MP -->
+				<icon type="search" :size='13' color='#999'></icon>
+				<!-- #endif -->
+				<!-- #ifdef H5 -->
+				<view class="tui-icon-box">
+					<tui-icon name="search" :size='16' color='#999'></tui-icon>
+				</view>
+				<!-- #endif -->
 				<swiper vertical autoplay circular interval="8000" class="tui-swiper">
 					<swiper-item v-for="(item,index) in hotSearch" :key="index" class="tui-swiper-item" @tap="search">
 						<view class="tui-hot-item">大家正在搜：{{item}}</view>
@@ -11,7 +18,8 @@
 			</view>
 		</view>
 		<!--banner-->
-		<swiper indicator-dots autoplay circular :interval="5000" :duration="150" class="tui-banner-swiper">
+		<swiper indicator-dots autoplay circular :interval="5000" :duration="150" indicator-color="rgba(255, 255, 255, 0.9)"
+		 indicator-active-color="#5677fc" class="tui-banner-swiper">
 			<swiper-item v-for="(item,index) in banner" :key="index" @tap.stop="bannerDetail">
 				<view class="tui-banner-title">{{item.title}}</view>
 				<image :src="'../../../static/images/news/'+item.img" class="tui-slide-image" mode="widthFix" />
@@ -21,7 +29,7 @@
 		<!--新闻列表-->
 		<view class="tui-news-view">
 			<block v-for="(item,index) in newsList" :key="index">
-				<tui-list-cell  :index="index" @click="detail" :last="count==index">
+				<tui-list-cell :index="index" @click="detail" :last="count==index">
 					<view class="tui-news-flex" :class="[item.isVideo || item.imgNum>1 ?  'tui-flex-column':'tui-flex-start']">
 						<view class="tui-news-picbox" :class="[item.isVideo || item.imgNum>1?'tui-w-full':'tui-w220 tui-h165',item.imgNum>1?'tui-flex-between':'']"
 						 v-if="item.imgNum>0">
@@ -30,7 +38,7 @@
 							</block>
 							<view class="tui-btm-badge" v-if="item.isVideo || item.imgNum>3">{{item.isVideo?item.time:item.imgNum+'图'}}</view>
 							<view class="tui-video" v-if="item.isVideo">
-								<tui-icon name="play" color="#fff" size="24"></tui-icon>
+								<tui-icon name="play" color="#fff" :size="24"></tui-icon>
 							</view>
 						</view>
 						<view class="tui-news-tbox tui-flex-column tui-flex-between" :class="[item.imgNum===1 && !item.isVideo?'tui-h165 tui-pl-20':'']">
@@ -39,9 +47,9 @@
 								<view class="tui-sub-source">{{item.source}}</view>
 								<view class="tui-sub-cmt">
 									<view>{{item.cmtsNum}}评论</view>
-									<tui-tag size="small" :plain="true" shape="circleRight" v-if="item.isTop">
-										<view class="tui-scale">置顶</view>
-									</tui-tag>
+									<view class="tui-scale">
+										<tui-tag size="small" :plain="true" shape="circleRight" v-if="item.isTop">置顶</tui-tag>
+									</view>
 								</view>
 							</view>
 						</view>
@@ -49,91 +57,10 @@
 				</tui-list-cell>
 			</block>
 
-			<!-- 
-    <tui-list-cell tui-cell-class="tui-news-cell tui-flex-start">
-      <view class="tui-news-picbox tui-w220 tui-h165">
-        <image src="../../../static/images/news/list_1.jpg" mode="widthFix" class="tui-block"></image>
-      </view>
-      <view class="tui-news-tbox tui-flex-column tui-flex-between tui-h165 tui-pl-20">
-        <view class="tui-news-title">卡拉斯科：俱乐部一些人的态度令我不解；需要解决出现的问题</view>
-        <view class="tui-sub-box ">
-          <view class="tui-sub-source">央视网新闻</view>
-          <view class="tui-sub-cmt">
-            <view>5123评论</view>
-            <tui-tag size="small" :plain="true" shape="circleRight" tui-tag-class="tui-tag">
-              <view class="tui-scale">置顶</view>
-            </tui-tag>
-          </view>
-        </view>
-      </view>
-
-    </tui-list-cell>
-
-    <tui-list-cell tui-cell-class="tui-news-cell tui-flex-start">
-
-      <view class="tui-news-tbox tui-flex-column tui-flex-between ">
-        <view class="tui-news-title">卡拉斯科：俱乐部一些人的态度令我不解；需要解决出现的问题</view>
-        <view class="tui-sub-box tui-pt20">
-          <view class="tui-sub-source">央视网新闻</view>
-          <view class="tui-sub-cmt">
-            <view>5123评论</view>
-            <tui-tag size="small" :plain="true" shape="circleRight" tui-tag-class="tui-tag">
-              <view class="tui-scale">置顶</view>
-            </tui-tag>
-          </view>
-        </view>
-      </view>
-
-    </tui-list-cell>
-
-    <tui-list-cell tui-cell-class="tui-news-cell tui-flex-column">
-      <view class="tui-news-picbox tui-w-full tui-flex-between">
-        <image src="../../../static/images/news/list_1.jpg" mode="widthFix" class="tui-block tui-one-third"></image>
-        <image src="../../../static/images/news/list_2.jpg" mode="widthFix" class="tui-block tui-one-third"></image>
-        <image src="../../../static/images/news/list_3.jpg" mode="widthFix" class="tui-block tui-one-third"></image>
-        <view class="tui-btm-badge">20图</view>
-      </view>
-      <view class="tui-news-tbox tui-flex-column tui-flex-between">
-        <view class="tui-news-title tui-pt20">卡拉斯科：俱乐部一些人的态度令我不解；需要解决出现的问题</view>
-        <view class="tui-sub-box tui-pt20">
-          <view class="tui-sub-source">央视网新闻</view>
-          <view class="tui-sub-cmt">
-            <view>5123评论</view>
-            <tui-tag size="small" :plain="true" shape="circleRight" tui-tag-class="tui-tag">
-              <view class="tui-scale">置顶</view>
-            </tui-tag>
-          </view>
-        </view>
-      </view>
-
-    </tui-list-cell>
-
-    <tui-list-cell tui-cell-class="tui-news-cell tui-flex-column">
-      <view class="tui-news-picbox tui-w-full">
-        <image src="../../../static/images/news/banner_2.jpg" mode="widthFix" class="tui-block tui-w-full"></image>
-        <view class="tui-btm-badge">00:58</view>
-        <view class="tui-video">
-          <tui-icon name="play" color="#fff" size="24" tui-icon-class="tui-icon"></tui-icon>
-        </view>
-      </view>
-      <view class="tui-news-tbox tui-flex-column tui-flex-between">
-        <view class="tui-news-title tui-pt20">卡拉斯科：俱乐部一些人的态度令我不解；需要解决出现的问题</view>
-        <view class="tui-sub-box tui-pt20">
-          <view class="tui-sub-source">央视网新闻</view>
-          <view class="tui-sub-cmt">
-            <view>5123评论</view>
-            <tui-tag size="small" :plain="true" shape="circleRight" tui-tag-class="tui-tag">
-              <view class="tui-scale">置顶</view>
-            </tui-tag>
-          </view>
-        </view>
-      </view>
-
-    </tui-list-cell> -->
 		</view>
 		<tui-tips ref="toast"></tui-tips>
 		<!--加载loadding-->
-		<tui-loadmore :visible="loadding" index="3" type="primary"></tui-loadmore>
+		<tui-loadmore :visible="loadding" :index="3" type="primary"></tui-loadmore>
 		<tui-nomore :visible="!pullUpOn" bgcolor="#f2f2f2"></tui-nomore>
 		<!--加载loadding-->
 	</view>
@@ -157,7 +84,7 @@
 		},
 		computed: {
 			count() {
-				 return this.newsList.length-1
+				return this.newsList.length - 1
 			}
 		},
 		data() {
@@ -351,15 +278,15 @@
 	}
 
 	.tui-searchbox {
-		padding: 16upx 20upx;
+		padding: 16rpx 20rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-rolling-search {
 		width: 100%;
-		height: 60upx;
-		border-radius: 35upx;
-		padding: 0 40upx 0 30upx;
+		height: 60rpx;
+		border-radius: 35rpx;
+		padding: 0 40rpx 0 30rpx;
 		box-sizing: border-box;
 		background: #fff;
 		display: flex;
@@ -369,10 +296,10 @@
 	}
 
 	.tui-swiper {
-		font-size: 26upx;
-		height: 60upx;
+		font-size: 26rpx;
+		height: 60rpx;
 		flex: 1;
-		padding-left: 12upx;
+		padding-left: 12rpx;
 	}
 
 	.tui-swiper-item {
@@ -381,7 +308,7 @@
 	}
 
 	.tui-hot-item {
-		line-height: 26upx;
+		line-height: 26rpx;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -389,26 +316,26 @@
 
 	.tui-banner-swiper {
 		width: 100%;
-		height: 300upx;
+		height: 300rpx;
 		position: relative;
 	}
 
 	.tui-slide-image {
 		width: 100%;
-		height: 300upx;
+		height: 300rpx;
 		display: block;
 	}
 
 	.tui-banner-title {
 		width: 100%;
-		height: 100upx;
+		height: 100rpx;
 		position: absolute;
 		z-index: 9999;
 		color: #fff;
 		bottom: 0;
-		padding: 0 30upx;
-		padding-top: 25upx;
-		font-size: 34upx;
+		padding: 0 30rpx;
+		padding-top: 25rpx;
+		font-size: 34rpx;
 		font-weight: bold;
 		background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
 		box-sizing: border-box;
@@ -417,17 +344,18 @@
 		text-overflow: ellipsis;
 	}
 
+	/* #ifdef APP-PLUS || MP */
 	.tui-banner-swiper .wx-swiper-dots.wx-swiper-dots-horizontal {
 		width: 100%;
-		top: 280upx;
+		top: 280rpx;
 		text-align: right;
-		padding-right: 30upx;
+		padding-right: 30rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-banner-swiper .wx-swiper-dot {
-		width: 8upx;
-		height: 8upx;
+		width: 8rpx;
+		height: 8rpx;
 		display: inline-flex;
 		background: none;
 		justify-content: space-between;
@@ -437,7 +365,7 @@
 		content: '';
 		flex-grow: 1;
 		background: rgba(255, 255, 255, 0.9);
-		border-radius: 8upx;
+		border-radius: 8rpx;
 	}
 
 	.tui-banner-swiper .wx-swiper-dot-active::before {
@@ -445,8 +373,44 @@
 	}
 
 	.tui-banner-swiper .wx-swiper-dot.wx-swiper-dot-active {
-		width: 18upx;
+		width: 18rpx;
 	}
+
+	/* #endif */
+
+	/* #ifdef H5 */
+	>>>.tui-banner-swiper .uni-swiper-dots.uni-swiper-dots-horizontal {
+		width: 100%;
+		top: 280rpx;
+		text-align: right;
+		padding-right: 30rpx;
+		box-sizing: border-box;
+	}
+
+	>>>.tui-banner-swiper .uni-swiper-dot {
+		width: 8rpx;
+		height: 8rpx;
+		display: inline-flex;
+		background: none;
+		justify-content: space-between;
+	}
+
+	>>>.tui-banner-swiper .uni-swiper-dot::before {
+		content: '';
+		flex-grow: 1;
+		background: rgba(255, 255, 255, 0.9);
+		border-radius: 8rpx;
+	}
+
+	>>>.tui-banner-swiper .uni-swiper-dot-active::before {
+		background: #5677fc;
+	}
+
+	>>>.tui-banner-swiper .uni-swiper-dot.uni-swiper-dot-active {
+		width: 18rpx;
+	}
+
+	/* #endif */
 
 	.tui-news-flex {
 		display: flex;
@@ -468,13 +432,14 @@
 		justify-content: space-between !important;
 	}
 
-	.tui-cell-class {
-		padding: 20upx 30upx;
+	.tui-news-cell {
+		display: flex;
+		padding: 20rpx 30rpx;
 	}
+
 	.tui-news-tbox {
 		flex: 1;
 		width: 100%;
-		/* text-align: justify; */
 		box-sizing: border-box;
 		display: flex;
 	}
@@ -485,11 +450,11 @@
 	}
 
 	.tui-w220 {
-		width: 220upx;
+		width: 220rpx;
 	}
 
 	.tui-h165 {
-		height: 165upx;
+		height: 165rpx;
 	}
 
 	.tui-block {
@@ -506,7 +471,7 @@
 
 	.tui-news-title {
 		width: 100%;
-		font-size: 34upx;
+		font-size: 34rpx;
 		word-break: break-all;
 		word-wrap: break-word;
 		overflow: hidden;
@@ -515,15 +480,14 @@
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 2;
 		box-sizing: border-box;
-		/* text-align: justify; */
 	}
 
 	.tui-pl-20 {
-		padding-left: 20upx;
+		padding-left: 20rpx;
 	}
 
 	.tui-pt20 {
-		padding-top: 20upx;
+		padding-top: 20rpx;
 	}
 
 	.tui-sub-box {
@@ -532,27 +496,27 @@
 		justify-content: space-between;
 		color: #999;
 		box-sizing: border-box;
-		line-height: 24upx;
+		line-height: 24rpx;
 	}
 
 	.tui-sub-source {
-		font-size: 26upx;
+		font-size: 26rpx;
 	}
 
 	.tui-sub-cmt {
-		font-size: 24upx;
-		line-height: 24upx;
+		font-size: 24rpx;
+		line-height: 24rpx;
 		display: flex;
 		align-items: center;
 	}
 
-	.tui-tag-class {
-		padding: 2upx 6upx !important;
-		margin-left: 10upx;
+	.tui-tag {
+		padding: 2rpx 6rpx !important;
+		margin-left: 10rpx;
 	}
 
 	.tui-scale {
-		transform: scale(0.8);
+		transform: scale(0.6);
 		transform-origin: center center;
 	}
 
@@ -560,9 +524,9 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #fff;
-		padding: 2upx 12upx;
+		padding: 2rpx 12rpx;
 		background: rgba(0, 0, 0, 0.6);
 		z-index: 20;
 		transform: scale(0.8);
@@ -581,9 +545,15 @@
 		transform-origin: 0 0;
 	}
 
-	.tui-icon-class {
+	.tui-icon {
 		background: rgba(0, 0, 0, 0.5);
 		border-radius: 50%;
-		padding: 26upx;
+		padding: 26rpx;
+	}
+
+	.tui-icon-box .tui-icon {
+		background: none;
+		padding: 0;
+		border-radius: 0;
 	}
 </style>

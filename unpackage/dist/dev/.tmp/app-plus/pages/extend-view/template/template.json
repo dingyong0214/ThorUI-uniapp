@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "模板",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-time-axis": "/components/time-axis/time-axis",
+    "tui-timeaxis-item": "/components/timeaxis-item/timeaxis-item"
+  }
+}

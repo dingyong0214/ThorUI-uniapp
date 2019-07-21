@@ -48,7 +48,7 @@
 								</view>
 								<view class="tui-countdown">
 									<view class="tui-countdown-text">剩余</view>
-									<tui-countdown :time="item.time" color="#e41f19" bcolor="#e41f19" coloncolor="#e41f19"></tui-countdown>
+									<tui-countdown :time="item.time" color="#e41f19" bcolor="#e41f19" coloncolor="#e41f19" :scale="true"></tui-countdown>
 									<view class="tui-countdown-text">结束</view>
 								</view>
 							</view>
@@ -277,6 +277,7 @@
 		transform-origin: center center;
 	}
 
+	/* #ifdef APP-PLUS || MP */
 	.tui-banner-swiper .wx-swiper-dot {
 		width: 8rpx;
 		height: 8rpx;
@@ -284,7 +285,7 @@
 		background: none;
 		justify-content: space-between;
 	}
-
+	
 	.tui-banner-swiper .wx-swiper-dot::before {
 		content: '';
 		flex-grow: 1;
@@ -292,15 +293,43 @@
 		border-radius: 16rpx;
 		overflow: hidden;
 	}
-
+	
 	.tui-banner-swiper .wx-swiper-dot-active::before {
-		background: #fff ;
+		background: #fff;
 	}
-
+	
 	.tui-banner-swiper .wx-swiper-dot.wx-swiper-dot-active {
 		width: 16rpx;
 	}
-
+	
+	/* #endif */
+	
+	/* #ifdef H5 */
+	>>>.tui-banner-swiper .uni-swiper-dot {
+		width: 8rpx;
+		height: 8rpx;
+		display: inline-flex;
+		background: none;
+		justify-content: space-between;
+	}
+	
+	>>>.tui-banner-swiper .uni-swiper-dot::before {
+		content: '';
+		flex-grow: 1;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 16rpx;
+		overflow: hidden;
+	}
+	
+	>>>.tui-banner-swiper .uni-swiper-dot-active::before {
+		background: #fff;
+	}
+	
+	>>>.tui-banner-swiper .uni-swiper-dot.uni-swiper-dot-active {
+		width: 16rpx;
+	}
+	
+	/* #endif */
 	/*banner*/
 
 	/*headlines*/

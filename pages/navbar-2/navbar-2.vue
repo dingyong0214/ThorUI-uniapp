@@ -319,6 +319,7 @@
 		transform: translateZ(0);
 	}
 
+	/* #ifdef APP-PLUS || MP */
 	.swiper .wx-swiper-dot {
 		width: 8upx;
 		height: 8upx;
@@ -342,6 +343,35 @@
 	.swiper .wx-swiper-dot.wx-swiper-dot-active {
 		width: 16upx;
 	}
+
+	/* #endif */
+
+	/* #ifdef H5 */
+	>>>.swiper .uni-swiper-dot {
+		width: 8rpx;
+		height: 8rpx;
+		display: inline-flex;
+		background: none;
+		justify-content: space-between;
+	}
+
+	>>>.swiper .uni-swiper-dot::before {
+		content: '';
+		flex-grow: 1;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 16rpx;
+		overflow: hidden;
+	}
+
+	>>>.swiper .uni-swiper-dot-active::before {
+		background: #fff;
+	}
+
+	>>>.swiper .uni-swiper-dot.uni-swiper-dot-active {
+		width: 16rpx;
+	}
+
+	/* #endif */
 
 	.slide-image {
 		width: 100%;

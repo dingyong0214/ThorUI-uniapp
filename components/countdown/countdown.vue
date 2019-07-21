@@ -1,17 +1,17 @@
 <template>
 	<view class="tui-countdown-class tui-countdown-box">
-		<view class="tui-countdown-item" :style="{background:bgcolor,borderColor:bcolor,minWidth:minwidth+'rpx',minHeight:minheight+'rpx'}"
+		<view class="tui-countdown-item" :style="{background:bgcolor,borderColor:bcolor,width:width+'rpx',height:height+'rpx'}"
 		 v-if="hours">
-			<view :class="[scale?'tui-countdown-scale':'']" :style="{fontSize:size+'rpx',color:color,lineHeight:size +'rpx'}">{{h}}</view>
+			<view class="dm-countdown-time" :class="[scale?'tui-countdown-scale':'']" :style="{fontSize:size+'rpx',color:color,lineHeight:size +'rpx'}">{{h}}</view>
 		</view>
 		<view class="tui-countdown-colon" :style="{lineHeight:colonsize+'rpx',fontSize:colonsize+'rpx',color:coloncolor}"
 		 v-if="hours">:</view>
-		<view class="tui-countdown-item" :style="{background:bgcolor,borderColor:bcolor,minWidth:minwidth+'rpx',minHeight:minheight+'rpx'}">
-			<view :class="[scale?'tui-countdown-scale':'']" :style="{fontSize:size+'rpx',color:color,lineHeight:size +'rpx'}">{{i}}</view>
+		<view class="tui-countdown-item" :style="{background:bgcolor,borderColor:bcolor,width:width+'rpx',height:height+'rpx'}">
+			<view class="dm-countdown-time" :class="[scale?'tui-countdown-scale':'']" :style="{fontSize:size+'rpx',color:color,lineHeight:size +'rpx'}">{{i}}</view>
 		</view>
 		<view class="tui-countdown-colon" :style="{lineHeight:colonsize+'rpx',fontSize:colonsize+'rpx',color:coloncolor}">:</view>
-		<view class="tui-countdown-item" :style="{background:bgcolor,borderColor:bcolor,minWidth:minwidth+'rpx',minHeight:minheight+'rpx'}">
-			<view :class="[scale?'tui-countdown-scale':'']" :style="{fontSize:size+'rpx',color:color,lineHeight:size +'rpx'}">{{s}}</view>
+		<view class="tui-countdown-item" :style="{background:bgcolor,borderColor:bcolor,width:width+'rpx',height:height+'rpx'}">
+			<view class="dm-countdown-time" :class="[scale?'tui-countdown-scale':'']" :style="{fontSize:size+'rpx',color:color,lineHeight:size +'rpx'}">{{s}}</view>
 		</view>
 	</view>
 </template>
@@ -20,15 +20,15 @@
 	export default {
 		name: "tuiCountdown",
 		props: {
-			//数字框最小宽度
-			minwidth: {
+			//数字框宽度
+			width: {
 				type: Number,
-				default: 26
+				default: 24
 			},
-			//数字框最小高度
-			minheight: {
+			//数字框高度
+			height: {
 				type: Number,
-				default: 26
+				default: 24
 			},
 			//数字框border颜色
 			bcolor: {
@@ -149,9 +149,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 2rpx 1rpx;
+		padding:1rpx;
 		border-radius: 6rpx;
+		white-space: nowrap;
 		overflow: hidden;
+	}
+	.dm-countdown-time{
+		margin: 0;
+		padding: 0;
 	}
 
 	.tui-countdown-colon {

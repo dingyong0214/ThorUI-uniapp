@@ -37,7 +37,7 @@
 		z-index: 9999;
 		font-size: 26upx;
 		color: #fff;
-		background: rgba(0, 0, 0, .7);
+		background: rgba(0, 0, 0, 0.7);
 		border-radius: 10upx;
 	}
 

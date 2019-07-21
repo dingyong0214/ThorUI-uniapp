@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "扩展toast",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button",
+    "tui-toast": "/components/extend/toast/toast"
+  }
+}

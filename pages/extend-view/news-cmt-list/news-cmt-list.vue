@@ -21,9 +21,9 @@
 							<view class="tui-flex-1 tui-reply-nickname">{{items.nickname}}</view>
 							<view class="tui-flex-1">{{items.content}}</view>
 						</tui-list-cell>
-						<tui-list-cell bgcolor="#f2f2f2" size="28" :last="true" v-if="item.replayNum>2" @tap="cmtReply">
+						<tui-list-cell bgcolor="#f2f2f2" :size="28" :last="true" v-if="item.replayNum>2" @tap="cmtReply">
 							<view class="tui-flex-1  tui-cell-last">共{{item.replayNum}}条回复
-								<tui-icon name="arrowright" size="22" color="#5677fc"></tui-icon>
+								<tui-icon name="arrowright" :size="22" color="#5677fc"></tui-icon>
 							</view>
 						</tui-list-cell>
 					</view>
@@ -43,7 +43,7 @@
 		</view>
 
 		<!--加载loadding-->
-		<tui-loadmore :visible="loadding" index="3" type="primary"></tui-loadmore>
+		<tui-loadmore :visible="loadding" :index="3" type="primary"></tui-loadmore>
 		<tui-nomore :visible="!pullUpOn" bgcolor="#fff" text="没有更多评论"></tui-nomore>
 		<!--加载loadding-->
 		<view class="tui-safearea-bottom"></view>

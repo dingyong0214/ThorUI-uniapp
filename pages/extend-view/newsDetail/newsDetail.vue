@@ -35,12 +35,12 @@
 
 		<view class="tui-operate-box">
 			<tui-tag :type="isFabulous?'':'gray'" shape="circle" :plain="true" @click="btnFabulous">
-				<tui-icon :name="iconName(isFabulous)" size="20" :color="iconColor"></tui-icon>
+				<tui-icon :name="iconName(isFabulous)" :size="20" :color="iconColor"></tui-icon>
 				<text class="tui-black" :class="[isFabulous?'tui-primary':'']">{{fabulous}}赞</text>
 			</tui-tag>
 			<button open-type="share" class="tui-share-btn">
 				<tui-tag type="gray" shape="circle" :plain="true">
-					<tui-icon name="partake" size="20" color="#333"></tui-icon>
+					<tui-icon name="partake" :size="20" color="#333"></tui-icon>
 					<text class="tui-black">分享</text>
 				</tui-tag>
 			</button>
@@ -56,22 +56,22 @@
 						<view class="tui-cmt-nickname">{{item.nickname}}</view>
 						<view class="tui-fabulous" :class="[item.isFabulous?'tui-primary':'']" :id="index" @tap="cmtFabulous">
 							<text>{{item.fabulous==0?'赞':item.fabulous}}</text>
-							<tui-icon :name="iconName(item.isFabulous)" size="15" :color="itemIconColor(item.isFabulous)"></tui-icon>
+							<tui-icon :name="iconName(item.isFabulous)" :size="15" :color="itemIconColor(item.isFabulous)"></tui-icon>
 						</view>
 					</view>
 					<view class="tui-cmt-content">
 						{{item.content}}
 					</view>
 					<view class="tui-reply-box" v-if="item.replayNum>0">
-						<tui-list-cell bgcolor="#f2f2f2" size="28" v-for="(items,index2) in item.reply" :key="index2" :last="item.replayNum<2 && item.reply.length-1==index"
+						<tui-list-cell bgcolor="#f2f2f2" :size="28" v-for="(items,index2) in item.reply" :key="index2" :last="item.replayNum<2 && item.reply.length-1==index"
 						 @tap="cmtReply">
 							<view class="tui-flex-1 tui-reply-nickname">{{items.nickname}}</view>
 							<view class="tui-flex-1">{{items.content}}</view>
 						</tui-list-cell>
-						<tui-list-cell bgcolor="#f2f2f2" size="28" :last="true" v-if="item.replayNum>2" @tap="cmtReply">
+						<tui-list-cell bgcolor="#f2f2f2" :size="28" :last="true" v-if="item.replayNum>2" @tap="cmtReply">
 							<view class="tui-flex-1  tui-cell-last">
 								<text>共{{item.replayNum}}条回复</text>
-								<tui-icon name="arrowright" size="22" color="#5677fc"></tui-icon>
+								<tui-icon name="arrowright" :size="22" color="#5677fc"></tui-icon>
 							</view>
 						</tui-list-cell>
 					</view>
@@ -90,22 +90,22 @@
 			</view>
 			<view class="tui-operation-right tui-right-flex tui-col-5">
 				<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150" @tap="cmtAll">
-					<tui-icon name="message" size="30" color='#444'></tui-icon>
+					<tui-icon name="message" :size="30" color='#444'></tui-icon>
 					<tui-badge type="white" size="small">501</tui-badge>
 				</view>
 				<view class="tui-operation-item" @tap="collection">
-					<tui-icon :name="isCollection?'star-fill':'star'" size="29" :color="isCollection?'#5677fc':'#444'"></tui-icon>
+					<tui-icon :name="isCollection?'star-fill':'star'" :size="29" :color="isCollection?'#5677fc':'#444'"></tui-icon>
 				</view>
 				<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150">
 					<button open-type="share" class="tui-share-btn">
-						<tui-icon name="share" size="31" color='#444'></tui-icon>
+						<tui-icon name="share" :size="31" color='#444'></tui-icon>
 					</button>
 				</view>
 			</view>
 		</view>
 
 		<!--加载loadding-->
-		<tui-loadmore :visible="loadding" index="3" type="primary"></tui-loadmore>
+		<tui-loadmore :visible="loadding" :index="3" type="primary"></tui-loadmore>
 		<tui-nomore :visible="!pullUpOn" bgcolor="#fff" text="没有更多评论"></tui-nomore>
 		<!--加载loadding-->
 		<view class="tui-safearea-bottom"></view>
@@ -499,6 +499,9 @@
 		position: absolute;
 		top: -6upx;
 		padding: 2px 4px !important;
+		/* #ifdef H5 */
+		transform: translateX(50%) scale(0.8);
+		/* #endif */
 	}
 
 	.tui-right-flex {

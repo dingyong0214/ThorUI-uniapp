@@ -67,7 +67,7 @@
 		overflow: hidden;
 		visibility: hidden;
 		transition: all 0.3s ease-in-out;
-		z-index: 998;
+		z-index: 989;
 		top: 0;
 	}
 
@@ -82,7 +82,7 @@
 		right: 0;
 		bottom: 0;
 		background: rgba(0, 0, 0, 0.6);
-		z-index: 996;
+		z-index: 986;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		visibility: hidden;

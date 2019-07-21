@@ -11,12 +11,12 @@
 		props: {
 			type: {
 				type: String,
-				default: 'primary',
+				default: 'primary'
 			},
 			// '', small
 			size: {
 				type: String,
-				default: '',
+				default: ''
 			},
 			// circle, square，circleLeft，circleRight
 			shape: {

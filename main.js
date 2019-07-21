@@ -27,7 +27,7 @@ const tui = {
 		if (!hideLoading) {
 			uni.showLoading({
 				mask: true,
-				title: '请稍候...',
+				title: '请稍候...'
 			})
 		}
 		return new Promise((resolve, reject) => {
@@ -73,7 +73,7 @@ const tui = {
 	uploadFile: function(src) {
 		const that = this
 		uni.showLoading({
-			title: '请稍候...',
+			title: '请稍候...'
 		})
 		return new Promise((resolve, reject) => {
 			const uploadTask = uni.uploadFile({

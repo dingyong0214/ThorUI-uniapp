@@ -71,11 +71,22 @@
 		padding: 20upx !important;
 	}
 
-	.tui-grid-2:nth-of-type(2n)::before,
-	.tui-grid-3:nth-of-type(3n)::before,
-	.tui-grid-4:nth-of-type(4n)::before,
-	.tui-grid-5:nth-of-type(5n)::before,
-	{
+	.tui-grid-2:nth-of-type(2n)::before {
+		width: 0;
+		border-right: 0;
+	}
+
+	.tui-grid-3:nth-of-type(3n)::before {
+		width: 0;
+		border-right: 0;
+	}
+
+	.tui-grid-4:nth-of-type(4n)::before {
+		width: 0;
+		border-right: 0;
+	}
+
+	.tui-grid-5:nth-of-type(5n)::before {
 		width: 0;
 		border-right: 0;
 	}

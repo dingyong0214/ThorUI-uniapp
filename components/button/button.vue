@@ -13,12 +13,12 @@
 			// primary, white, danger, warning, green, gray,gradual
 			type: {
 				type: String,
-				default: 'gradual',
+				default: 'gradual'
 			},
 			// block, mini, small
 			size: {
 				type: String,
-				default: 'block',
+				default: 'block'
 			},
 			// circle, square，rightAngle
 			shape: {
@@ -31,11 +31,11 @@
 			},
 			disabled: {
 				type: Boolean,
-				default: false,
+				default: false
 			},
 			loading: {
 				type: Boolean,
-				default: false,
+				default: false
 			},
 			openType: {
 				type: String,
@@ -67,14 +67,14 @@
 				this.$emit('getuserinfo', detail);
 			},
 			getDisabledClass: function(disabled, type) {
-				var className = '';
+				let className = '';
 				if (disabled && type != 'white' && type != 'gray') {
 					className = type == 'gradual' ? 'btn-gradual-disabled' : 'tui-dark-disabled';
 				}
 				return className;
 			},
 			getShapeClass: function(shape, plain) {
-				var className = '';
+				let className = '';
 				if (shape == 'circle') {
 					className = plain ? 'tui-outline-fillet' : 'tui-fillet';
 				} else if (shape == "rightAngle") {
@@ -83,7 +83,7 @@
 				return className;
 			},
 			getHoverClass: function(disabled, type, plain) {
-				var className = '';
+				let className = '';
 				if (!disabled) {
 					className = plain ? 'tui-outline-hover' : ('tui-' + (type || 'gradual') + '-hover');
 				}
@@ -143,7 +143,7 @@
 		width: 100%;
 		position: relative;
 		border: 0 !important;
-		border-radius: 10upx;
+		border-radius: 10rpx;
 		display: inline-block;
 	}
 
@@ -160,13 +160,13 @@
 		box-sizing: border-box;
 		left: 0;
 		top: 0;
-		border-radius: 20upx;
+		border-radius: 20rpx;
 	}
 
 	.tui-btn-block {
-		font-size: 36upx;
-		height: 90upx;
-		line-height: 90upx;
+		font-size: 36rpx;
+		height: 90rpx;
+		line-height: 90rpx;
 	}
 
 	.tui-white::after {
@@ -276,15 +276,15 @@
 	/*圆角 */
 
 	.tui-fillet {
-		border-radius: 45upx;
+		border-radius: 45rpx;
 	}
 
 	.tui-white.tui-fillet::after {
-		border-radius: 90upx;
+		border-radius: 90rpx;
 	}
 
 	.tui-outline-fillet::after {
-		border-radius: 90upx;
+		border-radius: 90rpx;
 	}
 
 	/*平角*/
@@ -304,7 +304,7 @@
 
 	.tui-gradual {
 		background: linear-gradient(-90deg, #5677fc, #5c8dff);
-		border-radius: 45upx;
+		border-radius: 45rpx;
 		color: #fff;
 	}
 
@@ -315,7 +315,7 @@
 
 	.btn-gradual-disabled {
 		color: #fafbfc !important;
-		border-radius: 45upx;
+		border-radius: 45rpx;
 		background: linear-gradient(-90deg, #cad8fb, #c9d3fb);
 	}
 
@@ -323,16 +323,16 @@
 
 	.tui-btn-mini {
 		width: auto;
-		font-size: 30upx;
-		height: 70upx;
-		line-height: 70upx;
+		font-size: 30rpx;
+		height: 70rpx;
+		line-height: 70rpx;
 	}
 
 	.tui-btn-small {
 		width: auto;
-		font-size: 30upx;
-		height: 60upx;
-		line-height: 60upx;
+		font-size: 30rpx;
+		height: 60rpx;
+		line-height: 60rpx;
 	}
 
 	/* button end*/

@@ -11,6 +11,9 @@
 							<!-- #ifdef APP-PLUS || MP -->
 							<icon type="clear" :size="15"></icon>
 							<!-- #endif -->
+							<!-- #ifdef H5 -->
+							<tui-icon name="close-fill" :size="16" color="#bfbfbf"></tui-icon>
+							<!-- #endif -->
 						</view>
 					</view>
 					<label class="search-bar-label" v-if="!inputShowed" @tap="showInput">
@@ -31,7 +34,7 @@
 				<view class="current-city">
 					<view class="title">定位城市</view>
 					<view class="city-name">
-						<tui-icon  name="position-fill" color="#5677fc" :size="18"></tui-icon>
+						<tui-icon name="position-fill" color="#5677fc" :size="18"></tui-icon>
 						{{localCity}}
 					</view>
 				</view>
@@ -49,8 +52,8 @@
 						<view class="tui-list-cell-divider" :id="index === 0 ? 'suoyin' : list.letter">
 							{{list.letter}}
 						</view>
-						<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index2) in list.data" :key="index2" @tap="selectCity"
-						 :data-name="item.cityName" :hover-stay-time='150'>
+						<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index2) in list.data" :key="index2"
+						 @tap="selectCity" :data-name="item.cityName" :hover-stay-time='150'>
 							<view class="tui-list-cell-navigate" :class="[list.data.length-1==index?'last':'']">
 								{{item.cityName}}
 							</view>
@@ -234,6 +237,10 @@
 		height: 38upx;
 	}
 
+	.icon-clear .tui-icon-class {
+		display: block
+	}
+	
 	.search-bar-label {
 		height: 64upx;
 		display: flex;

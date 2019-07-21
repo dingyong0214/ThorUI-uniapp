@@ -91,7 +91,7 @@
 		margin: 0 6px;
 		display: inline-block;
 		vertical-align: middle;
-		clip-path: polygon(0% 0%, 100% 0%, 100% 30%, 0% 30%);
+		clip-path: polygon(0% 0%,100% 0%,100% 30%,0% 30%);
 		animation: rotate 1s linear infinite;
 	}
 

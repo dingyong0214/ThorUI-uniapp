@@ -38,7 +38,7 @@
 					</view>
 					<view class="tui-collection tui-size" @tap="collecting">
 						<view class="tui-icon tui-icon-collection" :class="['tui-icon-'+(collected?'like-fill':'like')]" :style="{color:collected?'#ff201f':'#333',fontSize:'20px'}"></view>
-						<view class="tui-scale" :class="[collected?'tui-red':'']">收藏</view>
+						<view class="tui-scale" :class="[collected?'tui-icon-red':'']">收藏</view>
 					</view>
 				</view>
 				<view class="tui-original-price tui-gray">
@@ -72,7 +72,7 @@
 						<tui-tag size="small" type="red" shape="circle" tui-tag-class="tui-tag-coupon">满99减8</tui-tag>
 						<tui-tag size="small" type="red" shape="circle" tui-tag-class="tui-tag-coupon">满59减5</tui-tag>
 					</view>
-					<tui-icon name="more-fill" size="20" class="tui-right tui-top40" color="#666"></tui-icon>
+					<tui-icon name="more-fill" :size="20" class="tui-right tui-top40" color="#666"></tui-icon>
 				</view>
 
 				<view class="tui-list-cell tui-last" @tap="showPopup">
@@ -91,7 +91,7 @@
 							<text>满3件，立减最低3件商品价格，包邮（限中国内地）</text>
 						</view>
 					</view>
-					<tui-icon name="more-fill" size="20" class="tui-right tui-top40" color="#666"></tui-icon>
+					<tui-icon name="more-fill" :size="20" class="tui-right tui-top40" color="#666"></tui-icon>
 				</view>
 
 			</view>
@@ -100,7 +100,7 @@
 				<view class="tui-list-cell" @tap="showPopup">
 					<view class="tui-bold tui-cell-title">已选</view>
 					<view class="tui-selected-box">个性水滴耳环【A2】,1个，可选服务</view>
-					<tui-icon name="more-fill" size="20" class="tui-right" color="#666"></tui-icon>
+					<tui-icon name="more-fill" :size="20" class="tui-right" color="#666"></tui-icon>
 				</view>
 				<view class="tui-list-cell" @tap="showPopup">
 					<view class="tui-bold tui-cell-title">送至</view>
@@ -108,7 +108,7 @@
 						<view class="tui-addr-item">北京朝阳区三环到四环之间</view>
 						<view class="tui-addr-item">今日23:59前完成下单，预计6月28日23:30前发货，7月1日24:00前送达</view>
 					</view>
-					<tui-icon name="more-fill" size="20" class="tui-right" color="#666"></tui-icon>
+					<tui-icon name="more-fill" :size="20" class="tui-right" color="#666"></tui-icon>
 				</view>
 				<view class="tui-list-cell tui-last">
 					<view class="tui-bold tui-cell-title">运费</view>
@@ -116,23 +116,23 @@
 				</view>
 				<view class="tui-guarantee">
 					<view class="tui-guarantee-item">
-						<tui-icon name="circle-selected" size="14" color="#999"></tui-icon>
+						<tui-icon name="circle-selected" :size="14" color="#999"></tui-icon>
 						<text class="tui-pl">可配送海外</text>
 					</view>
 					<view class="tui-guarantee-item">
-						<tui-icon name="circle-selected" size="14" color="#999"></tui-icon>
+						<tui-icon name="circle-selected" :size="14" color="#999"></tui-icon>
 						<text class="tui-pl">店铺发货&售后</text>
 					</view>
 					<view class="tui-guarantee-item">
-						<tui-icon name="circle-selected" size="14" color="#999"></tui-icon>
+						<tui-icon name="circle-selected" :size="14" color="#999"></tui-icon>
 						<text class="tui-pl">7天无理由退货</text>
 					</view>
 					<view class="tui-guarantee-item">
-						<tui-icon name="circle-selected" size="14" color="#999"></tui-icon>
+						<tui-icon name="circle-selected" :size="14" color="#999"></tui-icon>
 						<text class="tui-pl">闪电退款</text>
 					</view>
 					<view class="tui-guarantee-item">
-						<tui-icon name="circle-selected" size="14" color="#999"></tui-icon>
+						<tui-icon name="circle-selected" :size="14" color="#999"></tui-icon>
 						<text class="tui-pl">极速审核</text>
 					</view>
 				</view>
@@ -176,15 +176,15 @@
 		<view class="tui-operation">
 			<view class="tui-operation-left tui-col-5">
 				<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150">
-					<tui-icon name="kefu" size="22" color='#333'></tui-icon>
+					<tui-icon name="kefu" :size="22" color='#333'></tui-icon>
 					<view class="tui-operation-text tui-scale-small">客服</view>
 				</view>
 				<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150">
-					<tui-icon name="shop" size="22" color='#333'></tui-icon>
+					<tui-icon name="shop" :size="22" color='#333'></tui-icon>
 					<view class="tui-operation-text tui-scale-small">店铺</view>
 				</view>
 				<view class="tui-operation-item" hover-class="opcity" :hover-stay-time="150">
-					<tui-icon name="cart" size="22" color='#333'></tui-icon>
+					<tui-icon name="cart" :size="22" color='#333'></tui-icon>
 					<view class="tui-operation-text tui-scale-small">购物车</view>
 					<tui-badge type="danger" size="small">9</tui-badge>
 				</view>
@@ -199,7 +199,7 @@
 			</view>
 		</view>
 
-	
+
 		<!--底部操作栏--->
 
 		<!--顶部下拉菜单-->
@@ -260,7 +260,7 @@
 
 						<view class="tui-number-box tui-bold tui-attr-title">
 							<view class="tui-attr-title">数量</view>
-							<tui-numberbox max="99" min="1" :value="value" @change="change"></tui-numberbox>
+							<tui-numberbox :max="99" :min="1" :value="value" @change="change"></tui-numberbox>
 						</view>
 						<view class="tui-bold tui-attr-title">尺寸</view>
 						<view class="tui-attr-box">
@@ -307,7 +307,7 @@
 					<tui-button type="red" tui-button-class="tui-btn-equals" shape="circle" size="mini" class="tui-flex-1" @click="hidePopup">加入购物车</tui-button>
 					<tui-button type="warning" tui-button-class="tui-btn-equals" shape="circle" size="mini" class="tui-flex-1" @click="hidePopup">立即购买</tui-button>
 				</view>
-                 <view class="tui-icon tui-icon-close-fill tui-icon-close" style="color: #999;font-size:20px" @tap="hidePopup"></view>
+				<view class="tui-icon tui-icon-close-fill tui-icon-close" style="color: #999;font-size:20px" @tap="hidePopup"></view>
 				<!-- <tui-icon name="close-fill" color="#999" class="tui-icon-close" size="20" @tap="hidePopup"></tui-icon> -->
 			</view>
 		</tui-bottom-popup>
@@ -647,7 +647,7 @@
 		color: #999;
 	}
 
-	.tui-red {
+	.tui-icon-red {
 		color: #ff201f;
 	}
 
@@ -1006,12 +1006,12 @@
 	}
 
 	.tui-operation-item {
-	  flex: 1;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  flex-direction: column;
-	  position: relative;
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		position: relative;
 	}
 
 	.tui-operation-text {
@@ -1047,8 +1047,11 @@
 	}
 
 	.tui-operation .tui-badge-class {
-	  position: absolute;
-	  top: -6upx;
+		position: absolute;
+		top: -6upx;
+		/* #ifdef H5 */
+		transform: translateX(50%)
+		/* #endif  */
 	}
 
 	.tui-flex-1 {
@@ -1076,10 +1079,11 @@
 		left: 0;
 		bottom: 0;
 	}
+
 	.tui-popup-btn .tui-btn-class {
-	  width: 90% !important;
-	  display: block !important;
-	  font-size: 28upx !important;
+		width: 90% !important;
+		display: block !important;
+		font-size: 28upx !important;
 	}
 
 	.tui-icon-close {

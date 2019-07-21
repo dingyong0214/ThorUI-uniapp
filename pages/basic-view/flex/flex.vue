@@ -33,7 +33,7 @@
 			</view>
 			<view class="tui-flex">
 				<view class="tui-center tui-light-green tui-flex-1">Thor UI</view>
-				<view class="tui-center .tui-light-brownish tui-flex-1">Thor UI</view>
+				<view class="tui-center tui-light-brownish tui-flex-1">Thor UI</view>
 			</view>
 			<view class="tui-flex">
 				<view class="tui-center tui-light-green tui-flex-1">Thor UI</view>

@@ -2,10 +2,20 @@
 	<view class="container">
 		<view class="tui-searchbox">
 			<view class="tui-search-input">
-				<icon type="search" size='13' color='#333'></icon>
+				<!-- #ifdef APP-PLUS || MP -->
+				<icon type="search" :size='13' color='#333'></icon>
+				<!-- #endif -->
+				<!-- #ifdef H5 -->
+				<view><tui-icon name="search" :size='16' color='#333'></tui-icon></view>
+				<!-- #endif -->
 				<input confirm-type="search" placeholder="大家都在搜：2019退役球星" :focus="true" auto-focus placeholder-class="tui-input-plholder"
 				 class="tui-input" v-model.trim="key" />
-				<icon type="clear" size='13' color='#bcbcbc' @tap="cleanKey" v-show="key"></icon>
+				<!-- #ifdef APP-PLUS || MP -->
+				<icon type="clear" :size='13' color='#bcbcbc' @tap="cleanKey" v-show="key"></icon>
+				<!-- #endif -->
+				<!-- #ifdef H5 -->
+				<view @tap="cleanKey" v-show="key"><tui-icon name="close-fill" :size='16' color='#bcbcbc'></tui-icon></view>
+				<!-- #endif -->
 			</view>
 			<view class="tui-cancle" @tap="back">取消</view>
 		</view>
@@ -13,11 +23,11 @@
 		<view class="tui-search-history" v-if="history.length>0">
 			<view class="tui-history-header">
 				<view class="tui-search-title">搜索历史</view>
-				<tui-icon name="delete" size='14' color='#333' @tap="openActionSheet" class="tui-icon-delete"></tui-icon>
+				<tui-icon name="delete" :size='14' color='#333' @tap="openActionSheet" class="tui-icon-delete"></tui-icon>
 			</view>
 			<view class="tui-history-content">
 				<block v-for="(item,index) in history" :key="index">
-					<tui-tag type="gray"  shape="circle">{{item}}</tui-tag>
+					<tui-tag type="gray" shape="circle">{{item}}</tui-tag>
 				</block>
 			</view>
 		</view>
@@ -28,7 +38,7 @@
 			</view>
 			<view class="tui-hot-content">
 				<block v-for="(item,index) in hot" :key="index">
-					<tui-tag type="gray"  shape="circle">{{item}}</tui-tag>
+					<tui-tag type="gray" shape="circle">{{item}}</tui-tag>
 				</block>
 			</view>
 		</view>
@@ -85,13 +95,13 @@
 				uni.navigateBack();
 			},
 			cleanKey: function() {
-				this.key= ''
+				this.key = ''
 			},
 			closeActionSheet: function() {
-				this.showActionSheet= false
+				this.showActionSheet = false
 			},
 			openActionSheet: function() {
-				this.showActionSheet= true
+				this.showActionSheet = true
 			},
 			itemClick: function(e) {
 				let index = e.index;

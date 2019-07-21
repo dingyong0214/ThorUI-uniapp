@@ -18,7 +18,7 @@
 			<!--商品列表-->
 		</view>
 		<!--加载loadding-->
-		<tui-loadmore :visible="loadding" index="3" type="primary"></tui-loadmore>
+		<tui-loadmore :visible="loadding" :index="3" type="primary"></tui-loadmore>
 		<tui-nomore :visible="!pullUpOn"></tui-nomore>
 		<!--加载loadding-->
 	</view>

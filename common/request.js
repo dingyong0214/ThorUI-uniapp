@@ -16,7 +16,7 @@ const fetch = {
 		if (showLoading) {
 			uni.showLoading({
 				mask: true,
-				title: '请稍候...',
+				title: '请稍候...'
 			})
 		}
 		const token = postData.token || "";

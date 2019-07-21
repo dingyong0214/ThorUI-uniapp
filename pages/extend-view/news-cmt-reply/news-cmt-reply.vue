@@ -12,7 +12,7 @@
 					</view>
 					<view class="tui-fabulous" :class="[isFabulous?'tui-primary':'']" :id="index" @tap="btnFabulous">
 						<text>{{fabulous==0?'赞':fabulous}}</text>
-						<tui-icon :name="isFabulous?'agree-fill':'agree'" size="15" :color="isFabulous?'#5677fc':'#9a9a9a'"></tui-icon>
+						<tui-icon :name="isFabulous?'agree-fill':'agree'" :size="15" :color="isFabulous?'#5677fc':'#9a9a9a'"></tui-icon>
 					</view>
 				</view>
 				<view class="tui-cmt-content">
@@ -34,11 +34,11 @@
 					</view>
 					<view class="tui-fabulous" :class="[item.isFabulous?'tui-primary':'']" :id="index" @tap="cmtFabulous">
 						<text>{{item.fabulous==0?'赞':item.fabulous}}</text>
-						<tui-icon :name="item.isFabulous?'agree-fill':'agree'" size="15" :color="item.isFabulous?'#5677fc':'#9a9a9a'"></tui-icon>
+						<tui-icon :name="item.isFabulous?'agree-fill':'agree'" :size="15" :color="item.isFabulous?'#5677fc':'#9a9a9a'"></tui-icon>
 					</view>
 				</view>
 				<view class="tui-reply-box" v-if="item.reply.length>0">
-					<tui-list-cell bgcolor="#f2f2f2" size="28" v-for="(items,index2) in item.reply" :key="index2"
+					<tui-list-cell bgcolor="#f2f2f2" :size="28" v-for="(items,index2) in item.reply" :key="index2"
 					 :last="true" @tap="cmtReply">
 						<view class="tui-flex-1 tui-reply-nickname">{{items.nickname}}</view>
 						<view class="tui-flex-1">{{items.content}}</view>
@@ -58,7 +58,7 @@
 		</view>
 
 		<!--加载loadding-->
-		<tui-loadmore :visible="loadding" index="3" type="primary"></tui-loadmore>
+		<tui-loadmore :visible="loadding" :index="3" type="primary"></tui-loadmore>
 		<tui-nomore :visible="!pullUpOn" bgcolor="#fff" text="没有更多回复"></tui-nomore>
 		<!--加载loadding-->
 		<view class="tui-safearea-bottom"></view>

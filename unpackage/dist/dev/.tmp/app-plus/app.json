@@ -1,0 +1,139 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/about/about",
+    "pages/basic/basic",
+    "pages/basic-view/badge/badge",
+    "pages/basic-view/button/button",
+    "pages/basic-view/card/card",
+    "pages/basic-view/color/color",
+    "pages/basic-view/flex/flex",
+    "pages/basic-view/footer/footer",
+    "pages/basic-view/grid/grid",
+    "pages/basic-view/icon/icon",
+    "pages/basic-view/list/list",
+    "pages/basic-view/load/load",
+    "pages/basic-view/other/other",
+    "pages/basic-view/tag/tag",
+    "pages/drawer/drawer",
+    "pages/extend/extend",
+    "pages/extend-view/actionsheet/actionsheet",
+    "pages/extend-view/chat/chat",
+    "pages/extend-view/friendsList/friendsList",
+    "pages/extend-view/keyboard/keyboard",
+    "pages/extend-view/lockscreen/lockscreen",
+    "pages/extend-view/luckdraw/luckdraw",
+    "pages/extend-view/mall/mall",
+    "pages/extend-view/msgList/msgList",
+    "pages/extend-view/msgtips/msgtips",
+    "pages/extend-view/news/news",
+    "pages/extend-view/news-cmt/news-cmt",
+    "pages/extend-view/news-cmt-list/news-cmt-list",
+    "pages/extend-view/news-cmt-reply/news-cmt-reply",
+    "pages/extend-view/newsDetail/newsDetail",
+    "pages/extend-view/news-search/news-search",
+    "pages/extend-view/news-video/news-video",
+    "pages/extend-view/numberbox/numberbox",
+    "pages/extend-view/popup/popup",
+    "pages/extend-view/productDetail/productDetail",
+    "pages/extend-view/productList/productList",
+    "pages/extend-view/rate/rate",
+    "pages/extend-view/rollingNews/rollingNews",
+    "pages/extend-view/sticky/sticky",
+    "pages/extend-view/template/template",
+    "pages/extend-view/timeaxis/timeaxis",
+    "pages/indexList/indexList",
+    "pages/location/location",
+    "pages/log/log",
+    "pages/login/login",
+    "pages/longlat/longlat",
+    "pages/maps/maps",
+    "pages/my/my",
+    "pages/navbar-2/navbar-2",
+    "pages/news/news",
+    "pages/picker/picker",
+    "pages/picker-view/picker-view",
+    "pages/product/product",
+    "pages/qrcode/qrcode",
+    "pages/selectCity/selectCity",
+    "pages/swipe-action/swipe-action",
+    "pages/weather/weather",
+    "pages/extend-view/modal/modal",
+    "pages/extend-view/countdown/countdown",
+    "pages/extend-view/carousel/carousel",
+    "pages/extend-view/divider/divider",
+    "pages/extend-view/button/button",
+    "pages/extend-view/tips/tips",
+    "pages/extend-view/alert/alert",
+    "pages/extend-view/toast/toast",
+    "pages/extend-view/goTop/goTop",
+    "pages/extend-view/formValidation/formValidation"
+  ],
+  "subPackages": [],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#5677FC",
+    "navigationBarTitleText": "Thor UI",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fafafa",
+    "backgroundColorTop": "#fafafa",
+    "backgroundColorBottom": "#fafafa"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#5677FC",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "code",
+        "iconPath": "static/images/tabbar/code_gray.png",
+        "selectedIconPath": "static/images/tabbar/code_active.png"
+      },
+      {
+        "pagePath": "pages/extend/extend",
+        "text": "extend",
+        "iconPath": "static/images/tabbar/extend_gray.png",
+        "selectedIconPath": "static/images/tabbar/extend_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "thor",
+        "iconPath": "static/images/tabbar/thor_gray.png",
+        "selectedIconPath": "static/images/tabbar/thor_active.png"
+      }
+    ]
+  },
+  "nvue": {
+    "pages": {
+      "pages/productNvue/productNvue.html": {
+        "window": {
+          "usingComponents": {},
+          "navigationBarTitleText": "",
+          "navigationBarBackgroundColor": "#fff",
+          "navigationBarTextStyle": "black",
+          "titleNView": false,
+          "bounce": "none"
+        }
+      },
+      "pages/navbar-1/navbar-1.html": {
+        "window": {
+          "usingComponents": {},
+          "navigationBarBackgroundColor": "#FFFFFF",
+          "navigationBarTextStyle": "black",
+          "navigationBarTitleText": "顶部选项卡",
+          "disableScroll": true,
+          "bounce": "none"
+        }
+      }
+    }
+  },
+  "nvueCompiler": "weex",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "ThorUI",
+  "compilerVersion": "2.1.1",
+  "usingComponents": {}
+}

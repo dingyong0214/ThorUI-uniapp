@@ -7,11 +7,13 @@
 					<tui-icon name="arrowleft" color="#000"></tui-icon>
 				</view>
 				<view class="tui-searchbox tui-search-mr" :style="{marginTop:inputTop+'px'}" @tap="search">
-					<icon type="search" size='13' color='#999'></icon>
+					<!-- #ifdef APP-PLUS || MP -->
+					<icon type="search" :size='13' color='#999'></icon>
+					<!-- #endif -->
 					<text class="tui-search-text" v-if="!searchKey">搜索Thorui商品</text>
 					<view class="tui-search-key" v-if="searchKey">
 						<view class="tui-key-text">{{searchKey}}</view>
-						<tui-icon name="shut" size='12' color='#fff'></tui-icon>
+						<tui-icon name="shut" :size='12' color='#fff'></tui-icon>
 					</view>
 				</view>
 			</view>
@@ -22,7 +24,7 @@
 			<view class="tui-screen-top">
 				<view class="tui-top-item tui-icon-ml" :class="[tabIndex==0?'tui-active tui-bold':'']" data-index="0" @tap="screen">
 					<view>{{selectedName}}</view>
-					<tui-icon :name="selectH>0?'arrowup':'arrowdown'" size="14" :color="tabIndex==0?'#e41f19':'#444'" tui-icon-class="tui-ml"></tui-icon>
+					<tui-icon :name="selectH>0?'arrowup':'arrowdown'" :size="14" :color="tabIndex==0?'#e41f19':'#444'" tui-icon-class="tui-ml"></tui-icon>
 				</view>
 				<view class="tui-top-item" :class="[tabIndex==1?'tui-active tui-bold':'']" @tap="screen" data-index="1">销量</view>
 				<view class="tui-top-item" @tap="screen" data-index="2">
@@ -30,7 +32,7 @@
 				</view>
 				<view class="tui-top-item tui-icon-ml" @tap="screen" data-index="3">
 					<text>筛选</text>
-					<tui-icon name="screen" size="12" color="#333" tui-icon-class="tui-ml" :bold="true"></tui-icon>
+					<tui-icon name="screen" :size="12" color="#333" tui-icon-class="tui-ml" :bold="true"></tui-icon>
 				</view>
 
 				<!--下拉选择列表--综合-->
@@ -38,7 +40,7 @@
 					<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in dropdownList"
 					 :key="index" @tap.stop="dropdownItem" :data-index="index">
 						<text class="tui-ml tui-middle">{{item.name}}</text>
-						<tui-icon name="check" size="16" color="#e41f19" :bold="true" v-if="item.selected" tui-icon-class="tui-middle"></tui-icon>
+						<tui-icon name="check" :size="16" color="#e41f19" :bold="true" v-if="item.selected" tui-icon-class="tui-middle"></tui-icon>
 					</view>
 
 				</view>
@@ -51,7 +53,7 @@
 					<view class="tui-bottom-item tui-icon-ml" :class="[item.isActive?'tui-btmItem-active':'',attrIndex==index?'tui-btmItem-tap':'']"
 					 :data-index="index" @tap="btnDropChange">
 						<view class="tui-bottom-text" :class="[attrIndex==index?'tui-active':'']">{{item.isActive?item.selectedName:item.name}}</view>
-						<tui-icon :name="attrIndex==index?'arrowup':'arrowdown'" size="14" :color="attrIndex==index || item.isActive?'#e41f19':'#444'"
+						<tui-icon :name="attrIndex==index?'arrowup':'arrowdown'" :size="14" :color="attrIndex==index || item.isActive?'#e41f19':'#444'"
 						 tui-icon-class="tui-ml" v-if="item.list.length>0"></tui-icon>
 					</view>
 				</block>
@@ -108,12 +110,12 @@
 		<!--list-->
 
 		<!--顶部下拉筛选弹层 属性-->
-		<tui-top-dropdown bgcolor="#f7f7f7" :show="dropScreenShow" paddingbtm="110" :translatey="dropScreenH" @close="btnCloseDrop">
+		<tui-top-dropdown bgcolor="#f7f7f7" :show="dropScreenShow" :paddingbtm="110" :translatey="dropScreenH" @close="btnCloseDrop">
 			<scroll-view class="tui-scroll-box" scroll-y :scroll-top="scrollTop">
 				<view class="tui-seizeaseat-20"></view>
 				<view class="tui-drop-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in attrData"
 				 :key="index" @tap.stop="btnSelected" :data-index="index">
-					<tui-icon name="check" size="16" color="#e41f19" :bold="true" v-if="item.selected" tui-icon-class="tui-middle"></tui-icon>
+					<tui-icon name="check" :size="16" color="#e41f19" :bold="true" v-if="item.selected" tui-icon-class="tui-middle"></tui-icon>
 					<text class="tui-ml tui-middle">{{item.name}}</text>
 				</view>
 				<view class="tui-seizeaseat-30"></view>
@@ -133,13 +135,13 @@
 					<view class="tui-drawer-title">
 						<text class="tui-title-bold">价格区间</text>
 						<view class="tui-attr-right">
-							<tui-icon name="position-fill" color="#e41f19" size="14" class="tui-location"></tui-icon>
+							<tui-icon name="position-fill" color="#e41f19" :size="14" class="tui-location"></tui-icon>
 							<text>北京朝阳区三环到四环之间</text>
 						</view>
 					</view>
 					<view class="tui-drawer-content">
 						<input placeholder-class="tui-phcolor" class="tui-input" placeholder="最低价" maxlength="11" type='number' />
-						<tui-icon name="reduce" color="#333" size="14"></tui-icon>
+						<tui-icon name="reduce" color="#333" :size="14"></tui-icon>
 						<input placeholder-class="tui-phcolor" class="tui-input" placeholder="最高价" maxlength="11" type='number' />
 					</view>
 
@@ -147,7 +149,7 @@
 						<text class="tui-title-bold">全部分类</text>
 						<view class="tui-all-box tui-icon-ml">
 							<view class="tui-attr-right">全部</view>
-							<tui-icon name="arrowdown" size="14" color="#444" tui-icon-class="tui-ml"></tui-icon>
+							<tui-icon name="arrowdown" :size="14" color="#444" tui-icon-class="tui-ml"></tui-icon>
 						</view>
 					</view>
 					<view class="tui-drawer-content tui-flex-attr">
@@ -181,7 +183,7 @@
 						<text class="tui-title-bold">品牌</text>
 						<view class="tui-all-box tui-icon-ml">
 							<view class="tui-attr-right tui-active ">花花公子，七匹狼（SEPTWOLVES）</view>
-							<tui-icon name="arrowdown" size="14" color="#444" tui-icon-class="tui-ml"></tui-icon>
+							<tui-icon name="arrowdown" :size="14" color="#444" tui-icon-class="tui-ml"></tui-icon>
 						</view>
 					</view>
 					<view class="tui-drawer-content tui-flex-attr">
@@ -200,7 +202,7 @@
 						<text class="tui-title-bold">尺码</text>
 						<view class="tui-all-box tui-icon-ml">
 							<view class="tui-attr-right">全部</view>
-							<tui-icon name="arrowup" size="14" color="#444" tui-icon-class="tui-ml"></tui-icon>
+							<tui-icon name="arrowup" :size="14" color="#444" tui-icon-class="tui-ml"></tui-icon>
 						</view>
 					</view>
 					<view class="tui-drawer-content tui-flex-attr">
@@ -272,7 +274,7 @@
 		<!--左抽屉弹层 筛选-->
 
 		<!--加载loadding-->
-		<tui-loadmore :visible="loadding" index="3" type="red"></tui-loadmore>
+		<tui-loadmore :visible="loadding" :index="3" type="red"></tui-loadmore>
 		<tui-nomore :visible="!pullUpOn && isList" bgcolor="#f7f7f7"></tui-nomore>
 		<!--加载loadding-->
 	</view>
@@ -786,6 +788,7 @@
 	.tui-search-mr {
 		margin-right: 20upx !important;
 	}
+
 	/* #endif */
 
 	.tui-search-text {

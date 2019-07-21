@@ -41,7 +41,7 @@
 		},
 		methods: {
 			email: function() {
-				const that=this
+				const that = this
 				uni.setClipboardData({
 					data: '1062884167@qq.com',
 					success(res) {

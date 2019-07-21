@@ -78,7 +78,7 @@
 				winHeight: 0,
 				inputShowed: false, // 输入框是否显示
 				inputVal: '', // 搜索框输入的内容
-				searchResult: [], // 搜索结果
+				searchResult: [] // 搜索结果
 			}
 		},
 		onLoad: function(options) {
@@ -152,7 +152,7 @@
 			},
 			touchEnd() {
 				this.touchmove = false;
-				this.touchmoveIndex; - 1
+				this.touchmoveIndex = -1
 			},
 			touchCancel() {
 				this.touchmove = false;
@@ -183,7 +183,7 @@
 		position: relative;
 		padding: 30upx 30upx 30upx;
 		background-color: #fff;
-		/* box-shadow: 0 2px 2px #ccc;  */
+		/* box-shadow: 0 2px 2px #ccc;*/
 	}
 
 	.search-bar-form {

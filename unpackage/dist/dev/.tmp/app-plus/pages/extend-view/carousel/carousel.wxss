@@ -1,0 +1,293 @@
+
+.container {
+	padding-bottom: 100rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+/*banner*/
+.tui-banner-box {
+	width: 100%;
+	padding-top: 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background: #fff;
+}
+.tui-banner-swiper {
+	width: 100%;
+	height: 240rpx;
+}
+.tui-banner-item {
+	padding: 0 16rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-slide-image {
+	width: 100%;
+	height: 240rpx;
+	display: block;
+	border-radius: 12rpx;
+	/* transition: all 0.1s linear; */
+}
+.tui-banner-scale {
+	-webkit-transform: scaleY(0.9);
+	    -ms-transform: scaleY(0.9);
+	        transform: scaleY(0.9);
+	-webkit-transform-origin: center center;
+	    -ms-transform-origin: center center;
+	        transform-origin: center center;
+}
+
+
+.tui-banner-swiper .wx-swiper-dot {
+	width: 8rpx;
+	height: 8rpx;
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	background: none;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.tui-banner-swiper .wx-swiper-dot::before {
+	content: '';
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 16rpx;
+	overflow: hidden;
+}
+.tui-banner-swiper .wx-swiper-dot-active::before {
+	background: #fff;
+}
+.tui-banner-swiper .wx-swiper-dot.wx-swiper-dot-active {
+	width: 16rpx;
+}
+
+
+
+
+
+/*banner*/
+
+/*headlines*/
+.tui-rolling-news {
+	width: 100%;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	background: #fff;
+}
+.tui-rolling-news::after {
+	left: 0;
+}
+.tui-swiper {
+	margin-left: 8rpx;
+	font-size: 28rpx;
+	height: 80rpx;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+}
+.tui-swiper-item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.tui-news-item {
+	line-height: 28rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	color: #555;
+}
+
+/*headlines*/
+
+/*classify*/
+.tui-classify-box {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	padding: 28rpx 0;
+	background-color: #fff;
+}
+.tui-classify-item {
+	width: 20%;
+	text-align: center;
+}
+.tui-classify-img {
+	width: 88rpx;
+	height: 88rpx;
+}
+.tui-classify-name {
+	font-size: 26rpx;
+	line-height: 26rpx;
+	padding-top: 8rpx;
+	color: #555;
+	white-space: nowrap;
+}
+
+/*classify*/
+
+/*spike*/
+.tui-spike-box {
+	background: #fff;
+	margin-top: 20rpx;
+}
+.tui-spike-title {
+	padding: 20rpx 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	font-size: 30rpx;
+	color: #333;
+	font-weight: bold;
+}
+.tui-spike-title::after {
+	left: 0;
+}
+.tui-spike-swiper {
+	min-height: 440rpx;
+}
+.tui-pro-item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	background: #fff;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border-radius: 12rpx;
+	position: relative;
+}
+.tui-pro-item::after {
+	left: 240rpx;
+}
+.tui-pro-img {
+	width: 220rpx;
+	height: 220rpx;
+	display: block;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+	border-radius: 12rpx;
+}
+.tui-pro-content {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding: 20rpx;
+}
+.tui-pro-tit {
+	color: #2e2e2e;
+	font-size: 26rpx;
+	word-break: break-all;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+.tui-pro-btmbox {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.tui-sale-price {
+	font-size: 34rpx;
+	font-weight: 500;
+	color: #e41f19;
+}
+.tui-factory-price {
+	font-size: 24rpx;
+	color: #a0a0a0;
+	text-decoration: line-through;
+	padding-left: 12rpx;
+}
+.tui-countdown {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.tui-countdown-text {
+	padding: 0 8rpx;
+	font-size: 24rpx;
+	line-height: 24rpx;
+	color: #555;
+}
+
+/*spike*/
+
