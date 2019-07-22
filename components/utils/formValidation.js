@@ -205,7 +205,8 @@ const form = {
 		return /^[a-zA-Z]*$/.test(value)
 	},
 	_isEnAndNo: function(value) {
-		return /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/.test(value);
+		//8~20位数字和字母组合 按需修改
+		return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,20}$/.test(value);
 	},
 	_isSpecial: function(value) {
 		//是否包含特殊字符
@@ -244,8 +245,6 @@ const form = {
 		}
 	},
 	_minLength: function(value, min) {
-		console.log(value)
-		console.log(min)
 		return value.length >= Number(min)
 	},
 	_maxLength: function(value, max) {

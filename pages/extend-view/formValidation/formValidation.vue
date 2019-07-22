@@ -112,12 +112,12 @@
 					msg: ["请输入身份证号码", "请输入正确的身份证号码"]
 				}, {
 					name: "pwd",
-					rule: ["required", "isEnAndNo", "minLength:6"],
-					msg: ["请输入密码", "密码必须包含英文和数字", "密码必须6个或以上字符"]
+					rule: ["required", "isEnAndNo"],
+					msg: ["请输入密码", "密码为8~20位数字和字母组合"]
 				}, {
 					name: "pwd2",
-					rule: ["required", "isEnAndNo", "isSame:pwd"],
-					msg: ["请输入确认密码", "确认密码必须包含英文和数字", "两次输入的密码不一致"]
+					rule: ["required", "isSame:pwd"],
+					msg: ["请输入确认密码", "两次输入的密码不一致"]
 				}, {
 					name: "range",
 					rule: ["required", "range:[3,20]"],
@@ -156,7 +156,6 @@
 
 	.tui-line-cell {
 		width: 100%;
-		;
 		box-sizing: border-box;
 		display: flex;
 		align-items: center;

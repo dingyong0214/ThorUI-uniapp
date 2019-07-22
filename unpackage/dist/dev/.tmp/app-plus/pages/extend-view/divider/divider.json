@@ -1,9 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "分隔符",
-  "usingComponents": {
-    "tui-icon": "/components/icon/icon",
-    "tui-divider": "/components/divider/divider"
-  }
-}

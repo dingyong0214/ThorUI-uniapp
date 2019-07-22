@@ -12,9 +12,30 @@ ThorUI组件库，uni-app代码片段分享
 [http://www.donarui.com/](http://www.donarui.com/)
 
 
+# ThorUI QQ交流群：745733024
+![](https://thorui.cn/img/V132/1.jpg)
+
+
 本项目已同步更新到[微信小程序(原生小程序代码)](https://github.com/dingyong0214/ThorUI)，后续会更新到支付宝小程序，百度小程序，头条小程序等
 
 ## 更新日志
+
+# V1.3.2
+
+1.修复H5端发行报错的问题。
+
+2.扩展基础组件(保留了之前版本):alert、tips、button、toast。
+
+3.新增表单验证功能，只需配置相应验证即可。
+
+4.新增返回顶部组件,nvue返回顶部看首页[nvue商品列表]。
+
+5.优化部分页面，修复已知bug。
+
+# 功能截图 
+|  ![](https://thorui.cn/img/V132/4.jpg) |![](https://thorui.cn/img/V132/2.jpg)  |  ![](https://thorui.cn/img/V132/3.jpg) |
+| ------------ | ------------ | ------------ |
+|   |    |   |
 
 # V1.3.0
 1.新增倒计时组件:时分秒倒计时，支持设置大小，颜色等。

@@ -12,14 +12,14 @@
 			</div>
 		</div>
 		<waterfall @loadmore="loadMore" loadmoreoffset="10" class="tui-product-list" column-count="2" column-gap="10"
-		 right-gap="30" left-gap="30" ref="waterfall">
-			<refresh class="tui-refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+		 right-gap="30" left-gap="30" ref="waterfall" @scroll="recylerScroll">
+			<refresh class="tui-refresh" ref="goTop" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
 				<loading-indicator class="loading"></loading-indicator>
 				<text :class="[iosRefresh?'ios-arrow':'']" v-if="isIos">{{arrow}}</text>
 				<text class="tui-refresh-text">{{refreshText}}</text>
 			</refresh>
 			<cell v-for="(item,index) in productList" :key="index">
-				<div class="tui-product" :class="[index===0 || index===1?'tui-mtop':'']" @click="detail(index)">
+				<div class="tui-product" :class="[index===0 || index===1?'tui-mtop':'']" @click="detail(index)" :ref="'listItem'+index">
 					<div class="image-div">
 						<image v-if="renderImage" class="tui-product-image" :src="'../../static/images/product/'+item.img+'.jpg'" resize="cover"></image>
 						<div class="none" v-if="index===0"><text class="none-tip">点击售罄返回</text></div>
@@ -40,10 +40,14 @@
 				<text class="loadmore-text" :class="[isIos?'tui-gray':'tui-white']">{{loadingText}}</text>
 			</header>
 		</waterfall>
+		<div ref="fixed" class="fixedItem" @click="scrollToTop" v-if="topShow">
+			<text class="fixedText">top</text>
+		</div>
 	</div>
 </template>
 
 <script>
+	const dom = weex.requireModule('dom')
 	export default {
 		data() {
 			return {
@@ -57,6 +61,7 @@
 				renderImage: false,
 				loadingText: "加载更多...",
 				pageIndex: 1,
+				topShow: false,
 				productList: [{
 						img: 1,
 						name: "利物浦官方 独家出品纪念版沙发",
@@ -221,7 +226,7 @@
 					this.productList = this.loadData || [];
 					this.$refs.waterfall.resetLoadmore()
 					setTimeout(() => {
-					   this.refreshing = false;
+						this.refreshing = false;
 					}, 0)
 				} else {
 					this.productList = this.productList.concat(this.loadData)
@@ -278,6 +283,20 @@
 			search: function() {
 				uni.navigateTo({
 					url: '../extend-view/news-search/news-search'
+				})
+			},
+			recylerScroll: function(e) {
+				console.log(e.contentOffset.y )
+				if (e.contentOffset.y < -200) {
+					this.topShow = true
+				} else {
+					this.topShow = false
+				}
+			},
+			scrollToTop: function() {
+				const el = this.$refs.goTop
+				dom.scrollToElement(el, {
+					offset: -126
 				})
 			}
 		}
@@ -373,7 +392,7 @@
 		background-color: #FFFFFF;
 		border-width: 1px;
 		border-style: solid;
-		border-color:#eaeef1;
+		border-color: #eaeef1;
 	}
 
 	.tui-mtop {
@@ -499,14 +518,16 @@
 		font-size: 26px;
 		text-align: center;
 		color: #999999;
-		
+
 		padding-left: 6px;
 		padding-right: 6px;
 	}
-	.tui-gray{
+
+	.tui-gray {
 		background-color: #fafafa;
 	}
-	.tui-white{
+
+	.tui-white {
 		background-color: #ffffff;
 	}
 
@@ -539,5 +560,23 @@
 		font-weight: 300;
 		padding-right: 20px;
 		margin-left: -75px;
+	}
+
+	.fixedItem {
+		position: fixed;
+		width: 78px;
+		height: 78px;
+		background-color: #00cc99;
+		right: 32px;
+		bottom: 32px;
+		border-radius: 39px;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.fixedText {
+		font-size: 32px;
+		color: white;
+		line-height: 32px;
 	}
 </style>
