@@ -2,7 +2,7 @@
 	<view class="tui-container">
 		<view class="tui-extend-box">
 			<block v-for="(item,index) in list" :key="index" v-if="(index+1)%2!=0">
-				<view class="tui-extend-item" :class="'tui-bg-'+item.bg" :id="item.page" @tap.stop="detail">
+				<view class="tui-extend-item" :class="['tui-bg-'+item.bg]" :id="item.page" @tap.stop="detail">
 					<view class="tui-title tui-light">
 						{{item.name}}
 					</view>
@@ -167,6 +167,48 @@
 					name: "表单验证",
 					desc: "Form Validation：常用的表单验证,具体查看详情。",
 					page: "formValidation",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "日期时间选择",
+					desc: "picker-view扩展，日期时间选择器，可设置默认显示，可根据需要调整选择的类型。",
+					page: "picker-dateTime",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "复制文本",
+					desc: "clipboard，复制到剪贴板，兼容H5，APP和小程序依然使用平台自带api。",
+					page: "clipboard",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "悬浮按钮",
+					desc: "fab，拓展出来的按钮不应多于6个，否则违反了作为悬浮按钮的快速、高效的原则。",
+					page: "fab",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "Tabbar",
+					desc: "Tabbar，类似uni-app原生tabbar组件，可用于自定义tabbar。",
+					page: "tabbar",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "tabs标签页",
+					desc: "tabs标签页，支持设置字体颜色、字体大小、背景色、高度等。",
+					page: "tabs",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "折叠面板",
+					desc: "collapse折叠面板，用来折叠/显示过长的内容或者是列表。内容及样式自定义。",
+					page: "collapse",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "图片上传",
+					desc: "upload，图片上传，需要根据上传接口实际返回数据进行适当调整 。",
+					page: "upload",
 					like: false,
 					bg: this.getRandom()
 				}, {

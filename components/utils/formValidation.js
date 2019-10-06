@@ -1,8 +1,7 @@
 /**
  * 表单验证
- * 来自 ThorUI  www.thorui.cn | 文档地址： www.donarui.com
- * @author echo.
- * @version 1.3.1
+ * @author dingyong
+ * @version 1.4.0
  **/
 
 const form = {
@@ -67,11 +66,14 @@ const form = {
 					case "isEnAndNo":
 						isError = !form._isEnAndNo(formData[key]);
 						break;
+					case "isEnOrNo":
+						isError = !form._isEnOrNo(formData[key]);
+						break;
 					case "isSpecial":
-						isError = !form._isSpecial(formData[key]);
+						isError = form._isSpecial(formData[key]);
 						break;
 					case "isEmoji":
-						isError = !form._isEmoji(formData[key]);
+						isError = form._isEmoji(formData[key]);
 						break;
 					case "isDate":
 						isError = !form._isDate(formData[key]);
@@ -138,7 +140,7 @@ const form = {
 			return this.__isValidityBrithBy15IdCard;
 		} else if (idCard.length == 18) {
 			let arrIdCard = idCard.split("");
-			if (this.__isTrueValidateCodeBy18IdCard(idCard) && this.__isTrueValidateCodeBy18IdCard(arrIdCard)) {
+			if (this.__isValidityBrithBy18IdCard(idCard) && this.__isTrueValidateCodeBy18IdCard(arrIdCard)) {
 				return true;
 			} else {
 				return false;
@@ -198,15 +200,24 @@ const form = {
 		return /^[0-9]+$/.test(value);
 	},
 	_isChinese: function(value) {
-		let reg = /^[\u0391-\uFFE5]+$/;
+		let reg = /.*[\u4e00-\u9fa5]+.*$/;
 		return value !== "" && reg.test(value) && !form._isSpecial(value) && !form._isEmoji(value)
 	},
 	_isEnglish: function(value) {
 		return /^[a-zA-Z]*$/.test(value)
 	},
 	_isEnAndNo: function(value) {
-		//8~20位数字和字母组合 按需修改
+		//8~20位数字和字母组合
 		return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,20}$/.test(value);
+	},
+	_isEnOrNo: function(value) {
+		//英文或者数字
+		let reg = /.*[\u4e00-\u9fa5]+.*$/;
+		let result = true;
+		if (reg.test(value) || form._isSpecial(value) || form._isEmoji(value)) {
+			result = false
+		}
+		return result
 	},
 	_isSpecial: function(value) {
 		//是否包含特殊字符

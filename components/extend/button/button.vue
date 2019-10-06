@@ -10,12 +10,12 @@
 	export default {
 		name: "tuiButton",
 		props: {
-			//样式类型 primary, white, danger, warning, green,blue, gray
+			//样式类型 primary, white, danger, warning, green,blue, gray，black
 			type: {
 				type: String,
 				default: 'primary'
 			},
-			//是否加阴影 type =primary和 danger有效
+			//是否加阴影
 			shadow: {
 				type: Boolean,
 				default: false
@@ -149,6 +149,10 @@
 		background: #BFBFBF !important;
 		color: #fff !important;
 	}
+	.tui-btn-black {
+		background: #333 !important;
+		color: #fff !important;
+	}
 
 	.tui-shadow-gray {
 		box-shadow: 0 10rpx 14rpx 0 rgba(191,191,191, 0.2);
@@ -175,10 +179,8 @@
 		position: absolute;
 		width: 200%;
 		height: 200%;
-		-webkit-transform-origin: 0 0;
 		transform-origin: 0 0;
-		-webkit-transform: scale(0.5, 0.5);
-		transform: scale(0.5, 0.5);
+		transform: scale(0.5, 0.5) translateZ(0);
 		box-sizing: border-box;
 		left: 0;
 		top: 0;
@@ -284,15 +286,29 @@
 		color: #898989;
 	}
 
-	.tui-gray-outline,
-	.tui-white-outline {
+	.tui-gray-outline {
 		color: #999 !important;
 		background: none !important;
 	}
+	.tui-white-outline{
+		color: #fff !important;
+		background: none !important;
+	}
+	
+	.tui-black-outline {
+		background: none !important;
+		color: #333 !important;
+	}
 
-	.tui-gray-outline::after,
-	.tui-white-outline::after {
+	.tui-gray-outline::after {
 		border: 1rpx solid #ccc !important;
+	}
+	.tui-white-outline::after {
+		border: 1px solid #fff !important;
+	}
+	
+	.tui-black-outline::after {
+		border: 1px solid #333 !important;
 	}
 
 	/*圆角 */

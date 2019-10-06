@@ -23,6 +23,11 @@
 				type: Number,
 				default: 100
 			},
+			//滚动时间
+			duration:{
+				type: Number,
+				default: 120
+			},
 			//滚动距离
 			scrollTop: {
 				type: Number
@@ -46,7 +51,7 @@
 				this.toggle = false;
 				uni.pageScrollTo({
 					scrollTop: 0,
-					duration: 120
+					duration: this.duration
 				})
 				setTimeout(() => {
 					this.toggle = true

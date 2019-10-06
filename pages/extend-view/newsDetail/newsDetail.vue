@@ -251,39 +251,39 @@
 	}
 
 	.container {
-		padding: 40upx 30upx 110upx 30upx;
+		padding: 40rpx 30rpx 110rpx 30rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-news-title {
-		font-size: 48upx;
+		font-size: 48rpx;
 		font-weight: 500;
 		text-align: justify;
 	}
 
 	.tui-sub-info {
-		padding-top: 30upx;
+		padding-top: 30rpx;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		font-size: 28upx;
+		font-size: 28rpx;
 		color: #999;
 	}
 
 	.tui-author {
 		color: #5677fc;
-		padding-right: 20upx;
+		padding-right: 20rpx;
 	}
 
 	.tui-news-content {
-		padding-top: 40upx;
+		padding-top: 40rpx;
 	}
 
 	.tui-article {
 		/* text-indent: 2em; */
-		font-size: 34upx;
-		padding-bottom: 40upx;
-		line-height: 60upx;
+		font-size: 34rpx;
+		padding-bottom: 40rpx;
+		line-height: 60rpx;
 		text-align: justify;
 		word-break: break-all;
 		word-wrap: break-word;
@@ -292,11 +292,11 @@
 	.tui-article-pic {
 		width: 100%;
 		display: block;
-		margin-bottom: 40upx;
+		margin-bottom: 40rpx;
 	}
 
 	.tui-news-source {
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #999;
 	}
 
@@ -304,14 +304,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 60upx 40upx;
+		padding: 60rpx 40rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-tag-class {
-		min-width: 130upx;
-		padding: 20upx 52upx !important;
-		font-size: 26upx !important;
+		min-width: 130rpx;
+		padding: 20rpx 52rpx !important;
+		font-size: 26rpx !important;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -319,11 +319,11 @@
 
 	.tui-black {
 		color: #333;
-		padding-left: 12upx;
+		padding-left: 12rpx;
 	}
 
 	.tui-cmt-title {
-		font-size: 30upx;
+		font-size: 30rpx;
 		font-weight: bold;
 		position: relative;
 	}
@@ -331,34 +331,35 @@
 	.tui-cmt-title::after {
 		content: '';
 		position: absolute;
-		left: -18upx;
+		left: -18rpx;
 		top: 18%;
-		width: 6upx;
+		width: 6rpx;
 		height: 64%;
 		background: #5677fc;
 	}
 
 	.tui-cmtbox {
-		padding-bottom: 20upx;
+		padding-bottom: 20rpx;
 	}
 
 	.tui-cmt-cell {
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		padding-top: 44upx;
+		padding-top: 44rpx;
 	}
 
 	.tui-avatar {
-		width: 64upx;
-		height: 64upx;
-		border-radius: 32upx;
+		width: 64rpx;
+		height: 64rpx;
+		border-radius: 32rpx;
 		display: block;
 		flex-shrink: 0;
 	}
 
 	.tui-cmt-detail {
-		padding-left: 16upx;
+		width: 100%;
+		padding-left: 16rpx;
 		box-sizing: border-box;
 	}
 
@@ -366,7 +367,7 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		font-size: 30upx;
+		font-size: 30rpx;
 	}
 
 	.tui-cmt-nickname {
@@ -378,29 +379,29 @@
 	}
 
 	.tui-fabulous text {
-		padding-right: 4upx;
-		font-size: 24upx
+		padding-right: 4rpx;
+		font-size: 24rpx
 	}
 
 	.tui-cmt-content {
-		font-size: 32upx;
+		font-size: 32rpx;
 		color: #333;
 		text-align: justify;
-		padding-top: 8upx;
+		padding-top: 8rpx;
 		word-break: break-all;
 		word-wrap: break-word;
 	}
 
 	.tui-reply-box {
-		border-radius: 8upx;
+		border-radius: 8rpx;
 		overflow: hidden;
-		margin-top: 16upx;
+		margin-top: 16rpx;
 	}
 
 	.tui-cell-class {
 		flex-direction: column;
 		justify-content: flex-start !important;
-		padding: 20upx !important;
+		padding: 20rpx !important;
 		text-align: justify;
 		word-break: break-all;
 		word-wrap: break-word;
@@ -416,16 +417,16 @@
 	}
 
 	.tui-reply-nickname {
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #7a7a7a;
-		padding-bottom: 8upx;
+		padding-bottom: 8rpx;
 	}
 
 	.tui-footer {
 		display: flex;
 		align-items: center;
-		font-size: 24upx;
-		margin-top: 16upx;
+		font-size: 24rpx;
+		margin-top: 16rpx;
 		color: #9a9a9a;
 	}
 
@@ -434,18 +435,17 @@
 	}
 
 	.tui-ml {
-		margin-left: 16upx;
+		margin-left: 16rpx;
 	}
 
 	.tui-cell-last .tui-icon-class {
-		width: 40upx !important;
-		margin-left: -10upx;
+		width: 40rpx !important;
+		margin-left: -10rpx;
 	}
 
 	.tui-operation {
 		width: 100%;
-		height: 100upx;
-		/* box-sizing: border-box; */
+		height: 100rpx;
 		overflow: hidden;
 		background: #fff;
 		display: flex;
@@ -469,7 +469,7 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		border-top: 1upx solid #eaeef1;
+		border-top: 1rpx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 	}
@@ -489,7 +489,7 @@
 	}
 
 	.tui-operation-right {
-		height: 100upx;
+		height: 100rpx;
 		box-sizing: border-box;
 		padding-top: 0;
 	}
@@ -497,7 +497,7 @@
 	.tui-badge-class {
 		color: #5677fc !important;
 		position: absolute;
-		top: -6upx;
+		top: -6rpx;
 		padding: 2px 4px !important;
 		/* #ifdef H5 */
 		transform: translateX(50%) scale(0.8);
@@ -511,18 +511,18 @@
 	}
 
 	.tui-btn-comment {
-		height: 64upx;
+		height: 64rpx;
 		width: 84%;
 		background: #ededed;
 		color: #999;
-		border-radius: 8upx;
-		font-size: 28upx;
+		border-radius: 8rpx;
+		font-size: 28rpx;
 		display: flex;
 		align-items: center;
-		padding-left: 20upx;
+		padding-left: 20rpx;
 		box-sizing: border-box;
 		padding-top: 0;
-		margin-left: 30upx;
+		margin-left: 30rpx;
 	}
 
 	.tui-col-7 {

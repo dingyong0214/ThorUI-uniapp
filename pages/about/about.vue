@@ -14,11 +14,12 @@
 		<view class="tui-content-box">
 			<view class="tui-content">尊敬的开发者，欢迎体验Thor UI！</view>
 			<view class="tui-content">该项目主要是一些uni-app代码片段的分享，以及基础组件的封装。项目免费开源，源码可在GitHub上下载，会不定期进行更新。</view>
-			<view class="tui-content">项目可能存在缺陷或者bug，由于时间原因，各端的样式可能存在兼容性问题未修正，后期会慢慢完善，如果您在使用过程中发现问题或者有更好的建议，可反馈给我。</view>
+			<view class="tui-content">项目可能存在缺陷或者bug，如果您在使用过程中发现问题或者有更好的建议，可反馈给我。</view>
 			<view class="tui-content">
-				您可以通过反馈或者邮箱的方式联系我！
+				您可以通过反馈或者以下方式联系我！
 			</view>
-			<view class="tui-content tui-content-email" @tap="email">邮箱：1062884167@qq.com</view>
+			<view class="tui-content tui-content-email" @tap="copy('1062884167@qq.com')">邮箱：1062884167@qq.com</view>
+			<view class="tui-content tui-content-email" @tap="copy('745733024')">QQ交流群：745733024</view>
 			<view class="tui-footer">
 				<image src='../../static/images/my/applets.jpg' class="tui-applets" mode="widthFix"></image>
 				<view class="tui-footer-text">扫描二维码，您的朋友也可以体验Thor UI！</view>
@@ -40,14 +41,14 @@
 			}
 		},
 		methods: {
-			email: function() {
+			copy: function(text) {
 				const that = this
 				uni.setClipboardData({
-					data: '1062884167@qq.com',
+					data: text,
 					success(res) {
 						uni.getClipboardData({
 							success(res) {
-								that.tui.toast("邮箱已复制", 2000, true)
+								//that.tui.toast("邮箱已复制", 2000, true)
 							}
 						})
 					}
@@ -64,9 +65,8 @@
 
 <style>
 	.container {
-		padding: 0 50upx 40upx 50upx;
+		padding: 0 50rpx 40rpx 50rpx;
 		box-sizing: border-box;
-		overflow: hidden;
 	}
 
 	.tui-flex {
@@ -106,7 +106,7 @@
 		justify-content: center;
 		padding: 5px;
 		box-sizing: border-box;
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #fff;
 		text-align: center;
 		word-break: break-all;
@@ -153,18 +153,18 @@
 	.tui-content-box {
 		width: 100%;
 		margin-top: 50px;
-		padding: 30upx;
+		padding: 30rpx;
 		box-sizing: border-box;
 		background: #fff;
-		border-radius: 10upx;
-		box-shadow: 0 0 10upx #eee;
+		border-radius: 10rpx;
+		box-shadow: 0 0 10rpx #eee;
 	}
 
 	.tui-content {
 		color: #333;
-		font-size: 30upx;
-		line-height: 44upx;
-		padding: 10upx 0;
+		font-size: 30rpx;
+		line-height: 44rpx;
+		padding: 10rpx 0;
 		text-align: justify;
 	}
 
@@ -175,7 +175,7 @@
 	.tui-footer {
 		display: flex;
 		align-items: center;
-		padding-top: 30upx;
+		padding-top: 30rpx;
 	}
 
 	.tui-applets {
@@ -185,9 +185,9 @@
 	}
 
 	.tui-footer-text {
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #999;
-		padding-left: 20upx;
-		width: 300upx;
+		padding-left: 20rpx;
+		width: 300rpx;
 	}
 </style>

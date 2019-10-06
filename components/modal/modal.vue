@@ -1,10 +1,10 @@
 <template>
-	<view>
-		<view class="tui-modal-class tui-modal-box" :class="[show?'tui-modal-show':'']">
+	<view @touchmove.stop.prevent>
+		<view class="tui-modal-box" :class="[(fadein || show)?'tui-modal-normal':'tui-modal-scale',show?'tui-modal-show':'']">
 			<view v-if="!custom">
 				<view class="tui-modal-title" v-if="title">{{title}}</view>
-				<view class="tui-modal-content" :class="[title?'':'tui-mtop']" :style="{color:color,fontSize:px(size)}">{{content}}</view>
-				<view class="tui-modalBtn-box" :class="[button.length>2?'tui-flex-column':'']">
+				<view class="tui-modal-content" :class="[title?'':'tui-mtop']" :style="{color:color,fontSize:size+'rpx'}">{{content}}</view>
+				<view class="tui-modalBtn-box" :class="[button.length!=2?'tui-flex-column':'']">
 					<block v-for="(item,index) in button" :key="index">
 						<button class="tui-modal-btn" :class="['tui-'+(item.type || 'primary')+(item.plain?'-outline':''),button.length!=2?'tui-btn-width':'',button.length>2?'tui-mbtm':'',shape=='circle'?'tui-circle-btn':'']"
 						 :hover-class="'tui-'+(item.plain?'outline':(item.type || 'primary'))+'-hover'" :data-index="index" @tap="handleClick">{{item.text || "确定"}}</button>
@@ -44,7 +44,7 @@
 				type: String,
 				default: "#999"
 			},
-			//内容字体大小
+			//内容字体大小 rpx
 			size: {
 				type: Number,
 				default: 28
@@ -77,6 +77,11 @@
 			custom: {
 				type: Boolean,
 				default: false
+			},
+			//淡入效果，自定义弹框插入input输入框时传true
+			fadein: {
+				type: Boolean,
+				default: false
 			}
 		},
 		data() {
@@ -95,9 +100,6 @@
 			handleClickCancel() {
 				if (!this.maskClosable) return;
 				this.$emit('cancel');
-			},
-			px(num) {
-				return uni.upx2px(num) + 'px'
 			}
 		}
 	}
@@ -113,16 +115,24 @@
 		background: #fff;
 		z-index: 99998;
 		transition: all 0.3s ease-in-out;
-		transform: translate(-50%, -50%) scale(0);
 		opacity: 0;
-		border-radius: 24upx;
+		border-radius: 24rpx;
 		box-sizing: border-box;
-		padding: 40upx 60upx;
+		padding: 40rpx 64rpx;
+		visibility: hidden;
+	}
+
+	.tui-modal-scale {
+		transform: translate(-50%, -50%) scale(0);
+	}
+
+	.tui-modal-normal {
+		transform: translate(-50%, -50%) scale(1);
 	}
 
 	.tui-modal-show {
-		transform: translate(-50%, -50%) scale(1);
 		opacity: 1;
+		visibility: visible;
 	}
 
 	.tui-modal-mask {
@@ -145,32 +155,33 @@
 
 	.tui-modal-title {
 		text-align: center;
-		font-size: 34upx;
+		font-size: 34rpx;
 		color: #333;
-		padding-top: 20upx;
+		padding-top: 20rpx;
 		font-weight: bold;
 	}
 
 	.tui-modal-content {
 		text-align: center;
 		color: #999;
-		font-size: 28upx;
-		padding-top: 20upx;
-		padding-bottom: 60upx;
+		font-size: 28rpx;
+		padding-top: 20rpx;
+		padding-bottom: 60rpx;
 	}
 
 	.tui-mtop {
-		margin-top: 30upx;
+		margin-top: 30rpx;
 	}
 
 	.tui-mbtm {
-		margin-bottom: 30upx;
+		margin-bottom: 30rpx;
 	}
 
 	.tui-modalBtn-box {
+		width: 100%;
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-between
 	}
 
 	.tui-flex-column {
@@ -178,13 +189,15 @@
 	}
 
 	.tui-modal-btn {
-		width: 44%;
-		height: 68upx;
-		line-height: 68upx;
+		width: 46%;
+		height: 68rpx;
+		line-height: 68rpx;
 		position: relative;
-		border-radius: 10upx;
-		font-size: 24upx;
+		border-radius: 10rpx;
+		font-size: 24rpx;
 		overflow: visible;
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	.tui-modal-btn::after {
@@ -198,7 +211,7 @@
 		transform: scale(0.5, 0.5);
 		left: 0;
 		top: 0;
-		border-radius: 20upx;
+		border-radius: 20rpx;
 	}
 
 	.tui-btn-width {
@@ -343,10 +356,10 @@
 	}
 
 	.tui-circle-btn {
-		border-radius: 40upx !important;
+		border-radius: 40rpx !important;
 	}
 
 	.tui-circle-btn::after {
-		border-radius: 80upx !important;
+		border-radius: 80rpx !important;
 	}
 </style>

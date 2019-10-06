@@ -2,7 +2,7 @@
 	<view class="tui-footer-class tui-footer" :class="[fixed?'tui-fixed':'']" :style='{background:bgcolor}'>
 		<view class="tui-footer-link" v-if="navigate.length>0">
 			<block v-for="(item,index) in navigate" :key="index">
-				<navigator class="tui-link" hover-class="tui-link-hover" hover-stop-propagation="true" :style="{color:(item.color || '#596d96'),fontSize:px(item.size || 28)}"
+				<navigator class="tui-link" hover-class="tui-link-hover" :hover-stop-propagation="true" :style="{color:(item.color || '#596d96'),fontSize:px(item.size || 28)}"
 				 :open-type="item.type" :url="item.url" :target="item.target" :delta="item.delta" :app-id="item.appid"
 				 :path="item.path" :extra-data="item.extradata" :bindsuccess="item.bindsuccess" :bindfail="item.bindfail">{{item.text}}</navigator>
 			</block>
@@ -21,7 +21,9 @@
 			//链接设置  数据格式对应上面注释的属性值
 			navigate: {
 				type: Array,
-				default: []
+				default:function(){
+					return  []
+				}
 			},
 			//底部文本
 			copyright: {

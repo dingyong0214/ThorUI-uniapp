@@ -71,8 +71,8 @@
 				<tui-icon name="arrowright" :size="20" color="#555"></tui-icon>
 			</view>
 			<view class="tui-activity-box" @tap="detail">
-				<image src="../../../static/images/mall/activity/activity_1.jpg" class="tui-activity-img" mode="widthFix"></image>
-				<image src="../../../static/images/mall/activity/activity_2.jpg" class="tui-activity-img" mode="widthFix"></image>
+				<image src="/static/images/mall/activity/activity_1.jpg" class="tui-activity-img" mode="widthFix"></image>
+				<image src="/static/images/mall/activity/activity_2.jpg" class="tui-activity-img" mode="widthFix"></image>
 			</view>
 		</view>
 
@@ -84,7 +84,7 @@
 			<view class="tui-new-box">
 				<view class="tui-new-item" :class="[index!=0 && index!=1 ?'tui-new-mtop':'']" v-for="(item,index) in newProduct"
 				 :key="index" @tap="detail">
-					<image :src="'../../../static/images/mall/new/'+(item.type==1?'new':'discount')+'.png'" class="tui-new-label" v-if="item.isLabel"></image>
+					<image :src="'/static/images/mall/new/'+(item.type==1?'new':'discount')+'.png'" class="tui-new-label" v-if="item.isLabel"></image>
 					<view class="tui-title-box">
 						<view class="tui-new-title">{{item.name}}</view>
 						<view class="tui-new-price">
@@ -92,7 +92,7 @@
 							<text class="tui-new-original">￥{{item.original}}</text>
 						</view>
 					</view>
-					<image :src="'../../../static/images/mall/new/'+item.pic" class="tui-new-img"></image>
+					<image :src="'/static/images/mall/new/'+item.pic" class="tui-new-img"></image>
 				</view>
 			</view>
 		</view>
@@ -353,8 +353,14 @@
 				if (index != 0) {
 					if (index == 1) {
 						this.classify();
+					} else if (index == 2) {
+						uni.navigateTo({
+							url: '../mall-extend/shopcart/shopcart'
+						})
 					} else {
-						this.tui.toast("功能开发中~")
+						uni.navigateTo({
+							url: '../mall-extend/my/my'
+						})
 					}
 				}
 			},

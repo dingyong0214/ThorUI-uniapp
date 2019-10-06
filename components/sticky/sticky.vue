@@ -1,7 +1,8 @@
 <template>
 	<view class="tui-sticky-class">
 		<!--sticky 容器-->
-		<view :class="[isFixed === true ? 'tui-sticky-fixed' : '']">
+		<view :style="{height: stickyHeight,background:bgColor}" v-if="isFixed"></view>
+		<view :class="{'tui-sticky-fixed':isFixed}" :style="{top:isFixed?stickyTop+'px':'auto'}">
 			<slot name="header"></slot>
 		</view>
 		<!--sticky 容器-->
@@ -16,6 +17,28 @@
 		props: {
 			scrollTop: {
 				type: Number
+			},
+			//吸顶容器距离顶部距离 px
+			stickyTop: {
+				type: Number
+					// #ifdef APP-PLUS || MP
+					,
+				default: 0
+					// #endif
+					// #ifdef H5
+					,
+				default: 44
+				// #endif
+			},
+			//吸顶容器 高度 rpx
+			stickyHeight: {
+				type: String,
+				default: "auto"
+			},
+			//占位容器背景颜色
+			bgColor: {
+				type: String,
+				default: "none"
 			}
 		},
 		watch: {
@@ -44,7 +67,12 @@
 				const top = this.top;
 				const height = this.height;
 				const scrollTop = this.scrollTop
-				this.isFixed = (scrollTop >= top && scrollTop < top + height) ? true : false
+				let stickyTop = this.stickyTop
+				// #ifdef H5
+				stickyTop = stickyTop - 44
+				stickyTop = stickyTop < 0 ? 0 : stickyTop
+				// #endif
+				this.isFixed = (scrollTop + stickyTop >= top && scrollTop + stickyTop < top + height) ? true : false
 			},
 			updateScrollChange() {
 				if (this.timer) {
@@ -56,7 +84,7 @@
 					const query = uni.createSelectorQuery().in(this);
 					query.select(className).boundingClientRect((res) => {
 						if (res) {
-							this.top = res.top;
+							this.top = res.top + (this.scrollTop || 0);
 							this.height = res.height
 						}
 					}).exec()
@@ -70,10 +98,6 @@
 	.tui-sticky-fixed {
 		width: 100%;
 		position: fixed;
-		top: 0;
-		/* #ifdef H5 */
-		top: 44px;
-		/* #endif */
 		z-index: 99999;
 	}
 </style>

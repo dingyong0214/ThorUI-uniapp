@@ -9,14 +9,14 @@
 						<view class="tui-cmt-nickname">{{item.nickname}}</view>
 						<view class="tui-fabulous" :class="[item.isFabulous?'tui-primary':'']" :id="index" @tap="cmtFabulous">
 							<text>{{item.fabulous==0?'赞':item.fabulous}}</text>
-							<tui-icon :name="item.isFabulous?'agree-fill':'agree'" size="15" :color="item.isFabulous?'#5677fc':'#9a9a9a'"></tui-icon>
+							<tui-icon :name="item.isFabulous?'agree-fill':'agree'" :size="15" :color="item.isFabulous?'#5677fc':'#9a9a9a'"></tui-icon>
 						</view>
 					</view>
 					<view class="tui-cmt-content">
 						{{item.content}}
 					</view>
 					<view class="tui-reply-box" v-if="item.replayNum>0">
-						<tui-list-cell bgcolor="#f2f2f2" size="28" v-for="(items,index2) in item.reply" :key="index2" :last="item.replayNum<2 && item.reply.length-1==index"
+						<tui-list-cell bgcolor="#f2f2f2" :size="28" v-for="(items,index2) in item.reply" :key="index2" :last="item.replayNum<2 && item.reply.length-1==index"
 						 @tap="cmtReply">
 							<view class="tui-flex-1 tui-reply-nickname">{{items.nickname}}</view>
 							<view class="tui-flex-1">{{items.content}}</view>
@@ -161,24 +161,24 @@
 	}
 
 	.container {
-		padding: 8upx 30upx 110upx 30upx;
+		padding: 8rpx 30rpx 110rpx 30rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-cmt-title {
-		font-size: 30upx;
+		font-size: 30rpx;
 		font-weight: bold;
 		position: relative;
-		padding: 20upx 0;
-		margin-bottom: 20upx;
+		padding: 20rpx 0;
+		margin-bottom: 20rpx;
 	}
 
 	.tui-cmt-title::after {
 		content: '';
 		position: absolute;
-		left: -18upx;
+		left: -18rpx;
 		top: 32%;
-		width: 6upx;
+		width: 6rpx;
 		height: 36%;
 		background: #5677fc;
 	}
@@ -187,19 +187,20 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		padding-bottom: 44upx;
+		padding-bottom: 44rpx;
 	}
 
 	.tui-avatar {
-		width: 64upx;
-		height: 64upx;
-		border-radius: 32upx;
+		width: 64rpx;
+		height: 64rpx;
+		border-radius: 32rpx;
 		display: block;
 		flex-shrink: 0;
 	}
 
 	.tui-cmt-detail {
-		padding-left: 16upx;
+		width: 100%;
+		padding-left: 16rpx;
 		box-sizing: border-box;
 	}
 
@@ -207,7 +208,7 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		font-size: 30upx;
+		font-size: 30rpx;
 	}
 
 	.tui-cmt-nickname {
@@ -219,29 +220,29 @@
 	}
 
 	.tui-fabulous text {
-		padding-right: 4upx;
-		font-size: 24upx;
+		padding-right: 4rpx;
+		font-size: 24rpx;
 	}
 
 	.tui-cmt-content {
-		font-size: 32upx;
+		font-size: 32rpx;
 		color: #333;
 		text-align: justify;
-		padding-top: 8upx;
+		padding-top: 8rpx;
 		word-break: break-all;
 		word-wrap: break-word;
 	}
 
 	.tui-reply-box {
-		border-radius: 8upx;
+		border-radius: 8rpx;
 		overflow: hidden;
-		margin-top: 16upx;
+		margin-top: 16rpx;
 	}
 
 	.tui-cell-class {
 		flex-direction: column;
 		justify-content: flex-start !important;
-		padding: 20upx !important;
+		padding: 20rpx !important;
 		text-align: justify;
 		word-break: break-all;
 		word-wrap: break-word;
@@ -257,16 +258,16 @@
 	}
 
 	.tui-reply-nickname {
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #7a7a7a;
-		padding-bottom: 8upx;
+		padding-bottom: 8rpx;
 	}
 
 	.tui-footer {
 		display: flex;
 		align-items: center;
-		font-size: 24upx;
-		margin-top: 16upx;
+		font-size: 24rpx;
+		margin-top: 16rpx;
 		color: #9a9a9a;
 	}
 
@@ -275,17 +276,17 @@
 	}
 
 	.tui-ml {
-		margin-left: 16upx;
+		margin-left: 16rpx;
 	}
 
 	.tui-cell-last .tui-icon-class {
-		width: 40upx !important;
-		margin-left: -10upx;
+		width: 40rpx !important;
+		margin-left: -10rpx;
 	}
 
 	.tui-operation {
 		width: 100%;
-		padding: 0 30upx;
+		padding: 0 30rpx;
 		box-sizing: border-box;
 		overflow: hidden;
 		background: rgba(255, 255, 255, 0.95);
@@ -296,7 +297,7 @@
 	}
 
 	.tui-operation-inner {
-		height: 100upx;
+		height: 100rpx;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -314,21 +315,21 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		border-top: 1upx solid #eaeef1;
+		border-top: 1rpx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 	}
 
 	.tui-btn-comment {
-		height: 64upx;
+		height: 64rpx;
 		width: 100%;
 		background: #ededed;
 		color: #999;
-		border-radius: 8upx;
-		font-size: 28upx;
+		border-radius: 8rpx;
+		font-size: 28rpx;
 		display: flex;
 		align-items: center;
-		padding-left: 20upx;
+		padding-left: 20rpx;
 		box-sizing: border-box;
 		padding-top: 0;
 	}

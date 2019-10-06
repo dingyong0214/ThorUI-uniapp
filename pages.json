@@ -173,7 +173,7 @@
 			"navigationBarTextStyle": "black",
 			"backgroundColorTop": "#F7F7F7",
 			"backgroundColorBottom": "#F7F7F7",
-			"navigationBarTitleText": "Thorui商城",
+			"navigationBarTitleText": "ThorUI商城",
 			"enablePullDownRefresh": true,
 			"onReachBottomDistance": 50
 		}
@@ -527,10 +527,153 @@
 			"navigationBarBackgroundColor": "#fff",
 			"navigationBarTextStyle": "black"
 		}
+	}, {
+		"path": "pages/extend-view/formValidation/formValidation",
+		"style": {
+			"navigationBarTitleText": "表单验证",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/shopcart/shopcart",
+		"style": {
+			"navigationBarTitleText": "购物车",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50,
+			"app-plus": {
+				// #ifdef APP-PLUS
+				"titleNView": {
+					"padding-right": "15px",
+					"buttons": [{
+						"text": "编辑",
+						"float": "right",
+						"width": "auto",
+						"fontSize": "15px",
+						"color": "#333"
+					}]
+				}
+				// #endif
+			}
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/my/my",
+		"style": {
+			"navigationBarTitleText": "我的",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50,
+			"navigationStyle": "custom",
+			"app-plus": {
+				"titleNView": false
+			}
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/submitOrder/submitOrder",
+		"style": {
+			"navigationBarTitleText": "提交订单",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/success/success",
+		"style": {
+			"navigationBarTitleText": "支付成功",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/address/address",
+		"style": {
+			"navigationBarTitleText": "地址",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/editAddress/editAddress",
+		"style": {
+			"navigationBarTitleText": "新增地址",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/set/set",
+		"style": {
+			"navigationBarTitleText": "账户设置",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/userInfo/userInfo",
+		"style": {
+			"navigationBarTitleText": "个人信息",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/myOrder/myOrder",
+		"style": {
+			"navigationBarTitleText": "我的订单",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50
+		}
+	}, {
+		"path": "pages/extend-view/mall-extend/orderDetail/orderDetail",
+		"style": {
+			"navigationBarTitleText": "订单详情",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/picker-dateTime/picker-dateTime",
+		"style": {
+			"navigationBarTitleText": "日期时间选择",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/clipboard/clipboard",
+		"style": {
+			"navigationBarTitleText": "复制文本",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/fab/fab",
+		"style": {
+			"navigationBarTitleText": "悬浮按钮",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/tabbar/tabbar",
+		"style": {
+			"navigationBarTitleText": "Tabbar",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/tabs/tabs",
+		"style": {
+			"navigationBarTitleText": "tabs标签页",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
+	}, {
+		"path": "pages/extend-view/collapse/collapse",
+		"style": {
+			"navigationBarTitleText": "collapse折叠面板",
+			"navigationBarBackgroundColor": "#fff",
+			"navigationBarTextStyle": "black"
+		}
 	}    ,{
-            "path" : "pages/extend-view/formValidation/formValidation",
+            "path" : "pages/extend-view/upload/upload",
             "style" : {
-				"navigationBarTitleText": "表单验证",
+				"navigationBarTitleText": "图片上传",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black"
 			}

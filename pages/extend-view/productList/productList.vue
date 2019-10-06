@@ -36,7 +36,7 @@
 				</view>
 
 				<!--下拉选择列表--综合-->
-				<view class="tui-dropdownlist" :class="[selectH>0?'tui-dropdownlist-show':'']" :style="{height:px(selectH)}">
+				<view class="tui-dropdownlist" :class="[selectH>0?'tui-dropdownlist-show':'']" :style="{height:selectH+'rpx'}">
 					<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in dropdownList"
 					 :key="index" @tap.stop="dropdownItem" :data-index="index">
 						<text class="tui-ml tui-middle">{{item.name}}</text>
@@ -758,7 +758,7 @@
 	}
 
 	.tui-back {
-		margin-left: 8upx;
+		margin-left: 8rpx;
 		height: 32px !important;
 		width: 32px !important;
 	}
@@ -766,7 +766,7 @@
 	.tui-searchbox {
 		width: 100%;
 		height: 30px;
-		margin-right: 30upx;
+		margin-right: 30rpx;
 		border-radius: 15px;
 		font-size: 12px;
 		background: #f7f7f7;
@@ -780,26 +780,26 @@
 
 	/* #ifdef MP-WEIXIN */
 	.tui-search-mr {
-		margin-right: 20upx !important;
+		margin-right: 20rpx !important;
 	}
 
 	/* #endif */
 	/* #ifdef MP-BAIDU */
 	.tui-search-mr {
-		margin-right: 20upx !important;
+		margin-right: 20rpx !important;
 	}
 
 	/* #endif */
 
 	.tui-search-text {
-		padding-left: 16upx;
+		padding-left: 16rpx;
 	}
 
 	.tui-search-key {
 		max-width: 80%;
 		height: 100%;
-		padding: 0 16upx;
-		margin-left: 12upx;
+		padding: 0 16rpx;
+		margin-left: 12rpx;
 		display: flex;
 		align-items: center;
 		border-radius: 15px;
@@ -809,7 +809,7 @@
 
 	.tui-key-text {
 		box-sizing: border-box;
-		padding-right: 12upx;
+		padding-right: 12rpx;
 		font-size: 12px;
 		line-height: 12px;
 		white-space: nowrap;
@@ -832,19 +832,19 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		font-size: 28upx;
+		font-size: 28rpx;
 		color: #333;
 	}
 
 	.tui-screen-top {
-		height: 88upx;
+		height: 88rpx;
 		position: relative;
 		background: #fff;
 	}
 
 	.tui-top-item {
-		height: 28upx;
-		line-height: 28upx;
+		height: 28rpx;
+		line-height: 28rpx;
 		flex: 1;
 		display: flex;
 		align-items: center;
@@ -856,16 +856,16 @@
 	}
 
 	.tui-screen-bottom {
-		height: 100upx;
-		padding: 0 30upx;
+		height: 100rpx;
+		padding: 0 30rpx;
 		box-sizing: border-box;
-		font-size: 24upx;
+		font-size: 24rpx;
 		align-items: center;
 		overflow: hidden;
 	}
 
 	.tui-bottom-text {
-		line-height: 24upx;
+		line-height: 26rpx;
 		max-width: 82%;
 		white-space: nowrap;
 		overflow: hidden;
@@ -878,13 +878,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0 12upx;
+		padding: 0 12rpx;
 		box-sizing: border-box;
 		background: #f7f7f7;
-		margin-right: 20upx;
+		margin-right: 20rpx;
 		white-space: nowrap;
-		height: 60upx;
-		border-radius: 40upx;
+		height: 60rpx;
+		border-radius: 40rpx;
 	}
 
 	.tui-bottom-item:last-child {
@@ -901,10 +901,10 @@
 	.tui-btmItem-active::after {
 		content: "";
 		position: absolute;
-		border: 1upx solid #e41f19;
+		border: 1rpx solid #e41f19;
 		width: 100%;
 		height: 100%;
-		border-radius: 40upx;
+		border-radius: 40rpx;
 		left: 0;
 		top: 0;
 	}
@@ -919,10 +919,10 @@
 		content: "";
 		position: absolute;
 		width: 100%;
-		height: 22upx;
+		height: 22rpx;
 		background: #f7f7f7;
 		left: 0;
-		top: 58upx;
+		top: 58rpx;
 	}
 
 	.tui-bold {
@@ -934,19 +934,19 @@
 	}
 
 	.tui-icon-ml .tui-icon-class {
-		margin-left: 6upx;
+		margin-left: 6rpx;
 	}
 
 	.tui-ml {
-		margin-left: 6upx;
+		margin-left: 6rpx;
 	}
 
 	.tui-seizeaseat-20 {
-		height: 20upx;
+		height: 20rpx;
 	}
 
 	.tui-seizeaseat-30 {
-		height: 30upx;
+		height: 30rpx;
 	}
 
 	.tui-icon-middle .tui-icon-class {
@@ -963,20 +963,20 @@
 
 	.tui-scroll-box {
 		width: 100%;
-		height: 480upx;
+		height: 480rpx;
 		box-sizing: border-box;
 		position: relative;
 		z-index: 99;
 		color: #fff;
-		font-size: 30upx;
+		font-size: 30rpx;
 		word-break: break-all;
 	}
 
 	.tui-drop-item {
 		color: #333;
-		height: 80upx;
-		font-size: 28upx;
-		padding: 20upx 40upx 20upx 40upx;
+		height: 80rpx;
+		font-size: 28rpx;
+		padding: 20rpx 40rpx 20rpx 40rpx;
 		box-sizing: border-box;
 		display: inline-block;
 		width: 50%;
@@ -984,7 +984,7 @@
 
 	.tui-drop-btnbox {
 		width: 100%;
-		height: 100upx;
+		height: 100rpx;
 		position: absolute;
 		left: 0;
 		bottom: 0;
@@ -994,10 +994,10 @@
 
 	.tui-drop-btn {
 		width: 50%;
-		font-size: 32upx;
+		font-size: 32rpx;
 		text-align: center;
-		height: 100upx;
-		line-height: 100upx;
+		height: 100rpx;
+		line-height: 100rpx;
 		border: 0;
 	}
 
@@ -1029,14 +1029,14 @@
 		width: 100%;
 		position: absolute;
 		background: #fff;
-		border-bottom-left-radius: 24upx;
-		border-bottom-right-radius: 24upx;
+		border-bottom-left-radius: 24rpx;
+		border-bottom-right-radius: 24rpx;
 		overflow: hidden;
 		box-sizing: border-box;
-		padding-top: 10upx;
-		padding-bottom: 26upx;
+		padding-top: 10rpx;
+		padding-bottom: 26rpx;
 		left: 0;
-		top: 88upx;
+		top: 88rpx;
 		visibility: hidden;
 		transition: all 0.2s ease-in-out;
 		z-index: 999;
@@ -1066,9 +1066,9 @@
 
 	.tui-dropdownlist-item {
 		color: #333;
-		height: 70upx;
-		font-size: 28upx;
-		padding: 0 40upx;
+		height: 70rpx;
+		font-size: 28rpx;
+		padding: 0 40rpx;
 		box-sizing: border-box;
 		display: flex;
 		align-items: center;
@@ -1078,30 +1078,30 @@
 	/*顶部下拉选择 综合*/
 
 	.tui-drawer-box {
-		width: 686upx;
-		font-size: 24upx;
+		width: 686rpx;
+		font-size: 24rpx;
 		overflow: hidden;
 		position: relative;
-		padding-bottom: 100upx;
+		padding-bottom: 100rpx;
 	}
 
 	.tui-drawer-title {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 30upx;
+		padding: 0 30rpx;
 		box-sizing: border-box;
-		height: 80upx;
+		height: 80rpx;
 	}
 
 	.tui-title-bold {
-		font-size: 26upx;
+		font-size: 26rpx;
 		font-weight: bold;
 		flex-shrink: 0;
 	}
 
 	.tui-location {
-		margin-right: 6upx;
+		margin-right: 6rpx;
 	}
 
 	.tui-attr-right {
@@ -1121,7 +1121,7 @@
 	}
 
 	.tui-drawer-content {
-		padding: 16upx 30upx 30upx 30upx;
+		padding: 16rpx 30rpx 30rpx 30rpx;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -1130,19 +1130,19 @@
 
 	.tui-input {
 		border: 0;
-		height: 64upx;
-		border-radius: 32upx;
+		height: 64rpx;
+		border-radius: 32rpx;
 		width: 45%;
 		background: #f7f7f7;
 		text-align: center;
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #333;
 	}
 
 	.tui-phcolor {
 		text-align: center;
 		color: #b2b2b2;
-		font-size: 24upx;
+		font-size: 24rpx;
 	}
 
 	.tui-flex-attr {
@@ -1152,14 +1152,14 @@
 
 	.tui-attr-item {
 		width: 30%;
-		height: 64upx;
+		height: 64rpx;
 		background: #f7f7f7;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0 4upx;
+		padding: 0 4rpx;
 		box-sizing: border-box;
-		border-radius: 32upx;
+		border-radius: 32rpx;
 		margin-right: 5%;
 		margin-bottom: 5%;
 	}
@@ -1182,12 +1182,12 @@
 		left: 0;
 		bottom: 0;
 		box-sizing: border-box;
-		padding: 0 30upx;
+		padding: 0 30rpx;
 		background: #fff;
 	}
 
 	.tui-attr-safearea {
-		height: 100upx;
+		height: 100rpx;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -1205,7 +1205,7 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		border-top: 1upx solid #eaeef1;
+		border-top: 1rpx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 	}
@@ -1213,8 +1213,8 @@
 	.tui-drawer-btn {
 		width: 47%;
 		text-align: center;
-		height: 60upx;
-		border-radius: 30upx;
+		height: 60rpx;
+		border-radius: 30rpx;
 		flex-shrink: 0;
 		display: flex;
 		align-items: center;
@@ -1223,7 +1223,7 @@
 	}
 
 	.tui-drawerbtn-black {
-		border: 1upx solid #555;
+		border: 1rpx solid #555;
 	}
 
 	.tui-drawerbtn-primary {
@@ -1243,7 +1243,7 @@
 
 	.tui-product-container {
 		flex: 1;
-		margin-right: 10upx;
+		margin-right: 10rpx;
 	}
 
 	.tui-product-container:last-child {
@@ -1252,17 +1252,17 @@
 
 	.tui-pro-item {
 		width: 100%;
-		margin-bottom: 10upx;
+		margin-bottom: 10rpx;
 		background: #fff;
 		box-sizing: border-box;
-		border-radius: 12upx;
+		border-radius: 12rpx;
 		overflow: hidden;
 		transition: all 0.15s ease-in-out;
 	}
 
 	.tui-flex-list {
 		display: flex;
-		margin-bottom: 1upx !important;
+		margin-bottom: 1rpx !important;
 	}
 
 	.tui-pro-img {
@@ -1271,10 +1271,10 @@
 	}
 
 	.tui-proimg-list {
-		width: 260upx;
-		height: 260upx;
+		width: 260rpx;
+		height: 260rpx !important;
 		flex-shrink: 0;
-		border-radius: 12upx;
+		border-radius: 12rpx;
 	}
 
 	.tui-pro-content {
@@ -1282,12 +1282,12 @@
 		flex-direction: column;
 		justify-content: space-between;
 		box-sizing: border-box;
-		padding: 20upx;
+		padding: 20rpx;
 	}
 
 	.tui-pro-tit {
 		color: #2e2e2e;
-		font-size: 26upx;
+		font-size: 26rpx;
 		word-break: break-all;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -1297,25 +1297,25 @@
 	}
 
 	.tui-pro-price {
-		padding-top: 18upx;
+		padding-top: 18rpx;
 	}
 
 	.tui-sale-price {
-		font-size: 34upx;
+		font-size: 34rpx;
 		font-weight: 500;
 		color: #e41f19;
 	}
 
 	.tui-factory-price {
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #a0a0a0;
 		text-decoration: line-through;
-		padding-left: 12upx;
+		padding-left: 12rpx;
 	}
 
 	.tui-pro-pay {
-		padding-top: 10upx;
-		font-size: 24upx;
+		padding-top: 10rpx;
+		font-size: 24rpx;
 		color: #656565;
 	}
 

@@ -26,7 +26,7 @@
 				type: String,
 				default: "#f2f2f2"
 			},
-			//padding-bottom  upx
+			//padding-bottom  rpx
 			paddingbtm: {
 				type: Number,
 				default: 0

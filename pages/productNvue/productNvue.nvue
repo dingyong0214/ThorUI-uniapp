@@ -13,10 +13,10 @@
 		</div>
 		<waterfall @loadmore="loadMore" loadmoreoffset="10" class="tui-product-list" column-count="2" column-gap="10"
 		 right-gap="30" left-gap="30" ref="waterfall" @scroll="recylerScroll">
-			<refresh class="tui-refresh" ref="goTop" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+			<refresh class="tui-refresh"  @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
 				<loading-indicator class="loading"></loading-indicator>
 				<text :class="[iosRefresh?'ios-arrow':'']" v-if="isIos">{{arrow}}</text>
-				<text class="tui-refresh-text">{{refreshText}}</text>
+				<text class="tui-refresh-text" ref="goTop">{{refreshText}}</text>
 			</refresh>
 			<cell v-for="(item,index) in productList" :key="index">
 				<div class="tui-product" :class="[index===0 || index===1?'tui-mtop':'']" @click="detail(index)" :ref="'listItem'+index">
@@ -286,7 +286,7 @@
 				})
 			},
 			recylerScroll: function(e) {
-				console.log(e.contentOffset.y )
+				//console.log(e.contentOffset.y )
 				if (e.contentOffset.y < -200) {
 					this.topShow = true
 				} else {
@@ -296,7 +296,7 @@
 			scrollToTop: function() {
 				const el = this.$refs.goTop
 				dom.scrollToElement(el, {
-					offset: -126
+					offset: -146
 				})
 			}
 		}
@@ -568,7 +568,7 @@
 		height: 78px;
 		background-color: #00cc99;
 		right: 32px;
-		bottom: 32px;
+		bottom: 50px;
 		border-radius: 39px;
 		align-items: center;
 		justify-content: center;

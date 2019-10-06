@@ -61,7 +61,7 @@
 				<view class="tui-line-cell">
 					<view class="tui-title">金额</view>
 					<input placeholder-class="phcolor" class="tui-input" name="amount" placeholder="请输入金额,允许保留两位小数" maxlength="50"
-					 type="number" />
+					 type="digit" />
 				</view>
 			</tui-list-cell>
 			<view class="tui-tips">更多验证请参考文档</view>

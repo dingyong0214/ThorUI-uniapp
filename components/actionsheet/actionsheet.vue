@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="tui-actionsheet-class tui-actionsheet" :class="[show?'tui-actionsheet-show':'']">
-			<view class="tui-tips" :style="{fontSize:px(size),color:color}" v-if="tips">
+			<view class="tui-tips" :style="{fontSize:size+'rpx',color:color}" v-if="tips">
 				{{tips}}
 			</view>
 			<view :class="[isCancel?'tui-operate-box':'']">
@@ -52,7 +52,7 @@
 				type: String,
 				default: "#9a9a9a"
 			},
-			////提示文字大小
+			//提示文字大小 rpx
 			size: {
 				type: Number,
 				default: 26
@@ -64,9 +64,6 @@
 			}
 		},
 		methods: {
-			px(num) {
-				return uni.upx2px(num) + "px"
-			},
 			handleClickMask() {
 				if (!this.maskClosable) return;
 				this.handleClickCancel();
@@ -98,7 +95,7 @@
 		transform-origin: center;
 		transition: all 0.3s ease-in-out;
 		background: #eaeaec;
-		min-height: 100upx;
+		min-height: 100rpx;
 	}
 
 	.tui-actionsheet-show {
@@ -108,8 +105,7 @@
 
 	.tui-tips {
 		width: 100%;
-		/* font-size: 26upx; */
-		padding: 30upx 60upx;
+		padding: 30rpx 60rpx;
 		box-sizing: border-box;
 		text-align: center;
 		background: #fff;
@@ -119,20 +115,18 @@
 	}
 
 	.tui-operate-box {
-		padding-bottom: 12upx;
+		padding-bottom: 12rpx;
 	}
 
 	.tui-actionsheet-btn {
 		width: 100%;
-		height: 100upx;
+		height: 100rpx;
 		background: #fff;
-		/* box-sizing: border-box;
-		padding: 0 30upx; */
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		font-size: 36upx;
+		font-size: 36rpx;
 		position: relative;
 	}
 
@@ -143,7 +137,7 @@
 	.tui-actionsheet-divider::before {
 		content: '';
 		width: 100%;
-		border-top: 1upx solid #d9d9d9;
+		border-top: 1rpx solid #d9d9d9;
 		position: absolute;
 		top: 0;
 		left: 0;

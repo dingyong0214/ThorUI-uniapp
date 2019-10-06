@@ -1,9 +1,8 @@
 <template>
 	<view class="tui-numberbox-class tui-numberbox">
-		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min>=value?'tui-disabled':'']" @tap="reduce"
-		 :style="{color:iconcolor,fontSize:px(iconsize)}"></view>
-		<input type="number" v-model="val" :disabled="disabled" @blur="blur" class="tui-num-input" :style="{color:color,fontSize:px(iconsize),background:bgcolor,height:px(height),width:px(width)}" />
-		<view class="tui-numbox-icon tui-icon-plus" :class="[disabled || value>=max?'tui-disabled':'']" @tap="plus" :style="{color:iconcolor,fontSize:px(iconsize)}"></view>
+		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min>=value?'tui-disabled':'']" @tap="reduce" :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
+		<input type="number" v-model="inputValue" :disabled="disabled" @blur="blur" class="tui-num-input" :style="{color:color,fontSize:size+'rpx',background:bgcolor,height:height+'rpx',width:width+'rpx'}" />
+		<view class="tui-numbox-icon tui-icon-plus" :class="[disabled || value>=max?'tui-disabled':'']" @tap="plus" :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
 	</view>
 </template>
 
@@ -18,12 +17,12 @@
 			//最小值
 			min: {
 				type: Number,
-				default: 0
+				default: 1
 			},
 			//最大值
 			max: {
 				type: Number,
-				default: 100
+				default: 99
 			},
 			//迈步大小 1 1.1 10...
 			step: {
@@ -36,49 +35,58 @@
 				default: false
 			},
 			//加减图标大小 rpx
-			iconsize: {
+			iconSize: {
 				type: Number,
-				default: 24
+				default: 26
 			},
-			iconcolor: {
+			iconColor: {
 				type: String,
-				default: "#333"
+				default: "#666666"
 			},
 			//input 高度
 			height: {
 				type: Number,
-				default: 50
+				default: 42
 			},
 			//input 宽度
 			width: {
 				type: Number,
-				default: 90
+				default: 80
+			},
+			size: {
+				type: Number,
+				default: 28
 			},
 			//input 背景颜色
 			bgcolor: {
 				type: String,
-				default: "#f2f2f2"
+				default: "#F5F5F5"
 			},
 			//input 字体颜色
 			color: {
 				type: String,
 				default: "#333"
+			},
+			//索引值，列表中使用
+			index: {
+				type: Number,
+				default: 0
 			}
 		},
-		computed: {
-			val() {
-				return this.value 
-			}
+		created() {
+			this.inputValue = +this.value
 		},
 		data() {
 			return {
-
+				inputValue: 0
 			};
 		},
+		watch: {
+			value(val) {
+				this.inputValue = +val
+			}
+		},
 		methods: {
-			px(num) {
-				return uni.upx2px(num) + "px"
-			},
 			getScale() {
 				let scale = 1;
 				//浮点型
@@ -115,7 +123,10 @@
 			blur: function(e) {
 				let value = e.detail.value
 				if (value) {
-					value = +value
+					if (~value.indexOf(".") && Number.isInteger(this.step)) {
+						value = value.split(".")[0]
+					}
+					value = Number(value)
 					if (value > this.max) {
 						value = this.max
 					} else if (value < this.min) {
@@ -124,15 +135,17 @@
 				} else {
 					value = this.min
 				}
+				if (value == this.value && value != this.inputValue) {
+					this.inputValue = value
+				}
 				this.handleChange(value, "blur")
 			},
 			handleChange(value, type) {
-				if (this.disabled) {
-					return
-				}
+				if (this.disabled) return;
 				this.$emit('change', {
 					value: value,
-					type: type
+					type: type,
+					index: this.index
 				})
 			}
 		}
@@ -152,7 +165,7 @@
 		font-style: normal;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-		padding: 10upx;
+		padding: 10rpx;
 	}
 
 	.tui-icon-reduce:before {
@@ -171,8 +184,8 @@
 
 	.tui-num-input {
 		text-align: center;
-		margin: 0 10upx;
-		font-weight: bold;
+		margin: 0 12rpx;
+		font-weight: 400;
 	}
 
 	.tui-disabled {

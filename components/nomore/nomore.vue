@@ -41,10 +41,10 @@
 
 <style>
 	.tui-loadmore-none {
-		width: 48%;
+		width: 50%;
 		margin: 1.5em auto;
 		line-height: 1.5em;
-		font-size: 24upx;
+		font-size: 24rpx;
 		display: flex;
 		justify-content: center;
 	}
@@ -55,28 +55,28 @@
 		position: relative;
 		display: flex;
 		justify-content: center;
-		margin-top: 10upx;
-		padding-bottom: 6upx;
+		margin-top: 10rpx;
+		padding-bottom: 6rpx;
 	}
 
 	.tui-nomore::before {
 		content: ' ';
 		position: absolute;
-		border-bottom: 1upx solid #e5e5e5;
+		border-bottom: 1rpx solid #e5e5e5;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
-		width: 360upx;
-		top: 18upx;
+		width: 100%;
+		top: 18rpx;
 		left: 0;
 	}
 
 	.tui-nomore-text {
 		color: #999;
-		font-size: 24upx;
+		font-size: 24rpx;
 		text-align: center;
-		padding: 0 18upx;
-		height: 36upx;
-		line-height: 36upx;
+		padding: 0 18rpx;
+		height: 36rpx;
+		line-height: 36rpx;
 		position: relative;
 		z-index: 1;
 	}
@@ -88,18 +88,18 @@
 		display: flex;
 		-webkit-justify-content: center;
 		justify-content: center;
-		margin-top: 10upx;
-		padding-bottom: 6upx;
+		margin-top: 10rpx;
+		padding-bottom: 6rpx;
 	}
 
 	.tui-nomore-dot::before {
 		content: '';
 		position: absolute;
-		border-bottom: 1upx solid #e5e5e5;
+		border-bottom: 1rpx solid #e5e5e5;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
-		width: 360upx;
-		top: 18upx;
+		width: 360rpx;
+		top: 18rpx;
 	}
 
 	.tui-dot-text {
@@ -107,9 +107,9 @@
 		color: #e5e5e5;
 		font-size: 10px;
 		text-align: center;
-		width: 50upx;
-		height: 36upx;
-		line-height: 36upx;
+		width: 50rpx;
+		height: 36rpx;
+		line-height: 36rpx;
 		-webkit-transform: scale(0.8);
 		transform: scale(0.8);
 		-webkit-transform-origin: center center;

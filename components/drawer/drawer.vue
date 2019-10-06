@@ -1,7 +1,7 @@
 <template>
 	<view class="tui-drawer-class tui-drawer" :class="[visible ? 'tui-drawer-show' : '','tui-drawer-' + mode]">
-		<view v-if="mask" class="tui-drawer-mask" @tap="handleMaskClick"></view>
-		<view class="tui-drawer-container">
+		<view v-if="mask" class="tui-drawer-mask" @tap="handleMaskClick" @touchmove.stop.prevent></view>
+		<view class="tui-drawer-container" @touchmove.stop.prevent>
 			<slot></slot>
 		</view>
 	</view>

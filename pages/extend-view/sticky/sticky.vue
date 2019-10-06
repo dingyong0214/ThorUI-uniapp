@@ -4,7 +4,7 @@
 			<view>1、判断平台，ios可直接使用position: sticky</view>
 			<view>2、对sticky-item容器进行绝对定位，底部内容部分使用外边距撑开sticky-item高度，减缓页面抖动</view>
 		</view>
-		<tui-sticky :scrollTop="scrollTop">
+		<tui-sticky :scrollTop="scrollTop" stickyHeight="104rpx">
 			<template v-slot:header>
 				<view class="sticky-item">
 					<view class="date">本月</view>
@@ -81,7 +81,7 @@
 			</template>
 		</tui-sticky>
 
-		<tui-sticky :scrollTop="scrollTop">
+		<tui-sticky :scrollTop="scrollTop" stickyHeight="104rpx">
 			<template v-slot:header>
 				<view class="sticky-item ">
 					<view class="date">5月</view>
@@ -157,7 +157,7 @@
 			</template>
 		</tui-sticky>
 
-		<tui-sticky :scrollTop="scrollTop">
+		<tui-sticky :scrollTop="scrollTop" stickyHeight="104rpx">
 			<template v-slot:header>
 				<view class="sticky-item ">
 					<view class="date">4月</view>
@@ -317,17 +317,17 @@
 
 	.tips {
 		background: #fff;
-		padding: 50upx 34upx;
+		padding: 50rpx 34rpx;
 		color: #555;
-		font-size: 24upx;
-		line-height: 42upx;
+		font-size: 24rpx;
+		line-height: 42rpx;
 		position: relative;
 	}
 
 	.tips::before {
 		content: '';
 		position: absolute;
-		border-top: 1upx solid #eaeef1;
+		border-top: 1rpx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 		top: 0;
@@ -341,7 +341,8 @@
 	/* sticky 容器 start */
 	.sticky-item {
 		width: 100%;
-		padding: 20upx 30upx;
+		height: 104rpx;
+		padding: 20rpx 30rpx;
 		background: #fafafa;
 		display: flex;
 		align-items: center;
@@ -352,16 +353,16 @@
 	/* sticky 容器 end */
 
 	.date {
-		height: 54upx;
-		font-size: 28upx;
+		height: 54rpx;
+		font-size: 28rpx;
 		background: #fff;
-		padding: 0 28upx;
-		border-radius: 25upx;
+		padding: 0 28rpx;
+		border-radius: 25rpx;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		position: relative;
-		/* box-shadow: 0 0 1upx #7A7A7A; */
+		/* box-shadow: 0 0 1rpx #7A7A7A; */
 	}
 
 	.date::after {
@@ -369,8 +370,8 @@
 		position: absolute;
 		height: 200%;
 		width: 200%;
-		border: 1upx solid #eaeef1;
-		border-radius: 60upx;
+		border: 1rpx solid #eaeef1;
+		border-radius: 60rpx;
 		-webkit-transform-origin: 0 0;
 		transform-origin: 0 0;
 		-webkit-transform: scale(0.5);
@@ -382,7 +383,7 @@
 	.amount {
 		text-align: right;
 		color: #7A7A7A;
-		font-size: 24upx;
+		font-size: 24rpx;
 	}
 
 	.list-view {
@@ -394,7 +395,7 @@
 	.list-view::after {
 		content: '';
 		position: absolute;
-		border-top: 1upx solid #eaeef1;
+		border-top: 1rpx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 		top: 0;
@@ -404,7 +405,7 @@
 
 	.list-item {
 		width: 100%;
-		padding: 30upx 28upx;
+		padding: 30rpx 28rpx;
 		box-sizing: border-box;
 		background: #fff;
 		display: flex;
@@ -413,7 +414,7 @@
 	}
 
 	.list-item::after {
-		left: 120upx
+		left: 120rpx
 	}
 
 	.item-last::after {
@@ -427,26 +428,26 @@
 	}
 
 	.logo {
-		width: 60upx;
-		height: 60upx;
+		width: 60rpx;
+		height: 60rpx;
 		flex-grow: 1
 	}
 
 	.des-box {
-		min-height: 130upx;
-		padding-left: 28upx;
+		min-height: 130rpx;
+		padding-left: 28rpx;
 		box-sizing: border-box;
 		vertical-align: top;
 		color: #333;
-		font-size: 24upx;
+		font-size: 24rpx;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 	}
 
 	.tit {
-		font-size: 32upx;
-		max-width: 420upx;
+		font-size: 32rpx;
+		max-width: 420rpx;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -457,13 +458,13 @@
 	}
 
 	.money {
-		font-size: 38upx;
+		font-size: 38rpx;
 		font-weight: 500;
 		color: #000;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		padding-left: 20upx;
+		padding-left: 20rpx;
 	}
 
 	.add {

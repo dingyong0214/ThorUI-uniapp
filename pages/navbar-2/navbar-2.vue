@@ -9,14 +9,14 @@
 			</view>
 		</view>
 
-		<scroll-view scroll-y scroll-with-animation class="tab-view" :scroll-top="scrollTop" :style="{height:height+'px'}">
+		<scroll-view scroll-y scroll-with-animation class="tab-view" :scroll-top="scrollTop" :style="{height:height+'px',top:top+'px'}">
 			<view v-for="(item,index) in tabbar" :key="index" class="tab-bar-item" :class="[currentTab==index ? 'active' : '']"
 			 :data-current="index" @tap.stop="swichNav">
 				<text>{{item}}</text>
 			</view>
 		</scroll-view>
 		<block v-for="(item,index) in tabbar" :key="index">
-			<scroll-view scroll-y class="right-box" :style="{height:height+'px'}" v-if="currentTab==index">
+			<scroll-view scroll-y class="right-box" :style="{height:height+'px',top:top+'px'}" v-if="currentTab==index">
 				<!--内容部分 start 自定义可删除-->
 				<view class="page-view">
 					<swiper indicator-dots autoplay circular :interval="5000" :duration="150" class="swiper">
@@ -137,21 +137,25 @@
 					"运动户外", "宠物生活", "特产馆"
 				],
 				height: 0, //scroll-view高度
+				top: 0,
 				currentTab: 0, //预设当前项的值
 				scrollTop: 0 //tab标题的滚动条位置
 			}
 		},
 		onLoad: function(options) {
-			uni.getSystemInfo({
-				success: (res) => {
-					let header = 92;
-					// #ifdef H5
-					header = 0;
-					// #endif
-					this.height = res.windowHeight - uni.upx2px(header)
-				}
-			});
-
+			setTimeout(() => {
+				uni.getSystemInfo({
+					success: (res) => {
+						let header = 92;
+						let top = 0;
+						//#ifdef H5
+						top = 44;
+						//#endif
+						this.height = res.windowHeight - uni.upx2px(header)
+						this.top = top + uni.upx2px(header)
+					}
+				});
+			}, 50)
 		},
 		methods: {
 			// 点击标题切换当前页时改变样式
@@ -223,6 +227,9 @@
 		position: fixed;
 		left: 0;
 		top: 0;
+		/* #ifdef H5 */
+		top: 44px;
+		/* #endif */
 		z-index: 100;
 	}
 
@@ -258,7 +265,6 @@
 		width: 200upx;
 		position: fixed;
 		left: 0;
-		top: 92upx;
 		z-index: 10;
 	}
 
@@ -299,7 +305,6 @@
 		padding-left: 220upx;
 		box-sizing: border-box;
 		left: 0;
-		top: 92upx;
 	}
 
 	.page-view {

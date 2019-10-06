@@ -68,9 +68,9 @@
 		<view class="tui-drop-input-box">
 			<tui-dropdown-list :show="dropdownShow" :top="94" :height="400">
 				<template v-slot:selectionbox>
-					<tui-button type="white" shape="circle" @click="dropDownList">下拉选择框
+					<tui-button type="white" shape="circle" @click="dropDownList(-1)">下拉选择框
 						<view class="tui-animation" :class="[dropdownShow?'tui-animation-show':'']">
-							<tui-icon name="turningdown" :size="20" ></tui-icon>
+							<tui-icon name="turningdown" :size="20"></tui-icon>
 						</view>
 					</tui-button>
 				</template>
@@ -78,7 +78,7 @@
 					<view class="tui-selected-list">
 						<scroll-view scroll-y class="tui-dropdown-scroll">
 							<block v-for="(item,index) in dropdownlistData" :key="index">
-								<tui-list-cell @click="dropDownList" :last="dropdownlistData.length-1==index">
+								<tui-list-cell @click="dropDownList(index)" :last="dropdownlistData.length-1==index">
 									<tui-icon :name="item.icon" :size="item.size" :color="item.color"></tui-icon>
 									<text class="tui-ml-20">{{item.name}}</text>
 								</tui-list-cell>
@@ -104,13 +104,13 @@
 						<view class="tui-share-item" :class="[shareList[0].share.length-1===index?'tui-item-last':'']" v-for="(item,index) in shareList[0].share"
 						 :key="index" @tap="popup">
 							<view class="tui-share-icon" hover-class="tui-hover" :hover-stay-time="150">
-								<tui-icon :name="item.icon" :color="item.color" :size="36"></tui-icon>
+								<tui-icon :name="item.icon" :color="item.color" :size="item.size?item.size:36"></tui-icon>
 							</view>
 							<view class="tui-share-text">{{item.name}}</view>
 						</view>
 						<view class="tui-empty">!</view>
 					</view>
-					
+
 				</scroll-view>
 
 				<scroll-view scroll-x class="tui-mt">
@@ -341,9 +341,19 @@
 				popupShow: false,
 				shareList: [{
 					share: [{
+						name: "QQ",
+						icon: "qq",
+						color: "#07BDFD",
+						size:34
+					}, {
 						name: "微信",
 						icon: "wechat",
 						color: "#80D640"
+					}, {
+						name: "朋友圈",
+						icon: "moments",
+						color: "#80D640",
+						size:32
 					}, {
 						name: "支付宝",
 						icon: "alipay",
@@ -420,7 +430,10 @@
 			screen() {
 				this.tui.toast("商城模板中功能~")
 			},
-			dropDownList() {
+			dropDownList(index) {
+				if (index !== -1) {
+					this.tui.toast("index：" + index)
+				}
 				this.dropdownShow = !this.dropdownShow
 			},
 			popup: function() {
@@ -693,11 +706,12 @@
 	.tui-share-top,
 	.tui-share-bottom {
 		min-width: 101%;
-		padding:0 20upx 0 30upx;
+		padding: 0 20upx 0 30upx;
 		white-space: nowrap;
 	}
 
 	.tui-mt {
+		margin-top: 30upx;
 		padding-bottom: 150upx;
 	}
 

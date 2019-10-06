@@ -413,6 +413,7 @@
 	/* #endif */
 
 	.tui-news-flex {
+		width: 100%;
 		display: flex;
 	}
 

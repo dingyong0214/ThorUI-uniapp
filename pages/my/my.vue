@@ -76,7 +76,6 @@
 					<text class='item-name'>日志</text>
 				</view>
 			</view>
-
 		</view>
 	</view>
 </template>
@@ -160,7 +159,7 @@
 	}
 
 	.top-container {
-		height: 440upx;
+		height: 440rpx;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -169,45 +168,50 @@
 	.bg-img {
 		position: absolute;
 		width: 100%;
-		height: 440upx;
-		z-index: -1;
+		height: 440rpx;
 	}
 
 	.logout {
-		width: 110upx;
-		height: 36upx;
+		width: 110rpx;
+		height: 36rpx;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		margin: 42upx 0 24upx 32upx;
+		margin: 42rpx 0 24rpx 32rpx;
+		position: relative;
+		z-index: 2;
 	}
 
 	.logout-img {
-		width: 36upx;
-		height: 36upx;
-		margin-right: 11upx;
+		width: 36rpx;
+		height: 36rpx;
+		margin-right: 11rpx;
 	}
 
 	.logout-txt {
-		font-size: 28upx;
+		font-size: 28rpx;
 		color: #FEFEFE;
-		line-height: 28upx;
+		line-height: 28rpx;
 	}
 
 	.user-wrapper {
 		display: flex;
 		justify-content: center;
+		position: relative;
+		z-index: 2;
 	}
 
 	.user {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		position: relative;
+		z-index: 2;
 	}
 
 	.avatar-img {
-		width: 160upx;
-		height: 160upx;
+		width: 160rpx;
+		height: 160rpx;
 		border-radius: 50%;
 		align-self: center;
 	}
@@ -215,43 +219,45 @@
 	.user-info {
 		display: flex;
 		flex-direction: row;
-		margin-top: 30upx;
+		margin-top: 30rpx;
 		align-items: center;
 	}
 
 	.user-info-mobile {
-		margin-top: 30upx;
+		margin-top: 30rpx;
 		position: relative;
-		font-size: 28upx;
+		font-size: 28rpx;
 		color: #FEFEFE;
-		line-height: 28upx;
+		line-height: 28rpx;
 		align-self: center;
-		padding: 0 50upx;
+		padding: 0 50rpx;
 	}
 
 	.edit-img {
 		position: absolute;
-		width: 42upx;
-		height: 42upx;
+		width: 42rpx;
+		height: 42rpx;
 		right: 0;
-		bottom: -4upx;
+		bottom: -4rpx;
 	}
 
 	.edit-img>image {
-		width: 42upx;
-		height: 42upx;
-		padding-left: 25upx;
+		width: 42rpx;
+		height: 42rpx;
+		padding-left: 25rpx;
 	}
 
 	.middle-container {
-		height: 138upx;
+		height: 138rpx;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		border-radius: 10upx;
+		border-radius: 10rpx;
 		background-color: #FFFFFF;
-		margin: -30upx 30upx 26upx 30upx;
-		box-shadow: 0 15upx 10upx -15upx #efefef;
+		margin: -30rpx 30rpx 26rpx 30rpx;
+		box-shadow: 0 15rpx 10rpx -15rpx #efefef;
+		position: relative;
+		z-index: 2;
 
 	}
 
@@ -263,36 +269,36 @@
 	}
 
 	.ticket-img {
-		width: 80upx;
-		height: 80upx;
-		margin-left: 65upx;
+		width: 80rpx;
+		height: 80rpx;
+		margin-left: 65rpx;
 	}
 
 	.middle-tag {
-		font-size: 28upx;
+		font-size: 28rpx;
 		color: #333333;
-		line-height: 28upx;
+		line-height: 28rpx;
 		font-weight: bold;
-		padding-left: 22upx;
+		padding-left: 22rpx;
 	}
 
 	.car-img {
-		width: 80upx;
-		height: 80upx;
-		margin-left: 97upx;
+		width: 80rpx;
+		height: 80rpx;
+		margin-left: 97rpx;
 	}
 
 	.bottom-container {
-		height: 334upx;
+		height: 334rpx;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding: 40upx 74upx 40upx 95upx;
-		margin: 0 30upx;
+		padding: 40rpx 74rpx 40rpx 95rpx;
+		margin: 0 30rpx;
 		background-color: #FFFFFF;
-		border-radius: 10upx;
+		border-radius: 10rpx;
 		box-sizing: border-box;
-		box-shadow: 0 0 10upx #efefef
+		box-shadow: 0 0 10rpx #efefef
 	}
 
 	.ul-item {
@@ -309,15 +315,15 @@
 	}
 
 	.item-img {
-		width: 64upx;
-		height: 64upx;
+		width: 64rpx;
+		height: 64rpx;
 	}
 
 	.item-name {
-		padding-top: 13upx;
-		font-size: 24upx;
+		padding-top: 13rpx;
+		font-size: 24rpx;
 		color: #666666;
-		min-width: 80upx;
+		min-width: 80rpx;
 		text-align: center;
 	}
 
@@ -329,4 +335,5 @@
 		left: 0;
 		top: 0;
 	}
+
 </style>

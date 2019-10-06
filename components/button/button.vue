@@ -102,7 +102,7 @@
 	}
 
 	.tui-danger {
-		background: #ed3f14 !important;
+		background: #EB0909 !important;
 		color: #fff;
 	}
 
@@ -202,17 +202,17 @@
 	}
 
 	.tui-danger-hover {
-		background: #d53912 !important;
+		background: #c80808 !important;
 		color: #e5e5e5 !important;
 	}
 
 	.tui-danger-outline {
-		color: #ed3f14 !important;
+		color: #EB0909 !important;
 		background: none;
 	}
 
 	.tui-danger-outline::after {
-		border: 1px solid #ed3f14 !important;
+		border: 1px solid #EB0909 !important;
 	}
 
 	.tui-red-hover {
@@ -262,15 +262,22 @@
 		color: #898989;
 	}
 
-	.tui-gray-outline,
-	.tui-white-outline {
+	.tui-gray-outline
+	 {
 		color: #999 !important;
 		background: none !important;
 	}
+	.tui-white-outline{
+		color: #fff !important;
+		background: none !important;
+	}
 
-	.tui-gray-outline::after,
-	.tui-white-outline::after {
+	.tui-gray-outline::after
+	{
 		border: 1px solid #ccc !important;
+	}
+	.tui-white-outline::after {
+		border: 1px solid #fff !important;
 	}
 
 	/*圆角 */

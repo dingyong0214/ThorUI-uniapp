@@ -1,7 +1,7 @@
 <template>
 	<view class="tui-divider" :style="{height:height+'rpx'}">
 		<view class="tui-divider-line" :style="{width:width,background:getBgColor(gradual,gradualColor,dividerColor)}"></view>
-		<view class="tui-divider-text" :style="{color:color,fontSize:size+'rpx',lineHeight:size+'rpx',background:bgcolor}">
+		<view class="tui-divider-text" :style="{color:color,fontSize:size+'rpx',lineHeight:size+'rpx',background:bgcolor,fontWeight:bold?'bold':'normal'}">
 			<slot></slot>
 		</view>
 	</view>
@@ -36,6 +36,10 @@
 				type: Number,
 				default: 24
 			},
+			bold:{
+				type: Boolean,
+				default: false
+			},
 			//背景颜色，和当前页面背景色保持一致
 			bgcolor: {
 				type: String,
@@ -49,7 +53,7 @@
 			//渐变色值，to right ，提供两个色值即可，由浅至深
 			gradualColor: {
 				type: Array,
-				default: function(){
+				default: function() {
 					return ["#eee", "#ccc"]
 				}
 			}
@@ -82,8 +86,10 @@
 	.tui-divider-line {
 		position: absolute;
 		height: 1rpx;
-		-webkit-transform: scaleY(0.5);
-		transform: scaleY(0.5);
+		top: 50%;
+		left: 50%;
+		-webkit-transform: scaleY(0.5) translateX(-50%) translateZ(0);
+		transform: scaleY(0.5) translateX(-50%) translateZ(0);
 	}
 
 	.tui-divider-text {

@@ -150,6 +150,8 @@
 		display: block;
 		margin: 10upx auto 0 auto;
 		border-radius: 50%;
+		position: relative;
+		z-index: 2;
 	}
 
 	.tui-login-name {
@@ -159,6 +161,8 @@
 		color: #fff;
 		margin: 36upx auto 0 auto;
 		text-align: center;
+		position: relative;
+		z-index: 2;
 	}
 
 	.tui-bg-img {
@@ -167,7 +171,6 @@
 		display: block;
 		position: absolute;
 		top: 0;
-		z-index: -1;
 	}
 
 	.tui-login-from {

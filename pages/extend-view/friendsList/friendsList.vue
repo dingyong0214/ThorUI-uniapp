@@ -19,7 +19,7 @@
 			<!--联系人列表-->
 			<view class="tui-list city-list">
 				<block v-for="(list,index) in lists" :key="index">
-					<tui-sticky :scrollTop="scrollTop" v-if="list.data[0]">
+					<tui-sticky :scrollTop="scrollTop" stickyHeight="66rpx" v-if="list.data[0]">
 						<template v-slot:header>
 							<view class="tui-list-cell-divider" :id="list.letter">
 								{{list.letter}}
@@ -166,8 +166,8 @@
 
 	.tui-searchbox {
 		width: 100%;
-		height: 100upx;
-		padding: 0 30upx;
+		height: 100rpx;
+		padding: 0 30rpx;
 		box-sizing: border-box;
 		background: #fff;
 		display: flex;
@@ -178,10 +178,10 @@
 
 	.tui-search-input {
 		width: 100%;
-		height: 72upx;
+		height: 72rpx;
 		background: #f5f6fa;
-		border-radius: 36upx;
-		font-size: 30upx;
+		border-radius: 36rpx;
+		font-size: 30rpx;
 		color: #a8abb8;
 		display: flex;
 		align-items: center;
@@ -189,25 +189,25 @@
 	}
 
 	.tui-search-text {
-		padding-left: 16upx;
+		padding-left: 16rpx;
 	}
 
 	/*searchbox*/
 
 	.tui-cell-class::after {
-		left: 140upx !important;
+		left: 140rpx !important;
 	}
 
 	.tui-img {
-		width: 80upx;
-		height: 80upx;
+		width: 80rpx;
+		height: 80rpx;
 		border-radius: 50%;
 	}
 
 	.tui-name {
 		width: 80%;
-		padding-left: 30upx;
-		font-size: 34upx;
+		padding-left: 30rpx;
+		font-size: 34rpx;
 		color: #333;
 		overflow: hidden;
 		white-space: nowrap;
@@ -215,12 +215,12 @@
 	}
 
 	.tui-list-cell-divider {
-		height: 66upx;
-		padding-left: 30upx;
-		font-size: 26upx;
+		height: 66rpx;
+		padding-left: 30rpx;
+		font-size: 26rpx;
 		color: #555;
 		background: #f5f6fa;
-		padding: 0 30upx;
+		padding: 0 30rpx;
 		display: flex;
 		align-items: center;
 		font-weight: bold;
@@ -233,28 +233,28 @@
 		justify-content: flex-start;
 		z-index: 9999;
 		position: absolute;
-		top: 132upx;
+		top: 132rpx;
 		right: 0;
-		padding-right: 10upx;
-		width: 44upx;
+		padding-right: 10rpx;
+		width: 44rpx;
 		color: #555;
 		font-weight: bold;
 	}
 
 	.tui-indexed-list-text {
-		font-size: 22upx;
+		font-size: 22rpx;
 	}
 
 	.tui-indexed-list-alert {
 		position: absolute;
 		z-index: 20;
-		width: 120upx;
-		height: 120upx;
-		right: 90upx;
+		width: 120rpx;
+		height: 120rpx;
+		right: 90rpx;
 		top: 50%;
-		margin-top: -60upx;
-		border-radius: 24upx;
-		font-size: 50upx;
+		margin-top: -60rpx;
+		border-radius: 24rpx;
+		font-size: 50rpx;
 		color: #fff;
 		background-color: rgba(0, 0, 0, 0.65);
 		display: flex;
@@ -264,15 +264,15 @@
 	}
 
 	.tui-indexed-list-alert text {
-		line-height: 50upx;
+		line-height: 50rpx;
 	}
 
 	.tui-footer {
-		padding: 30upx 0;
+		padding: 30rpx 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 30upx;
+		font-size: 30rpx;
 		color: #999;
 	}
 

@@ -194,7 +194,7 @@
 					<tui-button type="danger" shape="circle" size="mini" @click="showPopup">加入购物车</tui-button>
 				</view>
 				<view class="tui-flex-1">
-					<tui-button type="warning" shape="circle" size="mini" @click="showPopup">立即购买</tui-button>
+					<tui-button type="warning" shape="circle" size="mini" @click="submit">立即购买</tui-button>
 				</view>
 			</view>
 		</view>
@@ -205,7 +205,7 @@
 		<!--顶部下拉菜单-->
 		<tui-top-dropdown tui-top-dropdown="tui-top-dropdown" bgcolor="rgba(76, 76, 76, 0.95)" :show="menuShow" :height="0"
 		 @close="closeMenu">
-			<view class="tui-menu-box tui-padding">
+			<view class="tui-menu-box tui-padding tui-ptop">
 				<view class="tui-menu-header" :style="{paddingTop:top+'px'}">
 					功能直达
 				</view>
@@ -304,8 +304,12 @@
 					</view>
 				</scroll-view>
 				<view class="tui-operation tui-operation-right tui-right-flex tui-popup-btn">
-					<tui-button type="red" tui-button-class="tui-btn-equals" shape="circle" size="mini" class="tui-flex-1" @click="hidePopup">加入购物车</tui-button>
-					<tui-button type="warning" tui-button-class="tui-btn-equals" shape="circle" size="mini" class="tui-flex-1" @click="hidePopup">立即购买</tui-button>
+					<view class="tui-flex-1">
+						<tui-button type="red" shape="circle" size="mini" @click="hidePopup">加入购物车</tui-button>
+					</view>
+					<view class="tui-flex-1">
+						<tui-button type="warning" shape="circle" size="mini" @click="submit">立即购买</tui-button>
+					</view>
 				</view>
 				<view class="tui-icon tui-icon-close-fill tui-icon-close" style="color: #999;font-size:20px" @tap="hidePopup"></view>
 				<!-- <tui-icon name="close-fill" color="#999" class="tui-icon-close" size="20" @tap="hidePopup"></tui-icon> -->
@@ -408,14 +412,16 @@
 			my.hideAddToDesktopMenu();
 			// #endif
 
-			uni.getSystemInfo({
-				success: (res) => {
-					this.width = obj.left || res.windowWidth;
-					this.height = obj.top ? (obj.top + obj.height + 8) : (res.statusBarHeight + 44);
-					this.top = obj.top ? (obj.top + (obj.height - 32) / 2) : (res.statusBarHeight + 6);
-					this.scrollH = res.windowWidth
-				}
-			})
+			setTimeout(() => {
+				uni.getSystemInfo({
+					success: (res) => {
+						this.width = obj.left || res.windowWidth;
+						this.height = obj.top ? (obj.top + obj.height + 8) : (res.statusBarHeight + 44);
+						this.top = obj.top ? (obj.top + (obj.height - 32) / 2) : (res.statusBarHeight + 6);
+						this.scrollH = res.windowWidth
+					}
+				})
+			}, 50)
 		},
 		methods: {
 			bannerChange: function(e) {
@@ -451,6 +457,12 @@
 			},
 			common: function() {
 				this.tui.toast("功能开发中~")
+			},
+			submit(){
+				this.popupShow = false
+				uni.navigateTo({
+					url: '../mall-extend/submitOrder/submitOrder'
+				})
 			}
 		},
 		onPageScroll(e) {
@@ -474,7 +486,7 @@
 	}
 
 	.container {
-		padding-bottom: 110upx;
+		padding-bottom: 110rpx;
 	}
 
 	.tui-header-box {
@@ -517,7 +529,7 @@
 	}
 
 	.tui-icon-ml {
-		margin-left: 20upx;
+		margin-left: 20rpx;
 	}
 
 	.tui-icon {
@@ -545,7 +557,7 @@
 	.tui-banner-swiper .tui-tag-class {
 		position: absolute;
 		color: #fff;
-		bottom: 30upx;
+		bottom: 30rpx;
 		right: 0;
 	}
 
@@ -561,7 +573,7 @@
 	}
 
 	.tui-menu-header {
-		font-size: 34upx;
+		font-size: 34rpx;
 		color: #fff;
 		height: 32px;
 		display: flex;
@@ -574,17 +586,17 @@
 
 	.tui-menu-itembox {
 		color: #fff;
-		padding: 40upx 10upx 0 10upx;
+		padding: 40rpx 10rpx 0 10rpx;
 		box-sizing: border-box;
 		display: flex;
 		flex-wrap: wrap;
-		font-size: 26upx;
+		font-size: 26rpx;
 	}
 
 	.tui-menu-item {
 		width: 22%;
-		height: 160upx;
-		border-radius: 24upx;
+		height: 160rpx;
+		border-radius: 24rpx;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
@@ -620,7 +632,7 @@
 	}
 
 	.tui-menu-text {
-		padding-top: 12upx;
+		padding-top: 12rpx;
 	}
 
 	.tui-opcity .tui-menu-text,
@@ -634,13 +646,20 @@
 	/*内容 部分*/
 
 	.tui-padding {
-		padding: 0 30upx;
+		padding: 0 30rpx;
 		box-sizing: border-box;
 	}
 
+	/* #ifdef H5 */
+	.tui-ptop {
+		padding-top: 44px;
+	}
+
+	/* #endif */
+
 	.tui-size {
-		font-size: 24upx;
-		line-height: 24upx;
+		font-size: 24rpx;
+		line-height: 24rpx;
 	}
 
 	.tui-gray {
@@ -652,18 +671,18 @@
 	}
 
 	.tui-border-radius {
-		border-bottom-left-radius: 24upx;
-		border-bottom-right-radius: 24upx;
+		border-bottom-left-radius: 24rpx;
+		border-bottom-right-radius: 24rpx;
 		overflow: hidden;
 	}
 
 	.tui-radius-all {
-		border-radius: 24upx;
+		border-radius: 24rpx;
 		overflow: hidden;
 	}
 
 	.tui-mtop {
-		margin-top: 26upx;
+		margin-top: 26rpx;
 	}
 
 	.tui-pro-detail {
@@ -673,7 +692,7 @@
 
 	.tui-product-title {
 		background: #fff;
-		padding: 30upx 0;
+		padding: 30rpx 0;
 	}
 
 	.tui-pro-pricebox {
@@ -681,9 +700,9 @@
 		align-items: center;
 		justify-content: space-between;
 		color: #ff201f;
-		font-size: 36upx;
+		font-size: 36rpx;
 		font-weight: bold;
-		line-height: 44upx;
+		line-height: 44rpx;
 	}
 
 	.tui-pro-price {
@@ -694,18 +713,18 @@
 	.tui-pro-price .tui-tag-class {
 		transform: scale(0.7);
 		transform-origin: center center;
-		line-height: 24upx;
+		line-height: 24rpx;
 		font-weight: normal;
 	}
 
 	.tui-price {
-		font-size: 58upx;
+		font-size: 58rpx;
 	}
 
 	.tui-original-price {
-		font-size: 26upx;
-		line-height: 26upx;
-		padding: 10upx 30upx;
+		font-size: 26rpx;
+		line-height: 26rpx;
+		padding: 10rpx 30rpx;
 		box-sizing: border-box;
 	}
 
@@ -719,13 +738,13 @@
 		align-items: center;
 		flex-direction: column;
 		justify-content: center;
-		height: 44upx;
+		height: 44rpx;
 	}
 
 	.tui-scale {
 		transform: scale(0.7);
 		transform-origin: center center;
-		line-height: 24upx;
+		line-height: 24rpx;
 		font-weight: normal;
 	}
 
@@ -736,15 +755,15 @@
 	}
 
 	.tui-pro-titbox {
-		font-size: 32upx;
+		font-size: 32rpx;
 		font-weight: 500;
 		position: relative;
-		padding: 0 150upx 0 30upx;
+		padding: 0 150rpx 0 30rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-pro-title {
-		padding-top: 20upx;
+		padding-top: 20rpx;
 	}
 
 	.tui-share-btn {
@@ -763,22 +782,22 @@
 	.tui-share-position {
 		position: absolute;
 		right: 0;
-		top: 30upx;
+		top: 30rpx;
 	}
 
 	.tui-share-text {
-		padding-left: 8upx;
+		padding-left: 8rpx;
 	}
 
 	.tui-sub-title {
-		padding: 20upx 0;
+		padding: 20rpx 0;
 	}
 
 	.tui-sale-info {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding-top: 30upx;
+		padding-top: 30rpx;
 	}
 
 	.tui-discount-box {
@@ -789,20 +808,20 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		font-size: 26upx;
-		line-height: 26upx;
-		padding: 36upx 30upx;
+		font-size: 26rpx;
+		line-height: 26rpx;
+		padding: 36rpx 30rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-right {
 		position: absolute;
-		right: 30upx;
-		top: 30upx;
+		right: 30rpx;
+		top: 30rpx;
 	}
 
 	.tui-top40 {
-		top: 40upx !important;
+		top: 40rpx !important;
 	}
 
 	.tui-bold {
@@ -812,12 +831,12 @@
 	.tui-list-cell::after {
 		content: '';
 		position: absolute;
-		border-bottom: 1upx solid #eaeef1;
+		border-bottom: 1rpx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 		bottom: 0;
 		right: 0;
-		left: 126upx;
+		left: 126rpx;
 	}
 
 	.tui-last::after {
@@ -830,13 +849,13 @@
 	}
 
 	.tui-tag-coupon-box .tui-tag-class {
-		margin-right: 20upx;
+		margin-right: 20rpx;
 	}
 
 
 	.tui-cell-title {
-		width: 66upx;
-		padding-right: 30upx;
+		width: 66rpx;
+		padding-right: 30rpx;
 		flex-shrink: 0;
 	}
 
@@ -844,7 +863,7 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		padding: 10upx 0;
+		padding: 10rpx 0;
 		width: 74%;
 	}
 
@@ -869,26 +888,26 @@
 	}
 
 	.tui-addr-item {
-		padding: 10upx;
-		line-height: 34upx;
+		padding: 10rpx;
+		line-height: 34rpx;
 	}
 
 	.tui-guarantee {
 		background: #fdfdfd;
 		display: flex;
 		flex-wrap: wrap;
-		padding: 20upx 30upx 30upx 30upx;
-		font-size: 24upx;
+		padding: 20rpx 30rpx 30rpx 30rpx;
+		font-size: 24rpx;
 	}
 
 	.tui-guarantee-item {
 		color: #999;
-		padding-right: 30upx;
-		padding-top: 10upx;
+		padding-right: 30rpx;
+		padding-top: 10rpx;
 	}
 
 	.tui-pl {
-		padding-left: 4upx;
+		padding-left: 4rpx;
 	}
 
 	.tui-cmt-box {
@@ -901,11 +920,11 @@
 
 	.tui-cmt-all {
 		color: #ff201f;
-		padding-right: 8upx;
+		padding-right: 8rpx;
 	}
 
 	.tui-cmt-content {
-		font-size: 26upx;
+		font-size: 26rpx;
 	}
 
 	.tui-cmt-user {
@@ -914,25 +933,25 @@
 	}
 
 	.tui-acatar {
-		width: 60upx;
-		height: 60upx;
-		border-radius: 30upx;
+		width: 60rpx;
+		height: 60rpx;
+		border-radius: 30rpx;
 		display: block;
-		margin-right: 16upx;
+		margin-right: 16rpx;
 	}
 
 	.tui-cmt {
-		padding: 14upx 0;
+		padding: 14rpx 0;
 	}
 
 	.tui-attr {
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #999;
-		padding: 6upx 0;
+		padding: 6rpx 0;
 	}
 
 	.tui-cmt-btn {
-		padding: 50upx 0 30upx 0;
+		padding: 50rpx 0 30rpx 0;
 		box-sizing: border-box;
 		display: flex;
 		align-items: center;
@@ -940,14 +959,14 @@
 	}
 
 	.tui-tag-cmt {
-		min-width: 130upx;
-		padding: 20upx 52upx !important;
-		font-size: 26upx !important;
+		min-width: 130rpx;
+		padding: 20rpx 52rpx !important;
+		font-size: 26rpx !important;
 		display: inline-block;
 	}
 
 	.tui-nomore-box {
-		padding-top: 10upx;
+		padding-top: 10rpx;
 	}
 
 	.tui-product-img {
@@ -971,7 +990,7 @@
 
 	.tui-operation {
 		width: 100%;
-		height: 100upx;
+		height: 100rpx;
 		/* box-sizing: border-box; */
 		background: rgba(255, 255, 255, 0.98);
 		position: fixed;
@@ -995,7 +1014,7 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		border-top: 1upx solid #eaeef1;
+		border-top: 1rpx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 	}
@@ -1015,7 +1034,7 @@
 	}
 
 	.tui-operation-text {
-		font-size: 22upx;
+		font-size: 22rpx;
 		color: #333;
 	}
 
@@ -1029,7 +1048,7 @@
 	}
 
 	.tui-operation-right {
-		height: 100upx;
+		height: 100rpx;
 		/* box-sizing: border-box; */
 		padding-top: 0;
 	}
@@ -1043,15 +1062,15 @@
 	.tui-btnbox-4 .tui-btn-class {
 		width: 90% !important;
 		display: block !important;
-		font-size: 28upx !important;
+		font-size: 28rpx !important;
 	}
 
 	.tui-operation .tui-badge-class {
 		position: absolute;
-		top: -6upx;
+		top: -6rpx;
 		/* #ifdef H5 */
 		transform: translateX(50%)
-		/* #endif  */
+			/* #endif  */
 	}
 
 	.tui-flex-1 {
@@ -1063,14 +1082,14 @@
 	/*底部选择弹层*/
 
 	.tui-popup-class {
-		border-top-left-radius: 24upx;
-		border-top-right-radius: 24upx;
+		border-top-left-radius: 24rpx;
+		border-top-right-radius: 24rpx;
 		padding-bottom: env(safe-area-inset-bottom);
 	}
 
 	.tui-popup-box {
 		position: relative;
-		padding: 30upx 0 100upx 0;
+		padding: 30rpx 0 100rpx 0;
 	}
 
 	.tui-popup-btn {
@@ -1083,81 +1102,81 @@
 	.tui-popup-btn .tui-btn-class {
 		width: 90% !important;
 		display: block !important;
-		font-size: 28upx !important;
+		font-size: 28rpx !important;
 	}
 
 	.tui-icon-close {
 		position: absolute;
-		top: 30upx;
-		right: 30upx;
+		top: 30rpx;
+		right: 30rpx;
 	}
 
 	.tui-product-box {
 		display: flex;
 		align-items: flex-end;
-		font-size: 24upx;
-		padding-bottom: 30upx;
+		font-size: 24rpx;
+		padding-bottom: 30rpx;
 	}
 
 	.tui-popup-img {
-		height: 200upx;
-		width: 200upx;
-		border-radius: 24upx;
+		height: 200rpx;
+		width: 200rpx;
+		border-radius: 24rpx;
 		display: block;
 	}
 
 	.tui-popup-price {
-		padding-left: 20upx;
-		padding-bottom: 8upx;
+		padding-left: 20rpx;
+		padding-bottom: 8rpx;
 	}
 
 	.tui-amount {
 		color: #ff201f;
-		font-size: 36upx;
+		font-size: 36rpx;
 	}
 
 	.tui-number {
-		font-size: 24upx;
-		line-height: 24upx;
-		padding-top: 12upx;
+		font-size: 24rpx;
+		line-height: 24rpx;
+		padding-top: 12rpx;
 		color: #999;
 	}
 
 	.tui-popup-scroll {
-		height: 600upx;
-		font-size: 26upx;
+		height: 600rpx;
+		font-size: 26rpx;
 	}
 
 	.tui-scrollview-box {
-		padding: 0 30upx 60upx 30upx;
+		padding: 0 30rpx 60rpx 30rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-attr-title {
-		padding: 10upx 0;
+		padding: 10rpx 0;
 		color: #333;
 	}
 
 	.tui-attr-box {
 		font-size: 0;
-		padding: 20upx 0;
+		padding: 20rpx 0;
 	}
 
 	.tui-attr-item {
 		max-width: 100%;
-		min-width: 200upx;
-		height: 64upx;
+		min-width: 200rpx;
+		height: 64rpx;
 		display: -webkit-inline-flex;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		background: #f7f7f7;
-		padding: 0 26upx;
+		padding: 0 26rpx;
 		box-sizing: border-box;
-		border-radius: 32upx;
-		margin-right: 20upx;
-		margin-bottom: 20upx;
-		font-size: 26upx;
+		border-radius: 32rpx;
+		margin-right: 20rpx;
+		margin-bottom: 20rpx;
+		font-size: 26rpx;
 	}
 
 	.tui-attr-active {
@@ -1170,10 +1189,10 @@
 	.tui-attr-active::after {
 		content: "";
 		position: absolute;
-		border: 1upx solid #e41f19;
+		border: 1rpx solid #e41f19;
 		width: 100%;
 		height: 100%;
-		border-radius: 40upx;
+		border-radius: 40rpx;
 		left: 0;
 		top: 0;
 	}
@@ -1182,7 +1201,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 20upx 0 30upx 0;
+		padding: 20rpx 0 30rpx 0;
 		box-sizing: border-box;
 	}
 

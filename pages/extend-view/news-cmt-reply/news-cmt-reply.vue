@@ -196,6 +196,7 @@
 	}
 
 	.tui-cmt-cell {
+		width: 100%;
 		padding: 26upx 30upx;
 		box-sizing: border-box;
 		position: relative;

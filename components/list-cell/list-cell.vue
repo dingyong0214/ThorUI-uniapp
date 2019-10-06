@@ -1,6 +1,6 @@
 <template>
-	<view class="tui-cell-class tui-list-cell" :class="{'tui-cell-arrow':arrow,'tui-cell-last':last}" :hover-class="hover?'tui-cell-hover':''"
-	 :style="{background: bgcolor,fontSize: px(size),color:color}" :hover-stay-time="150" @tap="handleClick">
+	<view class="tui-cell-class tui-list-cell" :class="{'tui-cell-arrow':arrow,'tui-cell-last':last,'tui-line-left':lineLeft,'tui-line-right':lineRight,'tui-radius':radius}" :hover-class="hover?'tui-cell-hover':''"
+	 :style="{background: bgcolor,fontSize: size+'rpx',color:color,padding:padding}" :hover-stay-time="150" @tap="handleClick">
 		<slot></slot>
 	</view>
 </template>
@@ -9,17 +9,37 @@
 	export default {
 		name: "tuiListCell",
 		props: {
+			 //是否有箭头
 			arrow: {
 				type: Boolean,
-				default: false //是否有箭头
+				default: false
 			},
+			//是否有点击效果
 			hover: {
 				type: Boolean,
-				default: true //是否有点击效果
+				default: true 
+			},
+			//left 30rpx
+			lineLeft:{
+				type: Boolean,
+				default: true
+			},
+			//right 30rpx
+			lineRight:{
+				type: Boolean,
+				default: false
+			},
+			padding:{
+				type:String,
+				default:"26rpx 30rpx"
 			},
 			last: {
 				type: Boolean,
 				default: false //最后一条数据隐藏线条
+			},
+			radius:{
+				type:Boolean,
+				default:false
 			},
 			bgcolor: {
 				type: String,
@@ -43,9 +63,6 @@
 				this.$emit('click', {
 					index: this.index
 				});
-			},
-			px: function(num) {
-				return uni.upx2px(num) + 'px';
 			}
 		}
 	}
@@ -55,11 +72,14 @@
 	.tui-list-cell {
 		position: relative;
 		width: 100%;
-		padding: 26upx 30upx;
 		box-sizing: border-box;
 		overflow: hidden;
 		display: flex;
 		align-items: center;
+	}
+	.tui-radius{
+		border-radius: 12rpx;
+		overflow: hidden;
 	}
 
 	.tui-cell-hover {
@@ -69,12 +89,19 @@
 	.tui-list-cell::after {
 		content: '';
 		position: absolute;
-		border-bottom: 1upx solid #eaeef1;
+		border-bottom: 1rpx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 		bottom: 0;
 		right: 0;
-		left: 30upx;
+		left:0;
+	}
+	.tui-line-left::after{
+		left: 30rpx !important;
+	}
+	
+	.tui-line-right::after{
+		right: 30rpx !important;
 	}
 
 	.tui-cell-last::after {
@@ -93,6 +120,6 @@
 		position: absolute;
 		top: 50%;
 		margin-top: -7px;
-		right: 30upx;
+		right: 30rpx;
 	}
 </style>

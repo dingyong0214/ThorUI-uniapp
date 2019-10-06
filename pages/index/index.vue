@@ -194,10 +194,10 @@
 					url: '../extend-view/mall/mall'
 				})
 			},
-			getPageUrl(page){
-				let pageUrl='../'+page+'/'+page;
-				if(page=='friendsList'){
-					pageUrl='../extend-view/'+page+'/'+page;
+			getPageUrl(page) {
+				let pageUrl = '../' + page + '/' + page;
+				if (page == 'friendsList') {
+					pageUrl = '../extend-view/' + page + '/' + page;
 				}
 				return pageUrl
 			}
