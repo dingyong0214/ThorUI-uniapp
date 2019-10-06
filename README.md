@@ -49,12 +49,12 @@ ThorUI组件库，uni-app代码片段分享
 13.修改已知bug。
 
 # 功能截图 
-|  ![](https://thorui.cn/img/V140/1.png) |![](https://thorui.cn/img/V140/2.png)  |  ![](https://thorui.cn/img/V132/3.png) |
+|  ![](https://thorui.cn/img/V140/1.png) |![](https://thorui.cn/img/V140/2.png)  |  ![](https://thorui.cn/img/V140/3.png) |
 | ------------ | ------------ | ------------ |
-|  ![](https://thorui.cn/img/V140/4.png) |![](https://thorui.cn/img/V140/5.png)  |  ![](https://thorui.cn/img/V132/6.png) |
-|  ![](https://thorui.cn/img/V140/7.png) |![](https://thorui.cn/img/V140/8.png)  |  ![](https://thorui.cn/img/V132/9.png) |
-|  ![](https://thorui.cn/img/V140/10.png) |![](https://thorui.cn/img/V140/11.png)  |  ![](https://thorui.cn/img/V132/12.png) |
-|  ![](https://thorui.cn/img/V140/13.png) |![](https://thorui.cn/img/V140/14.png)  |  ![](https://thorui.cn/img/V132/15.png) |
+|  ![](https://thorui.cn/img/V140/4.png) |![](https://thorui.cn/img/V140/5.png)  |  ![](https://thorui.cn/img/V140/6.png) |
+|  ![](https://thorui.cn/img/V140/7.png) |![](https://thorui.cn/img/V140/8.png)  |  ![](https://thorui.cn/img/V140/9.png) |
+|  ![](https://thorui.cn/img/V140/10.png) |![](https://thorui.cn/img/V140/11.png)  |  ![](https://thorui.cn/img/V140/12.png) |
+|  ![](https://thorui.cn/img/V140/13.png) |![](https://thorui.cn/img/V140/14.png)  |  ![](https://thorui.cn/img/V140/15.png) |
 
 # V1.3.2
 
