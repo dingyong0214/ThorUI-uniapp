@@ -18,13 +18,13 @@
 				<view class="tui-content">echo.</view>
 			</view>
 		</tui-list-cell>
-		<tui-list-cell padding="0" :arrow="true" @click="href(2)">
+		<tui-list-cell padding="0" :arrow="true">
 			<view class="tui-list-cell">
 				<view>性别</view>
 				<view class="tui-content">男</view>
 			</view>
 		</tui-list-cell>
-		<tui-list-cell padding="0" :arrow="true" :last="true" @click="href(2)">
+		<tui-list-cell padding="0" :arrow="true" :last="true" >
 			<view class="tui-list-cell">
 				<view>出生日期</view>
 				<view class="tui-content">1986-09-27</view>

@@ -20,7 +20,7 @@
 			},
 			//吸顶容器距离顶部距离 px
 			stickyTop: {
-				type: Number
+				type: [Number, String]
 					// #ifdef APP-PLUS || MP
 					,
 				default: 0
@@ -39,6 +39,11 @@
 			bgColor: {
 				type: String,
 				default: "none"
+			},
+			//列表中的索引值
+			index: {
+				type: [Number, String],
+				default: 0
 			}
 		},
 		watch: {
@@ -86,6 +91,10 @@
 						if (res) {
 							this.top = res.top + (this.scrollTop || 0);
 							this.height = res.height
+							this.$emit("change", {
+								index: Number(this.index),
+								top: this.top
+							})
 						}
 					}).exec()
 				}, 0)

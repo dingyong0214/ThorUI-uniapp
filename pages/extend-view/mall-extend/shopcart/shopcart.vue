@@ -49,7 +49,7 @@
 			<view class="tui-activity">
 				<view class="tui-bold">失效商品</view>
 				<view class="tui-buy">
-					<tui-button type="white" :plain="true" shape="circle" width="200rpx" height="54rpx" :size="24">清空失效商品</tui-button>
+					<tui-button type="gray" :plain="true" shape="circle" width="200rpx" height="56rpx" :size="24">清空失效商品</tui-button>
 				</view>
 			</view>
 			<view :class="{'tui-invalid-ptop':index!==0}" v-for="(item,index) in 2" :key="index">

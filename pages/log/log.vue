@@ -1,10 +1,8 @@
 <template>
 	<view class="container">
-		<!-- #ifdef APP-PLUS || MP -->
 		<view class="tui-header">Hi，欢迎使用Thor UI！当前版本：
 			<text class="tui-version">V{{version}}</text>
 		</view>
-		<!-- #endif -->
 		<view class="tui-log">
 			<tui-time-axis>
 				<tui-timeaxis-item v-for="(item,index) in logList" :key="index">
@@ -17,6 +15,18 @@
 						<view class="tui-content-log" :class="[version==item.version?'':'tui-log-gray']">
 							<view class="tui-version-date">{{logList.length-1==index?item.version:'V'+item.version}}（{{item.date}}）</view>
 							<view v-for="(model,index2) in item.log" :key="index2" class="tui-log-text">{{model}}</view>
+							<view class="tui-doc-box" v-if="index===logList.length-1">
+								<view>组件文档地址：</view>
+								<view class="tui-link" @tap.stop="getLink('http://www.donarui.com')">http://www.donarui.com</view>
+								<view>uni-app版本GitHub地址：</view>
+								<view class="tui-link" @tap.stop="getLink('https://github.com/dingyong0214/ThorUI-uniapp')">https://github.com/dingyong0214/ThorUI-uniapp</view>
+								<view>uni-app版本插件市场地址：</view>
+								<view class="tui-link" @tap.stop="getLink('https://ext.dcloud.net.cn/plugin?id=556')">https://ext.dcloud.net.cn/plugin?id=556</view>
+								<view>小程序版本GitHub地址：</view>
+								<view class="tui-link" @tap.stop="getLink('https://github.com/dingyong0214/ThorUI')">https://github.com/dingyong0214/ThorUI</view>
+								<view>小程序版本插件市场地址：</view>
+								<view class="tui-link" @tap.stop="getLink('https://ext.dcloud.net.cn/plugin?id=569')">https://ext.dcloud.net.cn/plugin?id=569</view>
+							</view>
 						</view>
 					</template>
 				</tui-timeaxis-item>
@@ -29,6 +39,7 @@
 	import tuiIcon from "@/components/icon/icon"
 	import tuiTimeAxis from "@/components/time-axis/time-axis"
 	import tuiTimeaxisItem from "@/components/timeaxis-item/timeaxis-item"
+	const thorui = require("@/components/utils/clipboard.thorui.js")
 	import {
 		mapState
 	} from 'vuex'
@@ -44,7 +55,7 @@
 				logList: [{
 					version: "preface",
 					date: "2019-06-01",
-					log: ["本项目稳定后，会同步更新到微信小程序，支付宝小程序，百度小程序，头条小程序等"]
+					log: ["本项目稳定后，会同步更新到支付宝小程序，百度小程序，头条小程序等"]
 				}, {
 					version: "0.1.0",
 					date: "2019-06-01",
@@ -90,16 +101,37 @@
 				}, {
 					version: "1.3.2",
 					date: "2019-07-22",
-					log: ["1.修复H5端发行报错的问题。", "2.扩展基础组件(保留了之前版本):alert、tips、button、toast。", "3.新增表单验证功能，只需配置相应验证即可。", "4.新增返回顶部组件,nvue返回顶部看首页[nvue商品列表]。", "5.优化部分页面，修复已知bug。"]
+					log: ["1.修复H5端发行报错的问题。", "2.扩展基础组件(保留了之前版本):alert、tips、button、toast。", "3.新增表单验证功能，只需配置相应验证即可。",
+						"4.新增返回顶部组件,nvue返回顶部看首页[nvue商品列表]。", "5.优化部分页面，修复已知bug。"
+					]
 				}, {
 					version: "1.4.0",
 					date: "2019-10-06",
-					log: ["1.新增日期时间选择器组件。", "2.H5新增复制文本功能。","3.新增悬浮按钮组件。","4.新增Tabbar组件。","5.新增tabs标签页组件。","6.新增折叠面板组件。","7.新增图片上传组件。","8.NumberBox组件优化调整。","9.Modal组件优化调整。","10.sticky组件优化调整。","11.countdown组件优化调整。","12.商城模板新增购物车、我的、提交订单、支付成功、我的订单、地址列表、新增地址、设置、用户信息等页面。","13.修改已知bug。"]
+					log: ["1.新增日期时间选择器组件。", "2.H5新增复制文本功能。", "3.新增悬浮按钮组件。", "4.新增Tabbar组件。", "5.新增tabs标签页组件。", "6.新增折叠面板组件。",
+						"7.新增图片上传组件。", "8.NumberBox组件优化调整。", "9.Modal组件优化调整。", "10.sticky组件优化调整。", "11.countdown组件优化调整。",
+						"12.商城模板新增购物车、我的、提交订单、支付成功、我的订单、地址列表、新增地址、设置、用户信息等页面。", "13.修改已知bug。"
+					]
+				}, {
+					version: "1.4.1",
+					date: "2019-10-27",
+					log: ["1.新增文档相关链接信息。", "2.新增骨架屏组件(extend=>骨架屏)。", "3.新增网络请求示例。", "4.调整sticky组件，支持索引列表吸顶效果。",
+						"5.新增吸顶&索引列表，非scroll-view实现(code[首页]=>索引列表=>索引&吸顶效果)。", "6.已知问题修复以及优化。"
+					]
 				}].reverse()
 			}
 		},
 		methods: {
-
+			getLink: function(link) {
+				thorui.getClipboardData(link, (res) => {
+					// #ifdef H5
+					if (res) {
+						this.tui.toast("链接复制成功")
+					} else {
+						this.tui.toast("链接复制失败")
+					}
+					// #endif
+				})
+			}
 		}
 	}
 </script>
@@ -122,6 +154,9 @@
 		align-items: center;
 		position: fixed;
 		top: 0;
+		/* #ifdef H5 */
+		top: 44px;
+		/* #endif */
 		z-index: 999999;
 	}
 
@@ -181,5 +216,15 @@
 		font-size: 32upx;
 		font-weight: bold;
 		padding-bottom: 20upx;
+	}
+
+	.tui-doc-box {
+		padding-top: 20rpx;
+		word-break: break-all;
+	}
+
+	.tui-link {
+		padding-bottom: 20rpx;
+		color: #0066cc;
 	}
 </style>

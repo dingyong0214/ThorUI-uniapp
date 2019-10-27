@@ -8,12 +8,12 @@
 		<form @submit="formLogin">
 			<view class="tui-login-from">
 				<view class="tui-line-cell">
-					<tui-icon name="mobile" size="20" color='#5677fc'></tui-icon>
+					<tui-icon name="mobile" :size="20" color='#5677fc'></tui-icon>
 					<input placeholder-class="phcolor" class="tui-input" name="mobile" placeholder="请输入手机号码" maxlength="11" v-model="mobile"
 					 type="number" />
 				</view>
 				<view class="tui-line-cell tui-top28">
-					<tui-icon name="pwd" size="20" color='#5677fc'></tui-icon>
+					<tui-icon name="pwd" :size="20" color='#5677fc'></tui-icon>
 					<input placeholder-class="phcolor" class="tui-input" name="smsCode" placeholder="请输入验证码" maxlength="6" />
 					<tui-button size="mini" :type="type" shape="circle" :plain="true" :disabled="disabled" @click="btnSend">{{btnText}}</tui-button>
 				</view>

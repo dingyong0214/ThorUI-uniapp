@@ -2,8 +2,8 @@
     "name" : "ThorUI组件库",
     "appid" : "__UNI__9B4FAA5",
     "description" : "",
-    "versionName" : "1.4.0",
-    "versionCode" : 108,
+    "versionName" : "1.4.1",
+    "versionCode" : 109,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {

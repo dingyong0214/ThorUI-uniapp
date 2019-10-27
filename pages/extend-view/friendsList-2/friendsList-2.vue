@@ -1,37 +1,40 @@
 <template>
-	<view class="tui-page">
-		<scroll-view class="tui-scrollList" scroll-y :scroll-into-view="scrollViewId" :style="{height:winHeight + 'px'}">
-			<!--searchbox-->
-			<view class="tui-searchbox">
-				<view class="tui-search-input" @tap="search">
-					<icon type="search" :size='15' color='#999'></icon>
-					<text class="tui-search-text">搜索</text>
-				</view>
+	<view class="container">
+		<!--searchbox-->
+		<view class="tui-searchbox">
+			<view class="tui-search-input" @tap="search">
+				<icon type="search" :size='15' color='#999'></icon>
+				<text class="tui-search-text">搜索</text>
 			</view>
-			<tui-cell :last="true" @click="detail">
-				<image src="../../../static/images/news/2.jpg" class="tui-img"></image>
-				<view class="tui-name">新的朋友</view>
-			</tui-cell>
-			<!--searchbox-->
-			<!--联系人列表-->
-			<view class="tui-list city-list">
-				<block v-for="(list,index) in lists" :key="index">
-					<view class="tui-list-cell-divider" :id="list.letter">
+		</view>
+		<view class="tui-list-cell tui-cell-last" hover-class="tui-cell-hover" :hover-start-time="150" @tap="detail">
+			<image src="../../../static/images/news/2.jpg" class="tui-img"></image>
+			<view class="tui-name">新的朋友</view>
+		</view>
+		<!--searchbox-->
+		<!--联系人列表-->
+		<block v-for="(list,index) in lists" :key="index">
+			<tui-sticky :scrollTop="scrollTop" stickyHeight="66rpx" :index="index" @change="stickyChange">
+				<!--tips:sticky组件中最好不要嵌套其他自定义组件-->
+				<template v-slot:header>
+					<view class="tui-list-cell-divider">
 						{{list.letter}}
 					</view>
-					<tui-cell :last="last(list.data,index2)" @click="detail" v-for="(item,index2) in list.data" :key="index2">
+				</template>
+				<template v-slot:content>
+					<view class="tui-list-cell" :class="{'tui-cell-last':last(list.data,index2)}" hover-class="tui-cell-hover"
+					 :hover-start-time="150" @tap="detail" v-for="(item,index2) in list.data" :key="index2">
 						<image :src="'../../../static/images/news/'+((index2%2===0 && index2!==0)?'avatar_1.jpg':'avatar_2.jpg')" class="tui-img"></image>
 						<view class="tui-name">{{item.name}}</view>
-					</tui-cell>
-				</block>
-			</view>
-			<!--联系人列表-->
-			<view class="tui-footer">120位联系人</view>
-			<view class="tui-safearea-bottom"></view>
-		</scroll-view>
-		<view class="tui-indexed-list-bar" :style="{height:indexBarHeight+'px'}" @touchstart.stop="touchStart"
-		 @touchmove.stop="touchMove" @touchend.stop="touchEnd" @touchcancel.stop="touchCancel">
-			<view v-for="(items,index3) in lists" :key="index3" class="tui-indexed-list-text" :style="{height:indexBarItemHeight+'px'}">
+					</view>
+				</template>
+			</tui-sticky>
+		</block>
+		<!--联系人列表-->
+		<view class="tui-footer" v-if="lists.length">120位联系人</view>
+		<view class="tui-indexed-list-bar" :style="{height:indexBarHeight+'px'}">
+			<view @touchstart.stop="touchStart" @touchmove.stop.prevent="touchMove" @touchend.stop="touchEnd" @touchcancel.stop="touchCancel"
+			 v-for="(items,index3) in lists" :key="index3" class="tui-indexed-list-text" :style="{height:indexBarItemHeight+'px'}">
 				{{items.letter=="well"?"#":items.letter}}
 			</view>
 		</view>
@@ -43,10 +46,10 @@
 
 <script>
 	const cityData = require('../../../utils/index.list.js')
-	import tuiCell from "@/components/list-cell/list-cell"
+	import tuiSticky from "@/components/sticky/sticky"
 	export default {
 		components: {
-			tuiCell
+			tuiSticky
 		},
 		computed: {
 			last() {
@@ -63,8 +66,8 @@
 				titleHeight: 0, // A字距离窗口顶部的高度
 				indexBarHeight: 0, // 索引表高度
 				indexBarItemHeight: 0, // 索引表子项的高度
-				scrollViewId: '', // scroll-view滚动到的子元素的id
-				winHeight: 0
+				winHeight: 0,
+				scrollTop: 0
 			}
 		},
 		onLoad: function(options) {
@@ -81,25 +84,34 @@
 						that.lists = cityData.list
 					}
 				})
+
 			}, 10)
+		},
+		watch: {
+			touchmoveIndex: function() {
+				if (this.touchmoveIndex != -1) {
+					uni.pageScrollTo({
+						scrollTop: this.lists[this.touchmoveIndex].stickyTop,
+						duration: 0
+					})
+				}
+			}
 		},
 		methods: {
 			touchStart(e) {
 				this.touchmove = true
-				let pageY = e.touches[0].pageY
+				let pageY = e.changedTouches[0].pageY - this.scrollTop;
 				let index = Math.floor((pageY - this.titleHeight) / this.indexBarItemHeight)
 				let item = this.lists[index]
 				if (item) {
-					this.scrollViewId = item.letter;
 					this.touchmoveIndex = index
 				}
 			},
 			touchMove(e) {
-				let pageY = e.touches[0].pageY;
+				let pageY = e.changedTouches[0].pageY - this.scrollTop;
 				let index = Math.floor((pageY - this.titleHeight) / this.indexBarItemHeight)
 				let item = this.lists[index]
 				if (item) {
-					this.scrollViewId = item.letter;
 					this.touchmoveIndex = index
 				}
 			},
@@ -111,6 +123,10 @@
 				this.touchmove = false;
 				this.touchmoveIndex = -1
 			},
+			stickyChange: function(e) {
+				let index = e.index;
+				this.lists[index].stickyTop = e.top
+			},
 			search: function() {
 				uni.navigateTo({
 					url: '../news-search/news-search'
@@ -121,6 +137,10 @@
 					url: '../chat/chat'
 				})
 			}
+		},
+		//页面滚动执行方式
+		onPageScroll(e) {
+			this.scrollTop = e.scrollTop
 		}
 	}
 </script>
@@ -128,17 +148,10 @@
 <style>
 	page {
 		background: #f5f6fa;
-		height: 100%;
-		overflow: hidden;
 	}
 
-	.tui-page {
-		height: 100%;
-		overflow: hidden;
-	}
-
-	.tui-scrollList {
-		flex: 1;
+	.container {
+		padding-bottom: env(safe-area-inset-bottom);
 	}
 
 	/*searchbox*/
@@ -171,11 +184,39 @@
 		padding-left: 16rpx;
 	}
 
-	/*searchbox*/
-
-	.tui-cell-class::after {
-		left: 140rpx !important;
+	.tui-list-cell {
+		position: relative;
+		width: 100%;
+		padding: 26rpx 30rpx;
+		box-sizing: border-box;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		background: #fff;
+		font-size: 32rpx;
+		color: #333;
 	}
+
+	.tui-cell-hover {
+		background: #f7f7f9 !important;
+	}
+
+	.tui-list-cell::after {
+		content: '';
+		position: absolute;
+		border-bottom: 1rpx solid #eaeef1;
+		-webkit-transform: scaleY(0.5);
+		transform: scaleY(0.5);
+		bottom: 0;
+		right: 0;
+		left: 140rpx;
+	}
+
+	.tui-cell-last::after {
+		border-bottom: 0 !important;
+	}
+
+	/*searchbox*/
 
 	.tui-img {
 		width: 80rpx;
@@ -203,6 +244,7 @@
 		display: flex;
 		align-items: center;
 		font-weight: bold;
+		box-sizing: border-box;
 	}
 
 	.tui-indexed-list-bar {
@@ -210,9 +252,12 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
-		z-index: 9999;
-		position: absolute;
+		z-index: 999999;
+		position: fixed;
 		top: 132rpx;
+		/* #ifdef H5 */
+		top: 220rpx;
+		/* #endif */
 		right: 0;
 		padding-right: 10rpx;
 		width: 44rpx;
@@ -225,8 +270,7 @@
 	}
 
 	.tui-indexed-list-alert {
-		position: absolute;
-		z-index: 20;
+		position: fixed;
 		width: 120rpx;
 		height: 120rpx;
 		right: 90rpx;
@@ -240,6 +284,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 0;
+		z-index: 9999999;
 	}
 
 	.tui-indexed-list-alert text {
@@ -253,10 +298,5 @@
 		justify-content: center;
 		font-size: 30rpx;
 		color: #999;
-	}
-
-	.tui-safearea-bottom {
-		width: 100%;
-		height: env(safe-area-inset-bottom);
 	}
 </style>

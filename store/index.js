@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	state: {
-		version: "1.4.0",
+		version: "1.4.1",
 		isLogin: uni.getStorageSync("thorui_mobile") ? true : false,
 		mobile: uni.getStorageSync("thorui_mobile") || "echo.",
 		memberId: uni.getStorageSync("memberId") || 0,

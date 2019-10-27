@@ -113,7 +113,7 @@
 			<template v-slot:footer>
 				<view class="tui-default tui-flex">
 					<text>余下3篇</text>
-					<tui-icon name="arrowdown" size="20" color="#ccc" class="tui-right"></tui-icon>
+					<tui-icon name="arrowdown" :size="20" color="#ccc" class="tui-right"></tui-icon>
 				</view>
 			</template>
 		</tui-card>

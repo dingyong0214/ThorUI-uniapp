@@ -3,11 +3,11 @@
 		<div class="titleNdiv" :style="{height:statusBarHeight+'wx'}"></div>
 		<div class="searchbar">
 			<div class="search-input" @click="search">
-				<image class="image-search" src="../../static/images/mall/Search@2x.png"></image>
+				<image class="image-search" src="../../static/images/mall/Search_2x.png"></image>
 				<text class="search-tips">搜索商品名称</text>
 			</div>
 			<div class="shopcart-box">
-				<image class="image-cart" src="../../static/images/mall/shopCart@2x.png"></image>
+				<image class="image-cart" src="../../static/images/mall/shopCart_2x.png"></image>
 				<!-- <text class="badge">9</text> -->
 			</div>
 		</div>

@@ -290,7 +290,7 @@
 					this.width = obj.left || res.windowWidth;
 					this.height = obj.top ? (obj.top + obj.height + 8) : (res.statusBarHeight + 44);
 					this.top = obj.top ? (obj.top + (obj.height - 32) / 2) : (res.statusBarHeight + 6);
-					this.scrollH = res.windowWidth
+					this.scrollH = res.windowWidth * 0.6
 				}
 			})
 		},

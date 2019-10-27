@@ -78,7 +78,7 @@
 	.tui-drawer-container {
 		position: fixed;
 		left: 50%;
-		height: 100%;
+		height: 100.2%;
 		top: 0;
 		transform: translate3d(-50%, -50%, 0);
 		transform-origin: center;

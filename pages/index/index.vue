@@ -1,9 +1,10 @@
 <template>
 	<view class="container">
 		<view class="page_hd">
-			<view class="page_title" @tap="mall">
+			<view class="page_title" @tap="doc">
 				<image src="../../static/images/index/logo.png" class="logo"></image>
-				<text class="title">Thor UI</text>
+				<view class="title">Thor UI<view class="tui-badge">文档</view>
+				</view>
 			</view>
 			<view class="page_desc">uni-app<text class="link" @tap="mall">代码片段</text>分享，源码可去<text class="link" @tap="github">GitHub</text>下载</view>
 		</view>
@@ -17,7 +18,7 @@
 						</view>
 						<view class="kind-list_item-bd" :class="{'kind-list_item-bd_show':item.open}">
 							<view class="tui-cells" :class="{'tui-cells_show':item.open}">
-								<block v-for="page in item.pages">
+								<block v-for="(page,index2) in item.pages" :key="index2">
 									<navigator :url="getPageUrl(page.page)" class="tui-cell tui-cell_access">
 										<view class="tui-cell_bd">{{page.name}}</view>
 										<view class="tui-cell_ft tui-cell_ft_in-access"></view>
@@ -34,6 +35,7 @@
 </template>
 
 <script>
+	const thorui = require("@/components/utils/clipboard.thorui.js")
 	export default {
 		data() {
 			return {
@@ -46,7 +48,7 @@
 							page: "basic"
 						}]
 					},
-					// #ifdef APP-PLUS || MP
+					// #ifdef APP-PLUS || MP-WEIXIN
 					{
 						id: 'map',
 						name: '地图',
@@ -78,8 +80,8 @@
 							name: "索引列表",
 							page: "indexList"
 						}, {
-							name: "吸顶效果",
-							page: "friendsList"
+							name: "索引&吸顶效果",
+							page: "friendsList-2"
 						}]
 					},
 					{
@@ -178,15 +180,14 @@
 			},
 			github: function() {
 				const that = this
-				uni.setClipboardData({
-					data: 'https://github.com/dingyong0214/ThorUI-uniapp',
-					success(res) {
-						uni.getClipboardData({
-							success(res) {
-								that.tui.toast("链接已复制", 2000, true)
-							}
-						})
+				thorui.getClipboardData('https://github.com/dingyong0214/ThorUI-uniapp', (res) => {
+					// #ifdef H5
+					if (res) {
+						this.tui.toast("链接复制成功")
+					} else {
+						this.tui.toast("链接复制失败")
 					}
+					// #endif
 				})
 			},
 			mall: function() {
@@ -196,10 +197,15 @@
 			},
 			getPageUrl(page) {
 				let pageUrl = '../' + page + '/' + page;
-				if (page == 'friendsList') {
+				if (page == 'friendsList-2') {
 					pageUrl = '../extend-view/' + page + '/' + page;
 				}
 				return pageUrl
+			},
+			doc: function() {
+				wx.navigateTo({
+					url: '../basic-view/doc/doc'
+				})
 			}
 		}
 	}
@@ -227,6 +233,7 @@
 		font-size: 64upx;
 		padding-left: 20upx;
 		color: #333;
+		position: relative;
 	}
 
 	.link {
@@ -399,5 +406,23 @@
 
 	.kind-list_item-bd_show {
 		height: auto;
+	}
+
+	.tui-badge {
+		position: absolute;
+		width: 80rpx;
+		height: 30rpx;
+		border-radius: 30rpx 30rpx 30rpx 0;
+		color: #fff;
+		background: #eb0909;
+		font-size: 25rpx;
+		font-weight: 400;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transform: scale(0.8) translateX(100%);
+		transform-origin: center center;
+		top: -8rpx;
+		right: 0;
 	}
 </style>

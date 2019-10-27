@@ -2,16 +2,16 @@
 	<div class="tui-list-view">
 		<div class="tui-list-cell" :class="[lastChild?'tui-last-child':'']" @click="bindClick">
 			<div class="tui-title-box">
-				<text class="tui-cell-title">{{data.title}}</text>
+				<text class="tui-cell-title">{{entity.title}}</text>
 			</div>
-			<div class="tui-img-container" v-if="data.imgArr && data.imgArr.length>0">
-				<div class="tui-cell-img" v-for="(item,index) in data.imgArr" :key="index">
+			<div class="tui-img-container" v-if="entity.imgArr && entity.imgArr.length>0">
+				<div class="tui-cell-img" v-for="(item,index) in entity.imgArr" :key="index">
 					<image :src="item" class="tui-img"></image>
 				</div>
 			</div>
 			<div class="tui-sub-title">
-				<text class="tui-badge" :class="[getClass(data.badgeType)]" v-if="data.badgeType!=0">{{data.badgeText}}</text>
-				<text class="tui-sub-content">{{data.subContent}}</text>
+				<text class="tui-badge" :class="[getClass(entity.badgeType)]" v-if="entity.badgeType!=0">{{entity.badgeText}}</text>
+				<text class="tui-sub-content">{{entity.subContent}}</text>
 			</div>
 		</div>
 	</div>
@@ -20,7 +20,7 @@
 <script>
 	export default {
 		props: {
-			data: {
+			entity: {
 				type: Object,
 				default: function(e) {
 					return {}

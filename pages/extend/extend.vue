@@ -212,6 +212,18 @@
 					like: false,
 					bg: this.getRandom()
 				}, {
+					name: "骨架屏",
+					desc: "数据请求时常见到锁屏的loading动画，而现在越来越多的产品倾向于使用Skeleton Screen替代 。",
+					page: "skeleton",
+					like: false,
+					bg: this.getRandom()
+				}, {
+					name: "网络请求",
+					desc: "Network request，发起网络请求，简单的封装与使用 。",
+					page: "request",
+					like: false,
+					bg: this.getRandom()
+				}, {
 					name: "新闻模板",
 					desc: "新闻模板包含：新闻列表，新闻详情，评论等。",
 					page: "news",

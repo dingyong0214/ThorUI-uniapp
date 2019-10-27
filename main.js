@@ -20,7 +20,7 @@ const tui = {
 	},
 	interfaceUrl: function() {
 		//接口地址
-		return "http://39.108.124.252:12000/";
+		return "https://www.thorui.cn";
 	},
 	request: function(url, postData, method, type, hideLoading) {
 		//接口请求
@@ -43,27 +43,11 @@ const tui = {
 				dataType: 'json',
 				success: (res) => {
 					!hideLoading && uni.hideLoading()
-					if (res.data && res.data.code === 403 && !postData.modalAbate) {
-						uni.showModal({
-							title: '登录',
-							content: '您尚未登录，请先登录',
-							showCancel: false,
-							confirmColor: "#5677FC",
-							confirmText: '确定',
-							success(e) {
-								uni.redirectTo({
-									url: '/pages/login/login'
-								})
-							}
-						})
-					} else {
-						resolve(res.data)
-					}
+					resolve(res.data)
 				},
 				fail: (res) => {
 					if (!hideLoading) {
 						this.toast("网络不给力，请稍后再试~")
-						//uni.hideLoading()
 					}
 					reject(res)
 				}

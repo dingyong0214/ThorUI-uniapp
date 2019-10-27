@@ -13,7 +13,8 @@
 		</view>
 		<view class="tui-content-box">
 			<view class="tui-content">尊敬的开发者，欢迎体验Thor UI！</view>
-			<view class="tui-content">该项目主要是一些uni-app代码片段的分享，以及基础组件的封装。项目免费开源，源码可在GitHub上下载，会不定期进行更新。</view>
+			<view class="tui-content">该项目主要是一些uni-app代码片段的分享，以及基础组件的封装。项目免费开源，源码可在<text class="tui-content-email" @tap="copy('https://github.com/dingyong0214/ThorUI-uniapp')">GitHub</text>上下载，欢迎Watch
+				& Star ★。</view>
 			<view class="tui-content">项目可能存在缺陷或者bug，如果您在使用过程中发现问题或者有更好的建议，可反馈给我。</view>
 			<view class="tui-content">
 				您可以通过反馈或者以下方式联系我！
@@ -30,6 +31,7 @@
 </template>
 
 <script>
+	const thorui = require("@/components/utils/clipboard.thorui.js")
 	import {
 		mapState
 	} from 'vuex'
@@ -43,15 +45,14 @@
 		methods: {
 			copy: function(text) {
 				const that = this
-				uni.setClipboardData({
-					data: text,
-					success(res) {
-						uni.getClipboardData({
-							success(res) {
-								//that.tui.toast("邮箱已复制", 2000, true)
-							}
-						})
+				thorui.getClipboardData(text, (res) => {
+					// #ifdef H5
+					if (res) {
+						this.tui.toast("链接复制成功")
+					} else {
+						this.tui.toast("链接复制失败")
 					}
+					// #endif
 				})
 			},
 			log: function() {

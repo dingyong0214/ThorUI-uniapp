@@ -18,7 +18,7 @@
 		<view class="coupon-list">
 			<view class="coupon-item" v-for="(item,index) in couponList" :key="index">
 				<view class="coupon">
-					<image src="../../static/images/index/img_fuwuquan_blue@3x.png" class="coupon-img"></image>
+					<image src="../../static/images/index/img_fuwuquan_blue_3x.png" class="coupon-img"></image>
 					<view class="circle-left"></view>
 					<view class="circle-right"></view>
 					<view class="left-tit-box">
@@ -27,7 +27,7 @@
 					</view>
 					<view class="right-detail" @tap="spread" :data-index="index">
 						<text class="detail-txt">查看详情</text>
-						<image :src="'../../static/images/index/'+(item.spread?'home_icon_choose@3x':'icon_next@3x')+'.png'" :class="[item.spread?'spread':'arrow']"></image>
+						<image :src="'../../static/images/index/'+(item.spread?'home_icon_choose_3x':'icon_next_3x')+'.png'" :class="[item.spread?'spread':'arrow']"></image>
 					</view>
 				</view>
 				<view class="hidden-box" v-show="item.spread">
