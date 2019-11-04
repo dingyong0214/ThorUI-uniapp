@@ -15,7 +15,7 @@ ThorUI组件库，uni-app代码片段分享
 # ThorUI QQ交流群2：881906325
 
 # ThorUI QQ交流群1：745733024
-![](https://thorui.cn/img/V132/qq.jpg)
+![](https://thorui.cn/img/V132/qq_new.jpg)
 
 
 本项目已同步更新到[微信小程序(原生小程序代码)](https://github.com/dingyong0214/ThorUI)，后续会更新到支付宝小程序，百度小程序，头条小程序等
