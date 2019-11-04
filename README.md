@@ -14,7 +14,7 @@ ThorUI组件库，uni-app代码片段分享
 
 # ThorUI QQ交流群2：881906325
 
-# ThorUI QQ交流群2：745733024
+# ThorUI QQ交流群1：745733024
 ![](https://thorui.cn/img/V132/1.jpg)
 
 
