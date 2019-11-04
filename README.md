@@ -11,6 +11,8 @@ ThorUI组件库，uni-app代码片段分享
 
 [http://www.donarui.com/](http://www.donarui.com/)
 
+# ThorUI 微信群
+![](https://thorui.cn/img/V132/wechat.jpg)
 
 # ThorUI QQ交流群2：881906325
 
