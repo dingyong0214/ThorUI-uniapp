@@ -18,92 +18,6 @@
 			"navigationBarTitleText": "基础组件"
 		}
 	}, {
-		"path": "pages/basic-view/badge/badge",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Badge"
-		}
-	}, {
-		"path": "pages/basic-view/button/button",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Button"
-		}
-	}, {
-		"path": "pages/basic-view/card/card",
-		"style": {
-			"backgroundColorTop": "#EDEDED",
-			"backgroundColorBottom": "#EDEDED",
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Card"
-		}
-	}, {
-		"path": "pages/basic-view/color/color",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Color"
-		}
-	}, {
-		"path": "pages/basic-view/flex/flex",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Flex"
-		}
-	}, {
-		"path": "pages/basic-view/footer/footer",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Footer"
-		}
-	}, {
-		"path": "pages/basic-view/grid/grid",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Grid"
-		}
-	}, {
-		"path": "pages/basic-view/icon/icon",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "icon"
-		}
-	}, {
-		"path": "pages/basic-view/list/list",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "List"
-		}
-	}, {
-		"path": "pages/basic-view/load/load",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Loading"
-		}
-	}, {
-		"path": "pages/basic-view/other/other",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Other"
-		}
-	}, {
-		"path": "pages/basic-view/tag/tag",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Tag"
-		}
-	}, {
 		"path": "pages/drawer/drawer",
 		"style": {
 			"navigationBarTitleText": "drawer 抽屉"
@@ -112,218 +26,6 @@
 		"path": "pages/extend/extend",
 		"style": {
 			"navigationBarTitleText": "extend"
-		}
-	}, {
-		"path": "pages/extend-view/actionsheet/actionsheet",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "操作菜单"
-		}
-	}, {
-		"path": "pages/extend-view/chat/chat",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"backgroundColorTop": "#ebedf6",
-			"backgroundColorBottom": "#ebedf6",
-			"navigationBarTitleText": "技术交流群"
-		}
-	}, {
-		"path": "pages/extend-view/friendsList/friendsList",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"backgroundColorTop": "#F5F6FA",
-			"backgroundColorBottom": "#F5F6FA",
-			"navigationBarTitleText": "联系人 ",
-			"disableScroll": true,
-			"app-plus": {
-				"bounce": "none"
-			}
-		}
-	}, {
-		"path": "pages/extend-view/keyboard/keyboard",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "数字键盘"
-		}
-	}, {
-		"path": "pages/extend-view/lockscreen/lockscreen",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "解锁ThorUI",
-			"disableScroll": true,
-			"app-plus": {
-				"bounce": "none"
-			}
-		}
-	}, {
-		"path": "pages/extend-view/luckdraw/luckdraw",
-		"style": {
-			"navigationBarBackgroundColor": "#FC4034",
-			"navigationBarTitleText": "抽奖"
-		}
-	}, {
-		"path": "pages/extend-view/mall/mall",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"backgroundColorTop": "#F7F7F7",
-			"backgroundColorBottom": "#F7F7F7",
-			"navigationBarTitleText": "ThorUI商城",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 50
-		}
-	}, {
-		"path": "pages/extend-view/msgList/msgList",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"backgroundColorTop": "#F5F6FA",
-			"backgroundColorBottom": "#F5F6FA",
-			"navigationBarTitleText": "消息 ",
-			"enablePullDownRefresh": true
-		}
-	}, {
-		"path": "pages/extend-view/msgtips/msgtips",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "消息提示"
-		}
-	}, {
-		"path": "pages/extend-view/news/news",
-		"style": {
-			"navigationBarTitleText": "新闻列表",
-			"backgroundColorTop": "#f2f2f2",
-			"backgroundColorBottom": "#f2f2f2",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 50
-		}
-	}, {
-		"path": "pages/extend-view/news-cmt/news-cmt",
-		"style": {
-			"navigationBarTitleText": "发表评论",
-			"backgroundColorTop": "#fff",
-			"backgroundColorBottom": "#fff"
-		}
-	}, {
-		"path": "pages/extend-view/news-cmt-list/news-cmt-list",
-		"style": {
-			"navigationBarTitleText": "评论",
-			"backgroundColorTop": "#fff",
-			"backgroundColorBottom": "#fff",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 0
-		}
-	}, {
-		"path": "pages/extend-view/news-cmt-reply/news-cmt-reply",
-		"style": {
-			"navigationBarTitleText": "回复",
-			"backgroundColorTop": "#fff",
-			"backgroundColorBottom": "#fff",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 0
-		}
-	}, {
-		"path": "pages/extend-view/newsDetail/newsDetail",
-		"style": {
-			"navigationBarTitleText": "新闻详情",
-			"backgroundColorTop": "#fff",
-			"backgroundColorBottom": "#fff",
-			"onReachBottomDistance": 0
-		}
-	}, {
-		"path": "pages/extend-view/news-search/news-search",
-		"style": {
-			"navigationBarTitleText": "搜索",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"backgroundColorTop": "#fff",
-			"backgroundColorBottom": "#fff"
-		}
-	}, {
-		"path": "pages/extend-view/news-video/news-video",
-		"style": {
-			"navigationBarTitleText": "新闻详情",
-			"backgroundColorTop": "#fff",
-			"backgroundColorBottom": "#fff",
-			"onReachBottomDistance": 0
-		}
-	}, {
-		"path": "pages/extend-view/numberbox/numberbox",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "数字输入框 "
-		}
-	}, {
-		"path": "pages/extend-view/popup/popup",
-		"style": {
-			"navigationBarTitleText": "弹层、下拉选择",
-			"disableScroll": true,
-			"app-plus": {
-				"bounce": "none"
-			}
-		}
-	}, {
-		"path": "pages/extend-view/productDetail/productDetail",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"backgroundColorTop": "#F7F7F7",
-			"backgroundColorBottom": "#F7F7F7",
-			"navigationBarTitleText": "商品详情 ",
-			"navigationStyle": "custom",
-			"app-plus": {
-				"titleNView": false
-			}
-		}
-	}, {
-		"path": "pages/extend-view/productList/productList",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"backgroundColorTop": "#F7F7F7",
-			"backgroundColorBottom": "#F7F7F7",
-			"navigationBarTitleText": "商品列表 ",
-			"onReachBottomDistance": 50,
-			"navigationStyle": "custom",
-			"app-plus": {
-				"titleNView": false
-			}
-		}
-	}, {
-		"path": "pages/extend-view/rate/rate",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "Rate评分"
-		}
-	}, {
-		"path": "pages/extend-view/rollingNews/rollingNews",
-		"style": {
-			"navigationBarTitleText": "滚动消息"
-		}
-	}, {
-		"path": "pages/extend-view/sticky/sticky",
-		"style": {
-			"navigationBarBackgroundColor": "#FFFFFF",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "吸顶容器"
-		}
-	}, {
-		"path": "pages/extend-view/template/template",
-		"style": {
-			"navigationBarTitleText": "模板"
-		}
-	}, {
-		"path": "pages/extend-view/timeaxis/timeaxis",
-		"style": {
-			"navigationBarTitleText": "时间轴"
 		}
 	}, {
 		"path": "pages/indexList/indexList",
@@ -463,249 +165,565 @@
 				"bounce": "none"
 			}
 		}
-	}, {
-		"path": "pages/extend-view/modal/modal",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "modal"
-		}
-	}, {
-		"path": "pages/extend-view/countdown/countdown",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "倒计时"
-		}
-	}, {
-		"path": "pages/extend-view/carousel/carousel",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"backgroundColorTop": "#fff",
-			"navigationBarTitleText": "卡片轮播"
-		}
-	}, {
-		"path": "pages/extend-view/divider/divider",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "分隔符"
-		}
-	}, {
-		"path": "pages/extend-view/button/button",
-		"style": {
-			"navigationBarTitleText": "扩展Button",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/tips/tips",
-		"style": {
-			"navigationBarTitleText": "扩展tips",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/alert/alert",
-		"style": {
-			"navigationBarTitleText": "扩展alert",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/toast/toast",
-		"style": {
-			"navigationBarTitleText": "扩展toast",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/goTop/goTop",
-		"style": {
-			"navigationBarTitleText": "回到顶部",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/formValidation/formValidation",
-		"style": {
-			"navigationBarTitleText": "表单验证",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/shopcart/shopcart",
-		"style": {
-			"navigationBarTitleText": "购物车",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 50,
-			"app-plus": {
-				// #ifdef APP-PLUS
-				"titleNView": {
-					"padding-right": "15px",
-					"buttons": [{
-						"text": "编辑",
-						"float": "right",
-						"width": "auto",
-						"fontSize": "15px",
-						"color": "#333"
-					}]
+	}],
+	"subPackages": [{
+			"root": "pages/basic-view/",
+			"pages": [{
+				"path": "color/color",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Color"
 				}
-				// #endif
-			}
+			}, {
+				"path": "button/button",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Button"
+				}
+			}, {
+				"path": "flex/flex",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Flex"
+				}
+			}, {
+				"path": "tag/tag",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Tag"
+				}
+			}, {
+				"path": "badge/badge",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Badge"
+				}
+			}, {
+				"path": "load/load",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Loading"
+				}
+			}, {
+				"path": "icon/icon",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "icon"
+				}
+			}, {
+				"path": "list/list",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "List"
+				}
+			}, {
+				"path": "card/card",
+				"style": {
+					"backgroundColorTop": "#EDEDED",
+					"backgroundColorBottom": "#EDEDED",
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Card"
+				}
+			}, {
+				"path": "grid/grid",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Grid"
+				}
+			}, {
+				"path": "footer/footer",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Footer"
+				}
+			}, {
+				"path": "other/other",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Other"
+				}
+			}, {
+				"path": "doc/doc",
+				"style": {}
+			}]
+		},
+		{
+			"root": "pages/extend-view/",
+			"pages": [{
+				"path": "msgtips/msgtips",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "消息提示"
+				}
+			}, {
+				"path": "sticky/sticky",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "吸顶容器"
+				}
+			}, {
+				"path": "keyboard/keyboard",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "数字键盘"
+				}
+			}, {
+				"path": "lockscreen/lockscreen",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "解锁ThorUI",
+					"disableScroll": true,
+					"app-plus": {
+						"bounce": "none"
+					}
+				}
+			}, {
+				"path": "timeaxis/timeaxis",
+				"style": {
+					"navigationBarTitleText": "时间轴"
+				}
+			}, {
+				"path": "rollingNews/rollingNews",
+				"style": {
+					"navigationBarTitleText": "滚动消息"
+				}
+			}, {
+				"path": "popup/popup",
+				"style": {
+					"navigationBarTitleText": "弹层、下拉选择",
+					"disableScroll": true,
+					"app-plus": {
+						"bounce": "none"
+					}
+				}
+			}, {
+				"path": "luckdraw/luckdraw",
+				"style": {
+					"navigationBarBackgroundColor": "#FC4034",
+					"navigationBarTitleText": "抽奖"
+				}
+			}, {
+				"path": "template/template",
+				"style": {
+					"navigationBarTitleText": "模板"
+				}
+			}, {
+				"path": "news/news",
+				"style": {
+					"navigationBarTitleText": "新闻列表",
+					"backgroundColorTop": "#f2f2f2",
+					"backgroundColorBottom": "#f2f2f2",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50
+				}
+			}, {
+				"path": "newsDetail/newsDetail",
+				"style": {
+					"navigationBarTitleText": "新闻详情",
+					"backgroundColorTop": "#fff",
+					"backgroundColorBottom": "#fff",
+					"onReachBottomDistance": 0
+				}
+			}, {
+				"path": "news-video/news-video",
+				"style": {
+					"navigationBarTitleText": "新闻详情",
+					"backgroundColorTop": "#fff",
+					"backgroundColorBottom": "#fff",
+					"onReachBottomDistance": 0
+				}
+			}, {
+				"path": "news-cmt/news-cmt",
+				"style": {
+					"navigationBarTitleText": "发表评论",
+					"backgroundColorTop": "#fff",
+					"backgroundColorBottom": "#fff"
+				}
+			}, {
+				"path": "news-cmt-reply/news-cmt-reply",
+				"style": {
+					"navigationBarTitleText": "回复",
+					"backgroundColorTop": "#fff",
+					"backgroundColorBottom": "#fff",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 0
+				}
+			}, {
+				"path": "news-cmt-list/news-cmt-list",
+				"style": {
+					"navigationBarTitleText": "评论",
+					"backgroundColorTop": "#fff",
+					"backgroundColorBottom": "#fff",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 0
+				}
+			}, {
+				"path": "news-search/news-search",
+				"style": {
+					"navigationBarTitleText": "搜索",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#fff",
+					"backgroundColorBottom": "#fff"
+				}
+			}, {
+				"path": "actionsheet/actionsheet",
+				"style": {
+					"navigationBarBackgroundColor": "#FFFFFF",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "操作菜单"
+				}
+			}, {
+				"path": "mall/mall",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#F7F7F7",
+					"backgroundColorBottom": "#F7F7F7",
+					"navigationBarTitleText": "ThorUI商城",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50
+				}
+			}, {
+				"path": "msgList/msgList",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#F5F6FA",
+					"backgroundColorBottom": "#F5F6FA",
+					"navigationBarTitleText": "消息 ",
+					"enablePullDownRefresh": true
+				}
+			}, {
+				"path": "chat/chat",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#ebedf6",
+					"backgroundColorBottom": "#ebedf6",
+					"navigationBarTitleText": "技术交流群"
+				}
+			}, {
+				"path": "friendsList/friendsList",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#F5F6FA",
+					"backgroundColorBottom": "#F5F6FA",
+					"navigationBarTitleText": "联系人 ",
+					"disableScroll": true,
+					"app-plus": {
+						"bounce": "none"
+					}
+				}
+			}, {
+				"path": "productList/productList",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#F7F7F7",
+					"backgroundColorBottom": "#F7F7F7",
+					"navigationBarTitleText": "商品列表 ",
+					"onReachBottomDistance": 50,
+					"navigationStyle": "custom",
+					"app-plus": {
+						"titleNView": false
+					}
+				}
+			}, {
+				"path": "productDetail/productDetail",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#F7F7F7",
+					"backgroundColorBottom": "#F7F7F7",
+					"navigationBarTitleText": "商品详情 ",
+					"navigationStyle": "custom",
+					"app-plus": {
+						"titleNView": false
+					}
+				}
+			}, {
+				"path": "numberbox/numberbox",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "数字输入框 "
+				}
+			}, {
+				"path": "rate/rate",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "Rate评分"
+				}
+			}, {
+				"path": "modal/modal",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "modal"
+				}
+			}, {
+				"path": "carousel/carousel",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#fff",
+					"navigationBarTitleText": "卡片轮播"
+				}
+			}, {
+				"path": "countdown/countdown",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "倒计时"
+				}
+			}, {
+				"path": "divider/divider",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "分隔符"
+				}
+			}, {
+				"path": "goTop/goTop",
+				"style": {
+					"navigationBarTitleText": "回到顶部",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "button/button",
+				"style": {
+					"navigationBarTitleText": "扩展Button",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "alert/alert",
+				"style": {
+					"navigationBarTitleText": "扩展alert",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "toast/toast",
+				"style": {
+					"navigationBarTitleText": "扩展toast",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "formValidation/formValidation",
+				"style": {
+					"navigationBarTitleText": "表单验证",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "tips/tips",
+				"style": {
+					"navigationBarTitleText": "扩展tips",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "mall-extend/address/address",
+				"style": {
+					"navigationBarTitleText": "地址",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "mall-extend/editAddress/editAddress",
+				"style": {
+					"navigationBarTitleText": "新增地址",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "mall-extend/my/my",
+				"style": {
+					"navigationBarTitleText": "我的",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50,
+					"navigationStyle": "custom",
+					"app-plus": {
+						"titleNView": false
+					}
+				}
+			}, {
+				"path": "mall-extend/myOrder/myOrder",
+				"style": {
+					"navigationBarTitleText": "我的订单",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50
+				}
+			}, {
+				"path": "mall-extend/set/set",
+				"style": {
+					"navigationBarTitleText": "账户设置",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "mall-extend/shopcart/shopcart",
+				"style": {
+					"navigationBarTitleText": "购物车",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50,
+					"app-plus": {
+						// #ifdef APP-PLUS
+						"titleNView": {
+							"padding-right": "15px",
+							"buttons": [{
+								"text": "编辑",
+								"float": "right",
+								"width": "auto",
+								"fontSize": "15px",
+								"color": "#333"
+							}]
+						}
+						// #endif
+					}
+				}
+			}, {
+				"path": "mall-extend/submitOrder/submitOrder",
+				"style": {
+					"navigationBarTitleText": "提交订单",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "mall-extend/success/success",
+				"style": {
+					"navigationBarTitleText": "支付成功",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "mall-extend/userInfo/userInfo",
+				"style": {
+					"navigationBarTitleText": "个人信息",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "picker-dateTime/picker-dateTime",
+				"style": {
+					"navigationBarTitleText": "日期时间选择",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "fab/fab",
+				"style": {
+					"navigationBarTitleText": "悬浮按钮",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "tabbar/tabbar",
+				"style": {
+					"navigationBarTitleText": "Tabbar",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "tabs/tabs",
+				"style": {
+					"navigationBarTitleText": "tabs标签页",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "collapse/collapse",
+				"style": {
+					"navigationBarTitleText": "collapse折叠面板",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "upload/upload",
+				"style": {
+					"navigationBarTitleText": "图片上传",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "skeleton/skeleton",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "骨架屏"
+				}
+			}, {
+				"path": "request/request",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "网络请求"
+				}
+			}, {
+				"path": "friendsList-2/friendsList-2",
+				"style": {
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#F5F6FA",
+					"backgroundColorBottom": "#F5F6FA",
+					"navigationBarTitleText": "联系人 "
+				}
+			}, {
+				"path": "clipboard/clipboard",
+				"style": {
+					"navigationBarTitleText": "复制文本",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "mall-extend/coupon/coupon",
+				"style": {
+					"navigationBarTitleText": "领券中心",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black",
+					"backgroundColorTop": "#F5F5F5",
+					"backgroundColorBottom": "#F5F5F5",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50
+				}
+			}, {
+				"path": "mall-extend/orderDetail/orderDetail",
+				"style": {
+					"navigationBarTitleText": "订单详情",
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}]
 		}
-	}, {
-		"path": "pages/extend-view/mall-extend/my/my",
-		"style": {
-			"navigationBarTitleText": "我的",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 50,
-			"navigationStyle": "custom",
-			"app-plus": {
-				"titleNView": false
-			}
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/submitOrder/submitOrder",
-		"style": {
-			"navigationBarTitleText": "提交订单",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/success/success",
-		"style": {
-			"navigationBarTitleText": "支付成功",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/address/address",
-		"style": {
-			"navigationBarTitleText": "地址",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/editAddress/editAddress",
-		"style": {
-			"navigationBarTitleText": "新增地址",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/set/set",
-		"style": {
-			"navigationBarTitleText": "账户设置",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/userInfo/userInfo",
-		"style": {
-			"navigationBarTitleText": "个人信息",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/myOrder/myOrder",
-		"style": {
-			"navigationBarTitleText": "我的订单",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 50
-		}
-	}, {
-		"path": "pages/extend-view/mall-extend/orderDetail/orderDetail",
-		"style": {
-			"navigationBarTitleText": "订单详情",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/picker-dateTime/picker-dateTime",
-		"style": {
-			"navigationBarTitleText": "日期时间选择",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/clipboard/clipboard",
-		"style": {
-			"navigationBarTitleText": "复制文本",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/fab/fab",
-		"style": {
-			"navigationBarTitleText": "悬浮按钮",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/tabbar/tabbar",
-		"style": {
-			"navigationBarTitleText": "Tabbar",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/tabs/tabs",
-		"style": {
-			"navigationBarTitleText": "tabs标签页",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/collapse/collapse",
-		"style": {
-			"navigationBarTitleText": "collapse折叠面板",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/extend-view/upload/upload",
-		"style": {
-			"navigationBarTitleText": "图片上传",
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black"
-		}
-	}, {
-		"path": "pages/basic-view/doc/doc",
-		"style": {}
-	}, {
-		"path": "pages/extend-view/skeleton/skeleton",
-		"style": {
-			"navigationBarBackgroundColor": "#fff",
-			"navigationBarTextStyle": "black",
-			"navigationBarTitleText": "骨架屏"
-		}
-	}    ,{
-            "path" : "pages/extend-view/request/request",
-            "style" : {
-				"navigationBarBackgroundColor": "#fff",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": "网络请求"
-			}
-        }
-        ,{
-            "path" : "pages/extend-view/friendsList-2/friendsList-2",
-            "style" : {
-				"navigationBarBackgroundColor": "#fff",
-				"navigationBarTextStyle": "black",
-				"backgroundColorTop": "#F5F6FA",
-				"backgroundColorBottom": "#F5F6FA",
-				"navigationBarTitleText": "联系人 "
-			}
-        }
-    ],
+	],
 	"globalStyle": {
 		"backgroundTextStyle": "dark",
 		"navigationBarBackgroundColor": "#5677FC",

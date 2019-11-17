@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Tag",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "tui-tag": "/components/tag/tag"
+  }
+}

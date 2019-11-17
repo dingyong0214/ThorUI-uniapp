@@ -1,0 +1,18 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColorTop": "#F7F7F7",
+  "backgroundColorBottom": "#F7F7F7",
+  "navigationBarTitleText": "商品详情 ",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-tag": "/components/tag/tag",
+    "tui-badge": "/components/badge/badge",
+    "tui-nomore": "/components/nomore/nomore",
+    "tui-button": "/components/button/button",
+    "tui-top-dropdown": "/components/top-dropdown/top-dropdown",
+    "tui-bottom-popup": "/components/bottom-popup/bottom-popup",
+    "tui-numberbox": "/components/numberbox/numberbox"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "新闻列表",
+  "backgroundColorTop": "#f2f2f2",
+  "backgroundColorBottom": "#f2f2f2",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-tag": "/components/tag/tag",
+    "tui-list-cell": "/components/list-cell/list-cell",
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-nomore": "/components/nomore/nomore",
+    "tui-tips": "/components/tips/tips"
+  }
+}

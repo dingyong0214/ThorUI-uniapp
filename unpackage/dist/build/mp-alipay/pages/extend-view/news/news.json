@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "新闻列表",
+  "pullRefresh": true,
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-tag": "/components/tag/tag",
+    "tui-list-cell": "/components/list-cell/list-cell",
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-nomore": "/components/nomore/nomore",
+    "tui-tips": "/components/tips/tips"
+  }
+}

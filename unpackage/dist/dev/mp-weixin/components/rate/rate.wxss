@@ -1,0 +1,43 @@
+
+@font-face {
+	font-family: 'rateFont';
+	src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAT4AA0AAAAAB4wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAE3AAAABoAAAAciBprQUdERUYAAAS8AAAAHgAAAB4AKQALT1MvMgAAAaAAAABDAAAAVj1YSN1jbWFwAAAB+AAAAEIAAAFCAA/qlmdhc3AAAAS0AAAACAAAAAj//wADZ2x5ZgAAAkgAAADwAAABZLMTdXtoZWFkAAABMAAAADAAAAA2FZKISmhoZWEAAAFgAAAAHQAAACQHYgOFaG10eAAAAeQAAAARAAAAEgx6AHpsb2NhAAACPAAAAAwAAAAMAEYAsm1heHAAAAGAAAAAHgAAACABEQBPbmFtZQAAAzgAAAFJAAACiCnmEVVwb3N0AAAEhAAAAC0AAABHLO3vkXjaY2BkYGAA4t2/VF7G89t8ZeBmYQCBm9ZKMnC6ikGMuYXpP5DLwcAEEgUAHPQJOXjaY2BkYGBu+N/AEMPCAALMLQyMDKiABQBQwgLwAAAAeNpjYGRgYGBlcGZgYgABEMkFhAwM/8F8BgAPigFhAAB42mNgZGFgnMDAysDA1Ml0hoGBoR9CM75mMGLkAIoysDIzYAUBaa4pDA7PXj17zdzwv4EhhrmBoQEozAiSAwD/YA2wAHjaY2GAABYIrmKoAgACggEBAAAAeNpjYGBgZoBgGQZGBhCwAfIYwXwWBgUgzQKEQP6z1///A8lX//9LSkJVMjCyMcCYDIxMQIKJARUwMgx7AAA/9QiLAAAAAAAAAAAAAABGALJ42mNgZKhiEGNuYfrPoMnAwGimps+ox6jPqKbEz8jHCMLyjHJAmk1czMie0cxInlHMDChrZs6cJyaosI+NlzmU34I/lImPdb+CoHgXCyujIosYtzTfKlYBtlWyuqwKjKwsjNvFTdlkGDnZ1srKrmXjZJRhMxVvZxFgA+rgYI9iYoriV1TYzybAwsDABHeLBIMT0DUg29VBTjEHucvcjtGeUVyOUZ6JaFcybefnZ5HuFdEX6ZVm5uMvniemxuXmzqUmNs+FeOfHCeiKzfPi4vKaJ6YrUCDOIiM8YYKwDIu4OMRbrOtkZdex4vMWACzGM5B42n2QPU4DMRCFn/MHJBJCIKhdUQDa/JQpEyn0CKWjSDbekGjXXnmdSDkBLRUHoOUYHIAbINFyCl6WSZMia+3o85uZ57EBnOMbCv/fJe6EFY7xKFzBETLhKvUX4Rr5XbiOFj6FG9R/hJu4VQPhFi7UGx1U7YS7m9JtywpnGAhXcIon4Sr1lXCN/CpcxxU+hBvUv4SbGONXuIVrZakM4WEwQWCcQWOKDeMCMRwskjIG1qE59GYSzExPN3oRO5s4GyjvV2KXAx5oOeeAKe09t2a+Sif+YMuB1JhuHgVLtimNLiJ0KBtfLJzV3ahzsP2e7ba02L9rgTXH7FENbNT8Pdsz0khsDK+QkjXyMrekElOPaGus8btnKdbzXgiJTrzL9IjHmjR1OvduaeLA4ufyjBx9tLmSPfeoHD5jWQh5v91OxCCKXYY/k9hxGQAAAHjaY2BigAAuMMnIgA5YwaJMjEyMzPzJ+Tk5qcklmfl58WmZOTlcCD4Ak9QKlAAAAAAAAAH//wACAAEAAAAMAAAAFgAAAAIAAQADAAQAAQAEAAAAAgAAAAB42mNgYGBkAIKrS9Q5QPRNayUZGA0AM8UETgAA) format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+.tui-icon {
+	font-family: "rateFont" !important;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: block;
+}
+.tui-relative {
+	position: relative;
+}
+.tui-icon-main {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+.tui-icon-collection-fill:before {
+	content: "\E6EA";
+}
+.tui-icon-collection:before {
+	content: "\E6EB";
+}
+.tui-rate-box {
+	display: -webkit-inline-flex;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	margin: 0;
+	padding: 0;
+}
+

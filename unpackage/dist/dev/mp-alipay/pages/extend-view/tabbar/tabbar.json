@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Tabbar",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-tabbar": "/components/tui-tabbar/tui-tabbar"
+  }
+}

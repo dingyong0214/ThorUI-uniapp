@@ -1,0 +1,699 @@
+
+page {
+	background: #f7f7f7;
+}
+.container {
+	padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 隐藏scroll-view滚动条*/
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	color: transparent;
+}
+.tui-header-box {
+	width: 100%;
+	background: #fff;
+	position: fixed;
+	z-index: 99998;
+	left: 0;
+	top: 0;
+}
+.tui-header {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
+}
+.tui-back {
+	margin-left: 8rpx;
+	height: 32px !important;
+	width: 32px !important;
+}
+.tui-searchbox {
+	width: 100%;
+	height: 30px;
+	margin-right: 30rpx;
+	border-radius: 15px;
+	font-size: 12px;
+	background: #f7f7f7;
+	padding: 3px 10px;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	color: #999;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	overflow: hidden;
+}
+
+
+
+
+.tui-search-text {
+	padding-left: 16rpx;
+}
+.tui-search-key {
+	max-width: 80%;
+	height: 100%;
+	padding: 0 16rpx;
+	margin-left: 12rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	border-radius: 15px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+.tui-key-text {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding-right: 12rpx;
+	font-size: 12px;
+	line-height: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+}
+
+/*screen*/
+.tui-header-screen {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background: #fff;
+	position: fixed;
+	z-index: 1000;
+}
+.tui-screen-top,
+.tui-screen-bottom {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	font-size: 28rpx;
+	color: #333;
+}
+.tui-screen-top {
+	height: 88rpx;
+	position: relative;
+	background: #fff;
+}
+.tui-top-item {
+	height: 28rpx;
+	line-height: 28rpx;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.tui-topitem-active {
+	color: #e41f19;
+}
+.tui-screen-bottom {
+	height: 100rpx;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	font-size: 24rpx;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	overflow: hidden;
+}
+.tui-bottom-text {
+	line-height: 26rpx;
+	max-width: 82%;
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+}
+.tui-bottom-item {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	width: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	padding: 0 12rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background: #f7f7f7;
+	margin-right: 20rpx;
+	white-space: nowrap;
+	height: 60rpx;
+	border-radius: 40rpx;
+}
+.tui-bottom-item:last-child {
+	margin-right: 0;
+}
+.tui-btmItem-active {
+	background: #fcedea !important;
+	color: #e41f19;
+	font-weight: bold;
+	position: relative;
+}
+.tui-btmItem-active::after {
+	content: "";
+	position: absolute;
+	border: 1rpx solid #e41f19;
+	width: 100%;
+	height: 100%;
+	border-radius: 40rpx;
+	left: 0;
+	top: 0;
+}
+.tui-btmItem-tap {
+	position: relative;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.tui-btmItem-tap::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 22rpx;
+	background: #f7f7f7;
+	left: 0;
+	top: 58rpx;
+}
+.tui-bold {
+	font-weight: bold;
+}
+.tui-active {
+	color: #e41f19;
+}
+.tui-icon-ml .tui-icon-class {
+	margin-left: 6rpx;
+}
+.tui-ml {
+	margin-left: 6rpx;
+}
+.tui-seizeaseat-20 {
+	height: 20rpx;
+}
+.tui-seizeaseat-30 {
+	height: 30rpx;
+}
+.tui-icon-middle .tui-icon-class {
+	vertical-align: middle;
+}
+.tui-middle {
+	vertical-align: middle;
+}
+
+/*screen*/
+
+/*顶部下拉选择 属性*/
+.tui-scroll-box {
+	width: 100%;
+	height: 480rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	position: relative;
+	z-index: 99;
+	color: #fff;
+	font-size: 30rpx;
+	word-break: break-all;
+}
+.tui-drop-item {
+	color: #333;
+	height: 80rpx;
+	font-size: 28rpx;
+	padding: 20rpx 40rpx 20rpx 40rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: inline-block;
+	width: 50%;
+}
+.tui-drop-btnbox {
+	width: 100%;
+	height: 100rpx;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+.tui-drop-btn {
+	width: 50%;
+	font-size: 32rpx;
+	text-align: center;
+	height: 100rpx;
+	line-height: 100rpx;
+	border: 0;
+}
+.tui-btn-red {
+	background: #e41f19;
+	color: #fff;
+}
+.tui-red-hover {
+	background: #c51a15 !important;
+	color: #e5e5e5;
+}
+.tui-btn-white {
+	background: #fff;
+	color: #333;
+}
+.tui-white-hover {
+	background: #e5e5e5;
+	color: #2e2e2e;
+}
+
+/*顶部下拉选择 属性*/
+
+/*顶部下拉选择 综合*/
+.tui-dropdownlist {
+	width: 100%;
+	position: absolute;
+	background: #fff;
+	border-bottom-left-radius: 24rpx;
+	border-bottom-right-radius: 24rpx;
+	overflow: hidden;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding-top: 10rpx;
+	padding-bottom: 26rpx;
+	left: 0;
+	top: 88rpx;
+	visibility: hidden;
+	-webkit-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	z-index: 999;
+}
+.tui-dropdownlist-show {
+	visibility: visible;
+}
+.tui-dropdownlist-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: -1;
+	-webkit-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	opacity: 0;
+	visibility: hidden;
+}
+.tui-mask-show {
+	opacity: 1;
+	visibility: visible;
+}
+.tui-dropdownlist-item {
+	color: #333;
+	height: 70rpx;
+	font-size: 28rpx;
+	padding: 0 40rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+/*顶部下拉选择 综合*/
+.tui-drawer-box {
+	width: 686rpx;
+	font-size: 24rpx;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 100rpx;
+}
+.tui-drawer-title {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	padding: 0 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	height: 80rpx;
+}
+.tui-title-bold {
+	font-size: 26rpx;
+	font-weight: bold;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+}
+.tui-location {
+	margin-right: 6rpx;
+}
+.tui-attr-right {
+	width: 70%;
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	text-align: right;
+}
+.tui-all-box {
+	width: 90%;
+	white-space: nowrap;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+}
+.tui-drawer-content {
+	padding: 16rpx 30rpx 30rpx 30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-input {
+	border: 0;
+	height: 64rpx;
+	border-radius: 32rpx;
+	width: 45%;
+	background: #f7f7f7;
+	text-align: center;
+	font-size: 24rpx;
+	color: #333;
+}
+.tui-phcolor {
+	text-align: center;
+	color: #b2b2b2;
+	font-size: 24rpx;
+}
+.tui-flex-attr {
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+}
+.tui-attr-item {
+	width: 30%;
+	height: 64rpx;
+	background: #f7f7f7;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	padding: 0 4rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border-radius: 32rpx;
+	margin-right: 5%;
+	margin-bottom: 5%;
+}
+.tui-attr-ellipsis {
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	overflow: hidden;
+	width: 96%;
+	text-align: center;
+}
+.tui-attr-item:nth-of-type(3n) {
+	margin-right: 0%;
+}
+.tui-attr-btnbox {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding: 0 30rpx;
+	background: #fff;
+}
+.tui-attr-safearea {
+	height: 100rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	padding-bottom: env(safe-area-inset-bottom);
+}
+.tui-safearea-bottom {
+	width: 100%;
+	height: env(safe-area-inset-bottom);
+}
+.tui-attr-btnbox::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	border-top: 1rpx solid #eaeef1;
+	-webkit-transform: scaleY(0.5);
+	-ms-transform: scaleY(0.5);
+	    transform: scaleY(0.5);
+}
+.tui-drawer-btn {
+	width: 47%;
+	text-align: center;
+	height: 60rpx;
+	border-radius: 30rpx;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-drawerbtn-black {
+	border: 1rpx solid #555;
+}
+.tui-drawerbtn-primary {
+	background: #e41f19;
+	color: #fff;
+}
+
+/* 商品列表*/
+.tui-product-list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-product-container {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	margin-right: 10rpx;
+}
+.tui-product-container:last-child {
+	margin-right: 0;
+}
+.tui-pro-item {
+	width: 100%;
+	margin-bottom: 10rpx;
+	background: #fff;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border-radius: 12rpx;
+	overflow: hidden;
+	-webkit-transition: all 0.15s ease-in-out;
+	-o-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+}
+.tui-flex-list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin-bottom: 1rpx !important;
+}
+.tui-pro-img {
+	width: 100%;
+	display: block;
+}
+.tui-proimg-list {
+	width: 260rpx;
+	height: 260rpx !important;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+	border-radius: 12rpx;
+}
+.tui-pro-content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	padding: 20rpx;
+}
+.tui-pro-tit {
+	color: #2e2e2e;
+	font-size: 26rpx;
+	word-break: break-all;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+.tui-pro-price {
+	padding-top: 18rpx;
+}
+.tui-sale-price {
+	font-size: 34rpx;
+	font-weight: 500;
+	color: #e41f19;
+}
+.tui-factory-price {
+	font-size: 24rpx;
+	color: #a0a0a0;
+	text-decoration: line-through;
+	padding-left: 12rpx;
+}
+.tui-pro-pay {
+	padding-top: 10rpx;
+	font-size: 24rpx;
+	color: #656565;
+}
+
+/* 商品列表*/
+

@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "支付成功",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button"
+  }
+}

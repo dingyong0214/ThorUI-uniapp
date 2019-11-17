@@ -136,8 +136,10 @@
 			change(e) {
 				this.currentTab = e.index
 			},
-			detail(){
-				this.tui.toast("功能尚未完善~")
+			detail() {
+				uni.navigateTo({
+					url: '../orderDetail/orderDetail'
+				})
 			}
 		},
 		onPullDownRefresh() {

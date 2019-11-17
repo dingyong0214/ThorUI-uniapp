@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "日期时间选择",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button",
+    "tui-datetime": "/components/dateTime/dateTime"
+  }
+}

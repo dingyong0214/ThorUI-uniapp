@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "tabs标签页",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-tabs": "/components/tui-tabs/tui-tabs"
+  }
+}

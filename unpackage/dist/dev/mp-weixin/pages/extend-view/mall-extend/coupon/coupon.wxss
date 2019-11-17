@@ -1,0 +1,272 @@
+
+page {
+	background: #F5F5F5;
+}
+.container {
+	padding-bottom: env(safe-area-inset-bottom);
+}
+.tui-coupon-list {
+	width: 100%;
+	padding: 0 25rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-coupon-banner {
+	width: 100%;
+}
+.tui-coupon-item {
+	width: 100%;
+	height: 210rpx;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding-right: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	overflow: hidden;
+}
+.tui-coupon-bg {
+	width: 100%;
+	height: 210rpx;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+.tui-coupon-sign {
+	height: 110rpx;
+	width: 110rpx;
+	position: absolute;
+	z-index: 9;
+	top: -30rpx;
+	right: 40rpx;
+}
+.tui-coupon-item-left {
+	width: 218rpx;
+	height: 210rpx;
+	position: relative;
+	z-index: 2;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+}
+.tui-coupon-price-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	color: #e41f19;
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+}
+.tui-coupon-price-sign {
+	font-size: 30rpx;
+}
+.tui-coupon-price {
+	font-size: 70rpx;
+	line-height: 68rpx;
+	font-weight: bold;
+}
+.tui-price-small {
+	font-size: 58rpx !important;
+	line-height: 56rpx !important;
+}
+.tui-coupon-intro {
+	background: #F7F7F7;
+	padding: 8rpx 10rpx;
+	font-size: 26rpx;
+	line-height: 26rpx;
+	font-weight: 400;
+	color: #666;
+	margin-top: 18rpx;
+}
+.tui-coupon-item-right {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	height: 210rpx;
+	position: relative;
+	z-index: 2;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	padding-left: 24rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	overflow: hidden;
+}
+.tui-coupon-content {
+	width: 82%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.tui-coupon-title-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.tui-coupon-btn {
+	padding: 6rpx;
+	background: #FFEBEB;
+	color: #e41f19;
+	font-size: 25rpx;
+	line-height: 25rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-transform: scale(0.9);
+	    -ms-transform: scale(0.9);
+	        transform: scale(0.9);
+	-webkit-transform-origin: 0 center;
+	    -ms-transform-origin: 0 center;
+	        transform-origin: 0 center;
+	border-radius: 4rpx;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+}
+.tui-color-grey {
+	color: #888 !important;
+}
+.tui-bg-grey {
+	background: #F0F0F0 !important;
+	color: #888 !important;
+}
+.tui-coupon-title {
+	width: 100%;
+	font-size: 26rpx;
+	color: #333;
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+}
+.tui-coupon-rule {
+	padding-top: 52rpx;
+}
+.tui-rule-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-transform: scale(0.8);
+	    -ms-transform: scale(0.8);
+	        transform: scale(0.8);
+	-webkit-transform-origin: 0 100%;
+	    -ms-transform-origin: 0 100%;
+	        transform-origin: 0 100%;
+}
+.tui-padding-btm {
+	padding-bottom: 6rpx;
+}
+.tui-coupon-circle {
+	width: 8rpx;
+	height: 8rpx;
+	background: rgb(160, 160, 160);
+	border-radius: 50%;
+}
+.tui-coupon-text {
+	font-size: 28rpx;
+	line-height: 28rpx;
+	font-weight: 400;
+	color: #666;
+	padding-left: 8rpx;
+	white-space: nowrap;
+}
+.tui-top20 {
+	margin-top: 20rpx;
+}
+.tui-coupon-title {
+	font-size: 28rpx;
+	line-height: 28rpx;
+}
+.tui-coupon-radio {
+	-webkit-transform: scale(0.7);
+	    -ms-transform: scale(0.7);
+	        transform: scale(0.7);
+	-webkit-transform-origin: 100% center;
+	    -ms-transform-origin: 100% center;
+	        transform-origin: 100% center;
+}
+.tui-btn-box {
+	position: absolute;
+	width: 146rpx;
+	height: 52rpx;
+	right: 20rpx;
+	bottom: 40rpx;
+	z-index: 10;
+}
+
+
+.wx-radio-input {
+	margin-right: 0 !important;
+}
+
+
+
+
+

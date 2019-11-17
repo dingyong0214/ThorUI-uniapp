@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "消息 ",
+  "pullRefresh": true,
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-badge": "/components/badge/badge",
+    "tui-list-cell": "/components/list-cell/list-cell"
+  }
+}

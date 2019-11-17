@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "城市选择",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon"
+  }
+}

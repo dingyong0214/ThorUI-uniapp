@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "悬浮按钮",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button",
+    "tui-fab": "/components/tui-fab/tui-fab"
+  }
+}

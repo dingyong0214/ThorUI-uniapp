@@ -1,6 +1,6 @@
 <template>
 	<view @touchmove.stop.prevent>
-		<view class="tui-modal-box" :class="[(fadein || show)?'tui-modal-normal':'tui-modal-scale',show?'tui-modal-show':'']">
+		<view class="tui-modal-box" :style="{width:width,padding:padding,borderRadius:radius}" :class="[(fadein || show)?'tui-modal-normal':'tui-modal-scale',show?'tui-modal-show':'']">
 			<view v-if="!custom">
 				<view class="tui-modal-title" v-if="title">{{title}}</view>
 				<view class="tui-modal-content" :class="[title?'':'tui-mtop']" :style="{color:color,fontSize:size+'rpx'}">{{content}}</view>
@@ -28,6 +28,18 @@
 			show: {
 				type: Boolean,
 				default: false
+			},
+			width: {
+				type: String,
+				default: "84%"
+			},
+			padding: {
+				type: String,
+				default: "40rpx 64rpx"
+			},
+			radius: {
+				type: String,
+				default: "24rpx"
 			},
 			//标题
 			title: {
@@ -108,17 +120,14 @@
 <style>
 	.tui-modal-box {
 		position: fixed;
-		width: 84%;
 		left: 50%;
 		top: 50%;
 		margin: auto;
 		background: #fff;
-		z-index: 99998;
+		z-index: 9999998;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
-		border-radius: 24rpx;
 		box-sizing: border-box;
-		padding: 40rpx 64rpx;
 		visibility: hidden;
 	}
 
@@ -142,7 +151,7 @@
 		right: 0;
 		bottom: 0;
 		background: rgba(0, 0, 0, 0.6);
-		z-index: 99996;
+		z-index: 9999996;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		visibility: hidden;

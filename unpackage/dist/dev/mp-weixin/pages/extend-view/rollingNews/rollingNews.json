@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "滚动消息",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon"
+  }
+}

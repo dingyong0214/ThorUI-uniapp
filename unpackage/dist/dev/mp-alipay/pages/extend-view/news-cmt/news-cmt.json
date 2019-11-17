@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "发表评论",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-button": "/components/button/button"
+  }
+}

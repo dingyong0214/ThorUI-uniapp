@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "extend",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-tag": "/components/tag/tag"
+  }
+}

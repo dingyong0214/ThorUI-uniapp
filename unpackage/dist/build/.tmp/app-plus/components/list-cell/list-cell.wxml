@@ -1,0 +1,1 @@
+<view class="{{['tui-cell-class tui-list-cell',(arrow)?'tui-cell-arrow':'',(last)?'tui-cell-last':'']}}" style="{{'background:'+(bgcolor)+';'+('font-size:'+($root.m0)+';')+('color:'+(color)+';')}}" hover-class="{{hover?'tui-cell-hover':''}}" hover-stay-time="{{150}}" data-event-opts="{{[['tap',[['handleClick',['$event']]]]]}}" bindtap="__e"><slot></slot></view>

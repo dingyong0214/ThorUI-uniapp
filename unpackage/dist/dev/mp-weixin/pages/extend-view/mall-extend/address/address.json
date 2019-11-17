@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "地址",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button",
+    "tui-list-cell": "/components/list-cell/list-cell"
+  }
+}

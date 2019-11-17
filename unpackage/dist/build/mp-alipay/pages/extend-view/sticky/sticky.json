@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "吸顶容器",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "tui-sticky": "/components/sticky/sticky"
+  }
+}

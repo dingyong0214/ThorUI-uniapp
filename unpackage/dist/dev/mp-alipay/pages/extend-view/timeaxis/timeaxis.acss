@@ -1,0 +1,85 @@
+
+.tui-order-header {
+	padding: 30rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background: #fff;
+}
+.tui-text {
+	font-size: 28rpx;
+	color: #333;
+	padding: 4rpx;
+}
+.tui-bold {
+	font-weight: bold;
+}
+.tui-node {
+	background: #ddd;
+	height: 44rpx;
+	width: 44rpx;
+	border-radius: 50%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	color: #fff;
+	padding-top: 0;
+}
+.tui-node-small {
+	height: 16rpx !important;
+	width: 16rpx !important;
+}
+.tui-bg-primary {
+	background: #5677fc !important;
+}
+.tui-order-tracking {
+	padding: 30rpx 30rpx 30rpx 40rpx;
+	background: #fff;
+	margin-top: 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-order-title {
+	color: #333;
+	font-weight: bold;
+	font-size: 32rpx;
+	font-family: "microsoft yahei";
+}
+.tui-order-desc {
+	font-size: 28rpx;
+	color: #333;
+	padding: 12rpx 0;
+}
+.tui-ptop {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	line-height: 28rpx;
+}
+.tui-order-time {
+	font-size: 24rpx;
+	font-weight: bold;
+}
+.tui-gray {
+	color: #848484 !important;
+}
+.tui-light-gray {
+	color: #888 !important;
+}
+.tui-primary {
+	color: #5677fc;
+}
+

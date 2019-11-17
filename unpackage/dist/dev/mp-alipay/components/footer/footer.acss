@@ -1,0 +1,64 @@
+
+.tui-footer {
+	width: 100%;
+	overflow: hidden;
+	padding: 30rpx 24rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-fixed {
+	position: fixed;
+	z-index: 9999;
+	bottom: 0;
+	bottom: env(safe-area-inset-bottom);
+}
+.tui-footer-link {
+	color: #596d96;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	font-size: 28rpx;
+}
+.tui-link {
+	position: relative;
+	padding: 0 18rpx;
+	line-height: 1;
+}
+.tui-link::before {
+	content: " ";
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 1px;
+	bottom: 0;
+	border-right: 1px solid #d3d3d3;
+	-webkit-transform-origin: 100% 0;
+	-ms-transform-origin: 100% 0;
+	    transform-origin: 100% 0;
+	-webkit-transform: scaleX(0.5);
+	-ms-transform: scaleX(0.5);
+	    transform: scaleX(0.5);
+}
+.tui-link:last-child::before {
+	border-right: 0 !important
+}
+.tui-link-hover {
+	opacity: 0.5
+}
+.tui-footer-copyright {
+	font-size: 24rpx;
+	color: #A7A7A7;
+	line-height: 1;
+	text-align: center;
+	padding-top: 16rpx
+}
+

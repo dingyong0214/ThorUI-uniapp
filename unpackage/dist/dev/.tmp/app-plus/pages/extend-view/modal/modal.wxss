@@ -1,0 +1,53 @@
+
+.container {
+	padding: 20rpx 0 120rpx 0;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.header {
+	padding: 80rpx 90rpx 60rpx 90rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.title {
+	font-size: 34rpx;
+	color: #333;
+	font-weight: 500;
+}
+.sub-title {
+	font-size: 24rpx;
+	color: #7a7a7a;
+	padding-top: 18rpx;
+}
+.tui-btn-box {
+	padding: 10rpx 40rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-btn-class {
+	margin-top: 36rpx;
+}
+.tui-modal-custom {
+	text-align: center
+}
+.tui-tips-img {
+	width: 100rpx;
+	height: 100rpx;
+	margin-top: 20rpx;
+}
+.tui-modal-custom-text {
+	font-size: 30rpx;
+	color: #333;
+	padding: 30rpx 0
+}
+.tui-prompt-title {
+	padding-bottom: 20rpx;
+	font-size: 34rpx;
+}
+.tui-input {
+	margin: 30rpx 40rpx;
+	border-bottom: 1rpx solid #E6E6E6;
+	padding-bottom: 20rpx;
+	font-size: 32rpx;
+}
+

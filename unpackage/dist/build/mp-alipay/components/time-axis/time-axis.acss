@@ -1,0 +1,1 @@
+.tui-time-axis{padding-left:20px;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative}.tui-time-axis:before{content:" ";position:absolute;left:0;top:0;width:1px;bottom:0;border-left:1px solid #ddd;-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;-webkit-transform:scaleX(.5);-ms-transform:scaleX(.5);transform:scaleX(.5)}

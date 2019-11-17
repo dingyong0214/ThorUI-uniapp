@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "消息提示",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "tui-tips": "/components/tips/tips"
+  }
+}

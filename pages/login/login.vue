@@ -5,7 +5,7 @@
 			<image src="../../static/images/my/mine_def_touxiang_3x.png" class="tui-photo"></image>
 			<view class="tui-login-name">Thor UI</view>
 		</view>
-		<form @submit="formLogin">
+		<form :report-submit="true" @submit="formLogin">
 			<view class="tui-login-from">
 				<view class="tui-line-cell">
 					<tui-icon name="mobile" :size="20" color='#5677fc'></tui-icon>
@@ -141,25 +141,25 @@
 		width: 100%;
 		box-sizing: border-box;
 		position: relative;
-		padding-top: 44upx;
+		padding-top: 44rpx;
 	}
 
 	.tui-photo {
-		height: 138upx;
-		width: 138upx;
+		height: 138rpx;
+		width: 138rpx;
 		display: block;
-		margin: 10upx auto 0 auto;
+		margin: 10rpx auto 0 auto;
 		border-radius: 50%;
 		position: relative;
 		z-index: 2;
 	}
 
 	.tui-login-name {
-		width: 128upx;
-		height: 40upx;
-		font-size: 30upx;
+		width: 128rpx;
+		height: 40rpx;
+		font-size: 30rpx;
 		color: #fff;
-		margin: 36upx auto 0 auto;
+		margin: 36rpx auto 0 auto;
 		text-align: center;
 		position: relative;
 		z-index: 2;
@@ -167,7 +167,7 @@
 
 	.tui-bg-img {
 		width: 100%;
-		height: 346upx;
+		height: 346rpx;
 		display: block;
 		position: absolute;
 		top: 0;
@@ -175,21 +175,21 @@
 
 	.tui-login-from {
 		width: 100%;
-		padding: 128upx 104upx 0 104upx;
+		padding: 128rpx 104rpx 0 104rpx;
 		box-sizing: border-box;
 	}
 
 	.tui-input {
-		font-size: 32upx;
+		font-size: 32rpx;
 		flex: 1;
 		display: inline-block;
-		padding-left: 32upx;
+		padding-left: 32rpx;
 		box-sizing: border-box;
 		overflow: hidden;
 	}
 
 	.tui-line-cell {
-		padding: 27upx 0;
+		padding: 27rpx 0;
 		display: -webkit-flex;
 		display: flex;
 		-webkiit-align-items: center;
@@ -202,7 +202,7 @@
 	.tui-line-cell::after {
 		content: '';
 		position: absolute;
-		border-bottom: 1upx solid #e0e0e0;
+		border-bottom: 1rpx solid #e0e0e0;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 		bottom: 0;
@@ -211,28 +211,28 @@
 	}
 
 	.tui-top28 {
-		margin-top: 28upx;
+		margin-top: 28rpx;
 	}
 
 	.tui-btn-class {
-		width: 196upx !important;
-		height: 54upx !important;
-		border-radius: 27upx !important;
-		font-size: 28upx !important;
+		width: 196rpx !important;
+		height: 54rpx !important;
+		border-radius: 27rpx !important;
+		font-size: 28rpx !important;
 		padding: 0 !important;
-		line-height: 54upx !important;
+		line-height: 54rpx !important;
 	}
 
 	.tui-btn-submit {
-		margin-top: 100upx;
+		margin-top: 100rpx;
 	}
 
 	.tui-protocol {
 		color: #333;
-		font-size: 24upx;
+		font-size: 24rpx;
 		text-align: center;
 		width: 100%;
-		margin-top: 29upx;
+		margin-top: 29rpx;
 	}
 
 	.tui-protocol-red {

@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "弹层、下拉选择",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-button": "/components/button/button",
+    "tui-top-dropdown": "/components/top-dropdown/top-dropdown",
+    "tui-list-cell": "/components/list-cell/list-cell",
+    "tui-dropdown-list": "/components/dropdown-list/dropdown-list",
+    "tui-bottom-popup": "/components/bottom-popup/bottom-popup"
+  }
+}

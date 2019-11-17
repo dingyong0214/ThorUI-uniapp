@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "扩展Button",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button"
+  }
+}

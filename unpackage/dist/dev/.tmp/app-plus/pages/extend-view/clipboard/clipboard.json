@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "复制文本",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button"
+  }
+}

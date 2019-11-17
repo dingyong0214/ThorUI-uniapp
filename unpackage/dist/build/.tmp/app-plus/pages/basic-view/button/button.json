@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "Button",
+  "usingComponents": {
+    "tui-button": "/components/button/button"
+  }
+}

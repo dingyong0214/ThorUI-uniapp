@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "collapse折叠面板",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-collapse": "/components/tui-collapse/tui-collapse",
+    "tui-list-cell": "/components/list-cell/list-cell"
+  }
+}

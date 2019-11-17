@@ -1,0 +1,419 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* pages/my/my.wxss */
+.container {
+	position: relative;
+}
+.top-container {
+	height: 440rpx;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.bg-img {
+	position: absolute;
+	width: 100%;
+	height: 440rpx;
+}
+.logout {
+	width: 110rpx;
+	height: 36rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	margin: 42rpx 0 24rpx 32rpx;
+	position: relative;
+	z-index: 2;
+}
+.logout-img {
+	width: 36rpx;
+	height: 36rpx;
+	margin-right: 11rpx;
+}
+.logout-txt {
+	font-size: 28rpx;
+	color: #FEFEFE;
+	line-height: 28rpx;
+}
+.user-wrapper {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	position: relative;
+	z-index: 2;
+}
+.user {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	position: relative;
+	z-index: 2;
+}
+.avatar-img {
+	width: 160rpx;
+	height: 160rpx;
+	border-radius: 50%;
+	-webkit-align-self: center;
+	    -ms-flex-item-align: center;
+	        align-self: center;
+}
+.user-info {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	margin-top: 30rpx;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.user-info-mobile {
+	margin-top: 30rpx;
+	position: relative;
+	font-size: 28rpx;
+	color: #FEFEFE;
+	line-height: 28rpx;
+	-webkit-align-self: center;
+	    -ms-flex-item-align: center;
+	        align-self: center;
+	padding: 0 50rpx;
+}
+.edit-img {
+	position: absolute;
+	width: 42rpx;
+	height: 42rpx;
+	right: 0;
+	bottom: -4rpx;
+}
+.edit-img>image {
+	width: 42rpx;
+	height: 42rpx;
+	padding-left: 25rpx;
+}
+.middle-container {
+	height: 138rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	border-radius: 10rpx;
+	background-color: #FFFFFF;
+	margin: -30rpx 30rpx 26rpx 30rpx;
+	-webkit-box-shadow: 0 15rpx 10rpx -15rpx #efefef;
+	        box-shadow: 0 15rpx 10rpx -15rpx #efefef;
+	position: relative;
+	z-index: 2;
+}
+.middle-item {
+	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.ticket-img {
+	width: 80rpx;
+	height: 80rpx;
+	margin-left: 65rpx;
+}
+.middle-tag {
+	font-size: 28rpx;
+	color: #333333;
+	line-height: 28rpx;
+	font-weight: bold;
+	padding-left: 22rpx;
+}
+.car-img {
+	width: 80rpx;
+	height: 80rpx;
+	margin-left: 97rpx;
+}
+.bottom-container {
+	height: 334rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	padding: 40rpx 74rpx 40rpx 95rpx;
+	margin: 0 30rpx;
+	background-color: #FFFFFF;
+	border-radius: 10rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-box-shadow: 0 0 10rpx #efefef;
+	        box-shadow: 0 0 10rpx #efefef
+}
+.ul-item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	position: relative;
+}
+.item-img {
+	width: 64rpx;
+	height: 64rpx;
+}
+.item-name {
+	padding-top: 13rpx;
+	font-size: 24rpx;
+	color: #666666;
+	min-width: 80rpx;
+	text-align: center;
+}
+.btn-feedback {
+	background: transparent !important;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+

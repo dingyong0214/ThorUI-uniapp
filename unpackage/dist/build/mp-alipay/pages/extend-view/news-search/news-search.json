@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "搜索",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-tag": "/components/tag/tag",
+    "tui-actionsheet": "/components/actionsheet/actionsheet"
+  }
+}

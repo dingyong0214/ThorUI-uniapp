@@ -1,0 +1,1 @@
+<view class="{{['tui-drawer-class tui-drawer',visible?'tui-drawer-show':'','tui-drawer-'+mode]}}"><block wx:if="{{mask}}"><view data-event-opts="{{[['tap',[['handleMaskClick',['$event']]]]]}}" class="tui-drawer-mask" bindtap="__e"></view></block><view class="tui-drawer-container"><slot></slot></view></view>

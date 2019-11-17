@@ -1,0 +1,14 @@
+
+.container {
+	padding: 100rpx 30rpx
+}
+.result {
+	padding: 60rpx 20rpx;
+	font-size: 30rpx;
+	color: #333
+}
+.btn-gray,
+.btn-disabled {
+	margin-bottom: 32rpx
+}
+

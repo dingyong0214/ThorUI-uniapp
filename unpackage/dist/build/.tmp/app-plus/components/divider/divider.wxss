@@ -1,0 +1,35 @@
+
+.tui-divider {
+	width: 100%;
+	position: relative;
+	text-align: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	overflow: hidden;
+}
+.tui-divider-line {
+	position: absolute;
+	height: 1rpx;
+	-webkit-transform: scaleY(0.5);
+	-ms-transform: scaleY(0.5);
+	    transform: scaleY(0.5);
+}
+.tui-divider-text {
+	position: relative;
+	text-align: center;
+	padding: 0 18rpx;
+	z-index: 1;
+}
+

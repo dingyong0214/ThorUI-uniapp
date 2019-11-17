@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "解锁ThorUI",
+  "disableScroll": true,
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-keyboard": "/components/keyboard/keyboard",
+    "tui-keyboard-input": "/components/keyboard-input/keyboard-input"
+  }
+}

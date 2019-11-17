@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "icon",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-grid": "/components/grid/grid",
+    "tui-grid-item": "/components/grid-item/grid-item"
+  }
+}

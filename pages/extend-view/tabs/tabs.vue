@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<tui-tabs :tabs="tabs3" :isFixed="true" :currentTab="currentTab" @change="change" :bottom="14" :bgColor="bgColor"
+		<tui-tabs :tabs="tabs3" :isFixed="true" :currentTab="currentTab" @change="change" bottom="50%" :bgColor="bgColor"
 		 color="#fff" selectedColor="#EB0909" :sliderWidth="146" :sliderHeight="52" sliderBgColor="#fff" :unlined="true"></tui-tabs>
 		<view class="header">
 			<view class="title">tabs</view>
@@ -15,7 +15,7 @@
 			<tui-tabs :tabs="tabs2" :currentTab="currentTab"  selectedColor="#EB0909" sliderBgColor="#EB0909" @change="change"></tui-tabs>
 		</view>
 		<view class="tui-mtop">
-			<tui-tabs :tabs="tabs2" :height="88" :currentTab="currentTab" :sliderWidth="150" :sliderHeight="60" :bottom="14" color="#888" selectedColor="#11CDFC" :bold="true" sliderBgColor="#E5FAFF" @change="change"></tui-tabs>
+			<tui-tabs :tabs="tabs2" :height="88" :currentTab="currentTab" :sliderWidth="150" :sliderHeight="60" bottom="50%" color="#888" selectedColor="#11CDFC" :bold="true" sliderBgColor="#E5FAFF" @change="change"></tui-tabs>
 		</view>
 	</view>
 </template>

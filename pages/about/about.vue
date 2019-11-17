@@ -20,7 +20,7 @@
 				您可以通过反馈或者以下方式联系我！
 			</view>
 			<view class="tui-content tui-content-email" @tap="copy('1062884167@qq.com')">邮箱：1062884167@qq.com</view>
-			<view class="tui-content tui-content-email" @tap="copy('745733024')">QQ交流群：745733024</view>
+			<view class="tui-content tui-content-email" @tap="copy('881906325')">QQ交流群：881906325</view>
 			<view class="tui-footer">
 				<image src='../../static/images/my/applets.jpg' class="tui-applets" mode="widthFix"></image>
 				<view class="tui-footer-text">扫描二维码，您的朋友也可以体验Thor UI！</view>

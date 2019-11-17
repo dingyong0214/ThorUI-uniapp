@@ -1,0 +1,1 @@
+<view class="tui-sticky-class"><block wx:if="{{isFixed}}"><view style="{{'height:'+(stickyHeight)+';'+('background:'+(bgColor)+';')}}"></view></block><view class="{{[(isFixed)?'tui-sticky-fixed':'']}}" style="{{'top:'+(isFixed?stickyTop+'px':'auto')+';'}}"><slot name="header"></slot></view><slot name="content"></slot></view>

@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "评论",
+  "pullRefresh": true,
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-list-cell": "/components/list-cell/list-cell",
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-nomore": "/components/nomore/nomore"
+  }
+}

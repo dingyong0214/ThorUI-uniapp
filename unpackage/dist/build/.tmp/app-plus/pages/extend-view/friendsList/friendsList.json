@@ -1,0 +1,14 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColorTop": "#F5F6FA",
+  "backgroundColorBottom": "#F5F6FA",
+  "navigationBarTitleText": "联系人 ",
+  "disableScroll": true,
+  "bounce": "none",
+  "usingComponents": {
+    "tui-cell": "/components/list-cell/list-cell",
+    "tui-icon": "/components/icon/icon",
+    "tui-sticky": "/components/sticky/sticky"
+  }
+}

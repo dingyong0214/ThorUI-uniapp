@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "操作菜单",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "tui-button": "/components/button/button",
+    "tui-actionsheet": "/components/actionsheet/actionsheet"
+  }
+}

@@ -105,7 +105,7 @@
 					bg: this.getRandom()
 				}, {
 					name: "Rate评分",
-					desc: "Rate评分:可设置大小颜色，支持手势touch选择。",
+					desc: "Rate评分:可设置大小颜色，支持半星，支持手势touch选择。",
 					page: "rate",
 					like: false,
 					bg: this.getRandom()

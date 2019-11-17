@@ -1,0 +1,1 @@
+<block wx:if="{{visible}}"><view data-event-opts="{{[['tap',[['handleClick',['$event']]]]]}}" class="{{['tui-tag-class',size?'tui-tag-'+size:'tui-tag',$root.m0,$root.m1]}}" bindtap="__e"><slot></slot></view></block>

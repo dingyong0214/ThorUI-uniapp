@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "扩展alert",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button",
+    "tui-alert": "/components/extend/alert/alert"
+  }
+}

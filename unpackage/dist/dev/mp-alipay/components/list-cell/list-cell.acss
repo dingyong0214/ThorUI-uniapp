@@ -1,0 +1,59 @@
+
+.tui-list-cell {
+	position: relative;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.tui-radius{
+	border-radius: 12rpx;
+	overflow: hidden;
+}
+.tui-cell-hover {
+	background: #f7f7f9 !important;
+}
+.tui-list-cell::after {
+	content: '';
+	position: absolute;
+	border-bottom: 1rpx solid #eaeef1;
+	-webkit-transform: scaleY(0.5);
+	-ms-transform: scaleY(0.5);
+	    transform: scaleY(0.5);
+	bottom: 0;
+	right: 0;
+	left:0;
+}
+.tui-line-left::after{
+	left: 30rpx !important;
+}
+.tui-line-right::after{
+	right: 30rpx !important;
+}
+.tui-cell-last::after {
+	border-bottom: 0 !important;
+}
+.tui-list-cell.tui-cell-arrow:before {
+	content: " ";
+	height: 11px;
+	width: 11px;
+	border-width: 2px 2px 0 0;
+	border-color: #b2b2b2;
+	border-style: solid;
+	-webkit-transform: matrix(0.5, 0.5, -0.5, 0.5, 0, 0);
+	-ms-transform: matrix(0.5, 0.5, -0.5, 0.5, 0, 0);
+	    transform: matrix(0.5, 0.5, -0.5, 0.5, 0, 0);
+	position: absolute;
+	top: 50%;
+	margin-top: -7px;
+	right: 30rpx;
+}
+

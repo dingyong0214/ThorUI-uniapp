@@ -1,0 +1,1 @@
+<block wx:if="{{visible}}"><view class="{{['tui-badge-class',dot?'tui-badge-dot':'tui-badge','tui-'+type,size?'tui-badge-small':'']}}"><slot></slot></view></block>

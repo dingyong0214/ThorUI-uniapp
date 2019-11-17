@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "ThorUI商城",
+  "pullRefresh": true,
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-tag": "/components/tag/tag",
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-nomore": "/components/nomore/nomore"
+  }
+}

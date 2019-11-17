@@ -66,7 +66,7 @@
 			</view>
 
 			<view class="tui-discount-box tui-radius-all tui-mtop">
-				<view class="tui-list-cell" @tap="showPopup">
+				<view class="tui-list-cell" @tap="coupon">
 					<view class="tui-bold tui-cell-title">领券</view>
 					<view class="tui-tag-coupon-box">
 						<tui-tag size="small" type="red" shape="circle" tui-tag-class="tui-tag-coupon">满99减8</tui-tag>
@@ -462,6 +462,11 @@
 				this.popupShow = false
 				uni.navigateTo({
 					url: '../mall-extend/submitOrder/submitOrder'
+				})
+			},
+			coupon(){
+				uni.navigateTo({
+					url: '../mall-extend/coupon/coupon'
 				})
 			}
 		},

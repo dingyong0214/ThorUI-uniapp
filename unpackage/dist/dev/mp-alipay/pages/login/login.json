@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-button": "/components/button/button"
+  }
+}

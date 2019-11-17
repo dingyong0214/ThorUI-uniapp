@@ -4,7 +4,7 @@
 			<view class="tui-tabs-title" :class="{'tui-tabs-active':currentTab==index,'tui-tabs-disabled':item.disabled}" :style="{color:currentTab==index?selectedColor:color,fontSize:size+'rpx',lineHeight:size+'rpx',fontWeight:bold && currentTab==index?'bold':'normal'}">{{item.name}}</view>
 		</view>
 		<view class="tui-tabs-slider" :style="{transform:'translateX('+scrollLeft+'px)',width:sliderWidth+'rpx',height:
-	sliderHeight+'rpx',bottom:bottom+'rpx',background:sliderBgColor}"></view>
+	sliderHeight+'rpx',borderRadius:sliderRadius,bottom:bottom,background:sliderBgColor,marginBottom:bottom=='50%'?('-'+sliderHeight/2+'rpx'):0}"></view>
 	</view>
 </template>
 
@@ -41,11 +41,13 @@
 			},
 			//px
 			top: {
-				type: Number,
-				// #ifndef H5
+				type: Number
+					// #ifndef H5
+					,
 				default: 0
-				// #endif
-				// #ifdef H5
+					// #endif
+					// #ifdef H5
+					,
 				default: 44
 				// #endif
 			},
@@ -74,10 +76,14 @@
 				type: String,
 				default: "#5677fc"
 			},
+			sliderRadius:{
+				type: String,
+				default: "50rpx"
+			},
 			//滑块bottom
 			bottom: {
-				type: Number,
-				default: 0
+				type: String,
+				default: "0"
 			},
 			//标签页宽度
 			itemWidth: {
@@ -100,13 +106,13 @@
 				default: 28
 			},
 			//选中后 是否加粗 ，未选中则无效
-			bold:{
+			bold: {
 				type: Boolean,
 				default: false
 			}
 		},
-		watch:{
-			currentTab(){
+		watch: {
+			currentTab() {
 				this.checkCor();
 			}
 		},
@@ -213,10 +219,10 @@
 	}
 
 	.tui-tabs-slider {
-		border-radius: 40rpx;
 		position: absolute;
 		left: 0;
 		transition: all 0.15s ease-in-out;
 		z-index: 0;
+		transform: translateZ(0);
 	}
 </style>

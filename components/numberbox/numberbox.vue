@@ -1,6 +1,7 @@
 <template>
 	<view class="tui-numberbox-class tui-numberbox">
-		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min>=value?'tui-disabled':'']" @tap="reduce" :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
+		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min>=value?'tui-disabled':'']" @tap="reduce"
+		 :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
 		<input type="number" v-model="inputValue" :disabled="disabled" @blur="blur" class="tui-num-input" :style="{color:color,fontSize:size+'rpx',background:bgcolor,height:height+'rpx',width:width+'rpx'}" />
 		<view class="tui-numbox-icon tui-icon-plus" :class="[disabled || value>=max?'tui-disabled':'']" @tap="plus" :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
 	</view>
@@ -69,7 +70,12 @@
 			},
 			//索引值，列表中使用
 			index: {
-				type: Number,
+				type: [Number, String],
+				default: 0
+			},
+			//自定义参数
+			custom: {
+				type: [Number, String],
 				default: 0
 			}
 		},
@@ -108,10 +114,14 @@
 					num += step
 				}
 				let value = num / scale
+				if (type === "plus" && value < this.min) {
+					value = this.min
+				} else if (type === "reduce" && value > this.max) {
+					value = this.max
+				}
 				if (value < this.min || value > this.max) {
 					return
 				}
-
 				this.handleChange(value, type)
 			},
 			plus: function() {
@@ -145,7 +155,8 @@
 				this.$emit('change', {
 					value: value,
 					type: type,
-					index: this.index
+					index: this.index,
+					custom: this.custom
 				})
 			}
 		}

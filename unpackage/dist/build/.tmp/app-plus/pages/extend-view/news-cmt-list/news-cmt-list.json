@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "评论",
+  "backgroundColorTop": "#fff",
+  "backgroundColorBottom": "#fff",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 0,
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-list-cell": "/components/list-cell/list-cell",
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-nomore": "/components/nomore/nomore"
+  }
+}

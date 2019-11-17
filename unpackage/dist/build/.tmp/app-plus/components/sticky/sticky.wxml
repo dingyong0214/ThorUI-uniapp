@@ -1,0 +1,1 @@
+<view class="tui-sticky-class"><view class="{{[isFixed===true?'tui-sticky-fixed':'']}}"><slot name="header"></slot></view><slot name="content"></slot></view>

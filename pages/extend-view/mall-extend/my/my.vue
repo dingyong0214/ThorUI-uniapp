@@ -19,7 +19,7 @@
 		</view>
 		<!--header-->
 		<view class="tui-mybg-box">
-			<image src="/static/images/mall/my/img_bg_3x.png" class="tui-my-bg" mode="widthFix"></image>
+			<image :src="tui.webURL()+'/static/images/mall/my/img_bg_3x.png'" class="tui-my-bg" mode="widthFix"></image>
 			<view class="tui-header-center">
 				<image src="/static/images/my/mine_def_touxiang_3x.png" class="tui-avatar" @tap="href(3)"></image>
 				<view class="tui-info">
@@ -532,11 +532,13 @@
 
 	.tui-mybg-box {
 		width: 100%;
+		height: 464rpx;
 		position: relative;
 	}
 
 	.tui-my-bg {
 		width: 100%;
+		height: 464rpx;
 		display: block;
 	}
 

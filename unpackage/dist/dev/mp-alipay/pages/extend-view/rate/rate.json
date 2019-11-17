@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Rate评分",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-rate": "/components/rate/rate"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-button": "/components/extend/button/button",
+    "tui-countdown": "/components/countdown/countdown"
+  }
+}

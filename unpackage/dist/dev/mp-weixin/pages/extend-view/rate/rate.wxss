@@ -1,0 +1,45 @@
+
+.container.data-v-32b2d3b7 {
+	padding: 20rpx 0 120rpx 0;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.header.data-v-32b2d3b7 {
+	padding: 80rpx 90rpx 60rpx 90rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.title.data-v-32b2d3b7 {
+	font-size: 34rpx;
+	color: #333;
+	font-weight: 500;
+}
+.sub-title.data-v-32b2d3b7 {
+	font-size: 24rpx;
+	color: #7a7a7a;
+	padding-top: 18rpx;
+}
+.tui-rate-container.data-v-32b2d3b7 {
+	padding: 40rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin-bottom: 30rpx;
+	background: #fff;
+	font-size: 30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.tui-title.data-v-32b2d3b7 {
+	font-size: 30rpx;
+}
+

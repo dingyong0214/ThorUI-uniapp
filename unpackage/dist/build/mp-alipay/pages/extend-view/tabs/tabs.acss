@@ -1,0 +1,1 @@
+.container{padding:40rpx 0 120rpx 0;-webkit-box-sizing:border-box;box-sizing:border-box}.header{padding:80rpx 90rpx 60rpx 90rpx;-webkit-box-sizing:border-box;box-sizing:border-box}.title{font-size:34rpx;color:#333;font-weight:500}.sub-title{font-size:24rpx;color:#7a7a7a;padding-top:18rpx}.tui-primary{color:#5677fc}.tui-mtop{margin-top:80rpx}

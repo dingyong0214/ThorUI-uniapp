@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "数字键盘",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "tui-button": "/components/button/button",
+    "tui-keyboard": "/components/keyboard/keyboard",
+    "tui-keyboard-input": "/components/keyboard-input/keyboard-input"
+  }
+}

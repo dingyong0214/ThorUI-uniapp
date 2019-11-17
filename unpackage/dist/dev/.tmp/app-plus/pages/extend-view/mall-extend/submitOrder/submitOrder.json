@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "提交订单",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button",
+    "tui-list-cell": "/components/list-cell/list-cell",
+    "tui-bottom-popup": "/components/bottom-popup/bottom-popup"
+  }
+}

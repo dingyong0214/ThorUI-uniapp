@@ -1,0 +1,40 @@
+
+.tui-dropdown-box {
+	width: 100%;
+	position: fixed;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border-bottom-right-radius: 24rpx;
+	border-bottom-left-radius: 24rpx;
+	-webkit-transform: translateZ(0);
+	        transform: translateZ(0);
+	overflow: hidden;
+	visibility: hidden;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	z-index: 989;
+	top: 0;
+}
+.tui-dropdown-show {
+	visibility: visible;
+}
+.tui-dropdown-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 986;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	opacity: 0;
+	visibility: hidden;
+}
+.tui-mask-show {
+	opacity: 1;
+	visibility: visible;
+}
+

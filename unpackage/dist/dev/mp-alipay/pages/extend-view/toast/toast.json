@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "扩展toast",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button",
+    "tui-toast": "/components/extend/toast/toast"
+  }
+}

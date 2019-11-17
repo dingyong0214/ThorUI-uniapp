@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "新闻列表",
+  "pullRefresh": true,
+  "usingComponents": {
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-nomore": "/components/nomore/nomore"
+  }
+}

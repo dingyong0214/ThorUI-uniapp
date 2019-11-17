@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "回到顶部",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-scroll-top": "/components/scroll-top/scroll-top"
+  }
+}

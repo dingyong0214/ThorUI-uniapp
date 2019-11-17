@@ -1,0 +1,74 @@
+
+.tui-toast {
+	background: rgba(0, 0, 0, 0.75);
+	border-radius: 10rpx;
+	position: fixed;
+	visibility: hidden;
+	opacity: 0;
+	left: 50%;
+	top: 48%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
+	-webkit-transition:  0.3s ease-in-out;
+	-o-transition:  0.3s ease-in-out;
+	transition:  0.3s ease-in-out;
+	-webkit-transition-property:opacity,visibility;
+	-o-transition-property:opacity,visibility;
+	transition-property:opacity,visibility;
+	z-index: 9999;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	padding: 60rpx 20rpx 54rpx 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.tui-toast-padding {
+	padding-top: 50rpx !important;
+	padding-bottom: 50rpx !important;
+}
+.tui-unicon-padding {
+	padding: 24rpx 40rpx !important;
+	word-break: break-all;
+}
+.tui-toast-show {
+	visibility: visible;
+	opacity: 1;
+}
+.tui-toast-img {
+	width: 120rpx;
+	height: 120rpx;
+	display: block;
+	margin-bottom: 28rpx;
+}
+.tui-toast-text {
+	font-size: 30rpx;
+	line-height: 30rpx;
+	font-weight: 400;
+	color: #fff;
+	text-align: center;
+}
+.tui-unicon{
+	line-height: 40rpx !important;
+	font-size: 32rpx !important;
+}
+.tui-content-ptop {
+	padding-top: 10rpx;
+	font-size: 26rpx !important;
+}
+

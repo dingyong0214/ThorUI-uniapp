@@ -15,8 +15,8 @@ const tui = {
 		const res = uni.getSystemInfoSync();
 		return res.platform.toLocaleLowerCase() == "android" ? 300 : 0;
 	},
-	px:function(num){
-		return uni.upx2px(num)+'px';
+	px: function(num) {
+		return uni.upx2px(num) + 'px';
 	},
 	interfaceUrl: function() {
 		//接口地址
@@ -95,6 +95,9 @@ const tui = {
 	},
 	isLogin: function() {
 		return uni.getStorageSync("token") ? true : false
+	},
+	webURL:function(){
+		return "https://www.thorui.cn/wx"
 	}
 }
 

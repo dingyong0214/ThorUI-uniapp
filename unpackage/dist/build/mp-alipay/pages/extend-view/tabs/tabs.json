@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "tabs标签页",
+  "titleBarColor": "#fff",
+  "usingComponents": {
+    "tui-tabs": "/components/tui-tabs/tui-tabs"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/about/about",
+    "pages/basic/basic",
+    "pages/drawer/drawer",
+    "pages/extend/extend",
+    "pages/indexList/indexList",
+    "pages/location/location",
+    "pages/log/log",
+    "pages/login/login",
+    "pages/longlat/longlat",
+    "pages/maps/maps",
+    "pages/my/my",
+    "pages/navbar-1/navbar-1",
+    "pages/navbar-2/navbar-2",
+    "pages/news/news",
+    "pages/picker/picker",
+    "pages/picker-view/picker-view",
+    "pages/product/product",
+    "pages/qrcode/qrcode",
+    "pages/selectCity/selectCity",
+    "pages/swipe-action/swipe-action",
+    "pages/weather/weather",
+    "pages/productNvue/productNvue"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/basic-view/",
+      "pages": [
+        "color/color",
+        "button/button",
+        "flex/flex",
+        "tag/tag",
+        "badge/badge",
+        "load/load",
+        "icon/icon",
+        "list/list",
+        "card/card",
+        "grid/grid",
+        "footer/footer",
+        "other/other",
+        "doc/doc"
+      ]
+    },
+    {
+      "root": "pages/extend-view/",
+      "pages": [
+        "msgtips/msgtips",
+        "sticky/sticky",
+        "keyboard/keyboard",
+        "lockscreen/lockscreen",
+        "timeaxis/timeaxis",
+        "rollingNews/rollingNews",
+        "popup/popup",
+        "luckdraw/luckdraw",
+        "template/template",
+        "news/news",
+        "newsDetail/newsDetail",
+        "news-video/news-video",
+        "news-cmt/news-cmt",
+        "news-cmt-reply/news-cmt-reply",
+        "news-cmt-list/news-cmt-list",
+        "news-search/news-search",
+        "actionsheet/actionsheet",
+        "mall/mall",
+        "msgList/msgList",
+        "chat/chat",
+        "friendsList/friendsList",
+        "productList/productList",
+        "productDetail/productDetail",
+        "numberbox/numberbox",
+        "rate/rate",
+        "modal/modal",
+        "carousel/carousel",
+        "countdown/countdown",
+        "divider/divider",
+        "goTop/goTop",
+        "button/button",
+        "alert/alert",
+        "toast/toast",
+        "formValidation/formValidation",
+        "tips/tips",
+        "mall-extend/address/address",
+        "mall-extend/editAddress/editAddress",
+        "mall-extend/my/my",
+        "mall-extend/myOrder/myOrder",
+        "mall-extend/set/set",
+        "mall-extend/shopcart/shopcart",
+        "mall-extend/submitOrder/submitOrder",
+        "mall-extend/success/success",
+        "mall-extend/userInfo/userInfo",
+        "picker-dateTime/picker-dateTime",
+        "fab/fab",
+        "tabbar/tabbar",
+        "tabs/tabs",
+        "collapse/collapse",
+        "upload/upload",
+        "skeleton/skeleton",
+        "request/request",
+        "friendsList-2/friendsList-2",
+        "clipboard/clipboard",
+        "mall-extend/coupon/coupon",
+        "mall-extend/orderDetail/orderDetail"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#5677FC",
+    "navigationBarTitleText": "Thor UI",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fafafa",
+    "backgroundColorTop": "#fafafa",
+    "backgroundColorBottom": "#fafafa"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#5677FC",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "code",
+        "iconPath": "static/images/tabbar/code_gray.png",
+        "selectedIconPath": "static/images/tabbar/code_active.png"
+      },
+      {
+        "pagePath": "pages/extend/extend",
+        "text": "extend",
+        "iconPath": "static/images/tabbar/extend_gray.png",
+        "selectedIconPath": "static/images/tabbar/extend_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "thor",
+        "iconPath": "static/images/tabbar/thor_gray.png",
+        "selectedIconPath": "static/images/tabbar/thor_active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位效果展示"
+    }
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap44.json"
+}

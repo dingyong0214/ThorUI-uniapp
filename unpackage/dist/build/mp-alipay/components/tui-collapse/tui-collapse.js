@@ -1,0 +1,10 @@
+;my.defineComponent || (my.defineComponent = Component);(my["webpackJsonp"]=my["webpackJsonp"]||[]).push([["components/tui-collapse/tui-collapse"],{"3578c":function(t,e,n){"use strict";n.r(e);var u=n("4f9e"),r=n.n(u);for(var a in u)"default"!==a&&function(t){n.d(e,t,function(){return u[t]})}(a);e["default"]=r.a},"4f9e":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var u={name:"tuiCollapse",props:{bgColor:{type:String,default:"none"},hdBgColor:{type:String,default:"#fff"},bdBgColor:{type:String,default:"none"},height:{type:String,default:"auto"},translateY:{type:String,default:"-50%"},index:{type:Number,default:0},current:{type:Number,default:-1},disabled:{type:[Boolean,String],default:!1},arrow:{type:[Boolean,String],default:!0},arrowColor:{type:String,default:"#333"}},watch:{current:function(){this.updateCurrentChange()}},created:function(){this.updateCurrentChange()},data:function(){return{isOpen:!1}},methods:{updateCurrentChange:function(){this.isOpen=this.index==this.current},handleClick:function(){this.disabled||this.$emit("click",{index:Number(this.index)})}}};e.default=u},5398:function(t,e,n){},7128:function(t,e,n){"use strict";n.r(e);var u=n("807d"),r=n("3578c");for(var a in r)"default"!==a&&function(t){n.d(e,t,function(){return r[t]})}(a);n("ea23");var i=n("2877"),o=Object(i["a"])(r["default"],u["a"],u["b"],!1,null,null,null);e["default"]=o.exports},"807d":function(t,e,n){"use strict";var u=function(){var t=this,e=t.$createElement;t._self._c},r=[];n.d(e,"a",function(){return u}),n.d(e,"b",function(){return r})},ea23:function(t,e,n){"use strict";var u=n("5398"),r=n.n(u);r.a}}]);
+;(my["webpackJsonp"] = my["webpackJsonp"] || []).push([
+    'components/tui-collapse/tui-collapse-create-component',
+    {
+        'components/tui-collapse/tui-collapse-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('c11b')['createComponent'](__webpack_require__("7128"))
+        })
+    },
+    [['components/tui-collapse/tui-collapse-create-component']]
+]);                

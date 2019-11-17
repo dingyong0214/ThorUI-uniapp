@@ -1,7 +1,7 @@
 <template>
 	<view class="tui-skeleton-cmomon tui-skeleton-box" :style="{width: winWidth+'px', height:winHeight+'px', backgroundColor:backgroundColor}">
 		<view class="tui-skeleton-cmomon" v-for="(item,index) in skeletonElements" :key="index" :style="{width: item.width+'px', height:item.height+'px', left: item.left+'px', top: item.top+'px',backgroundColor: skeletonBgColor,borderRadius:getRadius(item.skeletonType,borderRadius)}"></view>
-		<view class="tui-loading" :class="[getLoadingType(loadingType)]"></view>
+		<view class="tui-loading" :class="[getLoadingType(loadingType)]" v-if="isLoading"></view>
 	</view>
 </template>
 
@@ -47,7 +47,7 @@
 				}
 			},
 			//是否需要loading
-			loading: {
+			isLoading: {
 				type: Boolean,
 				default: true
 			},

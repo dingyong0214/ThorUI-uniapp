@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Other",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-button": "/components/button/button",
+    "tui-badge": "/components/badge/badge"
+  }
+}

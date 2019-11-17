@@ -1,0 +1,1 @@
+<view class="container"><view class="header"><view class="title">upload</view><view class="sub-title">图片上传，需要根据上传接口实际返回数据进行调整</view></view><view class="tui-box-upload"><tui-upload vue-id="1" serverUrl="{{serverUrl}}" data-event-opts="{{[['^complete',[['result']]],['^remove',[['remove']]]]}}" onComplete="__e" onRemove="__e" onVueInit="__l"></tui-upload></view></view>

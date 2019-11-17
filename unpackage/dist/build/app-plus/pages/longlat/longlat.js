@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"result { padding: ",[0,80]," ",[0,50]," ",[0,80]," ",[0,50],"; background: #fff; color: #333; font-size: ",[0,32]," }\n.",[1],"city { padding-bottom: ",[0,30]," }\n.",[1],"btn-box { padding: ",[0,80]," ",[0,32]," ",[0,30]," ",[0,32],"; }\n.",[1],"tips { padding: ",[0,30],"; font-size: ",[0,26],"; color: #666 }\n",],undefined,{path:"./pages/longlat/longlat.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/longlat/longlat.wxml') } }));
