@@ -1,4 +1,4 @@
-开源不易，需要鼓励。给 ThorUI项目点个 star吧
+<font color=#ff7900>开源不易，需要鼓励。给 ThorUI项目点个 star吧</font>
 
 # ThorUI
 ThorUI组件库，uni-app代码片段分享 
@@ -14,7 +14,7 @@ ThorUI组件库，uni-app代码片段分享
 [http://www.donarui.com/](http://www.donarui.com/)
 
 # ThorUI 微信群
-![](https://thorui.cn/img/V132/wechat_new.jpg)
+![](https://thorui.cn/img/V132/wechat_1.jpg)
 
 # ThorUI QQ交流群2：881906325
 
