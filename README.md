@@ -39,7 +39,7 @@ ThorUI组件库，uni-app代码片段分享
 6.分包，解决小程序预览时包体积超出限制的问题
 
 # 功能截图 
-|  ![](https://thorui.cn/img/v142/1.png) |![](https://thorui.cn/img/v142/2.jpg)  |![](https://thorui.cn/img/v142/3.jpg)  |
+|  ![](https://thorui.cn/img/v142/1.jpg) |![](https://thorui.cn/img/v142/2.jpg)  |![](https://thorui.cn/img/v142/3.jpg)  |
 | ------------ | ------------ | ------------ |
 
 
