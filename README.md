@@ -15,7 +15,7 @@ ThorUI组件库，uni-app代码片段分享
 
 [http://www.donarui.com/](http://www.donarui.com/)
 
-|  https://thorui.cn/img/V132/qq.jpg |![](https://thorui.cn/img/V132/qq_new.jpg)  |
+|  https://thorui.cn/img/V132/qq_1.jpg |![](https://thorui.cn/img/V132/qq_new.jpg)  |
 | ------------ | ------------ |
 |  ThorUI QQ交流群1：745733024x |ThorUI QQ交流群2：881906325  | 
 
