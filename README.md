@@ -1,4 +1,4 @@
-<font color=#ff7900>开源不易，需要鼓励。给 ThorUI项目点个 star吧</font>
+ ``<font color=#ff7900>开源不易，需要鼓励。给 ThorUI项目点个 star吧</font>``
 
 # ThorUI
 ThorUI组件库，uni-app代码片段分享 
