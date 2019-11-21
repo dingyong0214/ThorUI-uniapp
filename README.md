@@ -2,7 +2,7 @@
 
 # ThorUI
 ThorUI组件库，uni-app代码片段分享 
-| ![小程序二维码](https://thorui.cn/img/applets.jpg)|![H5二维码](https://thorui.cn/img/v142/h5_qrcode.png)  |
+| ![小程序二维码](https://thorui.cn/img/applets.jpg)|![H5二维码](https://thorui.cn/img/h5_qrcode.png)  |
 | ------------ | ------------ |
 | 小程序二维码|H5二维码 |
 # 网站介绍
