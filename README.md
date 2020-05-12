@@ -13,16 +13,71 @@ ThorUI组件库，uni-app代码片段分享
 
 # ThorUI组件文档
 
-[http://www.donarui.com/](http://www.donarui.com/)
+[https://thorui.cn/doc/](https://thorui.cn/doc/)
 
-| ![](https://thorui.cn/img/V132/qq_1.jpg)  |![](https://thorui.cn/img/V132/qq_new.jpg)  |
+| ![](https://thorui.cn/img/V132/qq_3.jpg)  |![](https://thorui.cn/img/V132/qq_new.jpg)  |
 | ------------ | ------------ |
-|  ThorUI QQ交流群1：745733024 |ThorUI QQ交流群2：881906325  | 
+|  ThorUI QQ交流群3：605135318 |ThorUI QQ交流群2：881906325  | 
 
 
 本项目已同步更新到[微信小程序(原生小程序代码)](https://github.com/dingyong0214/ThorUI)，后续会更新到支付宝小程序，百度小程序，头条小程序等
 
 ## 更新日志
+
+# V1.5.0
+
+1.新增日历组件 。
+
+2.新增图片裁剪组件。
+
+3.新增头像、图片组合组件。
+
+4.新增顶部NavationBar导航组件。
+
+5.新增圆形进度条组件。
+
+6.新增底部导航组件。
+
+7.新增级联选择组件cascade-selection。
+
+8.新增步骤条组件。
+
+9.新增气泡框组件。
+
+10.countdown倒计时组件优化，可只显示秒数倒计时。
+
+11.回到顶部组件优化，新增回首页，分享按钮，可自定义控制显示。
+
+12.日期时间选择组件优化，新增秒数选择，单位可置顶展示。
+
+13.新增垂直分类菜单左右联动联动案例。
+
+14.地图支持H5。
+
+15.表单验证优化:非必填情况下,如果值为空,则不进行校验，不为空则进行校验。
+
+16.发布H5、QQ小程序以及Android App。H5地址：https://www.thorui.cn/h5/#/ ，QQ小程序搜索ThorUI,apk前往https://www.thorui.cn/下载。
+
+17.针对支付宝小程序做了部分优化调整。
+
+18.nvue支持uni-app编译模式。
+
+19.新增自定义tabbar使用模板，小程序参考：https://github.com/dingyong0214/AfterSale，uni-app参考：https://github.com/dingyong0214/tabbar-uniapp。
+
+20.引入优化uParse。
+
+21.搜索页面新增关键词高亮显示。
+
+22.新增navbar上拉加载下拉刷新案例。
+
+23.v3编译支持。
+
+24.支持easycom组件模式，直接在页面中使用组件，无需引入注册。
+
+25.优化sticky组件，新增普通案例和异步加载案例。
+
+26.整体优化调整，项目重构，部分模板完善。
+
 
 # V1.4.2
 
