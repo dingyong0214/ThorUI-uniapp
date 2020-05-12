@@ -1,0 +1,164 @@
+<template>
+	<view class="tui-list-view">
+		<view class="tui-list-cell" :class="[lastChild ? 'tui-last-child' : '']" @click="bindClick">
+			<view class="tui-title-box">
+				<text class="tui-cell-title">{{ entity.title }}</text>
+			</view>
+			<view class="tui-img-container" v-if="entity.imgArr && entity.imgArr.length > 0">
+				<view class="tui-cell-img" v-for="(item, index) in entity.imgArr" :key="index"><image :src="item" class="tui-img"></image></view>
+			</view>
+			<view class="tui-sub-title">
+				<text class="tui-badge" :class="[getClass(entity.badgeType)]" v-if="entity.badgeType != 0">{{ entity.badgeText }}</text>
+				<text class="tui-sub-content">{{ entity.subContent }}</text>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+export default {
+	name: 'tNewsItem',
+	props: {
+		entity: {
+			type: Object,
+			default: function(e) {
+				return {};
+			}
+		},
+		lastChild: {
+			type: Boolean,
+			default: function(e) {
+				return false;
+			}
+		}
+	},
+	methods: {
+		bindClick() {
+			this.$emit('click');
+		},
+		getClass(type) {
+			//1-tui-red 2-tui-blue  3-tui-orange 4-tui-green
+			return ['tui-red', 'tui-blue', 'tui-orange', 'tui-green'][type - 1];
+		}
+	}
+};
+</script>
+
+<style>
+.tui-list-view {
+	width: 750rpx;
+	padding-left: 30rpx;
+	background-color: #fff;
+	/* padding-bottom: env(safe-area-inset-bottom); */
+}
+
+.tui-list-view:active {
+	background-color: #eeeeee;
+}
+
+.tui-list-cell {
+	width: 750rpx;
+	padding-top: 30rpx;
+	padding-bottom: 30rpx;
+	padding-right: 30rpx;
+	/* #ifdef APP-PLUS*/
+	border-bottom-width: 1rpx;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	/* #endif */
+	position: relative;
+}
+
+/* #ifndef APP-PLUS*/
+ .tui-list-cell::after {
+	content: '';
+	position: absolute;
+	border-bottom: 1rpx solid #eaeef1;
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+/* #endif */
+
+.tui-last-child {
+	border-bottom-width: 0;
+}
+
+.tui-title-box {
+	width: 690rpx;
+	flex: 1;
+	lines: 2;
+}
+
+.tui-cell-title {
+	font-size: 36rpx;
+	line-height: 56rpx;
+	flex: 1;
+	lines: 2;
+	text-overflow: ellipsis;
+	color: #333333;
+}
+
+.tui-img-container {
+	width: 690rpx;
+	padding-top: 24rpx;
+	height: 184rpx;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.tui-cell-img {
+	width: 220rpx;
+	overflow: hidden;
+	position: relative;
+}
+
+.tui-img {
+	width: 220rpx;
+	height: 184rpx;
+	border-radius: 4rpx;
+}
+
+.tui-sub-title {
+	padding-top: 24rpx;
+	align-items: center;
+	flex-direction: row;
+}
+
+.tui-sub-content {
+	font-size: 28rpx;
+	color: #bcbcbc;
+}
+
+.tui-badge {
+	padding-top: 8rpx;
+	padding-bottom: 8rpx;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+	font-size: 24rpx;
+	border-radius: 4rpx;
+	margin-right: 20rpx;
+}
+
+.tui-red {
+	background-color: #fcebef;
+	color: #8a5966;
+}
+
+.tui-blue {
+	background-color: #ecf6fd;
+	color: #4dabeb;
+}
+
+.tui-orange {
+	background-color: #fef5eb;
+	color: #faa851;
+}
+
+.tui-green {
+	background-color: #e8f6e8;
+	color: #44cf85;
+}
+</style>

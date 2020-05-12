@@ -1,0 +1,602 @@
+<template>
+	<view class="mall-box">
+		<view class="searchbar" :style="{ paddingTop: statusBarHeight + 'px', height: statusBarHeight + 44 + 'px' }">
+			<thor-icon name="arrowleft" :size="30" @click="back"></thor-icon>
+			<view class="search-input" @click="search">
+				<image class="image-search" src="/static/images/mall/Search_2x.png"></image>
+				<text class="search-tips">搜索商品名称</text>
+			</view>
+			<view class="shopcart-box" @click="shopcart">
+				<image class="image-cart" src="/static/images/mall/shopCart_2x.png"></image>
+				<text class="badge">9</text>
+			</view>
+		</view>
+		<waterfall
+			class="tui-product-list"
+			:style="{ height: waterfallH + 'px' }"
+			@loadmore="loadMore"
+			:loadmoreoffset="columnGap"
+			column-count="2"
+			:column-gap="columnGap"
+			:right-gap="rowGap"
+			:left-gap="rowGap"
+			ref="waterfall"
+			@scroll="recylerScroll"
+		>
+			<refresh ref="goTop" class="tui-refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+				<loading-indicator class="loading"></loading-indicator>
+				<text :class="[iosRefresh ? 'ios-arrow' : '']" v-if="isIos">{{ arrow }}</text>
+				<text class="tui-refresh-text">{{ refreshText }}</text>
+			</refresh>
+			<cell v-for="(item, index) in productList" :key="index">
+				<view class="tui-product" :class="[index === 0 || index === 1 ? 'tui-mtop' : '']" @click="detail(index)" :ref="'listItem' + index">
+					<view class="image-view">
+						<image v-if="renderImage" class="tui-product-image" :src="'/static/images/product/' + item.img + '.jpg'" resize="cover"></image>
+						<view class="none" v-if="index === 5"><text class="none-tip">已售罄</text></view>
+					</view>
+					<view class="product-content-box">
+						<view class="tui-product-title">
+							<text class="product-title">{{ item.name }}</text>
+						</view>
+						<view class="tui-product-price">
+							<text class="tui-product-price-original">￥{{ item.sale }}</text>
+							<text class="tui-product-price-favour">￥{{ item.factory }}</text>
+						</view>
+					</view>
+				</view>
+			</cell>
+			<header class="loadmore">
+				<text class="loadmore-line" v-if="pageIndex > 3"></text>
+				<text class="loadmore-text" :class="[isIos ? 'tui-gray' : 'tui-white']">{{ loadingText }}</text>
+			</header>
+		</waterfall>
+		<view ref="fixed" class="fixedItem" @click="scrollToTop" v-if="topShow"><text class="fixedText">top</text></view>
+	</view>
+</template>
+
+<script>
+import thorIcon from '@/components/thorui-nvue/thor-icon/thor-icon.vue';
+const dom = weex.requireModule('dom');
+export default {
+	components: {
+		thorIcon
+	},
+	data() {
+		return {
+			statusBarHeight: 20,
+			isIos: false,
+			rowGap: uni.upx2px(30),
+			columnGap: uni.upx2px(10),
+			waterfallH: 600,
+			arrow: '',
+			iosRefresh: false,
+			refreshing: false,
+			refreshText: '下拉可以刷新',
+			productList: [],
+			renderImage: false,
+			loadingText: '加载更多...',
+			pageIndex: 1,
+			topShow: false,
+			productList: [
+				{
+					img: 1,
+					name: '利物浦官方 独家出品纪念版沙发',
+					sale: 599,
+					factory: 899,
+					payNum: 2342
+				},
+				{
+					img: 2,
+					name: '好看好养活的绿色养眼小盆栽，超级实惠',
+					sale: 29,
+					factory: 69,
+					payNum: 999
+				},
+				{
+					img: 3,
+					name: '利物浦官方 独家出品大红床上用品三件套',
+					sale: 299,
+					factory: 699,
+					payNum: 666
+				},
+				{
+					img: 4,
+					name: '利物浦官方 独家出品花花碎花床上用品三件套',
+					sale: 1599,
+					factory: 2899,
+					payNum: 236
+				},
+				{
+					img: 5,
+					name: '利物浦官方 独家出品纪念版书柜，便宜又省空间，超级划算',
+					sale: 599,
+					factory: 899,
+					payNum: 2399
+				},
+				{
+					img: 1,
+					name: '独家出品纪念版沙发',
+					sale: 599,
+					factory: 899,
+					payNum: 2342
+				},
+				{
+					img: 2,
+					name: '好看好养活的绿色养眼小盆栽，超级实惠',
+					sale: 29,
+					factory: 69,
+					payNum: 999
+				},
+				{
+					img: 3,
+					name: '利物浦官方 独家出品大红床上用品三件套',
+					sale: 299,
+					factory: 699,
+					payNum: 666
+				},
+				{
+					img: 4,
+					name: '利物浦官方 独家出品花花碎花床上用品三件套',
+					sale: 1599,
+					factory: 2899,
+					payNum: 236
+				},
+				{
+					img: 5,
+					name: '利物浦官方 独家出品纪念版书柜，便宜又省空间，超级划算',
+					sale: 599,
+					factory: 899,
+					payNum: 2399
+				}
+			],
+			loadData: [
+				{
+					img: 1,
+					name: '利物浦官方 独家出品纪念版沙发',
+					sale: 599,
+					factory: 899,
+					payNum: 2342
+				},
+				{
+					img: 2,
+					name: '好看好养活的绿色养眼小盆栽，超级实惠',
+					sale: 29,
+					factory: 69,
+					payNum: 999
+				},
+				{
+					img: 3,
+					name: '利物浦官方 独家出品大红床上用品三件套',
+					sale: 299,
+					factory: 699,
+					payNum: 666
+				},
+				{
+					img: 4,
+					name: '利物浦官方 独家出品花花碎花床上用品三件套',
+					sale: 1599,
+					factory: 2899,
+					payNum: 236
+				},
+				{
+					img: 5,
+					name: '利物浦官方 独家出品纪念版书柜，便宜又省空间，超级划算',
+					sale: 599,
+					factory: 899,
+					payNum: 2399
+				},
+				{
+					img: 1,
+					name: '利物浦官方 独家出品纪念版沙发',
+					sale: 599,
+					factory: 899,
+					payNum: 2342
+				},
+				{
+					img: 2,
+					name: '好看好养活的绿色养眼小盆栽，超级实惠',
+					sale: 29,
+					factory: 69,
+					payNum: 999
+				},
+				{
+					img: 3,
+					name: '大红床上用品三件套',
+					sale: 299,
+					factory: 699,
+					payNum: 666
+				},
+				{
+					img: 4,
+					name: '利物浦官方 独家出品花花碎花床上用品三件套',
+					sale: 1599,
+					factory: 2899,
+					payNum: 236
+				},
+				{
+					img: 5,
+					name: '利物浦官方 独家出品纪念版书柜，便宜又省空间，超级划算',
+					sale: 599,
+					factory: 899,
+					payNum: 2399
+				}
+			]
+		};
+	},
+	onLoad() {
+		this.pullrefresh();
+		setTimeout(() => {
+			this.renderImage = true;
+			uni.getSystemInfo({
+				success: res => {
+					this.isIos = 'ios' == res.platform.toLocaleLowerCase();
+					this.statusBarHeight = res.statusBarHeight;
+					this.waterfallH = res.windowHeight - this.statusBarHeight - 44;
+				}
+			});
+		}, 150);
+	},
+	methods: {
+		pullrefresh(action = 'up') {
+			const pageIndex = action === 'down' ? 1 : this.pageIndex;
+			if (action === 'down') {
+				this.productList = [];
+				this.loadingText = '正在加载...';
+				this.pageIndex = 2;
+				this.productList = this.loadData || [];
+				this.$refs.waterfall.resetLoadmore();
+				setTimeout(() => {
+					this.refreshing = false;
+				}, 0);
+			} else {
+				this.productList = this.productList.concat(this.loadData);
+				this.pageIndex++;
+				if (this.pageIndex > 3) {
+					this.loadingText = '没有更多了';
+				}
+			}
+		},
+		loadMore() {
+			setTimeout(() => {
+				if (this.pageIndex > 3) {
+					this.loadingText = '没有更多了';
+					return;
+				}
+				this.pullrefresh();
+			}, 100);
+		},
+		onrefresh(event) {
+			uni.showToast({
+				title: 'refresh',
+				icon: 'none'
+			});
+			this.iosRefresh = false;
+			this.arrow = '';
+			this.refreshText = '正在刷新...';
+			this.refreshing = true;
+			setTimeout(() => {
+				this.pullrefresh('down');
+			}, 100);
+		},
+		onpullingdown(event) {
+			if (this.refreshing) {
+				return;
+			}
+			this.iosRefresh = this.isIos;
+			if (Math.abs(event.pullingDistance) > Math.abs(event.viewHeight)) {
+				this.arrow = '↑';
+				this.refreshText = '释放立即刷新';
+			} else {
+				this.arrow = '↓';
+				this.refreshText = '下拉可以刷新';
+			}
+		},
+		detail(index) {
+			uni.navigateTo({
+				url: '/pages/template/mall/productDetail/productDetail'
+			});
+		},
+		search: function() {
+			uni.navigateTo({
+				url: '/pages/template/news/search/search'
+			});
+		},
+		shopcart() {
+			uni.navigateTo({
+				url: '/pages/template/mall/shopcart/shopcart'
+			});
+		},
+		recylerScroll: function(e) {
+			//console.log(e.contentOffset.y )
+			if (e.contentOffset.y < -200) {
+				this.topShow = true;
+			} else {
+				this.topShow = false;
+			}
+		},
+		scrollToTop: function() {
+			const el = this.$refs.goTop;
+			dom.scrollToElement(el, {
+				offset: -(this.statusBarHeight + 44)
+			});
+		},
+		back() {
+			uni.navigateBack();
+		}
+	}
+};
+</script>
+
+<style>
+.searchbar {
+	width: 750rpx;
+	background-color: #ffffff;
+	border-bottom-width: 1rpx;
+	border-bottom-style: solid;
+	border-bottom-color: #e7e7e7;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 12rpx;
+	/* position: fixed;
+		left: 0;
+		top: 0;
+		z-index:999; */
+}
+
+.search-input {
+	width: 562rpx;
+	height: 60rpx;
+	background-color: #f0f0f0;
+	border-radius: 6rpx;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-left: 12rpx;
+}
+
+.search-tips {
+	font-size: 28rpx;
+	font-family: PingFang-SC-Regular;
+	font-weight: 400;
+	color: #999999;
+}
+
+.image-search {
+	width: 26rpx;
+	height: 26rpx;
+	margin-right: 20rpx;
+}
+
+.shopcart-box {
+	width: 56rpx;
+	height: 56rpx;
+	position: relative;
+	margin-left: 24rpx;
+	opacity: 1;
+}
+
+.shopcart-box:active {
+	opacity: 0.6;
+}
+
+.badge {
+	position: absolute;
+	padding-left: 8rpx;
+	padding-right: 8rpx;
+	height: 32rpx;
+	line-height: 32rpx;
+	background-color: #fa3a3a;
+	border-radius: 20rpx;
+	left: 26rpx;
+	top: -8rpx;
+	text-align: center;
+	color: #ffffff;
+	font-size: 24rpx;
+}
+
+.image-cart {
+	width: 56rpx;
+	height: 56rpx;
+}
+
+/* product */
+
+.tui-product-list {
+	width: 750rpx;
+}
+
+.tui-product {
+	width: 340rpx;
+	height: 528rpx;
+	margin-top: 10rpx;
+	background-color: #ffffff;
+	border-width: 1rpx;
+	border-style: solid;
+	border-color: #eaeef1;
+}
+
+.tui-mtop {
+	margin-top: 30rpx;
+}
+
+.tui-product:active {
+	background-color: #eeeeee;
+}
+
+.image-view {
+	height: 338rpx;
+	width: 338rpx;
+	position: relative;
+}
+
+.none {
+	height: 338rpx;
+	width: 338rpx;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.8);
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	top: 0;
+}
+
+.none-tip {
+	font-size: 28rpx;
+	color: #fa3a3a;
+}
+
+.tui-product-image {
+	height: 338rpx;
+	width: 338rpx;
+	position: absolute;
+}
+
+.product-content-box {
+	width: 338rpx;
+	height: 190rpx;
+	padding-top: 30rpx;
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+	position: relative;
+}
+
+.tui-product-title {
+	width: 295rpx;
+}
+
+.product-title {
+	width: 295rpx;
+	font-size: 26rpx;
+	font-family: PingFang-SC-Regular;
+	font-weight: 400;
+	color: #333333;
+	line-height: 38rpx;
+	/* word-break: break-all; */
+	lines: 2;
+	text-overflow: ellipsis;
+}
+
+.tui-product-price {
+	position: absolute;
+	bottom: 20rpx;
+	width: 295rpx;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	overflow: hidden;
+}
+
+.tui-product-price-original {
+	font-size: 34rpx;
+	font-weight: 500;
+	color: #ea1500;
+	font-weight: bold;
+}
+
+.tui-product-price-favour {
+	color: #a0a0a0;
+	text-decoration: line-through;
+	font-size: 24rpx;
+	font-weight: 400;
+	text-align: right;
+}
+
+.loading {
+	margin-right: 15rpx;
+	height: 60rpx;
+	width: 60rpx;
+	color: #999999;
+}
+
+.list {
+	border-bottom-width: 1rpx;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+}
+
+.active {
+	color: #3097ff;
+	font-size: 32rpx;
+	font-weight: bold;
+	border-bottom-width: 4rpx;
+	border-style: solid;
+	border-color: #3097ff;
+	width: 120rpx;
+	text-align: center;
+}
+
+.loadmore {
+	height: 100rpx;
+	width: 750rpx;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	align-items: center;
+}
+
+.loadmore-text {
+	font-size: 26rpx;
+	text-align: center;
+	color: #999999;
+
+	padding-left: 6rpx;
+	padding-right: 6rpx;
+}
+
+.tui-gray {
+	background-color: #fafafa;
+}
+
+.tui-white {
+	background-color: #ffffff;
+}
+
+.loadmore-line {
+	border-bottom-width: 1rpx;
+	border-bottom-style: solid;
+	border-bottom-color: #e5e5e5;
+	width: 320rpx;
+	position: absolute;
+	z-index: -1;
+}
+
+.tui-refresh {
+	width: 750rpx;
+	height: 80rpx;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.tui-refresh-text {
+	text-align: center;
+	font-size: 26rpx;
+	color: #999999;
+}
+
+.ios-arrow {
+	color: #999999;
+	font-size: 42rpx;
+	font-weight: 300;
+	padding-right: 20rpx;
+	margin-left: -75rpx;
+}
+
+.fixedItem {
+	position: fixed;
+	width: 78rpx;
+	height: 78rpx;
+	background-color: #00cc99;
+	right: 32rpx;
+	bottom: 50rpx;
+	border-radius: 39rpx;
+	align-items: center;
+	justify-content: center;
+}
+
+.fixedText {
+	font-size: 32rpx;
+	color: white;
+	line-height: 32rpx;
+}
+</style>

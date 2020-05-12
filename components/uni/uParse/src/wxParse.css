@@ -1,0 +1,258 @@
+/**
+ * author: Di (微信小程序开发工程师)
+ * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ *         垂直微信小程序开发交流社区
+ *
+ * github地址: https://github.com/icindy/wxParse
+ *
+ * for: 微信小程序富文本解析
+ * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ */
+/**
+ * 请在全局下引入该文件，@import '/static/wxParse.css';
+ */
+.wxParse {
+	user-select:none;
+	width: 100%;
+	font-family: Helvetica, "PingFangSC", 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	color: #333;
+	line-height: 1.5;
+	font-size: 1em;
+	text-align:justify;/* //左右两端对齐 */
+}
+.wxParse view ,.wxParse uni-view{
+	word-break: break-word;
+}
+.wxParse .p {
+	padding-bottom: 0.5em;
+	clear: both;
+	/* letter-spacing: 0;//字间距 */
+}
+.wxParse .inline {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.wxParse .div {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.wxParse .h1{
+  font-size: 2em;
+  line-height: 1.2em;
+  margin: 0.67em 0;
+}
+.wxParse .h2{
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+.wxParse .h3{
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+.wxParse .h4{
+  margin: 1.33em 0;
+}
+.wxParse .h5{
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+.wxParse .h6{
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+
+.wxParse .h1,
+.wxParse .h2,
+.wxParse .h3,
+.wxParse .h4,
+.wxParse .h5,
+.wxParse .h6,
+.wxParse .b,
+.wxParse .strong{
+  font-weight: bolder;
+}
+
+.wxParse .i,
+.wxParse .cite,
+.wxParse .em,
+.wxParse .var,
+.wxParse .address {
+  font-style: italic;
+}
+.wxParse .spaceshow{
+	  white-space: pre;
+}
+.wxParse .pre,
+.wxParse .tt,
+.wxParse .code,
+.wxParse .kbd,
+.wxParse .samp {
+  font-family: monospace;
+}
+.wxParse .pre {
+  overflow: auto;
+  background: #f5f5f5;
+  padding: 16upx;
+  white-space: pre;
+  margin: 1em 0upx;
+  font-size: 24upx;
+}
+.wxParse .code {
+	overflow: auto;
+	padding: 16upx;
+	white-space: pre;
+	margin: 1em 0upx;
+	background: #f5f5f5;
+	font-size: 24upx;
+}
+
+.wxParse .big {
+  font-size: 1.17em;
+}
+
+.wxParse .small,
+.wxParse .sub,
+.wxParse .sup {
+  font-size: 0.83em;
+}
+
+.wxParse .sub {
+  vertical-align: sub;
+}
+.wxParse .sup {
+  vertical-align: super;
+}
+
+.wxParse .s,
+.wxParse .strike,
+.wxParse .del {
+  text-decoration: line-through;
+}
+
+.wxParse .strong,
+.wxParse .text,
+.wxParse .span,
+.wxParse .s {
+  display: inline;
+}
+
+.wxParse .a {
+  color: #576B95;
+}
+
+.wxParse .video {
+  text-align: center;
+  margin: 22upx 0;
+}
+
+.wxParse .video-video {
+  width: 100%;
+}
+.wxParse .uni-image{
+	max-width: 100%;
+}
+.wxParse .img {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 0em;/* //与p标签底部padding同时修改 */
+  overflow: hidden;
+}
+
+.wxParse .blockquote {
+  margin: 10upx 0;
+  padding: 22upx 0 22upx 22upx;
+  font-family: Courier, Calibri, "宋体";
+  background: #f5f5f5;
+  border-left: 6upx solid #dbdbdb;
+}
+.wxParse .blockquote .p {
+  margin: 0;
+}
+.wxParse .ul, .wxParse .ol {
+  display: block;
+  margin: 1em 0;
+  padding-left: 2em;
+}
+.wxParse .ol {
+  list-style-type: disc;
+}
+.wxParse .ol {
+  list-style-type: decimal;
+}
+.wxParse .ol>weixin-parse-template,.wxParse .ul>weixin-parse-template {
+  display: list-item;
+  align-items: baseline;
+  text-align: match-parent;
+}
+
+.wxParse .ol>.li,.wxParse .ul>.li {
+  display: list-item;
+  align-items: baseline;
+  text-align: match-parent;
+}
+.wxParse .ul .ul, .wxParse .ol .ul {
+  list-style-type: circle;
+}
+.wxParse .ol .ol .ul, .wxParse .ol .ul .ul, .wxParse .ul .ol .ul, .wxParse .ul .ul .ul {
+    list-style-type: square;
+}
+
+.wxParse .u {
+  text-decoration: underline;
+}
+.wxParse .hide {
+  display: none;
+}
+.wxParse .del {
+  display: inline;
+}
+.wxParse .figure {
+  overflow: hidden;
+}
+.wxParse .tablebox{
+	overflow: auto;
+	background-color: #f5f5f5;
+	background: #f5f5f5;
+	font-size: 13px;
+	padding: 8px;
+}
+.wxParse .table .table,.wxParse .table{
+	border-collapse:collapse;
+	box-sizing: border-box;
+	/* 内边框 */
+	/* width: 100%; */
+	overflow: auto;
+	white-space: pre;
+}
+.wxParse .tbody{
+	border-collapse:collapse;
+	box-sizing: border-box;
+	/* 内边框 */
+	border: 1px solid #dadada;
+}
+.wxParse .table  .thead, .wxParse  .table .tfoot, .wxParse  .table .th{
+	border-collapse:collapse;
+	box-sizing: border-box;
+	background: #ececec;
+	font-weight: 40;
+}
+.wxParse  .table .tr {
+	border-collapse:collapse;
+	box-sizing: border-box;
+	/* border: 2px solid #F0AD4E; */
+	overflow:auto;
+}
+.wxParse  .table .th,
+.wxParse  .table .td{
+	border-collapse:collapse;
+	box-sizing: border-box;
+	border: 2upx solid #dadada;
+	overflow:auto;
+}
+.wxParse .audio, .wxParse .uni-audio-default{
+	display: block;
+}

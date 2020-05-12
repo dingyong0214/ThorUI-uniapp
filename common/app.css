@@ -1,0 +1,104 @@
+/*app.wxss*/
+/* #ifndef APP-NVUE */
+page {
+	background-color: #fafafa;
+	font-size: 32rpx;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	color: transparent;
+}
+
+button::after {
+	border: none;
+}
+
+.container {
+	display: flex;
+	box-sizing: border-box;
+	flex-direction: column;
+}
+
+.tui-phcolor {
+	color: #ccc;
+	font-size: 32rpx;
+}
+
+
+
+.tui-opcity {
+	opacity: 0.5;
+}
+
+.tui-hover {
+	background-color: #f7f7f9 !important;
+}
+
+.tui-ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+
+/*按钮样式*/
+
+/*列表统一样式 */
+.tui-list-item {
+	position: relative;
+}
+
+.tui-list-item::after {
+	content: '';
+	position: absolute;
+	border-bottom: 1rpx solid #eaeef1;
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	bottom: 0;
+	right: 0;
+	left: 30rpx;
+}
+
+.tui-last::after {
+	border-bottom: 0 !important;
+}
+
+.tui-button-primary {
+	width: 100%;
+	height: 90rpx;
+	line-height: 90rpx;
+	background: linear-gradient(-90deg, #5677fc, #5c8dff);
+	border-radius: 45rpx;
+	color: #fff;
+	font-size: 36rpx;
+}
+
+.tui-button-hover {
+	color: #d5d4d9;
+	background: linear-gradient(-90deg, #4a67d6, #4e77d9);
+}
+
+.tui-button-gray {
+	background: #ededed;
+	color: #999 !important;
+}
+
+.tui-button-gray_hover {
+	background: #d5d5d5 !important;
+	color: #898989;
+}
+
+.tui-button-white {
+	background: #fff;
+	color: #333 !important;
+}
+
+.tui-button-white_hover {
+	background: #e5e5e5 !important;
+	color: #2e2e2e !important;
+}
+
+/* #endif */

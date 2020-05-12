@@ -1,0 +1,203 @@
+<template>
+	<view class="tui-circular-container" :style="{ width: diam + 'px', height: (height || diam) + 'px' }">
+		<gcanvas :ref="progressCanvasId" :style="{ width: diam + 'px', height: (height || diam) + 'px' }"></gcanvas>
+		<slot />
+	</view>
+</template>
+
+<script>
+//nuve 专用
+import { enable, WeexBridge } from './gcanvas/index.js';
+export default {
+	name: 'thorCircularProgress',
+	props: {
+		/*
+		  传值需使用rpx进行转换保证各终端兼容
+		  px = rpx / 750 * uni.getSystemInfoSync().windowWidth
+		  圆形进度条(画布)宽度，直径 [px]
+		*/
+		diam: {
+			type: Number,
+			default: 60
+		},
+		//圆形进度条(画布)高度，默认取diam值[当画半弧时可传值，height有值时则取height]
+		height: {
+			type: Number,
+			default: 60
+		},
+		//进度条线条宽度[px]
+		lineWidth: {
+			type: Number,
+			default: 4
+		},
+		/*
+		 线条的端点样式
+		 butt：向线条的每个末端添加平直的边缘
+		 round	向线条的每个末端添加圆形线帽
+		 square	向线条的每个末端添加正方形线帽
+		*/
+		lineCap: {
+			type: String,
+			default: 'round'
+		},
+		//圆环进度字体大小 [px]
+		fontSize: {
+			type: Number,
+			default: 26
+		},
+		//圆环进度字体颜色
+		fontColor: {
+			type: String,
+			default: '#16b999'
+		},
+		//是否显示进度文字
+		fontShow: {
+			type: Boolean,
+			default: true
+		},
+		/*
+		 自定义显示文字[默认为空，显示百分比，fontShow=true时生效]
+		 可以使用 slot自定义显示内容
+		*/
+		percentText: {
+			type: String,
+			default: ''
+		},
+		//进度条颜色
+		progressColor: {
+			type: String,
+			default: '#16b999'
+		},
+		//起始弧度，单位弧度
+		sAngle: {
+			type: Number,
+			default: -Math.PI / 2
+		},
+		//指定弧度的方向是逆时针还是顺时针。默认是false，即顺时针
+		counterclockwise: {
+			type: Boolean,
+			default: false
+		},
+		//进度百分比 [10% 传值 10]
+		percentage: {
+			type: Number,
+			default: 0
+		},
+		//进度百分比缩放倍数[使用半弧为100%时，则可传2]
+		multiple: {
+			type: Number,
+			default: 1
+		},
+		//动画执行时间[单位毫秒，低于50无动画]
+		duration: {
+			type: Number,
+			default: 800
+		},
+		//backwards: 动画从头播；forwards：动画从上次结束点接着播
+		activeMode: {
+			type: String,
+			default: 'backwards'
+		}
+	},
+	computed: {
+		canvasChange() {
+			return `${this.diam},${this.height},${this.lineWidth}`;
+		}
+	},
+	watch: {
+		percentage(val) {
+			this.initDraw();
+		},
+		canvasChange() {
+			this.initDraw(true);
+		}
+	},
+	data() {
+		return {
+			progressCanvasId: this.getCanvasId(),
+			progressContext: null,
+			canvasObj: null,
+			//起始百分比
+			startPercentage: 0,
+			// dpi
+			pixelRatio: uni.getSystemInfoSync().pixelRatio
+		};
+	},
+	mounted() {
+		this.initDraw(true);
+	},
+	methods: {
+		//初始化绘制
+		initDraw(init) {
+			let start = this.activeMode === 'backwards' ? 0 : this.startPercentage;
+			this.drawProgressCircular(start);
+		},
+		//进度圆环
+		drawProgressCircular(startPercentage) {
+			let ctx = this.progressContext;
+			if (!ctx) {
+				let ganvas = this.$refs[this.progressCanvasId];
+				/*通过元素引用获取canvas对象*/
+				this.canvasObj = enable(ganvas, {
+					bridge: WeexBridge
+				});
+				/*获取绘图所需的上下文，目前不支持3d*/
+				ctx = this.canvasObj.getContext('2d');
+				this.progressContext = ctx;
+			}
+			ctx.setLineWidth(this.lineWidth);
+			ctx.setStrokeStyle(this.progressColor);
+			let time = this.duration / this.percentage;
+			startPercentage = this.duration < 50 ? this.percentage - 1 : startPercentage;
+			startPercentage++;
+			if (startPercentage > this.percentage) {
+				return false;
+			}
+			if (this.fontShow) {
+				ctx.setFontSize(this.fontSize);
+				ctx.setFillStyle(this.fontColor);
+				ctx.setTextAlign('center');
+				ctx.setTextBaseline('middle');
+				let percentage = this.percentText;
+				if (!percentage) {
+					percentage = this.counterclockwise ? 100 - startPercentage * this.multiple : startPercentage * this.multiple;
+					percentage = `${percentage}%`;
+				}
+				let radius = this.diam / 2;
+				ctx.fillText(percentage, radius, radius);
+			}
+			let eAngle = ((2 * Math.PI) / 100) * startPercentage + this.sAngle;
+			this.drawArc(ctx, eAngle);
+			setTimeout(() => {
+				this.startPercentage = startPercentage;
+				this.drawProgressCircular(startPercentage);
+				this.$emit('change', {
+					percentage: startPercentage
+				});
+			}, time);
+		},
+		//创建弧线
+		drawArc(ctx, eAngle) {
+			ctx.setLineCap(this.lineCap);
+			ctx.beginPath();
+			let radius = this.diam / 2; //x=y
+			ctx.arc(radius, radius, radius - this.lineWidth, this.sAngle, eAngle, this.counterclockwise);
+			ctx.stroke();
+			ctx.draw();
+		},
+		//生成canvasId
+		getCanvasId() {
+			let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+				return (c === 'x' ? (Math.random() * 16) | 0 : 'r&0x3' | '0x8').toString(16);
+			});
+			return uuid;
+		}
+	}
+};
+</script>
+
+<style scoped>
+.tui-circular-container {
+	position: relative;
+}
+</style>

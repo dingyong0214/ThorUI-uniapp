@@ -1,0 +1,130 @@
+<template>
+	<view class="container">
+		<text class="tui-share-title">分享到</text>
+		<view class="tui-share-list">
+			<view class="tui-share-item" hover-class="tui-hover" :hover-stay-time="150" v-for="(item, index) in shareList" :key="index">
+				<view class="tui-share-icon"><image :src="'/static/images/share/'+item.icon" class="tui-icon-app"></image></view>
+				<text class="tui-share-text">{{ item.name }}</text>
+			</view>
+		</view>
+		<view class="tui-btn-cancel" @tap="shareCancel"><text class="tui-btn-text">取消</text></view>
+	</view>
+</template>
+
+<script>
+export default {
+	data() {
+		return {
+			//"QQ","微信","朋友圈","新浪微博"
+			shareList: [{
+				name: "QQ",
+				icon: "icon_qq.png"
+			
+			}, {
+				name: "微信",
+				icon: "icon_wechat.png"
+			}, {
+				name: "朋友圈",
+				icon: "icon_moments.png"
+			}, {
+				name: "新浪微博",
+				icon: "icon_sina.png"
+			}]
+		};
+	},
+	created() {
+		const vm = this;
+		// uni.$on('page-share', (data) => {
+		// 	vm.page = data.page;
+		// })
+	},
+	beforeDestroy() {
+		//uni.$off('page-share')
+	},
+	methods: {
+		shareCancel() {
+			const subNVue = uni.getCurrentSubNVue();
+			subNVue.hide('slide-out-bottom', 250);
+		}
+	}
+};
+</script>
+
+<style scoped>
+.container {
+	padding: 0;
+	background-color: #e8e8e8;
+}
+
+.tui-share-title {
+	font-size: 26rpx;
+	color: #7e7e7e;
+	text-align: center;
+	line-height: 26rpx;
+	padding-top: 30rpx;
+	padding-bottom: 80rpx;
+}
+
+.tui-share-list {
+	width: 750rpx;
+	padding-left: 36rpx;
+	padding-right: 36rpx;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.tui-share-item {
+	width: 126rpx;
+	align-items: center;
+}
+
+.tui-share-item:active {
+	opacity: 0.6;
+}
+
+.tui-share-icon {
+	align-items: center;
+	justify-content: center;
+	background-color: #ffffff;
+	height: 126rpx;
+	width: 126rpx;
+	border-radius: 32rpx;
+}
+
+.tui-icon-app {
+	height: 68rpx;
+	width: 68rpx;
+}
+
+.tui-share-text {
+	font-size: 24rpx;
+	line-height: 24rpx;
+	color: #7e7e7e;
+	padding-top: 20rpx;
+	padding-bottom: 20rpx;
+}
+
+.tui-btn-cancel {
+	width: 750rpx;
+	height: 100rpx;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	align-items: center;
+	justify-content: center;
+	background-color: #f6f6f6;
+	/* border-top-width: 1rpx;
+		border-top-style: solid;
+		border-top-color: #eaeef1; */
+}
+
+.tui-btn-cancle:active {
+	background-color: #eee;
+}
+
+.tui-btn-text {
+	font-size: 34rpx;
+	color: #3e3e3e;
+}
+</style>
