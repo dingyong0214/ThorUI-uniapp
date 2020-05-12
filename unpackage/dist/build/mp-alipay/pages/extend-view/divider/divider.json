@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "分隔符",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-icon": "/components/icon/icon",
-    "tui-divider": "/components/divider/divider"
-  }
-}

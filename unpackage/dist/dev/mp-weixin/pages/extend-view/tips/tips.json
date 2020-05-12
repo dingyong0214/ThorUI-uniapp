@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "扩展tips",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "tui-tips": "/components/extend/tips/tips"
-  }
-}

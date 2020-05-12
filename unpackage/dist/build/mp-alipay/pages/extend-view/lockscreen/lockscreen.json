@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "解锁ThorUI",
-  "titleBarColor": "#FFFFFF",
-  "usingComponents": {
-    "tui-icon": "/components/icon/icon",
-    "tui-keyboard": "/components/keyboard/keyboard",
-    "tui-keyboard-input": "/components/keyboard-input/keyboard-input"
-  }
-}

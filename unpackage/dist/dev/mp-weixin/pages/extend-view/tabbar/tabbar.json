@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "Tabbar",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "tui-tabbar": "/components/tui-tabbar/tui-tabbar"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "Footer",
-  "usingComponents": {
-    "tui-footer": "/components/footer/footer"
-  }
-}

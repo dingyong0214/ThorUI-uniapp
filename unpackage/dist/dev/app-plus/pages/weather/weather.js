@@ -1,2 +1,0 @@
-setCssToHead([".",[1],"list-item { background: #fff; padding: ",[0,30]," }\n.",[1],"btn-box { padding: ",[0,80]," ",[0,32]," ",[0,30]," ",[0,32],"; }\n",],undefined,{path:"./pages/weather/weather.wxss"})();
-document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/weather/weather.wxml') } }));

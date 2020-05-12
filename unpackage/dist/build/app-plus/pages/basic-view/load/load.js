@@ -1,2 +1,0 @@
-setCssToHead([".",[1],"container { padding: ",[0,20]," ",[0,30]," ",[0,40]," ",[0,30],"; -webkit-box-sizing: border-box; box-sizing: border-box; }\n.",[1],"header { padding: ",[0,80]," ",[0,60]," ",[0,50]," ",[0,60],"; }\n.",[1],"title { font-size: ",[0,36],"; color: #333; font-weight: bold; }\n.",[1],"sub-title { font-size: ",[0,28],"; color: #7a7a7a; padding-top: ",[0,18],"; }\n",],undefined,{path:"./pages/basic-view/load/load.wxss"})();
-document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/basic-view/load/load.wxml') } }));

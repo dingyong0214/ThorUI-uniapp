@@ -1,8 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "网络请求",
-  "usingComponents": {
-    "tui-button": "/components/button/button"
-  }
-}

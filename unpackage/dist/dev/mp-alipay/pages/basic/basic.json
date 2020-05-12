@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "基础组件",
-  "titleBarColor": "#FFFFFF",
-  "usingComponents": {
-    "tui-grid": "/components/grid/grid",
-    "tui-grid-item": "/components/grid-item/grid-item"
-  }
-}

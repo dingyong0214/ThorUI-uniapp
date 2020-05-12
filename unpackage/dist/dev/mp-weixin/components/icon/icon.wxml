@@ -1,1 +1,0 @@
-<view data-event-opts="{{[['tap',[['handleClick',['$0'],['index']]]]]}}" class="{{['tui-icon-class tui-icon','tui-icon-'+name]}}" style="{{'color:'+(color)+';'+('font-size:'+(size+'px')+';')+('font-weight:'+(bold?'bold':'normal')+';')}}" bindtap="__e"></view>

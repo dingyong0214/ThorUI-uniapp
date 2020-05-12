@@ -1,9 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "modal",
-  "usingComponents": {
-    "tui-button": "/components/button/button",
-    "tui-modal": "/components/modal/modal"
-  }
-}

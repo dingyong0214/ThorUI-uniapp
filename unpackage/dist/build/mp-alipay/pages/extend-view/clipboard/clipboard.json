@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "复制文本",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-button": "/components/extend/button/button"
-  }
-}

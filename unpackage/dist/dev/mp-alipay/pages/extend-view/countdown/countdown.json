@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "倒计时",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-icon": "/components/icon/icon",
-    "tui-countdown": "/components/countdown/countdown"
-  }
-}

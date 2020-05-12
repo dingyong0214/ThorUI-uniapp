@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "collapse折叠面板",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-collapse": "/components/tui-collapse/tui-collapse",
-    "tui-list-cell": "/components/list-cell/list-cell"
-  }
-}

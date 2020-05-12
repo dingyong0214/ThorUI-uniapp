@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Footer",
-  "titleBarColor": "#FFFFFF",
-  "usingComponents": {
-    "tui-footer": "/components/footer/footer"
-  }
-}

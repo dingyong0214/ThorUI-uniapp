@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "图片上传",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "tui-upload": "/components/tui-upload/tui-upload"
-  }
-}

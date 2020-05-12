@@ -1,1 +1,0 @@
-.container{padding-bottom:env(safe-area-inset-bottom)}.tui-grid-icon{width:64rpx;height:64rpx;margin:0 auto;text-align:center;vertical-align:middle}.tui-grid-icon+.tui-grid-label{margin-top:10rpx}.tui-grid-label{display:block;text-align:center;font-weight:400;color:#333;font-size:30rpx;white-space:nowrap;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis}

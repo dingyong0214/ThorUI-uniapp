@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "扩展Button",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "tui-button": "/components/extend/button/button"
-  }
-}

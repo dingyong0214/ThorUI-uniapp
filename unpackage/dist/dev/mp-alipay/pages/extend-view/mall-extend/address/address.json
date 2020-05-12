@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "地址",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-button": "/components/extend/button/button",
-    "tui-list-cell": "/components/list-cell/list-cell"
-  }
-}

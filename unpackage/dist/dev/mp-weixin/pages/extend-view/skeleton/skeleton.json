@@ -1,8 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "骨架屏",
-  "usingComponents": {
-    "tui-skeleton": "/components/tui-skeleton/tui-skeleton"
-  }
-}

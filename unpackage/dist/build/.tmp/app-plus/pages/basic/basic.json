@@ -1,9 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "基础组件",
-  "usingComponents": {
-    "tui-grid": "/components/grid/grid",
-    "tui-grid-item": "/components/grid-item/grid-item"
-  }
-}

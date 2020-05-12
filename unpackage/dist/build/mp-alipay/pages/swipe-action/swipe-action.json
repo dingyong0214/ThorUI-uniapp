@@ -1,6 +1,0 @@
-{
-  "defaultTitle": "滑动菜单",
-  "usingComponents": {
-    "tui-swipe-action": "/components/swipe-action/swipe-action"
-  }
-}

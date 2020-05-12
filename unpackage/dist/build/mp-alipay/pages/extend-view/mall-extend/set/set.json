@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "账户设置",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-list-cell": "/components/list-cell/list-cell",
-    "tui-button": "/components/extend/button/button"
-  }
-}

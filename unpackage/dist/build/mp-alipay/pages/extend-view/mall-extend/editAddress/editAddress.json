@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "新增地址",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-button": "/components/extend/button/button",
-    "tui-list-view": "/components/list-view/list-view",
-    "tui-list-cell": "/components/list-cell/list-cell"
-  }
-}

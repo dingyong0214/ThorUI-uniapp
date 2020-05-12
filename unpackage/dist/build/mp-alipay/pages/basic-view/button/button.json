@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Button",
-  "titleBarColor": "#FFFFFF",
-  "usingComponents": {
-    "tui-button": "/components/button/button"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Badge",
-  "titleBarColor": "#FFFFFF",
-  "usingComponents": {
-    "tui-badge": "/components/badge/badge"
-  }
-}

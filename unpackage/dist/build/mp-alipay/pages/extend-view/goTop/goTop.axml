@@ -1,1 +1,0 @@
-<view class="container"><view class="header"><view class="title">回到顶部</view><view class="sub-title">可设置bottom，right值，可设置距离顶部多少距离显示，向下滑动页面查看效果</view></view><view class="tui-bottom-text">到达底部~</view><tui-scroll-top vue-id="1" scrollTop="{{scrollTop}}" onVueInit="__l"></tui-scroll-top></view>

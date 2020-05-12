@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "扩展alert",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "tui-button": "/components/extend/button/button",
-    "tui-alert": "/components/extend/alert/alert"
-  }
-}

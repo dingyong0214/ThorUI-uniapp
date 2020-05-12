@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "图片上传",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-upload": "/components/tui-upload/tui-upload"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Loading",
-  "titleBarColor": "#FFFFFF",
-  "usingComponents": {
-    "tui-nomore": "/components/nomore/nomore",
-    "tui-loadmore": "/components/loadmore/loadmore",
-    "tui-loading": "/components/loading/loading"
-  }
-}

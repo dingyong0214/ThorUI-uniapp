@@ -1,8 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "数字输入框 ",
-  "usingComponents": {
-    "tui-numberbox": "/components/numberbox/numberbox"
-  }
-}

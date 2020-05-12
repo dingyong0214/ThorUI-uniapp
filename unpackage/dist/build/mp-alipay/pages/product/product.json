@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "商品列表",
-  "pullRefresh": true,
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-loadmore": "/components/loadmore/loadmore",
-    "tui-nomore": "/components/nomore/nomore"
-  }
-}

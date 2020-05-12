@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "modal",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-button": "/components/button/button",
-    "tui-modal": "/components/modal/modal"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "扩展tips",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-tips": "/components/extend/tips/tips"
-  }
-}

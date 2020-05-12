@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "技术交流群",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-icon": "/components/icon/icon",
-    "tui-badge": "/components/badge/badge",
-    "tui-loadmore": "/components/loadmore/loadmore"
-  }
-}

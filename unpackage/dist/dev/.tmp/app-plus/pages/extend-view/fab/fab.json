@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "悬浮按钮",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "tui-button": "/components/extend/button/button",
-    "tui-fab": "/components/tui-fab/tui-fab"
-  }
-}

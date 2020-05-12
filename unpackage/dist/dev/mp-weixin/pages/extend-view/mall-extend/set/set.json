@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "账户设置",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "tui-list-cell": "/components/list-cell/list-cell",
-    "tui-button": "/components/extend/button/button"
-  }
-}

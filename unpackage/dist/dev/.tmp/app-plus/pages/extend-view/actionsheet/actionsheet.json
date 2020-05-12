@@ -1,9 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "操作菜单",
-  "usingComponents": {
-    "tui-button": "/components/button/button",
-    "tui-actionsheet": "/components/actionsheet/actionsheet"
-  }
-}

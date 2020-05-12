@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "数字输入框 ",
-  "titleBarColor": "#fff",
-  "usingComponents": {
-    "tui-numberbox": "/components/numberbox/numberbox"
-  }
-}
