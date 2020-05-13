@@ -1,5 +1,5 @@
 <template>
-	<text class="tui-icon-class tui-icon" :class="'tui-icon-' + name" :style="{ color: color, fontSize: size + 'px', fontWeight: bold ? 'bold' : 'normal',margin:margin }"
+	<text class="tui-icon-class tui-icon" :class="'tui-icon-' + name" :style="{ color: color, fontSize: size + unit, fontWeight: bold ? 'bold' : 'normal',margin:margin }"
 	 @tap="handleClick"></text>
 
 </template>
@@ -15,6 +15,11 @@
 			size: {
 				type: Number,
 				default: 32
+			},
+			//px或者rpx
+			unit:{
+				type: String,
+				default: 'px'
 			},
 			color: {
 				type: String,

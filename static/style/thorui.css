@@ -1136,6 +1136,7 @@
 	padding-right: 0;
 	overflow: visible;
 }
+
 .tui-btn-base {
 	width: auto;
 	/* #ifdef MP-ALIPAY */
@@ -2256,29 +2257,35 @@
 }
 
 /*Input输入框*/
-.tui-input-item{
+.tui-input-item {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	font-size: 32rpx;
-	
+
 }
-.tui-input{
+
+.tui-input {
 	flex: 1;
+	font-size: 32rpx;
+	overflow: visible;
 }
-.tui-input-title{
+
+.tui-input-title {
 	min-width: 140rpx;
 	padding-right: 12rpx;
 	flex-shrink: 0;
 }
-.tui-phcolor{
+
+.tui-phcolor {
 	color: #ccc;
 	font-size: 32rpx;
+	overflow: visible;
 }
 
-.tui-input-border{
+.tui-input-border {
 	/* border: 1rpx solid #eaeef1; */
-	padding:20rpx 30rpx;
+	padding: 20rpx 30rpx;
 	border-radius: 4rpx;
 	position: relative;
 	font-size: 32rpx;
@@ -2300,7 +2307,7 @@
 	pointer-events: none;
 }
 
-.tui-text-right{
+.tui-text-right {
 	text-align: right;
 }
 

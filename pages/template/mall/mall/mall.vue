@@ -4,8 +4,8 @@
 		<view class="tui-tabbar">
 			<block v-for="(item, index) in tabbar" :key="index">
 				<view class="tui-tabbar-item" :class="[current == index ? 'tui-item-active' : '']" :data-index="index" @tap="tabbarSwitch">
-					<view :class="[index == 0 ? 'tui-ptop-4' : '']">
-						<tui-icon :name="current == index ? item.icon + '-fill' : item.icon" :color="current == index ? '#E41F19' : '#666'" :size="item.size"></tui-icon>
+					<view :class="[index ==0 ? 'tui-ptop-4' : '']">
+						<tui-icon :name="current == index ? item.icon + '-fill' : item.icon" :color="current == index ? '#E41F19' : '#666'" :size="item.size" unit="rpx"></tui-icon>
 					</view>
 					<view class="tui-scale">{{ item.text }}</view>
 				</view>
@@ -15,11 +15,12 @@
 		<!--header-->
 		<view class="tui-header">
 			<view class="tui-category" hover-class="opcity" :hover-stay-time="150" @tap="classify">
-				<tui-icon name="manage-fill" color="#fff" :size="22"></tui-icon>
+				<tui-icon name="manage-fill" color="#fff" :size="44" unit="rpx"></tui-icon>
 				<view class="tui-category-scale">分类</view>
 			</view>
 			<view class="tui-rolling-search">
-				<icon type="search" :size="13" color="#999"></icon>
+				<tui-icon name="search-2" :size="32" unit="rpx"></tui-icon>
+				<!-- <icon type="search" :size="13" color="#999"></icon> -->
 				<swiper vertical autoplay circular interval="8000" class="tui-swiper">
 					<swiper-item v-for="(item, index) in hotSearch" :key="index" class="tui-swiper-item" @tap="search">
 						<view class="tui-hot-item">{{ item }}</view>
@@ -69,7 +70,7 @@
 		<view class="tui-product-box tui-pb-20 tui-bg-white">
 			<view class="tui-group-name" @tap="more">
 				<text>新人专享</text>
-				<tui-icon name="arrowright" :size="20" color="#555"></tui-icon>
+				<tui-icon name="arrowright" :size="42" unit="rpx" color="#555"></tui-icon>
 			</view>
 			<view class="tui-activity-box">
 				<image src="/static/images/mall/activity/activity_1.jpg" class="tui-activity-img" mode="widthFix" @tap="coupon"></image>
@@ -80,7 +81,7 @@
 		<view class="tui-product-box tui-pb-20 tui-bg-white">
 			<view class="tui-group-name" @tap="more">
 				<text>新品推荐</text>
-				<tui-icon name="arrowright" :size="20" color="#555"></tui-icon>
+				<tui-icon name="arrowright" :size="42" unit="rpx" color="#555"></tui-icon>
 			</view>
 			<view class="tui-new-box">
 				<view class="tui-new-item" :class="[index != 0 && index != 1 ? 'tui-new-mtop' : '']" v-for="(item, index) in newProduct" :key="index" @tap="detail">
@@ -159,22 +160,22 @@ export default {
 				{
 					icon: 'home',
 					text: '首页',
-					size: 21
+					size: 48
 				},
 				{
-					icon: 'category',
+					icon: 'manage',
 					text: '分类',
-					size: 24
+					size: 54
 				},
 				{
 					icon: 'cart',
 					text: '购物车',
-					size: 22
+					size: 48
 				},
 				{
 					icon: 'people',
 					text: '我的',
-					size: 24
+					size: 52
 				}
 			],
 			hotSearch: ['休闲零食', '自热火锅', '小冰箱迷你'],
@@ -470,7 +471,7 @@ page {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 	font-size: 24rpx;
 	color: #666;
 	height: 80rpx;

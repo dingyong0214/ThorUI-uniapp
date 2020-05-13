@@ -24,6 +24,7 @@ button::after {
 .tui-phcolor {
 	color: #ccc;
 	font-size: 32rpx;
+	overflow: visible;
 }
 
 
