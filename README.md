@@ -13,7 +13,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 # ThorUI组件文档
 
-[http://www.donarui.com/](http://www.donarui.com/)
+[https://www.thorui.cn/doc](https://www.thorui.cn/doc)
 
 | ![](https://thorui.cn/img/V132/qq_3.jpg)  |![](https://thorui.cn/img/V132/qq_new.jpg)  |
 | ------------ | ------------ |
