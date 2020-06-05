@@ -3,7 +3,7 @@ import App from './App'
 import store from './store'
 import tui from './common/httpRequest'
 Vue.config.productionTip = false
-// #ifdef H5
+// #ifdef H5 
 window.QQmap = null;
 // #endif
 // #ifndef MP-TOUTIAO
