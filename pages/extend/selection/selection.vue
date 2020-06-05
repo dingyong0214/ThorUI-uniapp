@@ -6,6 +6,10 @@
 		</view>
 		<view class="tui-title">传入所有数据</view>
 		<tui-cascade-selection height="200px" :itemList="itemList" @complete="complete"></tui-cascade-selection>
+		
+		<view class="tui-title">设置默认数据</view>
+		<tui-cascade-selection height="200px" :itemList="itemList" :defaultItemList="defaultItemList" @complete="complete"></tui-cascade-selection>
+		
 
 		<view class="tui-title">请求返回子级数据（8级数据）</view>
 		<tui-cascade-selection
@@ -39,8 +43,60 @@ export default {
 			itemList: cityData,
 			itemList2: [],
 			receiveData: [],
-			reset:0,
-			show:false
+			reset: 0,
+			show: false,
+			defaultItemList: [
+				{
+					text: '安徽省',
+					subText: '',
+					value: '340000',
+					src: '',
+					index: 1,
+					list: [{ text: '北京市', value: '110000' }, { text: '安徽省', value: '340000' }]
+				},
+				{
+					text: '阜阳市',
+					subText: '',
+					value: '341200',
+					src: '',
+					index: 10,
+					list: [
+						{ text: '合肥市', value: '340100' },
+						{ text: '芜湖市', value: '340200' },
+						{ text: '蚌埠市', value: '340300' },
+						{ text: '淮南市', value: '340400' },
+						{ text: '马鞍山市', value: '340500' },
+						{ text: '淮北市', value: '340600' },
+						{ text: '铜陵市', value: '340700' },
+						{ text: '安庆市', value: '340800' },
+						{ text: '黄山市', value: '341000' },
+						{ text: '滁州市', value: '341100' },
+						{ text: '阜阳市', value: '341200' },
+						{ text: '宿州市', value: '341300' },
+						{ text: '六安市', value: '341500' },
+						{ text: '亳州市', value: '341600' },
+						{ text: '池州市', value: '341700' },
+						{ text: '宣城市', value: '341800' }
+					]
+				},
+				{
+					text: '颍上县',
+					subText: '',
+					value: '341226',
+					src: '',
+					index: 6,
+					list: [
+						{ text: '颍州区', value: '341202' },
+						{ text: '颍东区', value: '341203' },
+						{ text: '颍泉区', value: '341204' },
+						{ text: '临泉县', value: '341221' },
+						{ text: '太和县', value: '341222' },
+						{ text: '阜南县', value: '341225' },
+						{ text: '颍上县', value: '341226' },
+						{ text: '界首市', value: '341282' }
+					]
+				}
+			]
 		};
 	},
 	onLoad() {
@@ -236,19 +292,19 @@ export default {
 			console.log(e);
 			this.tui.toast('您选择的数据为：' + e.text);
 		},
-		selectAddr(){
-			this.show=true
+		selectAddr() {
+			this.show = true;
 		},
-		close(){
-			this.show=false
+		close() {
+			this.show = false;
 		},
-		complete3(e){
+		complete3(e) {
 			this.tui.toast('您选择的数据为：' + e.text);
-			this.close()
-			setTimeout(()=>{
+			this.close();
+			setTimeout(() => {
 				//重置数据
 				this.reset++;
-			},300)
+			}, 300);
 		}
 	}
 };
@@ -285,10 +341,10 @@ export default {
 }
 .tui-btn-box {
 	width: 100%;
-	padding:80rpx 30rpx;
+	padding: 80rpx 30rpx;
 	box-sizing: border-box;
 }
-.tui-header{
+.tui-header {
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -301,7 +357,7 @@ export default {
 	overflow: hidden;
 	position: relative;
 }
-.tui-icon-close{
+.tui-icon-close {
 	position: absolute;
 	right: 30rpx;
 	top: 50%;

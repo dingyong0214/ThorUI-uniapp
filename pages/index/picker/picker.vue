@@ -38,7 +38,7 @@
 					let city = this.selectList[value[0]].children[value[1]].text
 					let district = this.selectList[value[0]].children[value[1]].children[value[2]].text
 					this.text = provice + " " + city + " " + district;
-					this.id = this.selectList[value[0]].children[value[1]].children[value[2]].id
+					this.id = this.selectList[value[0]].children[value[1]].children[value[2]].value
 				}
 			},
 			toArr(object) {

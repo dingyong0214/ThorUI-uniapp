@@ -235,7 +235,7 @@ export default {
 	top: 0;
 	left: 0;
 	transform: scaleY(0.5) translateZ(0);
-	transform-origin: 0 100%;
+	transform-origin: 0 0;
 	z-index: 1000;
 }
 .tui-remove-splitLine::before {
@@ -247,7 +247,6 @@ export default {
 	height: 100rpx;
 	position: relative;
 	box-sizing: border-box;
-	position: relative;
 }
 
 .tui-item-inner {

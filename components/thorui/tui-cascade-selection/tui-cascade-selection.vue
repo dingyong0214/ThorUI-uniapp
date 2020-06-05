@@ -55,6 +55,7 @@
 
 <script>
 export default {
+	name: 'tuiCascadeSelection',
 	props: {
 		/**
 			 * 如果下一级是请求返回，则为第一级数据，否则所有数据
@@ -77,6 +78,22 @@ export default {
 			default: () => {
 				return [];
 			}
+		},
+		/*
+		   初始化默认选中数据
+		   [{
+			text: "",//选中text
+			subText: '',//选中subText
+			value: '',//选中value
+			src: '', //选中src，没有则传空或不传
+			index: 0, //选中数据在当前layer索引
+			list: [{src: "", text: "", subText: "", value: 101}] //所有layer数据集合
+		  }];
+		    
+		   */
+		defaultItemList: {
+			type: Array,
+			value: []
 		},
 		//是否显示header底部细线
 		headerLine: {
@@ -237,7 +254,19 @@ export default {
 		}
 	},
 	created() {
-		this.initData(this.itemList, -1);
+		let defaultItemList = this.defaultItemList || [];
+		if (defaultItemList.length > 0) {
+			defaultItemList.map(item => {
+				item.scrollViewId = `id_${item.index}`;
+			});
+			this.selectedArr = defaultItemList;
+			this.currentTab = defaultItemList.length - 1;
+			this.$nextTick(() => {
+				this.checkCor();
+			});
+		} else {
+			this.initData(this.itemList, -1);
+		}
 	},
 	data() {
 		return {
@@ -291,7 +320,6 @@ export default {
 		},
 		//滚动切换
 		switchTab: function(e) {
-			let that = this;
 			this.currentTab = e.detail.current;
 			this.checkCor();
 		},
@@ -309,8 +337,9 @@ export default {
 				setTimeout(() => {
 					let val = item.index < 2 ? 0 : Number(item.index - 2);
 					item.scrollViewId = `id_${val}`;
-				}, 1);
+				}, 2);
 			});
+			
 			if (this.currentTab > 1) {
 				this.scrollViewId = `id_${this.currentTab - 1}`;
 			} else {
@@ -343,7 +372,7 @@ export default {
 				if (layer == -1) return;
 				//完成选择
 				let result = JSON.parse(JSON.stringify(this.selectedArr));
-				let lastItem = result[result.length - 1];
+				let lastItem = result[result.length - 1] || {};
 				let text = '';
 				result.map(item => {
 					text += item.text;

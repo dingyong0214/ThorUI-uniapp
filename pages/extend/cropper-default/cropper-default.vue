@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<tui-image-cropper :lockRatio="true" :imageUrl="imageUrl" @ready="ready" @cropper="cropper"></tui-image-cropper>
+		<tui-picture-cropper :lockRatio="true" :imageUrl="imageUrl" @ready="ready" @cropper="cropper"></tui-picture-cropper>
 	</view>
 </template>
 

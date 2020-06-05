@@ -2,7 +2,7 @@
 	<view class="container">
 		<tui-list-cell :hover="false" :lineLeft="false">
 			<view class="tui-cell-input">
-				<input :value="nickname" placeholder="请输入昵称" placeholder-class="tui-phcolor" type="text" :auto-focus="true" :focus="true" maxlength="40" @input="inputEmail" />
+				<input :value="nickname" placeholder="请输入昵称" placeholder-class="tui-phcolor" type="text" :auto-focus="true" :focus="true" maxlength="40" @input="inputNickname" />
 			<!-- 	<view class="tui-icon tui-icon-close_fill" v-show="nickname" @tap="clearInput"></view> -->
 			   <icon type="clear" :size="14" color="#bfbfbf" v-show="nickname" @tap="clearInput"></icon>
 			</view>
@@ -21,7 +21,7 @@ export default {
 		};
 	},
 	methods: {
-		inputEmail(e) {
+		inputNickname(e) {
 			this.nickname = e.detail.value;
 		},
 		clearInput() {

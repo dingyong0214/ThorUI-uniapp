@@ -22,7 +22,7 @@
 		</view>
 
 		<view class="middle-container">
-			<view data-url="../myWashTicket/myWashTicket" @tap="tapEvent" data-index="1" class="middle-item" hover-class="opcity" :hover-stay-time="150">
+			<view @tap="tapEvent" data-index="1" class="middle-item" hover-class="opcity" :hover-stay-time="150">
 				<image class="ticket-img" src="/static/images/my/thorui.png"></image>
 				<text class="middle-tag">Thor UI</text>
 			</view>

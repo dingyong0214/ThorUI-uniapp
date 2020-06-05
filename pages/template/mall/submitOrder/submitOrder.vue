@@ -376,7 +376,7 @@
 		font-size: 26rpx;
 		box-shadow: 0 0 1px rgba(0, 0, 0, .3);
 		padding-bottom: env(safe-area-inset-bottom);
-		z-index: 999;
+		z-index: 996;
 	}
 
 	.tui-pr-30 {

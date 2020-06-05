@@ -115,7 +115,7 @@ export default {
 .tui-list-cell::after {
 	content: '';
 	position: absolute;
-	border-bottom: 1rpx solid #eaeef1;
+	border-bottom: 1px solid #eaeef1;
 	-webkit-transform: scaleY(0.5) translateZ(0);
 	transform: scaleY(0.5) translateZ(0);
 	transform-origin: 0 100%;

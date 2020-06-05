@@ -180,9 +180,6 @@
 				})
 			}
 		},
-		/**
-		 * 页面相关事件处理函数--监听用户下拉动作
-		 */
 		onPullDownRefresh: function() {
 			//延时为了看效果
 			setTimeout(() => {
@@ -194,10 +191,6 @@
 				this.tui.toast("刷新成功")
 			}, 200)
 		},
-
-		/**
-		 * 页面上拉触底事件的处理函数
-		 */
 		onReachBottom: function() {
 			if (!this.pullUpOn) return;
 			this.loadding = true;
@@ -266,7 +259,6 @@
 	}
 
 	.pro-tit {
-		/* font-size:  */
 		color: #2e2e2e;
 		font-size: 26rpx;
 		word-break: break-all;

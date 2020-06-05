@@ -166,8 +166,6 @@ export default {
 	color: #fff;
 }
 .tui-share-btn {
-}
-.tui-share-btn {
 	background: transparent !important;
 	padding: 0;
 	margin: 0;

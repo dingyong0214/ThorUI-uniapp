@@ -27,7 +27,7 @@
 			return {
 				pageIndex: 1,
 				newsList: [{
-					title: '温故知"心"习近平这些话要牢记',
+					title: '温故知"心"老师们这些话要牢记',
 					img: 1,
 					source: "央视新闻网",
 					label: 1
@@ -67,7 +67,7 @@
 					source: "粤港精英联盟",
 					label: 4
 				}, {
-					title: '温故知"心"习近平这些话要牢记',
+					title: '温故知"心"老师们这些话要牢记',
 					img: 0,
 					source: "央视新闻网",
 					label: 3
@@ -78,7 +78,7 @@
 					label: 2
 				}],
 				loadData: [{
-					title: '温故知"心"习近平这些话要牢记',
+					title: '温故知"心"老师们这些话要牢记',
 					img: 1,
 					source: "央视新闻网",
 					label: 1
@@ -118,7 +118,7 @@
 					source: "粤港精英联盟",
 					label: 4
 				}, {
-					title: '温故知"心"习近平这些话要牢记',
+					title: '温故知"心"老师们这些话要牢记',
 					img: 3,
 					source: "央视新闻网",
 					label: 0

@@ -24,7 +24,7 @@
 				<tui-button type="white" shape="circle" @click="change(6)">拓展按钮无图标展示</tui-button>
 			</view>
 		</view>
-		<tui-fab :left="left" :right="right" :bottom="bottom" :bgColor="bgColor" :btnList="btnList" @click="onClick"></tui-fab>
+		<tui-fab v-if="show" :left="left" :right="right" :bottom="bottom" :bgColor="bgColor" :btnList="btnList" @click="onClick"></tui-fab>
 	</view>
 </template>
 
@@ -105,11 +105,15 @@
 					fontSize: 28,
 					//字体颜色
 					color: "#fff"
-				}]
+				}],
+				show: false
 			}
 		},
 		onLoad() {
 			this.btnList = [...this.list]
+			setTimeout(() => {
+				this.show = true
+			}, this.tui.isAndroid()?100:0)
 		},
 		methods: {
 			change(type) {
@@ -148,7 +152,7 @@
 						break;
 					case 0:
 						uni.navigateTo({
-							url:"/pages/common/about/about"
+							url: "/pages/common/about/about"
 						})
 						break;
 					case 1:

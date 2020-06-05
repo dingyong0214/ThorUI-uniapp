@@ -29,7 +29,7 @@
 			},
 			mode: {
 				type: String,
-				default: 'left' // left right
+				default: 'true' // left right
 			}
 		},
 		methods: {

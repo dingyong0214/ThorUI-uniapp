@@ -26,9 +26,7 @@
 				<view class="tui-send-box">
 					<view class="tui-icon tui-icon-im_voice" v-if="!isVoice && !content" @tap="switchVoice"></view>
 					<view class="tui-icon tui-icon-im_keyboard" v-if="isVoice && !content" @tap="switchInput"></view>
-					<view class="tui-btn-send" v-if="content" :style="{ color: color }" hover-class="tui-opcity" :hover-stay-time="150" @click="hideKeyboard">
-						{{ sendText }}
-					</view>
+					<view class="tui-btn-send" v-if="content" :style="{ color: color }" hover-class="tui-opcity" :hover-stay-time="150" @taps="hideKeyboard">{{ sendText }}</view>
 				</view>
 			</view>
 			<view class="tui-reply-more">
@@ -108,8 +106,10 @@ export default {
 	created() {
 		//键盘高度监听
 		this.faceList = emoji.en;
+		let safeH = this.tui.isPhoneX() ? 34 : 0;
 		uni.onKeyboardHeightChange(res => {
-			this.keyboardHeight = res.height;
+			let h = res.height - safeH;
+			this.keyboardHeight = h > 0 ? h : 0;
 			//去除 完成那一栏高度影响
 			setTimeout(() => {
 				if (this.showIndex == 1 && this.keyboardHeight != 0) {
@@ -265,13 +265,14 @@ export default {
 			flex: 1;
 			/* #ifndef MP-WEIXIN */
 			min-height: 46rpx;
-			padding: $uni-spacing-col-base;
+			padding: $uni-spacing-col-base 0;
 			/* #endif */
 			/* #ifdef MP-WEIXIN */
 			min-height: 78rpx;
 			/* #endif */
 			background-color: $uni-bg-color;
 			border-radius: 8rpx;
+			margin: 0;
 		}
 
 		.tui-chat-voice_btn {

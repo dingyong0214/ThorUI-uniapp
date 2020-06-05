@@ -1,8 +1,9 @@
 <template>
 	<view class="container">
-		<view class="btn-box"><tui-button shape="circle" @click="showModal">从底部弹出</tui-button></view>
-		<view class="btn-box "><tui-button shape="circle" @click="rDrawer">从右边弹出</tui-button></view>
-		<view class="btn-box "><tui-button shape="circle" @click="lDrawer">从左边弹出</tui-button></view>
+		<view class="btn-box"><tui-button shape="circle" shadow @click="showModal">从底部弹出</tui-button></view>
+		<view class="btn-box "><tui-button shape="circle" shadow @click="rDrawer">从右边弹出</tui-button></view>
+		<view class="btn-box "><tui-button shape="circle" shadow @click="lDrawer">从左边弹出</tui-button></view>
+		<view class="btn-box"><tui-button shape="circle" shadow @click="topPopup">从顶部部弹出</tui-button></view>
 
 		<!--底部抽屉-->
 		<tui-bottom-popup :show="bottomPopup" :radius="false" @close="hideModal">
@@ -102,6 +103,9 @@ export default {
 		},
 		lDrawer() {
 			this.leftDrawer = true;
+		},
+		topPopup(){
+			this.tui.href("/pages/extend/popup/popup")
 		}
 	}
 };

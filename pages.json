@@ -59,7 +59,7 @@
 			// #ifdef H5
 			"titleNView": false,
 			// #endif
-			"backgroundColorTop": "#5677FC",
+			"navigationBarTitleText": "未能连接到互联网",
 			"app-plus": {
 				"bounce": "vertical"
 			}
@@ -80,6 +80,18 @@
 		"style": {
 			"app-plus": {
 				"bounce": "vertical"
+			}
+		}
+	}, {
+		"path": "pages/common/update/update",
+		"style": {
+			"backgroundColorTop": "#fff",
+			"backgroundColorBottom": "#fff",
+			"app-plus": {
+				"navigationBarTitleText": "",
+				"titleNView": false,
+				"scrollIndicator": "none",
+				"popGesture": "none"
 			}
 		}
 	}, {
@@ -363,6 +375,9 @@
 		"pages": [{
 			"path": "icon/icon",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "icon",
@@ -373,6 +388,9 @@
 		}, {
 			"path": "button/button",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "Button",
@@ -383,6 +401,9 @@
 		}, {
 			"path": "tag/tag",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "Tag",
@@ -394,6 +415,9 @@
 		}, {
 			"path": "badge/badge",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "Badge",
@@ -404,6 +428,9 @@
 		}, {
 			"path": "list/list",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "List",
@@ -414,6 +441,9 @@
 		}, {
 			"path": "card/card",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"backgroundColorTop": "#EDEDED",
 				"backgroundColorBottom": "#EDEDED",
 				"navigationBarBackgroundColor": "#FFFFFF",
@@ -426,6 +456,9 @@
 		}, {
 			"path": "grid/grid",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "Grid",
@@ -436,6 +469,9 @@
 		}, {
 			"path": "loading/loading",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "Loading",
@@ -446,6 +482,9 @@
 		}, {
 			"path": "footer/footer",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "Footer",
@@ -497,6 +536,9 @@
 		}, {
 			"path": "keyboard/keyboard",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "数字键盘",
@@ -529,6 +571,9 @@
 		}, {
 			"path": "timeaxis/timeaxis",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "时间轴",
 				"app-plus": {
 					"bounce": "vertical"
@@ -545,6 +590,9 @@
 		}, {
 			"path": "steps/steps",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "步骤条",
 				"app-plus": {
 					"bounce": "vertical"
@@ -553,6 +601,9 @@
 		}, {
 			"path": "calendar/calendar",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "日历",
@@ -563,6 +614,9 @@
 		}, {
 			"path": "popup/popup",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "弹层、下拉选择",
 				"mp-weixin": {
 					"disableScroll": true
@@ -580,6 +634,9 @@
 		}, {
 			"path": "actionsheet/actionsheet",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "操作菜单",
@@ -590,6 +647,9 @@
 		}, {
 			"path": "numberbox/numberbox",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "数字输入框",
@@ -600,6 +660,9 @@
 		}, {
 			"path": "rate/rate",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "Rate评分",
@@ -610,6 +673,9 @@
 		}, {
 			"path": "modal/modal",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "modal",
@@ -620,6 +686,9 @@
 		}, {
 			"path": "countdown/countdown",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "倒计时",
@@ -630,6 +699,9 @@
 		}, {
 			"path": "divider/divider",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "分隔符",
@@ -640,6 +712,9 @@
 		}, {
 			"path": "carousel/carousel",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
 				"backgroundColorTop": "#fff",
@@ -651,6 +726,9 @@
 		}, {
 			"path": "goTop/goTop",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "回到顶部",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -661,6 +739,9 @@
 		}, {
 			"path": "alert/alert",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "alert弹框",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -671,6 +752,9 @@
 		}, {
 			"path": "nodata/nodata",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "No Data",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -681,6 +765,9 @@
 		}, {
 			"path": "toast/toast",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "扩展toast",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -691,6 +778,9 @@
 		}, {
 			"path": "formValidation/formValidation",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "表单验证",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -701,6 +791,9 @@
 		}, {
 			"path": "picker-dateTime/picker-dateTime",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "日期时间选择",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -711,6 +804,9 @@
 		}, {
 			"path": "clipboard/clipboard",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "复制文本",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -721,6 +817,9 @@
 		}, {
 			"path": "fab/fab",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "悬浮按钮",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -731,6 +830,9 @@
 		}, {
 			"path": "tabbar/tabbar",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "Tabbar",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -741,6 +843,9 @@
 		}, {
 			"path": "tabs/tabs",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "tabs标签页",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -751,6 +856,9 @@
 		}, {
 			"path": "collapse/collapse",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "collapse折叠面板",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -761,6 +869,9 @@
 		}, {
 			"path": "upload/upload",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "图片上传",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -771,6 +882,9 @@
 		}, {
 			"path": "skeleton/skeleton",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "骨架屏",
@@ -781,6 +895,9 @@
 		}, {
 			"path": "request/request",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "网络请求",
@@ -791,6 +908,9 @@
 		}, {
 			"path": "luckdraw/luckdraw",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FC4034",
 				"navigationBarTitleText": "抽奖",
 				"app-plus": {
@@ -808,6 +928,9 @@
 		}, {
 			"path": "drawer/drawer",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "drawer 抽屉",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -818,6 +941,9 @@
 		}, {
 			"path": "swipeAction/swipeAction",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarTitleText": "滑动菜单",
 				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTextStyle": "black",
@@ -828,6 +954,9 @@
 		}, {
 			"path": "bottom-navigation/bottom-navigation",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "底部导航菜单",
@@ -840,6 +969,9 @@
 		}, {
 			"path": "selection/selection",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "级联选择",
@@ -850,6 +982,9 @@
 		}, {
 			"path": "cropper/cropper",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "图片裁剪",
@@ -860,6 +995,9 @@
 		}, {
 			"path": "circular-progress/circular-progress",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "圆形进度条",
@@ -900,6 +1038,9 @@
 		}, {
 			"path": "image/image",
 			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "图片组合",
@@ -930,6 +1071,107 @@
 			}
 		}, {
 			"path": "cropper-custom/cropper-custom",
+			"style": {
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "图片裁剪",
+				"titleNView": false,
+				"navigationStyle": "custom",
+				"mp-weixin": {
+					"disableScroll": true
+				},
+				"app-plus": {
+					"bounce": "none"
+				},
+				"mp-alipay": {
+					"allowsBounceVertical": "NO"
+				},
+				"mp-baidu": {
+					"disableScroll": true
+				}
+			}
+		}, {
+			"path": "color-analysis/color-analysis",
+			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
+				"navigationBarTitleText": "颜色分析器",
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"app-plus": {
+					"bounce": "vertical"
+				}
+			}
+		}, {
+			"path": "zhToPinYin/zhToPinYin",
+			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
+				"navigationBarTitleText": "中文转拼音",
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"app-plus": {
+					"bounce": "vertical"
+				}
+			}
+		}, {
+			"path": "stickyWxs/stickyWxs",
+			"style": {
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "吸顶容器wxs",
+				"app-plus": {
+					"bounce": "vertical"
+				}
+			}
+		}, {
+			"path": "round-progress/round-progress",
+			"style": {
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "圆形进度条",
+				"app-plus": {
+					"bounce": "vertical"
+				}
+			}
+		}, {
+			"path": "cropper-old/cropper-old",
+			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "图片裁剪",
+				"app-plus": {
+					"bounce": "vertical"
+				}
+			}
+		}, {
+			"path": "cropper-custom-old/cropper-custom-old",
+			"style": {
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "图片裁剪",
+				"titleNView": false,
+				"navigationStyle": "custom",
+				"mp-weixin": {
+					"disableScroll": true
+				},
+				"app-plus": {
+					"bounce": "none"
+				},
+				"mp-alipay": {
+					"allowsBounceVertical": "NO"
+				},
+				"mp-baidu": {
+					"disableScroll": true
+				}
+			}
+		}, {
+			"path": "cropper-default-old/cropper-default-old",
 			"style": {
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",

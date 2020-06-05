@@ -122,7 +122,7 @@
 </script>
 
 <style>
-	@import '@/static/style/thorui.css';
+	@import '../../../static/style/thorui.css';
 
 	.container {
 		padding: 30rpx;

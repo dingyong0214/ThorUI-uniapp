@@ -161,7 +161,7 @@
 						// #endif
 
 						// #ifdef MP
-						that.getAddress(res.longitude, res.latitude)
+						that.getAddress(that.longitude, that.latitude)
 						// #endif
 					}
 				})

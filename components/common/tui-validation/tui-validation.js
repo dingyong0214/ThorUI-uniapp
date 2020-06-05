@@ -1,6 +1,6 @@
 /**
  * 表单验证
- * @author dingyong
+ * @author echo.
  * @version 1.5.0
  **/
 

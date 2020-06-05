@@ -27,9 +27,7 @@ export default {
 		},
 		lastChild: {
 			type: Boolean,
-			default: function(e) {
-				return false;
-			}
+			default: false
 		}
 	},
 	methods: {
@@ -70,7 +68,7 @@ export default {
 }
 
 /* #ifndef APP-PLUS*/
- .tui-list-cell::after {
+.tui-list-cell::after {
 	content: '';
 	position: absolute;
 	border-bottom: 1rpx solid #eaeef1;
@@ -89,14 +87,34 @@ export default {
 .tui-title-box {
 	width: 690rpx;
 	flex: 1;
+	/* #ifdef APP-PLUS */
 	lines: 2;
+	/* #endif */
+
+	/* #ifndef APP-PLUS */
+	word-break: break-all;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	/* #endif */
 }
 
 .tui-cell-title {
 	font-size: 36rpx;
 	line-height: 56rpx;
 	flex: 1;
+	/* #ifdef APP-PLUS */
 	lines: 2;
+	/* #endif */
+
+	/* #ifndef APP-PLUS */
+	word-break: break-all;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	/* #endif */
 	text-overflow: ellipsis;
 	color: #333333;
 }

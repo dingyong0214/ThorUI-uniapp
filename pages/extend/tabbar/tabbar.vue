@@ -72,6 +72,7 @@
 		},
 		methods: {
 			tabbarSwitch(e) {
+				//获取登录状态，此处默认未登录
 				let isLogin=false
 				if(e.verify && !isLogin){
 					this.tui.toast("您还未登录，请先登录")

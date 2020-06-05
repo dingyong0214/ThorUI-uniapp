@@ -1,6 +1,6 @@
 <template>
 	<view @touchmove.stop.prevent>
-		<view class="tui-popup-class tui-bottom-popup" :class="{'tui-hidden':!show,'tui-popup-show':show,'tui-popup-radius':radius}" :style="{backgroundColor:backgroundColor,height:height?height+'rpx':'auto'}">
+		<view class="tui-popup-class tui-bottom-popup" :class="{'tui-popup-show':show,'tui-popup-radius':radius}" :style="{backgroundColor:backgroundColor,height:height?height+'rpx':'auto'}">
 			<slot></slot>
 		</view>
 		<view class="tui-popup-mask" :class="[show?'tui-mask-show':'']" v-if="mask" @tap="handleClose"></view>
@@ -55,7 +55,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: 99999;
+		z-index: 997;
 		/* visibility: hidden; */
 		opacity: 0;
 		transform: translate3d(0, 100%, 0);
@@ -83,7 +83,7 @@
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.6);
-		z-index: 99996;
+		z-index: 996;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		visibility: hidden;

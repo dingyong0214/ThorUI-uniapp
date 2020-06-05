@@ -18,7 +18,7 @@
 				<!--tips:sticky组件中最好不要嵌套其他自定义组件-->
 				<template v-slot:header>
 					<view class="tui-list-cell-divider">
-						{{list.letter}}
+						{{list.letter=="well"?"#":list.letter}}
 					</view>
 				</template>
 				<template v-slot:content>

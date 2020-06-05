@@ -9,12 +9,12 @@
 			<view class="tui-news-source">消息参考来源：体坛大精汇</view>
 
 			<view class="tui-operate-box">
-				<tui-tag padding="26rpx 52rpx" :type="isFabulous ? 'primary' : 'gray'" shape="circle" :plain="true" @click="btnFabulous">
+				<tui-tag padding="26rpx 56rpx" :type="isFabulous ? 'primary' : 'gray'" shape="circle" :plain="true" @click="btnFabulous">
 					<tui-icon :name="iconName(isFabulous)" :size="20" :color="iconColor"></tui-icon>
 					<text class="tui-black" :class="{ 'tui-primary': isFabulous }">{{ fabulous }}赞</text>
 				</tui-tag>
 				<button open-type="share" class="tui-share-btn" @tap="btnShare">
-					<tui-tag padding="26rpx 52rpx" type="gray" shape="circle" :plain="true">
+					<tui-tag padding="26rpx 60rpx" type="gray" shape="circle" :plain="true">
 						<tui-icon name="partake" :size="20" color="#333"></tui-icon>
 						<text class="tui-black">分享</text>
 					</tui-tag>
@@ -280,7 +280,6 @@
 				uni.navigateBack()
 			}
 		},
-		// 页面上拉触底事件的处理函数
 		onReachBottom: function() {
 			if (!this.pullUpOn) return;
 			this.loadding = true;
@@ -445,6 +444,8 @@
 
 	.tui-cell-last {
 		color: #5677fc;
+		display: flex;
+		align-items: center;
 	}
 
 	.tui-flex-1 {

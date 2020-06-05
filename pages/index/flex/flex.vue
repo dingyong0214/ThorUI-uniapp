@@ -81,7 +81,7 @@
 </script>
 
 <style>
-	@import '@/static/style/thorui.css';
+	@import '../../../static/style/thorui.css';
 
 	.header {
 		padding: 80rpx 60rpx 40rpx 60rpx;

@@ -32,7 +32,7 @@
 
 <script>
 export default {
-	name: 'tuiImage',
+	name: 'tuiImageGroup',
 	props: {
 		//图片集合
 		/*

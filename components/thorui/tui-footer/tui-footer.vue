@@ -67,12 +67,8 @@
 	.tui-fixed {
 		position: fixed;
 		z-index: 9999;
-		/* #ifdef H5 */
 		bottom: 0;
-		/* #endif */
-		/* #ifndef H5 */
-		bottom: env(safe-area-inset-bottom);
-		/* #endif */
+		left: 0;
 	}
 
 	.tui-footer-link {
@@ -116,6 +112,7 @@
 		color: #A7A7A7;
 		line-height: 1;
 		text-align: center;
-		padding-top: 16rpx
+		padding-top: 16rpx;
+		padding-bottom:env(safe-area-inset-bottom);
 	}
 </style>

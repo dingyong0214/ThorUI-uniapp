@@ -74,6 +74,38 @@
 
 /* color start*/
 
+.tui-color-primary {
+	color: #5677fc;
+}
+
+.tui-color-success {
+	color: #19be6b;
+}
+
+.tui-color-warning {
+	color: #ff7900;
+}
+
+.tui-color-error {
+	color: #EB0909;
+}
+
+.tui-color-blue {
+	color: #007AFF;
+}
+
+.tui-color-blue {
+	color: #007AFF;
+}
+
+.tui-color-white {
+	color: #ffffff;
+}
+
+.tui-color-pink {
+	color: #f74d54;
+}
+
 .tui-primary {
 	background-color: #5677fc !important;
 	color: #fff;

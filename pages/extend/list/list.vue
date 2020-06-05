@@ -32,7 +32,7 @@
 			<tui-list-cell @click="detail" :arrow="true" color="#19be6b">
 				无上下线条,可单独设置，改变颜色
 			</tui-list-cell>
-			<tui-list-cell @click="detail" :arrow="true">
+			<tui-list-cell unlined @click="detail" :arrow="true">
 				无上下线条,可单独设置，改变颜色
 			</tui-list-cell>
 		</tui-list-view>

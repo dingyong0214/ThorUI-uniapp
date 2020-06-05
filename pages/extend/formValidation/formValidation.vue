@@ -57,7 +57,7 @@
 					<input placeholder-class="tui-phcolor" class="tui-input" name="range" placeholder="请输入3-20之间的数" maxlength="50" type="number" />
 				</view>
 			</tui-list-cell>
-			<tui-list-cell :hover="false" :last="true">
+			<tui-list-cell :hover="false" unlined>
 				<view class="tui-line-cell">
 					<view class="tui-title">金额</view>
 					<input placeholder-class="tui-phcolor" class="tui-input" name="amount" placeholder="请输入金额,允许保留两位小数" maxlength="50"
@@ -168,6 +168,7 @@
 		color: #333;
 		padding-left: 20rpx;
 		flex: 1;
+		overflow: visible;
 	}
 
 	.radio-group {

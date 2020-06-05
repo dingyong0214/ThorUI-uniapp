@@ -91,10 +91,11 @@
 		content: '';
 		position: absolute;
 		border-bottom: 1rpx solid #e5e5e5;
-		-webkit-transform: scaleY(0.5);
-		transform: scaleY(0.5);
+		-webkit-transform: scaleY(0.5)  translateX(-50%);
+		transform: scaleY(0.5)  translateX(-50%);
 		width: 360rpx;
 		top: 18rpx;
+		left: 50%;
 	}
 
 	.tui-dot-text {

@@ -2,7 +2,8 @@
 	<view class="container">
 		<view class="header">
 			<view class="title">Image Cropper</view>
-			<view class="sub-title">图片裁剪：可设置裁剪框宽高，边缘线颜色，锁定裁剪框大小，是否可触摸旋转等</view>
+			<view class="sub-title">图片裁剪（wxs）：可设置裁剪框宽高，边缘线颜色，锁定裁剪框大小，是否可触摸旋转等</view>
+			<view class="tui-old-version" @tap="oldCropper">切换至旧版图片裁剪</view>
 		</view>
 		<view class="tui-btn-box">
 			<tui-button margin="36rpx 0 0" type="white" shape="circle" @click="chooseImage">组件默认使用</tui-button>
@@ -18,6 +19,7 @@ export default {
 	},
 	methods: {
 		chooseImage() {
+			//uni.chooseImage 返回的 tempFilePaths 如果为空，检查自己的开发工具是否为最新版
 			uni.chooseImage({
 				count: 1,
 				sizeType: ['original', 'compressed'],
@@ -30,6 +32,9 @@ export default {
 		},
 		customCropper() {
 			this.tui.href('../cropper-custom/cropper-custom');
+		},
+		oldCropper(){
+			this.tui.href('../cropper-old/cropper-old');
 		}
 	}
 };
@@ -62,5 +67,10 @@ export default {
 	width: 100%;
 	padding: 10rpx 40rpx;
 	box-sizing: border-box;
+}
+.tui-old-version {
+	font-size: 24rpx;
+	color: #5677fc;
+	padding-top: 18rpx;
 }
 </style>

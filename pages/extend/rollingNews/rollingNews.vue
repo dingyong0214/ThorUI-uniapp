@@ -118,7 +118,9 @@
 	}
 
 	.tui-notice {
-		transform: translateX(100%);
+		-webkit-backface-visibility: hidden;
+		-webkit-perspective: 1000;
+		transform: translate3d(100%, 0, 0);
 	}
 
 	.tui-animation {
@@ -128,21 +130,21 @@
 
 	@-webkit-keyframes tui-rolling {
 		0% {
-			transform: translateX(100%);
+			transform: translate3d(100%, 0, 0);
 		}
 
 		100% {
-			transform: translateX(-170%);
+			transform: translate3d(-170%, 0, 0);
 		}
 	}
 
 	@keyframes tui-rolling {
 		0% {
-			transform: translateX(100%);
+			transform: translate3d(100%, 0, 0);
 		}
 
 		100% {
-			transform: translateX(-170%);
+			transform: translate3d(-170%, 0, 0);
 		}
 	}
 

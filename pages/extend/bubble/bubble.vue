@@ -16,7 +16,7 @@
 			<image class="tui-user-avatar tui-mr" src="/static/images/news/avatar_2.jpg"></image>
 			<view class="tui-chat-box">
 				<view class="tui-user-name" v-if="false">张小飞</view>
-				<tui-bubble-popup direction="left" position="relative" :mask="false" :show="true" triangleLeft="-24rpx" triangleTop="30rpx"
+				<tui-bubble-popup direction="left" position="relative" :mask="false" :show="true" triangleLeft="-22rpx" triangleTop="30rpx"
 				 width="100%" backgroundColor="#ff7900">
 					<view class="tui-chat-text">各位下午好</view>
 				</tui-bubble-popup>
@@ -25,7 +25,7 @@
 		<view class="tui-chat-item tui-flex-end">
 			<view class="tui-chat-box">
 				<view class="tui-user-name" v-if="false">小飞鱼</view>
-				<tui-bubble-popup direction="right" position="relative" :mask="false" :show="true" triangleRight="-24rpx"
+				<tui-bubble-popup direction="right" position="relative" :mask="false" :show="true" triangleRight="-22rpx"
 				 triangleTop="30rpx" width="100%" :flexEnd="true" backgroundColor="#19be6b">
 					<view class="tui-chat-text">各位下午好,欢迎来到...直播间直播间直播间直播间</view>
 				</tui-bubble-popup>

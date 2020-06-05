@@ -65,7 +65,6 @@
 			this.amapPlugin = new amap.AMapWX({
 				key: this.key
 			});
-			const that = this;
 			setTimeout(() => {
 				let winHeight = uni.getSystemInfoSync().windowHeight;
 				this.scrollH = winHeight - 44 - uni.upx2px(600);

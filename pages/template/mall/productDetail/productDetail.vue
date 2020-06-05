@@ -511,7 +511,7 @@
 		position: fixed;
 		left: 0;
 		top: 0;
-		z-index: 998;
+		z-index: 995;
 	}
 
 	.tui-header {
@@ -745,10 +745,10 @@
 
 	.tui-scale-collection {
 		transform: scale(0.7);
-		transform-origin: center center;
+		transform-origin: center 90%;
 		line-height: 24rpx;
 		font-weight: normal;
-		padding-top: 4rpx;
+		margin-top: 4rpx;
 	}
 
 	.tui-pro-titbox {

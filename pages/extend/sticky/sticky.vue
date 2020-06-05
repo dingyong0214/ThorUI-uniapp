@@ -5,6 +5,9 @@
 			<view>2、对sticky-item容器进行绝对定位，底部内容部分使用外边距撑开sticky-item高度，减缓页面抖动</view>
 			<view @tap="sticky(1)">3、<text class="tui-color-primary">查看基本示例</text></view>
 			<view @tap="sticky(2)">4、<text class="tui-color-primary">查看异步加载示例</text></view>
+			<!-- #ifdef APP-PLUS || H5 || MP-WEIXIN -->
+			<view @tap="sticky(3)">5、<text class="tui-color-primary">wxs吸顶示例</text></view>
+			<!-- #endif -->
 		</view>
 		<tui-sticky :scrollTop="scrollTop" stickyHeight="104rpx" container>
 			<template v-slot:header>
@@ -301,7 +304,12 @@
 				this.tui.toast("功能开发中~")
 			},
 			sticky(type) {
-				let url = type == 1 ? '../stickyBasic/stickyBasic' : '../stickyAsync/stickyAsync';
+				let url="../stickyBasic/stickyBasic"
+				if(type==2){
+					url="../stickyAsync/stickyAsync"
+				}else if(type==3){
+					url="../stickyWxs/stickyWxs"
+				}
 				this.tui.href(url)
 			}
 		},

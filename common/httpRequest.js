@@ -39,6 +39,16 @@ const tui = {
 		const res = uni.getSystemInfoSync();
 		return res.platform.toLocaleLowerCase() == "android"
 	},
+	isPhoneX: function() {
+		const res = uni.getSystemInfoSync();
+		let iphonex = false;
+		let models=['iphonex','iphonexr','iphonexsmax','iphone11','iphone11pro','iphone11promax']
+		const model=res.model.replace(/\s/g,"").toLowerCase()
+		if (models.includes(model)) {
+			iphonex = true;
+		}
+		return iphonex;
+	},
 	constNum: function() {
 		let time = 0;
 		// #ifdef APP-PLUS
@@ -165,7 +175,7 @@ const tui = {
 		// #endif
 	},
 	//设置用户信息
-	setUserInfo: function(mobile,token) {
+	setUserInfo: function(mobile, token) {
 		//uni.setStorageSync("thorui_token", token)
 		uni.setStorageSync("thorui_mobile", mobile)
 	},

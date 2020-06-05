@@ -36,7 +36,7 @@
 				<!-- #endif -->
 				<!-- #ifdef MP -->
 				<view class="tui-set-box">
-					<view class="tui-icon-box tui-icon-message" @tap="href(1)">
+					<view class="tui-icon-box tui-icon-message" @tap="href(7)">
 						<tui-icon name="message" color="#fff" :size="26"></tui-icon>
 						<view class="tui-badge tui-badge-white">1</view>
 					</view>

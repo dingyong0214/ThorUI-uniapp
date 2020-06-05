@@ -1,0 +1,44 @@
+var stickyChange = function (scrollTop, oldScrollTop, ownerInstance, ins) {
+  if(!oldScrollTop) return false;
+  var dataset = ins.getDataset()
+  var top =+dataset.top;
+  var height = + dataset.height;
+  var stickyTop = +dataset.stickytop;
+  var isNativeHeader=dataset.isnativeheader;
+  var isFixed = false;
+  var distance=stickyTop
+  // #ifdef H5
+  if (isNativeHeader) {
+  	distance = distance - 44
+  	distance = distance < 0 ? 0 : distance
+  }
+  // #endif
+  if (dataset.container) {
+    isFixed = (scrollTop + distance >= top && scrollTop + distance < top + height) ? true : false
+  } else {
+    isFixed = scrollTop + distance >= top ? true : false
+  }
+  if (isFixed) {
+    ownerInstance.selectComponent('.tui-sticky-bar').setStyle({
+      "top": stickyTop + 'px'
+    }).addClass('tui-sticky-fixed')
+    ownerInstance.selectComponent('.tui-sticky-seat').setStyle({
+      "display": 'block'
+    })
+  } else {
+    ownerInstance.selectComponent('.tui-sticky-bar').setStyle({
+      "top": 'auto'
+    }).removeClass('tui-sticky-fixed')
+    ownerInstance.selectComponent('.tui-sticky-seat').setStyle({
+      "display": 'none'
+    })
+  }
+  ownerInstance.triggerEvent("sticky", {
+    isFixed: isFixed,
+    index: parseInt(dataset.index)
+  })
+}
+
+module.exports = {
+  stickyChange: stickyChange
+}

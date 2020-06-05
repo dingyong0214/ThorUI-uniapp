@@ -114,17 +114,9 @@
 				default: 'backwards'
 			}
 		},
-		computed: {
-			canvasChange() {
-				return `${this.diam},${this.height},${this.lineWidth}`
-			}
-		},
 		watch: {
 			percentage(val) {
 				this.initDraw()
-			},
-			canvasChange() {
-				this.initDraw(true)
 			}
 		},
 		data() {

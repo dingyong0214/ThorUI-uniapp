@@ -63,7 +63,7 @@
 	</view>
 </template>
 
-<script scoped>
+<script>
 /**
  * 注意：组件中使用的图片地址，将文件复制到自己项目中
  * 如果图片位置与组件同级，编译成小程序时图片会丢失
@@ -79,9 +79,9 @@ export default {
 			default: ''
 		},
 		/*
-		 默认正方形，可修改大小控制比例
-		 裁剪框高度 px
-		*/
+			 默认正方形，可修改大小控制比例
+			 裁剪框高度 px
+			*/
 		height: {
 			type: Number,
 			default: 280
@@ -157,12 +157,12 @@ export default {
 		//生成的图片尺寸相对剪裁框的比例
 		scaleRatio: {
 			type: Number,
-			default: 3
+			default: 2
 		},
 		//图片的质量，取值范围为 (0, 1]，不在范围内时当作1.0处理
 		quality: {
 			type: Number,
-			default: 1
+			default: 0.8
 		},
 		//图片旋转角度
 		rotateAngle: {
@@ -196,7 +196,7 @@ export default {
 		},
 		//值发生改变开始裁剪（custom为true时生效）
 		startCutting: {
-			type: [Number,Boolean],
+			type: [Number, Boolean],
 			default: 0
 		},
 		/**
@@ -254,8 +254,7 @@ export default {
 	computed: {
 		imgTransform: function() {
 			return `translate3d(${this.imgLeft - this.imgWidth / 2}px,${this.imgTop - this.imgHeight / 2}px,0) scale(${this.scale}) rotate(${this.angle}deg)`;
-		},
-		
+		}
 	},
 	watch: {
 		imageUrl(val, oldVal) {
@@ -304,12 +303,12 @@ export default {
 			this.imgMarginDetectionScale();
 		},
 		cutAnimation(val) {
-			//开启过渡300毫秒之后自动关闭
+			//开启过渡260毫秒之后自动关闭
 			clearTimeout(this.cutAnimationTime);
 			if (val) {
 				this.cutAnimationTime = setTimeout(() => {
 					this.cutAnimation = false;
-				}, 300);
+				}, 260);
 			}
 		},
 		limitMove(val) {
@@ -418,10 +417,10 @@ export default {
 							y: 0,
 							width: this.canvasWidth * this.scaleRatio,
 							height: Math.round(this.canvasHeight * this.scaleRatio),
-							success(res) {
+							success: res => {
 								const arrayBuffer = new Uint8Array(res.data);
 								const base64 = uni.arrayBufferToBase64(arrayBuffer);
-								data.base64 = dataURL;
+								data.base64 = base64;
 								this.loadding && uni.hideLoading();
 								this.$emit('cropper', data);
 							}
@@ -438,6 +437,9 @@ export default {
 									// #endif
 									this.loadding && uni.hideLoading();
 									this.$emit('cropper', data);
+								},
+								fail(res) {
+									console.log(res);
 								}
 							},
 							this
@@ -449,10 +451,11 @@ export default {
 			if (this.CROPPER_WIDTH != this.canvasWidth || this.CROPPER_HEIGHT != this.canvasHeight) {
 				this.CROPPER_WIDTH = this.canvasWidth;
 				this.CROPPER_HEIGHT = this.canvasHeight;
+				this.ctx.draw();
 				this.$nextTick(() => {
 					setTimeout(() => {
 						draw();
-					}, 50);
+					}, 100);
 				});
 			} else {
 				draw();
@@ -546,9 +549,9 @@ export default {
 		/**
 		 * 图片边缘检测-缩放
 		 */
-		imgMarginDetectionScale() {
+		imgMarginDetectionScale(scale) {
 			if (!this.limitMove) return;
-			let scale = this.scale;
+			scale = scale || this.scale;
 			let imgWidth = this.imgWidth;
 			let imgHeight = this.imgHeight;
 			if ((this.angle / 90) % 2) {
@@ -630,7 +633,7 @@ export default {
 				clearTimeout(this.MOVE_THROTTLE);
 				this.MOVE_THROTTLE = setTimeout(() => {
 					this.MOVE_THROTTLE_FLAG = true;
-				}, 1000 / 40);
+				}, 800 / 40);
 				return this.MOVE_THROTTLE_FLAG;
 			} else {
 				this.MOVE_THROTTLE_FLAG = true;
@@ -659,8 +662,8 @@ export default {
 				scale = scale <= this.minScale ? this.minScale : scale;
 				scale = scale >= this.maxScale ? this.maxScale : scale;
 				//图像边缘检测,防止截取到空白
-				this.scale = scale;
-				this.imgMarginDetectionScale();
+				// this.scale = scale;
+				this.imgMarginDetectionScale(scale);
 				//双指旋转(如果没禁用旋转)
 				let touchRelative = [
 					{
@@ -892,7 +895,7 @@ export default {
 .tui-container {
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.6);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -916,7 +919,7 @@ export default {
 }
 
 .tui-bg-transparent {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.6);
 	transition-duration: 0.35s;
 }
 
@@ -989,6 +992,7 @@ export default {
 	border-top-width: 0 !important;
 	border-left-width: 0 !important;
 }
+
 .tui-cropper-tabbar {
 	width: 100%;
 	height: 120rpx;
@@ -1004,6 +1008,7 @@ export default {
 	color: #ffffff;
 	font-size: 32rpx;
 }
+
 .tui-cropper-tabbar::after {
 	content: ' ';
 	position: absolute;
@@ -1015,6 +1020,7 @@ export default {
 	transform: scaleY(0.5) translateZ(0);
 	transform-origin: 0 100%;
 }
+
 .tui-op-btn {
 	height: 80rpx;
 	display: flex;

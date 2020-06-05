@@ -3,6 +3,11 @@
 		<view class="header">
 			<view class="title">Calendar </view>
 			<view class="sub-title"><text class="tui-color-primary">您选择的日期为：{{result}}</text></view>
+			<view class="sub-title"><text class="tui-color-primary">农历：{{lunarResult}}</text></view>
+		</view>
+		<view class="tui-title tui-ptop20">
+			显示农历（古历）
+			<switch class="tui-switch" :checked="lunar" color="#5677fc" @change="switchChange"></switch>
 		</view>
 		<view class="tui-btn-box">
 			<tui-button margin="36rpx 0 0" type="white" shape="circle" @click='selectDate(1)'>选择单个日期</tui-button>
@@ -16,10 +21,10 @@
 		<view class="tui-title">默认平铺展示</view>
 		<view class="tui-calendar-box">
 			<!--isChange 加上则切换年份或月份时回传数据-->
-			<tui-calendar :arrowType="2" isChange :status="status" @change="monthChange"></tui-calendar>
+			<tui-calendar :lunar="lunar" :arrowType="2" isChange :status="status" @change="monthChange"></tui-calendar>
 		</view>
 		<!--底部弹出选择-->
-		<tui-calendar isFixed :minDate="minDate" :maxDate="maxDate" :btnType="btnType" :activeBgColor="activeBgColor"
+		<tui-calendar :lunar="lunar" isFixed :minDate="minDate" :maxDate="maxDate" :btnType="btnType" :activeBgColor="activeBgColor"
 		 :rangeBgColor="rangeBgColor" :rangeColor="rangeColor" :startText="startText" :endText="endText" :arrowType="arrowType"
 		 :type="type" ref="calendar" @change="change"></tui-calendar>
 	</view>
@@ -40,10 +45,15 @@
 				rangeColor: "#5677fc",
 				startText: "开始",
 				endText: "结束",
-				result: ""
+				lunar: true,
+				result: "",
+				lunarResult:""
 			}
 		},
 		methods: {
+			switchChange(e) {
+				this.lunar = e.target.value
+			},
 			selectDate(type) {
 				this.arrowType = 1;
 				this.minDate = "1920-01-01"
@@ -91,10 +101,16 @@
 			change(e) {
 				console.log(e)
 				if (this.type == 1) {
-					this.result = e.result
+					this.result = e.result+ " " + e.week
+					let date=`${e.lunar.lYear}-${e.lunar.lMonth}-${e.lunar.lDay}`
+					this.lunarResult=`${e.lunar.gzYear}年，${e.lunar.gzMonth}月，${e.lunar.gzDay}日 。生肖：${e.lunar.Animal}。日期：${e.lunar.IMonthCn+e.lunar.IDayCn}(${date})`
 				} else {
 					this.result = `${e.startDate} 至 ${e.endDate}`
+					let sDate=`${e.startLunar.IMonthCn+e.startLunar.IDayCn}(${e.startLunar.lYear}-${e.startLunar.lMonth}-${e.startLunar.lDay})`
+					let eDate=`${e.endLunar.IMonthCn+e.endLunar.IDayCn}(${e.endLunar.lYear}-${e.endLunar.lMonth}-${e.endLunar.lDay})`
+					this.lunarResult=`${sDate} 至 ${eDate}`
 				}
+				
 			},
 			monthChange(e) {
 				//  {
@@ -180,6 +196,17 @@
 		padding: 80rpx 30rpx 30rpx;
 		box-sizing: border-box;
 		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.tui-ptop20{
+		padding-top: 20rpx;
+	}
+
+	.tui-switch {
+		transform: scale(0.8);
+		transform-origin: 100% center;
 	}
 
 	.tui-color-primary {

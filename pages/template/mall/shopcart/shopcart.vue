@@ -32,9 +32,7 @@
 								</view>
 								<view class="tui-price-box">
 									<view class="tui-goods-price">￥{{item.price | getPrice}}</view>
-									<view class="tui-scale">
-										<tui-numberbox :value="item.buyNum" :height="40" :width="74" :min="1" :index="index" @change="changeNum"></tui-numberbox>
-									</view>
+									<tui-numberbox :value="item.buyNum" :height="36" :width="64" :min="1" :index="index" @change="changeNum"></tui-numberbox>
 								</view>
 							</view>
 						</view>

@@ -102,7 +102,6 @@
 			</view>
 		</view>
 		<t-chat-bar></t-chat-bar>
-		<view class="tui-safearea-bottom"></view>
 	</view>
 </template>
 

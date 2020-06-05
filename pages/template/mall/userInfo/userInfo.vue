@@ -69,6 +69,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 24rpx 60rpx 24rpx 30rpx;
+		box-sizing: border-box;
 		font-size: 30rpx;
 	}
 

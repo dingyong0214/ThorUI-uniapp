@@ -78,9 +78,12 @@
 					<view class="tui-selected-list">
 						<scroll-view scroll-y class="tui-dropdown-scroll">
 							<block v-for="(item,index) in dropdownlistData" :key="index">
-								<tui-list-cell @click="dropDownList(index)" :last="dropdownlistData.length-1==index">
-									<tui-icon :name="item.icon" :size="item.size" :color="item.color"></tui-icon>
-									<text class="tui-ml-20">{{item.name}}</text>
+								<tui-list-cell padding="0" @click="dropDownList(index)" :unlined="dropdownlistData.length-1==index">
+									<view class="tui-cell-class">
+										<tui-icon :name="item.icon" :size="item.size" :color="item.color"></tui-icon>
+										<text class="tui-ml-20">{{item.name}}</text>
+									</view>
+								
 								</tui-list-cell>
 							</block>
 						</scroll-view>

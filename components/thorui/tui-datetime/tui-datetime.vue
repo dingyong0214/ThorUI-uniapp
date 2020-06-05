@@ -4,8 +4,8 @@
 		<view class="tui-header" :class="{ 'tui-show': isShow }">
 			<view class="tui-picker-header" :class="{ 'tui-date-radius': radius }" @touchmove.stop.prevent="stop" catchtouchmove="stop">
 				<view class="tui-btn-picker" :style="{ color: cancelColor }" hover-class="tui-opacity" :hover-stay-time="150"
-				 @click="hide">取消</view>
-				<view class="tui-btn-picker" :style="{ color: color }" hover-class="tui-opacity" :hover-stay-time="150" @click="btnFix">确定</view>
+				 @tap="hide">取消</view>
+				<view class="tui-btn-picker" :style="{ color: color }" hover-class="tui-opacity" :hover-stay-time="150" @tap="btnFix">确定</view>
 			</view>
 			<view class="tui-date-header" v-if="unitTop">
 				<view class="tui-date-unit" v-if="type < 4 || type == 7">年</view>

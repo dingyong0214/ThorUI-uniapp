@@ -11,8 +11,8 @@
 		<view class="tui-title">非沉浸式</view>
 		<tui-navigation-bar backgroundColor="255,255,255" :isFixed="false" :isOpcity="false" :isImmersive="false">
 			<view class="tui-content-box">
-				<view class="tui-avatar-box" @tap="href(1)"><image src="/static/images/news/2.jpg" class="tui-avatar"></image></view>
-				<view class="tui-search-box" @tap="href(5)">
+				<view class="tui-avatar-box" ><image src="/static/images/news/2.jpg" class="tui-avatar"></image></view>
+				<view class="tui-search-box" >
 					<tui-icon name="search-2" :size="18" color="#bfbfbf"></tui-icon>
 					<view class="tui-search-text">请输入搜索关键字</view>
 				</view>
@@ -26,8 +26,8 @@
 		<view class="tui-title">沉浸式(多出的空白区域为状态栏高度)</view>
 		<tui-navigation-bar backgroundColor="255,255,255" :isFixed="false" :isOpcity="false">
 			<view class="tui-content-box">
-				<view class="tui-avatar-box" @tap="href(1)"><image src="/static/images/news/2.jpg" class="tui-avatar"></image></view>
-				<view class="tui-search-box" @tap="href(5)">
+				<view class="tui-avatar-box"><image src="/static/images/news/2.jpg" class="tui-avatar"></image></view>
+				<view class="tui-search-box">
 					<tui-icon name="search-2" :size="18" color="#bfbfbf"></tui-icon>
 					<view class="tui-search-text">请输入搜索关键字</view>
 				</view>
@@ -41,8 +41,8 @@
 		<view class="tui-title">换背景色</view>
 		<tui-navigation-bar backgroundColor="235,9,9" :isFixed="false" :isOpcity="false" :isImmersive="false">
 			<view class="tui-content-box">
-				<view class="tui-avatar-box" @tap="href(1)"><image src="/static/images/news/2.jpg" class="tui-avatar"></image></view>
-				<view class="tui-search-box tui-bg-white" @tap="href(5)">
+				<view class="tui-avatar-box"><image src="/static/images/news/2.jpg" class="tui-avatar"></image></view>
+				<view class="tui-search-box tui-bg-white">
 					<tui-icon name="search-2" :size="18" color="#bfbfbf"></tui-icon>
 					<view class="tui-search-text">请输入搜索关键字</view>
 				</view>

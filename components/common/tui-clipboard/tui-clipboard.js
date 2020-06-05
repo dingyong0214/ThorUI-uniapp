@@ -8,7 +8,12 @@
 import ClipboardJS from "./clipboard.min.js"
 // #endif
 const thorui = {
-	getClipboardData: function(data, callback) {
+	/**
+	 * data 需要复制的数据
+	 * callback 回调
+	 * e 当用户点击后需要先请求接口再进行复制时，需要传入此参数，或者将异步请求转为同步 （H5端）
+	 * **/
+	getClipboardData: function(data,callback,e) {
 		// #ifdef APP-PLUS || MP
 		uni.setClipboardData({
 			data: data,
@@ -22,7 +27,7 @@ const thorui = {
 		// #endif
 
 		// #ifdef H5
-		let event = window.event || {}
+		let event = window.event || e || {}
 		let clipboard = new ClipboardJS("", {
 			text: () => data
 		})

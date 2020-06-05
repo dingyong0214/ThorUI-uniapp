@@ -80,7 +80,7 @@ export default {
 			left: 375, //小程序端 左侧距胶囊按钮距离
 			height: 44, //header高度
 			top: 0,
-			scrollH: 0, //滚动总高度,计算opcity
+			scrollH: 1, //滚动总高度,计算opcity
 			opcity: 0, //0-1
 			statusBarHeight: 0 //状态栏高度
 		};
@@ -121,7 +121,7 @@ export default {
 	},
 	methods: {
 		opcityChange() {
-			let scroll = this.scrollTop <= 0 ? 0 : this.scrollTop;
+			let scroll = this.scrollTop <= 1 ? 0 : this.scrollTop;
 			let opcity = scroll / this.scrollH;
 			if ((this.opcity >= 1 && opcity >= 1) || (this.opcity == 0 && opcity == 0)) {
 				return;

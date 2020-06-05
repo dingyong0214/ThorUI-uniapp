@@ -19,7 +19,7 @@
 			<view class="tui-list city-list">
 				<block v-for="(list,index) in lists" :key="index">
 					<view class="tui-list-cell-divider" :id="list.letter">
-						{{list.letter}}
+						{{list.letter=="well"?"#":list.letter}}
 					</view>
 					<tui-list-cell :unlined="last(list.data,index2)" @click="detail" v-for="(item,index2) in list.data" :key="index2">
 						<view class="tui-friend-item">

@@ -7,7 +7,7 @@
 		</view>
 		<view class="tui-btn-box">
 			<view class="tui-btn-btm">
-				<tui-button type="white" shape="circle" @click="clipboard('605135318')">复制QQ群号：605135318</tui-button>
+				<tui-button type="white" shape="circle" @click="clipboard">复制QQ群号：605135318</tui-button>
 			</view>
 		</view>
 	</view>
@@ -22,7 +22,9 @@
 			}
 		},
 		methods: {
-			clipboard: function(data) {
+			//event 当需要异步请求返回数据再进行复制时，需要传入此参数，或者异步方法转为同步方法（H5端）
+			clipboard: function(event) {
+				let data="605135318";
 				thorui.getClipboardData(data, (res) => {
 					// #ifdef H5 || MP-ALIPAY
 					if (res) {
@@ -31,7 +33,7 @@
 						this.tui.toast("复制失败")
 					}
 					// #endif
-				})
+				},event)
 			}
 		}
 	}

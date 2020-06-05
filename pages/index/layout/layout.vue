@@ -316,22 +316,22 @@
 						this.tui.toast("最多上传9张图片");
 						return
 					}
-					wx.chooseImage({
+					uni.chooseImage({
 						count: 9 - that.files.length,
 						sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
 						sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
 						success: function (res) {
 							// 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
 							that.files=that.files.concat(res.tempFilePaths)
-							//上传功能已去除
+							//上传功能已移除
 							//...
 						}
 					})
 				},
 				previewImage: function (e) {
 					uni.previewImage({
-						current: e.currentTarget.id, // 当前显示图片的http链接
-						urls: this.files // 需要预览的图片http链接列表
+						current: e.currentTarget.id, 
+						urls: this.files 
 					})
 				},
 				deleteImage: function (e) {
@@ -343,7 +343,7 @@
 </script>
 
 <style>
-@import '@/static/style/thorui.css';
+@import '../../../static/style/thorui.css';
 
 .container {
   padding: 30rpx 0 80rpx 0;

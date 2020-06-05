@@ -77,7 +77,7 @@
 				if (!this.show) return;
 				const dataset = e.currentTarget.dataset;
 				this.$emit('click', {
-					index: dataset.index
+					index: Number(dataset.index)
 				});
 			},
 			handleClickCancel() {

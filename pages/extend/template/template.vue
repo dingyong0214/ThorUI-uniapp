@@ -118,7 +118,7 @@
 		/* #ifdef H5 */
 		top:44px;
 		/* #endif */
-		z-index: 999999;
+		z-index: 998;
 	}
 
 	.tui-current {

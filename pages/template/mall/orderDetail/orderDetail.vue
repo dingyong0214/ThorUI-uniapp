@@ -22,7 +22,7 @@
 				</view>
 			</view>
 		</tui-list-cell>
-		<tui-list-cell :last="true" :hover="false">
+		<tui-list-cell unlined :hover="false">
 			<view class="tui-flex-box">
 				<image :src="webURL+'img_order_address3x.png'" class="tui-icon-img"></image>
 				<view class="tui-addr">
@@ -489,7 +489,7 @@
 		font-size: 26rpx;
 		box-shadow: 0 0 1px rgba(0, 0, 0, .3);
 		padding-bottom: env(safe-area-inset-bottom);
-		z-index: 999;
+		z-index: 996;
 	}
 
 	.tui-btn-mr {

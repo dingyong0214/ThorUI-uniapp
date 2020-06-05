@@ -67,7 +67,9 @@
 		mounted() {
 			this.$nextTick(() => {
 				this.nodesRef(`.${this.selector}`).then((res) => {
-					this.winHeight = res[0].height + Math.abs(res[0].top)
+					if(res && res[0]){
+						this.winHeight = res[0].height + Math.abs(res[0].top)
+					}
 				});
 				!this.isPreload() && this.selectorQuery()
 			})
