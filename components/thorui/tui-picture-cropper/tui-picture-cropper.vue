@@ -21,9 +21,9 @@
 			:data-imgWidth="imgWidth"
 			:data-imgHeight="imgHeight"
 			:data-angle="angle"
-			@touchend.stop="parse.cutTouchEnd"
-			@touchstart.stop="parse.cutTouchStart"
-			@touchmove.stop="parse.cutTouchMove"
+			@touchend="parse.cutTouchEnd"
+			@touchstart="parse.cutTouchStart"
+			@touchmove="parse.cutTouchMove"
 		>
 			<view class="tui-content">
 				<view class="tui-content-top tui-bg-transparent" :style="{ transitionProperty: cutAnimation ? '' : 'background' }"></view>
@@ -54,9 +54,9 @@
 			<image
 				@load="imageLoad"
 				@error="imageLoad"
-				@touchstart.stop="parse.touchstart"
-				@touchmove.stop="parse.touchmove"
-				@touchend.stop="parse.touchend"
+				@touchstart="parse.touchstart"
+				@touchmove="parse.touchmove"
+				@touchend="parse.touchend"
 				:data-minScale="minScale"
 				:data-maxScale="maxScale"
 				:data-disableRotate="disableRotate"
