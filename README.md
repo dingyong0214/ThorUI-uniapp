@@ -5,7 +5,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 |  ![微信小程序](https://thorui.cn/img/applets.jpg) |![H5二维码](https://thorui.cn/img/h5_qrcode.png)  |![QQ小程序](https://thorui.cn/img/qq_applets.png)  |![Android](https://thorui.cn/img/thorui_apk.png)  |
 | ------------ | ------------ | ------------ | ------------ |
-|  微信小程序 |H5二维码  | QQ小程序  | Android App（默认支持ios）  |
+|  微信小程序 |H5二维码  | QQ小程序  | Android App（默认支持IOS）  |
 
 # 网站介绍
 
