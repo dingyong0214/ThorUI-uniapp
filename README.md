@@ -51,11 +51,20 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
   2）加QQ3039218619，截图发送到该QQ即可获取源码。
 
 --------------------------
---------------------------
+
 注：自1.4.2版本之后，ThorUI只对uni-app版本进行开源，小程序原生版付费会员才可使用（￥99/永久），1.4.2版本之前不受影响。
 如若需要，请联系QQ：3168647172。
---------------------------
---------------------------
+
+
+## 部分功能截图 
+|  ![](https://thorui.cn/img/V152/1.png)	|![](https://thorui.cn/img/V152/2.png)	|![](https://thorui.cn/img/V152/3.png)	|
+| ------------								| ------------							| ------------							|
+|  ![](https://thorui.cn/img/V152/4.png)	|![](https://thorui.cn/img/V152/5.png)	|![](https://thorui.cn/img/V152/6.png)	|
+|  ![](https://thorui.cn/img/V152/7.png)	|![](https://thorui.cn/img/V152/8.png)	|![](https://thorui.cn/img/V152/9.png)	|
+|  ![](https://thorui.cn/img/V152/10.png)	|![](https://thorui.cn/img/V152/11.png)	|![](https://thorui.cn/img/V152/12.png)	|
+|  ![](https://thorui.cn/img/V152/13.png)	|![](https://thorui.cn/img/V152/14.png)	|![](https://thorui.cn/img/V152/17.png)	|
+
+<video src="https://thorui.cn/img/V152/0720.MP4" controls="controls" width="300" height="500">您的浏览器不支持播放该视频！</video>
 
 
 ## V1.5.1（2020-06-06）
