@@ -19,7 +19,7 @@ export default {
 					let data = res.data
 					that.tui.modal('检测到新版本', data.updateLog ? data.updateLog : '请您先更新再进行操作，若不及时更新可能导致部分功能无法正常使用。', false, res => {
 						if (data.hasPartUpdate === 0) {
-							//应用市场更新 
+							//应用市场更新
 							plus.runtime.openURL(data.updateUrl);
 							plus.runtime.restart();
 						} else if (data.hasPartUpdate === 1) {

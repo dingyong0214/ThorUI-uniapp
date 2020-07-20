@@ -7,6 +7,13 @@
 		<view class="tui-top">
 			<tui-steps :items="items" :type="2" spacing="180rpx" :activeSteps="activeSteps"></tui-steps>
 		</view>
+		
+		<view class="tui-top">
+			<tui-steps :items="items2" :type="2" spacing="180rpx" :activeSteps="activeSteps"></tui-steps>
+		</view>
+		<view class="tui-top">
+			<tui-steps :items="items2" lineStyle="dashed" :type="2" spacing="180rpx" :activeSteps="activeSteps"></tui-steps>
+		</view>
 		<view class="tui-title">
 			垂直方向
 		</view>
@@ -36,6 +43,31 @@
 				}, {
 					title: "步骤四",
 					desc: "2020-04-01"
+				}],
+				items2: [{
+					title: "",
+					desc: "code",
+					name:"",
+					icon:"/static/images/tabbar/code_gray.png",
+					activeIcon:"/static/images/tabbar/code_active.png"
+				}, {
+					title: "",
+					desc: "extend",
+					name:"",
+					icon:"/static/images/tabbar/extend_gray.png",
+					activeIcon:"/static/images/tabbar/extend_active.png"
+				}, {
+					title: "",
+					desc: "my",
+					name:"",
+					icon:"/static/images/tabbar/thor_gray.png",
+					activeIcon:"/static/images/tabbar/thor_active.png"
+				}, {
+					title: "",
+					desc: "thor",
+					name:"",
+					icon:"/static/images/tabbar/thor_gray.png",
+					activeIcon:"/static/images/tabbar/thor_active.png"
 				}],
 				activeSteps: 1
 			}

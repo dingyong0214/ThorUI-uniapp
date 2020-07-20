@@ -204,6 +204,14 @@
 							{
 								name: '登录模板',
 								page: '/pages/template/login/login/login'
+							},
+							{
+								name: '签到模板',
+								page: '/pages/extend/template/template'
+							},
+							{
+								name: '多语言模板',
+								page: '/pages/extend/template/template'
 							}
 						]
 					}
@@ -328,8 +336,9 @@
 	}
 
 	.tui-logo {
-		height: 120rpx;
-		width: 120rpx;
+		height: 108rpx;
+		width: 108rpx;
+		border-radius: 50%;
 	}
 
 	.tui-title {

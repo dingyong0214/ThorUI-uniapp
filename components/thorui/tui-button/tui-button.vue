@@ -3,10 +3,12 @@
 			plain ? 'tui-' + type + '-outline' : 'tui-btn-' + (type || 'primary'),
 			getDisabledClass(disabled, type, plain),
 			getShapeClass(shape, plain),
-			getShadowClass(type, shadow, plain)
+			getShadowClass(type, shadow, plain),
+			bold ? 'tui-text-bold' : ''
 		]"
-	 :hover-class="getHoverClass(disabled, type, plain)" :style="{ width: width, height: height, lineHeight: height, fontSize: size + 'rpx',margin:margin }"
-	 :loading="loading" :open-type="openType" @getuserinfo="bindgetuserinfo" :disabled="disabled" @tap="handleClick">
+	 :hover-class="getHoverClass(disabled, type, plain)" :style="{ width: width, height: height, lineHeight: height, fontSize: size + 'rpx', margin: margin }"
+	 :loading="loading" :form-type="formType" :open-type="openType" @getuserinfo="bindgetuserinfo" @getphonenumber="bindgetphonenumber"
+	 @contact="bindcontact" @error="binderror" :disabled="disabled" @tap="handleClick">
 		<slot></slot>
 	</button>
 </template>
@@ -14,8 +16,9 @@
 <script>
 	export default {
 		name: 'tuiButton',
+		behaviors: ['wx://form-field-button'],
 		props: {
-			//样式类型 primary, white, danger, warning, green,blue, gray，black
+			//样式类型 primary, white, danger, warning, green,blue, gray，black,gray-primary,gray-danger,gray-warning,gray-green
 			type: {
 				type: String,
 				default: 'primary'
@@ -40,9 +43,13 @@
 				type: Number,
 				default: 32
 			},
+			bold: {
+				type: Boolean,
+				default: false
+			},
 			margin: {
 				type: String,
-				default: "0"
+				default: '0'
 			},
 			//形状 circle(圆角), square(默认方形)，rightAngle(平角)
 			shape: {
@@ -66,6 +73,10 @@
 				type: Boolean,
 				default: false
 			},
+			formType: {
+				type: String,
+				default: ''
+			},
 			openType: {
 				type: String,
 				default: ''
@@ -82,10 +93,33 @@
 					index: Number(this.index)
 				});
 			},
+			formSubmit(e) {
+				if (this.disabled) return false;
+				this.$emit('formSubmit', e);
+			},
+			formReset(e) {
+				if (this.disabled) return false;
+				this.$emit('formReset', e);
+			},
 			bindgetuserinfo({
 				detail = {}
 			} = {}) {
 				this.$emit('getuserinfo', detail);
+			},
+			bindcontact({
+				detail = {}
+			} = {}) {
+				this.$emit('contact', detail);
+			},
+			bindgetphonenumber({
+				detail = {}
+			} = {}) {
+				this.$emit('getphonenumber', detail);
+			},
+			binderror({
+				detail = {}
+			} = {}) {
+				this.$emit('error', detail);
 			},
 			getShadowClass: function(type, shadow, plain) {
 				let className = '';
@@ -96,7 +130,7 @@
 			},
 			getDisabledClass: function(disabled, type, plain) {
 				let className = '';
-				if (disabled && type != 'white') {
+				if (disabled && type != 'white' && type.indexOf('-') == -1) {
 					let classVal = this.disabledGray ? 'tui-gray-disabled' : 'tui-dark-disabled';
 					className = plain ? 'tui-dark-disabled-outline' : classVal;
 				}
@@ -151,16 +185,16 @@
 	}
 
 	.tui-btn-green {
-		background: #35b06a !important;
+		background: #07c160 !important;
 		color: #fff;
 	}
 
 	.tui-shadow-green {
-		box-shadow: 0 10rpx 14rpx 0 rgba(53, 176, 106, 0.2);
+		box-shadow: 0 10rpx 14rpx 0 rgba(7, 193, 96, 0.2);
 	}
 
 	.tui-btn-blue {
-		background: #007AFF !important;
+		background: #007aff !important;
 		color: #fff;
 	}
 
@@ -181,6 +215,47 @@
 	.tui-btn-black {
 		background: #333 !important;
 		color: #fff !important;
+	}
+
+	.tui-btn-gray-black {
+		background: #f2f2f2 !important;
+		color: #333;
+	}
+
+	.tui-btn-gray-primary {
+		background: #f2f2f2 !important;
+		color: #5677fc !important;
+	}
+
+	.tui-gray-primary-hover {
+		background: #d9d9d9 !important;
+	}
+
+	.tui-btn-gray-green {
+		background: #f2f2f2 !important;
+		color: #07c160 !important;
+	}
+
+	.tui-gray-green-hover {
+		background: #d9d9d9 !important;
+	}
+
+	.tui-btn-gray-danger {
+		background: #f2f2f2 !important;
+		color: #eb0909 !important;
+	}
+
+	.tui-gray-danger-hover {
+		background: #d9d9d9 !important;
+	}
+
+	.tui-btn-gray-warning {
+		background: #f2f2f2 !important;
+		color: #fc872d !important;
+	}
+
+	.tui-gray-warning-hover {
+		background: #d9d9d9 !important;
 	}
 
 	.tui-shadow-gray {
@@ -222,8 +297,12 @@
 		border: 0;
 	}
 
+	.tui-text-bold {
+		font-weight: bold;
+	}
+
 	.tui-btn-white::after {
-		border: 1rpx solid #bfbfbf;
+		border: 1px solid #bfbfbf;
 	}
 
 	.tui-white-hover {
@@ -256,7 +335,7 @@
 	}
 
 	.tui-primary-outline::after {
-		border: 1rpx solid #5677fc !important;
+		border: 1px solid #5677fc !important;
 	}
 
 	.tui-primary-outline {
@@ -275,7 +354,7 @@
 	}
 
 	.tui-danger-outline::after {
-		border: 1rpx solid #eb0909 !important;
+		border: 1px solid #eb0909 !important;
 	}
 
 	.tui-warning-hover {
@@ -293,31 +372,31 @@
 	}
 
 	.tui-green-hover {
-		background: #2d965a !important;
+		background: #06ad56 !important;
 		color: #e5e5e5 !important;
 	}
 
 	.tui-green-outline {
-		color: #35b06a !important;
+		color: #07c160 !important;
 		background: transparent;
 	}
 
 	.tui-green-outline::after {
-		border: 1rpx solid #35b06a !important;
+		border: 1px solid #07c160 !important;
 	}
 
 	.tui-blue-hover {
-		background: #0062CC !important;
+		background: #0062cc !important;
 		color: #e5e5e5 !important;
 	}
 
 	.tui-blue-outline {
-		color: #007AFF !important;
+		color: #007aff !important;
 		background: transparent;
 	}
 
 	.tui-blue-outline::after {
-		border: 1rpx solid #007AFF !important;
+		border: 1px solid #007aff !important;
 	}
 
 	/* #ifndef APP-NVUE */
@@ -361,7 +440,7 @@
 	}
 
 	.tui-gray-outline::after {
-		border: 1rpx solid #ccc !important;
+		border: 1px solid #ccc !important;
 	}
 
 	.tui-white-outline::after {

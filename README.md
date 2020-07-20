@@ -1,11 +1,11 @@
- ``开源不易，需要鼓励。给 ThorUI项目点个 star吧``
+ ``开源不易，需要鼓励。给 ThorUI项目点个 star吧`` [GitHub](https://github.com/dingyong0214/ThorUI-uniapp)
 
 # ThorUI
 ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（原weex编译模式），easycom组件模式（无需手动引入，开发工具自带智能感知）
 
 |  ![微信小程序](https://thorui.cn/img/applets.jpg) |![H5二维码](https://thorui.cn/img/h5_qrcode.png)  |![QQ小程序](https://thorui.cn/img/qq_applets.png)  |![Android](https://thorui.cn/img/thorui_apk.png)  |
 | ------------ | ------------ | ------------ | ------------ |
-|  微信小程序 |H5二维码  | QQ小程序  | Android App（默认支持IOS）  |
+|  微信小程序 |H5二维码  | QQ小程序  | Android App  |
 
 # 网站介绍
 
@@ -13,16 +13,50 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 # ThorUI组件文档
 
-[https://www.thorui.cn/doc](https://www.thorui.cn/doc)
+[https://thorui.cn/doc/](https://thorui.cn/doc/)
 
-| ![](https://thorui.cn/img/V132/qq_3.jpg)  |![](https://thorui.cn/img/V132/qq_new.jpg)  |
+| ![](https://thorui.cn/img/V132/qq_3.jpg)  |![](https://thorui.cn/img/V132/qq_4.png)  |
 | ------------ | ------------ |
-|  ThorUI QQ交流群3：605135318 |ThorUI QQ交流群2：881906325  | 
+|  ThorUI QQ交流群3：605135318 |ThorUI QQ交流群4：881906325  | 
 
 
 本项目已同步更新到[微信小程序(原生小程序代码)](https://github.com/dingyong0214/ThorUI)，后续会更新到支付宝小程序，百度小程序，头条小程序等
 
 ## 更新日志
+
+## V1.5.2（2020-07-20）
+
+1.步骤条组件优化，支持自定义图标，支持设置线条为虚线。
+
+2.修复图片裁剪组件(wxs版)初始化裁剪不正确的问题。
+
+3.按钮（tui-button)组件支持表单提交，详见文档。
+
+4.图片上传组件（tui-upload）新增props：header，formData，修复初始化图片不显示的bug。
+
+5.tabbar组件与自定义导航栏组件(NavBar)背景支持设置高斯模糊(ios端)。
+
+6.uni-app版本骨架屏修复编译到小程序端无法获取到组件节点的bug。
+
+7.日历组件单个日期选择和区间选择支持设置默认选中。
+
+8.新增多语言模板。源码地址 ：[ThorUI-utag](https://github.com/dingyong0214/ThorUI-utag) 
+
+9.新增拖拽排序组件，wxs实现，详细查看多语言模板示例。
+
+10.新增签到模板（点star获取源码）。获取步骤如下：
+
+  1）去GitHub给ThorUI项目点star，项目地址分别为：[ThorUI](https://github.com/dingyong0214/ThorUI) 和 [ThorUI-uniapp](https://github.com/dingyong0214/ThorUI-uniapp)
+
+  2）加QQ3039218619，截图发送到该QQ即可获取源码。
+
+--------------------------
+--------------------------
+注：自1.4.2版本之后，ThorUI只对uni-app版本进行开源，小程序原生版付费会员才可使用（￥99/永久），1.4.2版本之前不受影响。
+如若需要，请联系QQ：3168647172。
+--------------------------
+--------------------------
+
 
 ## V1.5.1（2020-06-06）
 
@@ -49,15 +83,15 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 10.修复其它已知bug。
 
-注：自1.4.2版本之后，ThorUI只对uni-app版本进行开源（后期会区分会员和非会员版本），小程序原生版付费会员才可使用（￥30/永久），1.4.2版本之前不受影响。
-如若需要，请联系QQ：3039218619 或 3168647172。【目前价格只是对初期支持者优惠，下个版本统一会员价￥99/永久】
+注：自1.4.2版本之后，ThorUI只对uni-app版本进行开源，小程序原生版付费会员才可使用（￥99/永久），1.4.2版本之前不受影响。
+如若需要，请联系QQ：3168647172。
 
 ## 部分功能截图 
 |  ![](https://thorui.cn/img/v151/1.png) |![](https://thorui.cn/img/v151/2.png)  |![](https://thorui.cn/img/v151/3.png)  |
 | ------------ | ------------ | ------------ |
 
 
-# V1.5.0（2020-05-12）
+## V1.5.0 (2020-05-12)
 
 1.新增日历组件 。
 
@@ -111,7 +145,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 26.整体优化调整，项目重构，部分模板完善。
 
-# 部分功能截图 
+## 部分功能截图 
 |  ![](https://thorui.cn/img/v150/v1501.png) |![](https://thorui.cn/img/v150/v1502.png)  |![](https://thorui.cn/img/v150/v1503.png)  |
 | ------------ | ------------ | ------------ |
 |  ![](https://thorui.cn/img/v150/v1504.png) |![](https://thorui.cn/img/v150/v1505.png)  |![](https://thorui.cn/img/v150/v1506.png)  |
@@ -119,7 +153,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 
 
-# V1.4.2
+## V1.4.2
 
 1.modal组件优化，宽高以及padding值可设置
 
@@ -133,12 +167,12 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 6.分包，解决小程序预览时包体积超出限制的问题
 
-# 功能截图 
+## 功能截图 
 |  ![](https://thorui.cn/img/v142/1.jpg) |![](https://thorui.cn/img/v142/2.jpg)  |![](https://thorui.cn/img/v142/3.jpg)  |
 | ------------ | ------------ | ------------ |
 
 
-# V1.4.1
+## V1.4.1
 
 1.新增文档相关链接信息。
 
@@ -152,12 +186,12 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 6.已知问题修复以及优化。
 
-# 功能截图 
+## 功能截图 
 |  ![](https://thorui.cn/img/V141/1.png) |![](https://thorui.cn/img/V141/2.jpg)  |
 | ------------ | ------------ |
 |  ![](https://thorui.cn/img/V141/3.jpg) |![](https://thorui.cn/img/V141/4.png)  | 
 
-# V1.4.0
+## V1.4.0
 
 1.新增日期时间选择器组件。
 
@@ -185,7 +219,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 13.修改已知bug。
 
-# 功能截图 
+## 功能截图 
 |  ![](https://thorui.cn/img/V140/1.png) |![](https://thorui.cn/img/V140/2.png)  |  ![](https://thorui.cn/img/V140/3.png) |
 | ------------ | ------------ | ------------ |
 |  ![](https://thorui.cn/img/V140/4.png) |![](https://thorui.cn/img/V140/5.png)  |  ![](https://thorui.cn/img/V140/6.png) |
@@ -193,7 +227,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 |  ![](https://thorui.cn/img/V140/10.png) |![](https://thorui.cn/img/V140/11.png)  |  ![](https://thorui.cn/img/V140/12.png) |
 |  ![](https://thorui.cn/img/V140/13.png) |![](https://thorui.cn/img/V140/14.png)  |  ![](https://thorui.cn/img/V140/15.png) |
 
-# V1.3.2
+## V1.3.2
 
 1.修复H5端发行报错的问题。
 
@@ -205,12 +239,12 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 5.优化部分页面，修复已知bug。
 
-# 功能截图 
+## 功能截图 
 |  ![](https://thorui.cn/img/V132/4.jpg) |![](https://thorui.cn/img/V132/2.jpg)  |  ![](https://thorui.cn/img/V132/3.jpg) |
 | ------------ | ------------ | ------------ |
 |   |    |   |
 
-# V1.3.0
+## V1.3.0
 1.新增倒计时组件:时分秒倒计时，支持设置大小，颜色等。
 
 2.新增分隔符组件:Divider分隔符，可设置占据高度，线条宽度，颜色等。
@@ -221,17 +255,17 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 5.修复已知bug。
 
-# V1.2.2
+## V1.2.2
 1.新增组件Modal弹框:可设置按钮数，按钮样式，提示文字样式等，还可自定义弹框内容。 
 
 2.修复部分已知bug。
 
-# V1.2.1
+## V1.2.1
 1.修复部分兼容性问题。
 
 2.修复部分已知bug。
 
-# V1.2.0
+## V1.2.0
 1.新增组件NumberBox数字框:可设置步长，支持浮点数，支持调整样式(可单独设置)。
 
 2.新增组件Rate评分:可设置星星数，可设置大小颜色。
@@ -242,7 +276,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 5.优化部分体验。
 
-# V1.1.0
+## V1.1.0
 1.将基础组件移出扩展，单独出来。
 
 2.扩展改为单独tab bar选项extend。
@@ -257,7 +291,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 7.部分功能优化，修复已知bug。
 
-# V1.0.0
+## V1.0.0
 1.【地图】新增拖拽定位功能
 
 2.【扩展】新增基础组件，包括：字体图标，按钮，Grid宫格，List列表，Card卡片...
@@ -270,12 +304,8 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 6.已知bug修复，以及部分功能优化
 
-## 赞赏
 
-![image](https://thorui.cn/img/reward_small.jpg)
-
-
-#  商城模板部分截图
+##  商城模板部分截图
 
 
 | ![商城首页](https://thorui.cn/img/mall/1.png)  | ![](https://thorui.cn/img/mall/2.png)  | ![](https://thorui.cn/img/mall/3.png)  |  ![](https://thorui.cn/img/mall/4.png) |
@@ -284,20 +314,20 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 |   ![](https://thorui.cn/img/mall/9.png)|  ![](https://thorui.cn/img/mall/10.png) |   |   |
 
 
-#  新闻模板部分截图
+##  新闻模板部分截图
 
 | ![](https://thorui.cn/img/news/1.png)  |   ![](https://thorui.cn/img/news/2.png)|  ![](https://thorui.cn/img/news/3.png) |
 | ------------ | ------------ | ------------ |
 |  ![](https://thorui.cn/img/news/4.png) | ![](https://thorui.cn/img/news/5.png)  |  ![](https://thorui.cn/img/news/6.png) |
 
 
-#  聊天模板截图
+##  聊天模板截图
 |  ![](https://thorui.cn/img/chat/1.png) | ![](https://thorui.cn/img/chat/2.png)  |  ![](https://thorui.cn/img/chat/3.png) |
 | ------------ | ------------ | ------------ |
 |  |   |   |
 
 
-#  组件功能部分截图
+##  组件功能部分截图
 
 |   ![消息提示](https://thorui.cn/img/function/1.jpg)| ![吸顶容器](https://thorui.cn/img/function/2.jpg)  |  ![数字键盘](https://thorui.cn/img/function/3.jpg) |  ![锁频键盘](https://thorui.cn/img/function/4.jpg) |  ![时间轴](https://thorui.cn/img/function/5.jpg) |
 | ------------ | ------------ | ------------ | ------------ | ------------ |

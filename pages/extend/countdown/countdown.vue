@@ -30,11 +30,11 @@
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">去掉小时分钟</view>
-			<tui-countdown :time="timeList[5]" :hours="false" :minutes="false" scale  :isColon="false" @end="endOfTime"></tui-countdown>
+			<tui-countdown :time="timeList[5]" :hours="false" :minutes="false" scale  :isColon="false"></tui-countdown>
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">秒数单位使用英文缩写</view>
-			<tui-countdown :time="timeList[5]" :hours="false" :minutes="false" scale unitEn  :isColon="false" @end="endOfTime"></tui-countdown>
+			<tui-countdown :time="timeList[5]" :hours="false" :minutes="false" scale unitEn  :isColon="false"></tui-countdown>
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">倒计时结束执行事件</view>

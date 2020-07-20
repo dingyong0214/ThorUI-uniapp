@@ -1,18 +1,18 @@
 <template>
 	<view>
 		<!--header-->
-		<tui-navigation-bar splitLine @init="initNavigation" @change="opcityChange" :scrollTop="scrollTop" title="我的"
-		 backgroundColor="255,255,255" color="#333">
+		<tui-navigation-bar splitLine @init="initNavigation" @change="opacityChange" :scrollTop="scrollTop" title="我的"
+		 backgroundColor="#fff" color="#333">
 			<view class="tui-header-box" :style="{marginTop:top+'px'}">
 				<!--个人中心页为主页面，不应有返回键-->
 				<!-- #ifndef MP -->
 				<view class="tui-header-icon">
 					<view class="tui-icon-box tui-icon-message" @tap="href(7)">
-						<tui-icon name="message" :color="opcity > 0.85 ? '#333' : '#fff'" :size="26"></tui-icon>
-						<view class="tui-badge" :class="[opcity>0.85?'tui-badge-red':'tui-badge-white']">1</view>
+						<tui-icon name="message" color="#333" :size="26"></tui-icon>
+						<view class="tui-badge tui-badge-red">1</view>
 					</view>
 					<view class="tui-icon-box tui-icon-setup" @tap="href(2)">
-						<tui-icon name="setup" :color="opcity > 0.85 ? '#333' : '#fff'" :size="26"></tui-icon>
+						<tui-icon name="setup" color="#333" :size="26"></tui-icon>
 					</view>
 				</view>
 				<!-- #endif -->
@@ -289,7 +289,7 @@
 			return {
 				webURL: "https://www.thorui.cn/wx",
 				top: 0, //标题图标距离顶部距离
-				opcity: 0,
+				opacity: 0,
 				scrollTop: 0.5,
 				productList: [{
 						img: 1,
@@ -406,11 +406,11 @@
 				})
 			},
 			initNavigation(e) {
-				this.opcity = e.opcity;
+				this.opacity = e.opacity;
 				this.top = e.top;
 			},
-			opcityChange(e) {
-				this.opcity = e.opcity;
+			opacityChange(e) {
+				this.opacity = e.opacity;
 			},
 			back() {
 				uni.navigateBack();

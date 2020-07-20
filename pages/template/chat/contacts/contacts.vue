@@ -88,7 +88,7 @@
 				if (this.touchmoveIndex != -1) {
 					uni.pageScrollTo({
 						scrollTop: this.lists[this.touchmoveIndex].stickyTop,
-						duration: 0
+						duration: 10
 					})
 				}
 			}

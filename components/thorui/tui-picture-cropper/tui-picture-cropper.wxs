@@ -514,7 +514,7 @@ function propsChange(prop, oldProp, ownerInstance, ins) {
 			cropper.windowHeight = +dataset.windowheight;
 			cropper.windowWidth = +dataset.windowwidth;
 			cropper.init = false
-		} else if (type == 2) {
+		} else if (type == 2 || type==3) {
 			cropper.imgWidth = +dataset.imgwidth;
 			cropper.imgHeight = +dataset.imgheight;
 		}

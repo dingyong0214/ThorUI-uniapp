@@ -1,5 +1,5 @@
 <template>
-	<view class="tui-toast" :class="[visible?'tui-toast-show':'',content?'tui-toast-padding':'',icon?'':'tui-unicon-padding']" :style="{width:getWidth(icon,content)}">
+	<view class="tui-toast" :class="[visible?'tui-toast-show':'',content?'tui-toast-padding':'',icon?'':'tui-unicon-padding']" :style="{width:getWidth(icon,content),zIndex:zIndex}">
 		<image :src="imgUrl" class="tui-toast-img" v-if="icon"></image>
 		<view class="tui-toast-text" :class="[icon?'':'tui-unicon']">{{title}}</view>
 		<view class="tui-toast-text tui-content-ptop" v-if="content && icon">{{content}}</view>
@@ -10,6 +10,10 @@
 	export default {
 		name: "tuiToast",
 		props: {
+			zIndex:{
+				type:Number,
+				default:99999
+			}
 		},
 		data() {
 			return {
@@ -69,7 +73,6 @@
 		transform: translate(-50%, -50%);
 		transition:  0.3s ease-in-out;
 		transition-property:opacity,visibility;
-		z-index: 9999;
 		display: flex;
 		align-items: center;
 		justify-content: center;

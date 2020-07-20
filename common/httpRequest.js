@@ -20,7 +20,7 @@ const tui = {
 	},
 	modal: function(title, content, showCancel, callback, confirmColor, confirmText) {
 		uni.showModal({
-			title: '提示',
+			title: title || '提示',
 			content: content,
 			showCancel: showCancel,
 			cancelColor: "#555",

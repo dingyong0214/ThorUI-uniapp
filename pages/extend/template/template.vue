@@ -57,6 +57,18 @@
 					desc: ["商城模板包含：商品列表，商品搜索，商品详情，购物车，结算页面，我的订单等"],
 					page: "/pages/template/mall/mall/mall"
 				}, {
+					name: "签到模板",
+					state: 1,
+					stateText: "（进度100%）",
+					desc: ["点star获取模板，详细获取方式查看V1.5.2更新日志"],
+					page: "/pages/common/log/log"
+				}, {
+					name: "多语言模板",
+					state: 1,
+					stateText: "（进度100%）",
+					desc: ["该模板非会员仅供参考学习，源码地址查看V1.5.2更新日志"],
+					page: "/pages/common/log/log"
+				}, {
 					name: "订餐",
 					state: 0,
 					stateText: "（进度100%）",

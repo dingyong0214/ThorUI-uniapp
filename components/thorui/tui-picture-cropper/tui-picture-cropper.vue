@@ -460,7 +460,7 @@ export default {
 		imageReset() {
 			this.scale = 1;
 			this.angle = 0;
-			let sys = this.sysInfo.windowHeight || uni.getSystemInfoSync();
+			let sys = this.sysInfo.windowHeight ? this.sysInfo : uni.getSystemInfoSync();
 			this.imgTop = sys.windowHeight / 2;
 			this.imgLeft = sys.windowWidth / 2;
 			this.resetChange++;

@@ -1295,6 +1295,5 @@ page {
 	font-size: 24rpx;
 	color: #656565;
 }
-
 /* 商品列表*/
 </style>

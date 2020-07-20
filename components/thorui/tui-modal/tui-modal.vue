@@ -1,6 +1,6 @@
 <template>
 	<view @touchmove.stop.prevent>
-		<view class="tui-modal-box" :style="{width:width,padding:padding,borderRadius:radius}" :class="[(fadeIn || show)?'tui-modal-normal':'tui-modal-scale',show?'tui-modal-show':'']">
+		<view class="tui-modal-box" :style="{width:width,padding:padding,borderRadius:radius,backgroundColor:backgroundColor}" :class="[(fadeIn || show)?'tui-modal-normal':'tui-modal-scale',show?'tui-modal-show':'']">
 			<view v-if="!custom">
 				<view class="tui-modal-title" v-if="title">{{title}}</view>
 				<view class="tui-modal-content" :class="[title?'':'tui-mtop']" :style="{color:color,fontSize:size+'rpx'}">{{content}}</view>
@@ -32,6 +32,10 @@
 			width: {
 				type: String,
 				default: "84%"
+			},
+			backgroundColor:{
+				type: String,
+				default: "#fff"
 			},
 			padding: {
 				type: String,
@@ -123,8 +127,7 @@
 		left: 50%;
 		top: 50%;
 		margin: auto;
-		background-color: #fff;
-		z-index: 9999998;
+		z-index: 9998;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		box-sizing: border-box;
@@ -151,7 +154,7 @@
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.6);
-		z-index: 9999996;
+		z-index: 9996;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		visibility: hidden;

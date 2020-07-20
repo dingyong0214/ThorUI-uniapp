@@ -6,9 +6,10 @@ page {
 }
 
 ::-webkit-scrollbar {
-	width: 0;
-	height: 0;
-	color: transparent;
+	width: 0 !important;
+	height: 0 !important;
+	color: transparent !important;
+	display: none;
 }
 
 button::after {

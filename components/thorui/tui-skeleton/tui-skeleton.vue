@@ -111,10 +111,20 @@
 				let skeletonType = this.skeletonType || []
 				let nodes = []
 				for (let item of skeletonType) {
-					let className = `.${item}`
-					if (~"rect_circular_fillet".indexOf(item)) {
-						className = `.${this.selector}-${item}`
+					let className = '';
+					// #ifndef MP-WEIXIN
+					className = `.${item}`;
+					if (~'rect_circular_fillet'.indexOf(item)) {
+						className = `.${this.selector}-${item}`;
 					}
+					// #endif
+					
+					// #ifdef MP-WEIXIN
+					className = `.${this.selector} >>> .${item}`;
+					if (~'rect_circular_fillet'.indexOf(item)) {
+						className = `.${this.selector} >>> .${this.selector}-${item}`;
+					}
+					// #endif
 					await this.nodesRef(className).then((res) => {
 						res.map(d => {
 							d.skeletonType = item

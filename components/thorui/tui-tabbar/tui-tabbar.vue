@@ -1,10 +1,10 @@
 <template>
-	<view class="tui-tabbar" :class="{ 'tui-tabbar-fixed': isFixed, 'tui-unlined': unlined }" :style="{ background: backgroundColor }">
+	<view class="tui-tabbar" :class="{ 'tui-tabbar-fixed': isFixed, 'tui-unlined': unlined, 'tui-backdrop__filter': backdropFilter }" :style="{ background: backgroundColor }">
 		<block v-for="(item, index) in tabBar" :key="index">
 			<view
 				class="tui-tabbar-item"
 				:class="{ 'tui-item-hump': item.hump }"
-				:style="{ backgroundColor: item.hump ? backgroundColor : 'none' }"
+				:style="{ backgroundColor: item.hump && !backdropFilter ? backgroundColor : 'none' }"
 				@tap="tabbarSwitch(index, item.hump, item.pagePath, item.verify)"
 			>
 				<view class="tui-icon-box" :class="{ 'tui-tabbar-hump': item.hump }">
@@ -16,7 +16,7 @@
 				<view class="tui-text-scale" :class="{ 'tui-text-hump': item.hump }" :style="{ color: current == index ? selectedColor : color }">{{ item.text }}</view>
 			</view>
 		</block>
-		<view :class="{ 'tui-hump-box': hump }" v-if="hump && !unlined"></view>
+		<view :style="{ background: backgroundColor }" :class="{ 'tui-hump-box': hump}" v-if="hump && !unlined && !backdropFilter"></view>
 	</view>
 </template>
 
@@ -82,6 +82,11 @@ export default {
 		unlined: {
 			type: Boolean,
 			default: false
+		},
+		//是否开启高斯模糊效果[仅在支持的浏览器有效果]
+		backdropFilter: {
+			type: Boolean,
+			default: false
 		}
 	},
 	watch: {
@@ -112,7 +117,12 @@ export default {
 	justify-content: space-between;
 	position: relative;
 }
-
+.tui-backdrop__filter {
+	/* Safari for macOS & iOS */
+	-webkit-backdrop-filter: blur(15px);
+	/* Google Chrome */
+	backdrop-filter: blur(15px);
+}
 .tui-tabbar-fixed {
 	position: fixed;
 	z-index: 9999;
@@ -167,7 +177,6 @@ export default {
 .tui-hump-box {
 	width: 120rpx;
 	height: 120rpx;
-	background-color: #ffffff;
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);

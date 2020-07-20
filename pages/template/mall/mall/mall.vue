@@ -352,7 +352,7 @@ export default {
 	methods: {
 		tabbarSwitch: function(e) {
 			let index = e.currentTarget.dataset.index;
-			this.current = index;
+			// this.current = index;
 			if (index != 0) {
 				if (index == 1) {
 					this.classify();

@@ -22,7 +22,9 @@
 			<view class="tui-list">
 				<view class="tui-list-cell" :class="[index==address.length-1?'tui-cell-last':'']" v-for="(item,index) in address"
 				 :key="index">
-					<view class=" addr-title ">{{item.title}}</view>
+					<view class="addr-title">
+						<text>{{item.title}}</text>
+					</view>
 					<view class="addr-box ">
 						<view class="addr-detail ">
 							<text class="distance">{{item.distance}}m</text>
@@ -322,11 +324,14 @@
 	}
 
 	.icon-clear {
+		height: 100%;
 		position: absolute;
 		top: 0;
 		right: 0;
 		padding: 0 8px;
 		font-size: 0;
+		display: flex;
+		align-items: center;
 	}
 
 	.search-bar-label {
@@ -388,7 +393,7 @@
 	}
 
 	.distance {
-		color: #5982fd;
+		color: #5677fc;
 		padding-right: 6rpx;
 	}
 

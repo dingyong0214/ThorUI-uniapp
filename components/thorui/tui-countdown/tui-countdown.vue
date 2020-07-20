@@ -150,7 +150,7 @@ export default {
 	},
 	watch: {
 		time(val) {
-			clearInterval(this.countdown);
+			this.clearTimer();
 			this.doLoop();
 		}
 	},
@@ -164,19 +164,22 @@ export default {
 		};
 	},
 	created() {
+		this.clearTimer();
 		this.doLoop();
 	},
 	beforeDestroy() {
-		clearInterval(this.countdown);
-		this.countdown = null;
+		this.clearTimer();
 	},
 	methods: {
 		getWidth: function(num, width) {
 			return num > 99 ? (width / 2) * num.toString().length : width;
 		},
-		endOfTime() {
+		clearTimer(){
 			clearInterval(this.countdown);
 			this.countdown = null;
+		},
+		endOfTime() {
+			this.clearTimer();
 			this.$emit('end', {});
 		},
 		doLoop: function() {

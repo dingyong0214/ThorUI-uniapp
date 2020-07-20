@@ -53,6 +53,20 @@
 			fileKeyName: {
 				type: String,
 				default: "file"
+			},
+			//HTTP 请求 Header, header 中不能设置 Referer。
+			header:{
+				type: Object,
+				default(){
+					return {}
+				}
+			},
+			//HTTP 请求中其他额外的 form data
+			formData:{
+				type: Object,
+				default(){
+					return {}
+				}
 			}
 		},
 		data() {
@@ -64,9 +78,13 @@
 			}
 		},
 		created() {
-			this.imageList = [...this.value];
-			for (let item of this.imageList) {
-				this.statusArr.push("1")
+			this.initImages()
+		},
+		watch:{
+			value(val){
+				if(val){
+					this.initImages()
+				}
 			}
 		},
 		computed: {
@@ -79,6 +97,12 @@
 			}
 		},
 		methods: {
+			initImages(){
+				this.imageList = [...this.value];
+				for (let item of this.imageList) {
+					this.statusArr.push("1")
+				}
+			},
 			// 重新上传
 			reUpLoad(index) {
 				this.$set(this.statusArr, index, "2")
@@ -147,10 +171,8 @@
 					uni.uploadFile({
 						url: this.serverUrl,
 						name: this.fileKeyName,
-						header: {
-							//设置请求头
-						},
-						formData: {},
+						header: this.header,
+						formData: this.formData,
 						filePath: url,
 						success: function(res) {
 							console.log(res)

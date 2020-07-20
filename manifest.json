@@ -2,8 +2,8 @@
     "name" : "ThorUI组件库",
     "appid" : "",
     "description" : "ThorUI跨端项目，uni-app版本，v3编译，支持nvue uni-app编译模式（原weex编译模式），easycom组件模式（无需手动引入，开发工具自带智能感知）",
-    "versionName" : "1.5.1",
-    "versionCode" : 119,
+    "versionName" : "1.5.2",
+    "versionCode" : 120,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -60,8 +60,8 @@
             "sdkConfigs" : {
                 "maps" : {
                     "amap" : {
-                        "appkey_ios" : "",
-                        "appkey_android" : ""
+                        "appkey_ios" : "110e39a865a3265432853b47f8f7a576",
+                        "appkey_android" : "ccbe5c19ff124f7b7fc9af59c674c5a1"
                     }
                 }
             }
@@ -102,14 +102,14 @@
         "sdkConfigs" : {
             "maps" : {
                 "qqmap" : {
-                    "key" : "W4WBZ-TUD65-IDAIR-QPM36-HMFQ5-CGBZP"
+                    "key" : ""
                 }
             }
         },
-        "domain" : "https://www.thorui.cn/",
+        "domain" : "https://m.thorui.cn/",
         "router" : {
             "mode" : "hash",
-            "base" : "/h5/"
+            "base" : ""
         }
     }
 }

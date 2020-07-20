@@ -278,6 +278,7 @@
 			},
 			hide() {
 				this.isShow = false;
+				this.$emit('cancel',{})
 			},
 			change(e) {
 				this.value = e.detail.value;

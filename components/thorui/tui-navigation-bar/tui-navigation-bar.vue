@@ -1,11 +1,11 @@
 <template>
 	<view
 		class="tui-navigation-bar"
-		:class="{ 'tui-bar-line': opcity > 0.85 && splitLine, 'tui-navbar-fixed': isFixed }"
-		:style="{ height: height + 'px', backgroundColor: `rgba(${backgroundColor},${opcity})` }"
+		:class="{ 'tui-bar-line': opacity > 0.85 && splitLine, 'tui-navbar-fixed': isFixed, 'tui-backdrop__filter': backdropFilter }"
+		:style="{ height: height + 'px', backgroundColor:backgroundColor,opacity:opacity }"
 	>
 		<view class="tui-status-bar" :style="{ height: statusBarHeight + 'px' }" v-if="isImmersive"></view>
-		<view class="tui-navigation_bar-title" :style="{ opacity: opcity, color: color, paddingTop: top - statusBarHeight + 'px' }" v-if="title && !isCustom">{{ title }}</view>
+		<view class="tui-navigation_bar-title" :style="{ opacity: opacity, color: color, paddingTop: top - statusBarHeight + 'px' }" v-if="title && !isCustom">{{ title }}</view>
 		<slot />
 	</view>
 </template>
@@ -22,12 +22,12 @@ export default {
 		//NavigationBar标题颜色
 		color: {
 			type: String,
-			default: '#fff'
+			default: '#333'
 		},
-		//NavigationBar背景颜色 rgb
+		//NavigationBar背景颜色
 		backgroundColor: {
 			type: String,
-			default: '86,119,252'
+			default: '#fff'
 		},
 		//是否需要分割线
 		splitLine: {
@@ -35,7 +35,7 @@ export default {
 			default: false
 		},
 		//是否设置不透明度
-		isOpcity: {
+		isOpacity: {
 			type: Boolean,
 			default: true
 		},
@@ -45,9 +45,9 @@ export default {
 			default: 0
 		},
 		/*
-		 isOpcity 为true时生效
-		 opcity=scrollTop /windowWidth * scrollRatio
-		*/
+			 isOpacity 为true时生效
+			 opacity=scrollTop /windowWidth * scrollRatio
+			*/
 		scrollRatio: {
 			type: [Number, String],
 			default: 0.3
@@ -65,12 +65,17 @@ export default {
 		isFixed: {
 			type: Boolean,
 			default: true
+		},
+		//是否开启高斯模糊效果[仅在支持的浏览器有效果]
+		backdropFilter: {
+			type: Boolean,
+			default: false
 		}
 	},
 	watch: {
 		scrollTop(newValue, oldValue) {
-			if (this.isOpcity) {
-				this.opcityChange();
+			if (this.isOpacity) {
+				this.opacityChange();
 			}
 		}
 	},
@@ -80,13 +85,13 @@ export default {
 			left: 375, //小程序端 左侧距胶囊按钮距离
 			height: 44, //header高度
 			top: 0,
-			scrollH: 1, //滚动总高度,计算opcity
-			opcity: 0, //0-1
+			scrollH: 1, //滚动总高度,计算opacity
+			opacity: 1, //0-1
 			statusBarHeight: 0 //状态栏高度
 		};
 	},
 	created() {
-		this.opcity = this.isOpcity ? this.opcity : 1;
+		this.opacity = this.isOpacity ? 0 : 1;
 		let obj = {};
 		// #ifdef MP-WEIXIN
 		obj = wx.getMenuButtonBoundingClientRect();
@@ -97,7 +102,6 @@ export default {
 		// #ifdef MP-ALIPAY
 		my.hideAddToDesktopMenu();
 		// #endif
-
 		uni.getSystemInfo({
 			success: res => {
 				this.statusBarHeight = res.statusBarHeight;
@@ -114,21 +118,21 @@ export default {
 					left: obj.left,
 					top: this.top,
 					statusBarHeight: this.statusBarHeight,
-					opcity: this.opcity
+					opacity: this.opacity
 				});
 			}
 		});
 	},
 	methods: {
-		opcityChange() {
+		opacityChange() {
 			let scroll = this.scrollTop <= 1 ? 0 : this.scrollTop;
-			let opcity = scroll / this.scrollH;
-			if ((this.opcity >= 1 && opcity >= 1) || (this.opcity == 0 && opcity == 0)) {
+			let opacity = scroll / this.scrollH;
+			if ((this.opacity >= 1 && opacity >= 1) || (this.opacity == 0 && opacity == 0)) {
 				return;
 			}
-			this.opcity = opcity;
+			this.opacity = opacity;
 			this.$emit('change', {
-				opcity: this.opcity
+				opacity: this.opacity
 			});
 		}
 	}
@@ -139,15 +143,24 @@ export default {
 .tui-navigation-bar {
 	width: 100%;
 }
+.tui-backdrop__filter {
+	/* Safari for macOS & iOS */
+	-webkit-backdrop-filter: blur(15px);
+	/* Google Chrome */
+	backdrop-filter: blur(15px);
+}
+
 .tui-navbar-fixed {
 	position: fixed;
 	left: 0;
 	top: 0;
 	z-index: 9998;
 }
+
 .tui-status-bar {
 	width: 100%;
 }
+
 .tui-navigation_bar-title {
 	width: 100%;
 	font-size: 17px;
