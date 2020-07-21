@@ -64,7 +64,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 |  ![](https://thorui.cn/img/V152/10.png)	|![](https://thorui.cn/img/V152/11.png)	|![](https://thorui.cn/img/V152/12.png)	|
 |  ![](https://thorui.cn/img/V152/13.png)	|![](https://thorui.cn/img/V152/14.png)	|![](https://thorui.cn/img/V152/17.png)	|
 
-<video src="https://thorui.cn/img/V152/0720.MP4" controls="controls" width="300" height="500">您的浏览器不支持播放该视频！</video>
+[![Watch the video](https://thorui.cn/img/V152/6.png)](https://thorui.cn/img/V152/0720.MP4)
 
 
 ## V1.5.1（2020-06-06）
