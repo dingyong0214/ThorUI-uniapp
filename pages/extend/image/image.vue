@@ -45,8 +45,10 @@
 		<view class="tui-image-box">
 			<tui-image-group :imageList="imageList2" isGroup width="80rpx" height="80rpx" :distance="-30"></tui-image-group>
 		</view>
-		
-		
+		<view class="tui-title">组合图 row 多行展示</view>
+		<view class="tui-image-box">
+			<tui-image-group :imageList="imageList3" isGroup width="60rpx" height="60rpx" :distance="16" multiLine></tui-image-group>
+		</view>
 		<view class="tui-title">组合图 column</view>
 		<view class="tui-image-box">
 			<tui-image-group :imageList="imageList2" isGroup width="60rpx" height="60rpx" direction="column"></tui-image-group>
@@ -81,8 +83,12 @@ export default {
 			},{
 				id:5,
 				src:"/static/images/product/5.jpg"
-			}]
+			}],
+			imageList3:[]
 		};
+	},
+	onLoad() {
+		this.imageList3=[...this.imageList2,...this.imageList2,...this.imageList2,...this.imageList2]
 	},
 	methods: {}
 };

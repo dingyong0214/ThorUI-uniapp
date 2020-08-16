@@ -20,7 +20,7 @@
 				<view class="list-view">
 					<view class="tui-list-item" hover-class="tui-hover" :hover-stay-time="150" @tap="detail">
 						<view class="content-box">
-							<image src='/static/images/basic/badge.png' class="logo"></image>
+							<image src='https://thorui.cn/images/basic/badge.png' class="logo"></image>
 							<view class="des-box">
 								<view class="tit">朝朝盈-2019.06.03-收益发放</view>
 								<view class="source">理财</view>

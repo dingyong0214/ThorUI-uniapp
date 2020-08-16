@@ -18,6 +18,11 @@
 			<tui-tabs :tabs="tabs2" :height="88" :currentTab="currentTab" :sliderWidth="150" :sliderHeight="60" bottom="50%"
 			 color="#888" selectedColor="#11CDFC" :bold="true" sliderBgColor="#E5FAFF" @change="change"></tui-tabs>
 		</view>
+		<view class="tui-mtop">
+			<tui-tabs :tabs="navbar" backgroundColor="#fafafa" :height="88" :currentTab="currentTab>1?0:currentTab"
+			 :sliderWidth="150" :sliderHeight="60" bottom="50%" color="#888" selectedColor="#11CDFC" :bold="true"
+			 sliderBgColor="#E5FAFF" @change="change" itemWidth="50%" :width="200" unlined></tui-tabs>
+		</view>
 	</view>
 </template>
 

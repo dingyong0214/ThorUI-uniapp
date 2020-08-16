@@ -35,7 +35,7 @@
 			</view>
 			<view class="item tui-blue">
 				<view>blue</view>
-				<view class="color">#ed3f14</view>
+				<view class="color">#007AFF</view>
 			</view>
 			<view class="item tui-green">
 				<view>green</view>

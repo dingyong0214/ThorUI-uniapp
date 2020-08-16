@@ -1,14 +1,20 @@
 <template>
-	<view class="tui-image-container" :class="{ 'tui-image-direction': direction == 'column' }">
+	<view
+		class="tui-image-container"
+		:style="{ marginBottom: multiLine ? `-${distance}rpx` : 0 }"
+		:class="{ 'tui-image-direction': direction == 'column', 'tui-image__warp': multiLine }"
+	>
 		<view
 			v-for="(item, index) in imageList"
 			:key="index"
-			class="tui-image-item_box"
+			class="tui-image__itembox"
 			:style="{
 				width: width,
 				height: height,
 				borderRadius: radius,
-				marginLeft: direction == 'column' ? 0 : (index && distance) + 'rpx',
+				marginLeft: direction == 'column' || multiLine ? 0 : (index && distance) + 'rpx',
+				marginRight: multiLine ? distance + 'rpx' : 0,
+				marginBottom: multiLine ? distance + 'rpx' : 0,
 				marginTop: direction == 'row' ? 0 : (index && distance) + 'rpx'
 			}"
 			@tap="bindClick(index, item.id)"
@@ -108,6 +114,11 @@ export default {
 		distance: {
 			type: [Number, String],
 			default: -16
+		},
+		//是否可多行展示，排列方向 row时生效，distance需设置为大于0的数
+		multiLine: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data() {
@@ -138,7 +149,10 @@ export default {
 .tui-image-direction {
 	flex-direction: column;
 }
-.tui-image-item_box {
+.tui-image__warp {
+	flex-wrap: wrap;
+}
+.tui-image__itembox {
 	position: relative;
 }
 .tui-image-item {

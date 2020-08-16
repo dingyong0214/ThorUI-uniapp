@@ -383,10 +383,10 @@ export default {
 	position: absolute;
 	padding-left: 8rpx;
 	padding-right: 8rpx;
-	height: 32rpx;
-	line-height: 32rpx;
+	height: 16px;
+	line-height: 16px;
 	background-color: #fa3a3a;
-	border-radius: 20rpx;
+	border-radius: 10px; 
 	left: 26rpx;
 	top: -8rpx;
 	text-align: center;

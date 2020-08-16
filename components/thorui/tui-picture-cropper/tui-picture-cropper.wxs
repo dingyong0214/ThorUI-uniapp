@@ -236,12 +236,12 @@ function cutTouchMove(e, ins) {
 			cutY = cropper.cutY,
 			cutX = cropper.cutX;
 
-		function size_correct() {
+		var size_correct = function() {
 			width = width <= cropper.maxWidth ? (width >= cropper.minWidth ? width : cropper.minWidth) : cropper.maxWidth;
 			height = height <= cropper.maxHeight ? (height >= cropper.minHeight ? height : cropper.minHeight) : cropper.maxHeight;
 		}
 
-		function size_inspect() {
+		var size_inspect = function() {
 			if ((width > cropper.maxWidth || width < cropper.minWidth || height > cropper.maxHeight || height < cropper.minHeight) &&
 				lockRatio) {
 				size_correct();
@@ -315,7 +315,7 @@ function cutDetectionPosition(ins) {
 	var windowHeight = cropper.windowHeight,
 		windowWidth = cropper.windowWidth;
 
-	function cutDetectionPositionTop() {
+	var cutDetectionPositionTop = function() {
 		//检测上边距是否在范围内
 		if (cropper.cutY < 0) {
 			cropper.cutY = 0;
@@ -325,7 +325,7 @@ function cutDetectionPosition(ins) {
 		}
 	}
 
-	function cutDetectionPositionLeft() {
+	var cutDetectionPositionLeft = function() {
 		//检测左边距是否在范围内
 		if (cropper.cutX < 0) {
 			cropper.cutX = 0;
@@ -514,7 +514,7 @@ function propsChange(prop, oldProp, ownerInstance, ins) {
 			cropper.windowHeight = +dataset.windowheight;
 			cropper.windowWidth = +dataset.windowwidth;
 			cropper.init = false
-		} else if (type == 2 || type==3) {
+		} else if (type == 2 || type == 3) {
 			cropper.imgWidth = +dataset.imgwidth;
 			cropper.imgHeight = +dataset.imgheight;
 		}

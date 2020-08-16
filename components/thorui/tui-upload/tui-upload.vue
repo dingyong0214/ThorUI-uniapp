@@ -49,22 +49,48 @@
 				type: Number,
 				default: 9
 			},
+			//original 原图，compressed 压缩图，默认二者都有
+			sizeType: {
+				type: Array,
+				default () {
+					return ['original', 'compressed']
+				}
+			},
+			//album 从相册选图，camera 使用相机，默认二者都有。如需直接开相机或直接选相册，请只使用一个选项
+			sourceType: {
+				type: Array,
+				default () {
+					return ['album', 'camera']
+				}
+			},
+			//可上传图片类型，默认为空，不限制  Array<String> ['jpg','png','gif']
+			imageFormat: {
+				type: Array,
+				default () {
+					return []
+				}
+			},
+			//单张图片大小限制 MB 
+			size: {
+				type: Number,
+				default: 4
+			},
 			//项目名，默认为 file
 			fileKeyName: {
 				type: String,
 				default: "file"
 			},
 			//HTTP 请求 Header, header 中不能设置 Referer。
-			header:{
+			header: {
 				type: Object,
-				default(){
+				default () {
 					return {}
 				}
 			},
 			//HTTP 请求中其他额外的 form data
-			formData:{
+			formData: {
 				type: Object,
-				default(){
+				default () {
 					return {}
 				}
 			}
@@ -80,9 +106,9 @@
 		created() {
 			this.initImages()
 		},
-		watch:{
-			value(val){
-				if(val){
+		watch: {
+			value(val) {
+				if (val) {
 					this.initImages()
 				}
 			}
@@ -97,7 +123,7 @@
 			}
 		},
 		methods: {
-			initImages(){
+			initImages() {
 				this.imageList = [...this.value];
 				for (let item of this.imageList) {
 					this.statusArr.push("1")
@@ -124,22 +150,56 @@
 					imgArr: this.imageList
 				})
 			},
+			toast(text) {
+				text && uni.showToast({
+					title: text,
+					icon: "none"
+				});
+			},
 			chooseImage: function() {
 				let _this = this;
 				uni.chooseImage({
 					count: _this.limit - _this.imageList.length,
+					sizeType: _this.sizeType,
+					sourceType: _this.sourceType,
 					success: function(e) {
+						console.log(e)
 						let imageArr = [];
-						for (let i = 0; i < e.tempFilePaths.length; i++) {
+						for (let i = 0; i < e.tempFiles.length; i++) {
 							let len = _this.imageList.length;
 							if (len >= _this.limit) {
-								uni.showToast({
-									title: `最多可上传${_this.limit}张图片`,
-									icon: "none"
-								});
+								_this.toast(`最多可上传${_this.limit}张图片`);
 								break;
 							}
-							let path = e.tempFilePaths[i]
+							//过滤图片类型
+							let path = e.tempFiles[i].path;
+
+							if (_this.imageFormat.length > 0) {
+								let format = ""
+								// #ifdef H5
+								let type = e.tempFiles[i].type;
+								format = type.split('/')[1]
+								// #endif
+
+								// #ifndef H5
+								format = path.split(".")[(path.split(".")).length - 1];
+								// #endif
+
+								if (_this.imageFormat.indexOf(format) == -1) {
+									let text = `只能上传 ${_this.imageFormat.join(',')} 格式图片！`
+									_this.toast(text);
+									continue;
+								}
+							}
+
+							//过滤超出大小限制图片
+							let size = e.tempFiles[i].size;
+
+							if (_this.size * 1024 * 1024 < size){
+								let err=`单张图片大小不能超过：${_this.size}MB`
+								_this.toast(text);
+								continue;
+							}
 							imageArr.push(path)
 							_this.imageList.push(path)
 							_this.statusArr.push("2")

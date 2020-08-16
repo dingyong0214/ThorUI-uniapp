@@ -16,7 +16,7 @@
 		<tui-divider :size="30">改变字体大小</tui-divider>
 		<tui-divider :size="30"><tui-icon name="satisfied" :size="20"></tui-icon></tui-divider>
 		<tui-divider :size="36">
-			<image src="/static/images/basic/icon.png" class="tui-divider-img"></image>
+			<image src="https://thorui.cn/images/basic/icon.png" class="tui-divider-img"></image>
 			<text class="tui-text">猜你喜欢</text>
 		</tui-divider>
 	</view>

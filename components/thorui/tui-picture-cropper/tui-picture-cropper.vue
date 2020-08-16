@@ -334,6 +334,20 @@ export default {
 		}, 200);
 	},
 	methods: {
+		//网络图片转成本地文件[同步执行]
+		async getLocalImage(url) {
+			return await new Promise((resolve, reject) => {
+				uni.downloadFile({
+					url: url,
+					success: res => {
+						resolve(res.tempFilePath);
+					},
+					fail: res => {
+						reject(false)
+					}
+				})
+			})
+		},
 		//返回裁剪后图片信息
 		getImage() {
 			if (!this.imageUrl) {
@@ -344,7 +358,7 @@ export default {
 				return;
 			}
 			this.loadding && this.showLoading();
-			let draw = () => {
+			let draw =async () => {
 				//图片实际大小
 				let imgWidth = this.imgWidth * this.scale * this.scaleRatio;
 				let imgHeight = this.imgHeight * this.scale * this.scaleRatio;
@@ -354,7 +368,13 @@ export default {
 				//旋转画布
 				this.ctx.translate(xpos * this.scaleRatio, ypos * this.scaleRatio);
 				this.ctx.rotate((this.angle * Math.PI) / 180);
-				this.ctx.drawImage(this.imageUrl, -imgWidth / 2, -imgHeight / 2, imgWidth, imgHeight);
+				let imgUrl = this.imageUrl;
+				// #ifdef APP-PLUS || MP-WEIXIN
+				if (~this.imageUrl.indexOf('https:')) {
+					imgUrl = await this.getLocalImage(this.imageUrl)
+				}
+				// #endif
+				this.ctx.drawImage(imgUrl, -imgWidth / 2, -imgHeight / 2, imgWidth, imgHeight);
 				this.ctx.draw(false, () => {
 					let params = {
 						width: this.canvasWidth * this.scaleRatio,
@@ -448,10 +468,10 @@ export default {
 		change(e) {
 			this.cutX = e.cutX || 0;
 			this.cutY = e.cutY || 0;
-			this.canvasWidth = e.canvasWidth || 100;
-			this.canvasHeight = e.canvasHeight || 100;
-			this.imgWidth = e.imgWidth || 100;
-			this.imgHeight = e.imgHeight || 100;
+			this.canvasWidth = e.canvasWidth || this.width;
+			this.canvasHeight = e.canvasHeight || this.height;
+			this.imgWidth = e.imgWidth || this.imgWidth;
+			this.imgHeight = e.imgHeight || this.imgHeight;
 			this.scale = e.scale || 1;
 			this.angle = e.angle || 0;
 			this.imgTop = e.imgTop || 0;

@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<tui-navigation-bar splitLine @init="initNavigation" @change="opacityChange" :scrollTop="scrollTop" title="NavBar自定义导航栏" :backgroundColor="backgroundColor" color="#333">
+		<tui-navigation-bar splitLine @init="initNavigation" @change="opacityChange" :scrollTop="scrollTop" title="NavBar自定义导航栏" backgroundColor="#fff" color="#333">
 			<view class="tui-header-icon" :style="{ marginTop: top + 'px' }"><tui-icon name="arrowleft" :color="opacity > 0.85 ? '#333' : '#fff'" @click="back"></tui-icon></view>
 		</tui-navigation-bar>
 		<view class="tui-header-bg"><image src="/static/images/my/mine_bg_3x.png" class="tui-header-img"></image></view>
@@ -63,19 +63,11 @@ export default {
 		return {
 			top: 0, //标题图标距离顶部距离
 			opacity: 0,
-			scrollTop: 0.5,
-			backgroundColor: 'rgba(248,248,248,.6)'
+			scrollTop: 0.5
 		};
 	},
 	onLoad() {
-		// #ifdef H5
-		this.backgroundColor = '#fff';
-		// #endif
-		// #ifndef H5
-		if (this.tui.isAndroid()) {
-			this.backgroundColor = '#fff';
-		}
-		// #endif
+		
 	},
 	methods: {
 		initNavigation(e) {

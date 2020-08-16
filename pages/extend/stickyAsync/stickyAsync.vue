@@ -21,7 +21,7 @@
 				<view class="list-view">
 					<view class="tui-list-item" @tap="detail">
 						<view class="content-box">
-							<image src='/static/images/basic/color.png' class="logo"></image>
+							<image src='https://thorui.cn/images/basic/color.png' class="logo"></image>
 							<view class="des-box">
 								<view class="tit">朝朝盈-2019.06.03-收益发放</view>
 								<view class="source">理财</view>
@@ -35,7 +35,7 @@
 
 					<view class="tui-list-item" @tap="detail" v-for="(item,index) in 8" :key="index">
 						<view class="content-box">
-							<image src='/static/images/mall/category/4.png' class="logo"></image>
+							<image src='https://thorui.cn/images/mall/category/4.png' class="logo"></image>
 							<view class="des-box">
 								<view class="tit">扫收钱码付款-给小仙女(2019-06.04）</view>
 								<view class="source">生活日用</view>
@@ -49,7 +49,7 @@
 
 				</view>
 				<view class="tui-ad-box" v-if="show">
-					<image src="/static/images/mall/banner/5.jpg" class="tui-ad-img"></image>
+					<image src="https://thorui.cn/images/mall/banner/5.jpg" class="tui-ad-img"></image>
 				</view>
 				<!--内容 end-->
 			</template>

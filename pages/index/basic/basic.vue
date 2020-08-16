@@ -9,7 +9,7 @@
 				<navigator :url="item.url" hover-class='none'>
 					<tui-grid-item>
 						<view class="tui-grid-icon">
-							<image class="tui-grid-img" :src="'/static/images/basic/'+item.img+'.png'" :style="{width:item.width+'rpx',height:item.height+'rpx'}" />
+							<image class="tui-grid-img" :src="'https://thorui.cn/images/basic/'+item.img+'.png'" :style="{width:item.width+'rpx',height:item.height+'rpx'}" />
 						</view>
 						<text class="tui-grid-label">{{item.name}}</text>
 					</tui-grid-item>

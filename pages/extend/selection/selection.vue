@@ -6,10 +6,9 @@
 		</view>
 		<view class="tui-title">传入所有数据</view>
 		<tui-cascade-selection height="200px" :itemList="itemList" @complete="complete"></tui-cascade-selection>
-		
+
 		<view class="tui-title">设置默认数据</view>
 		<tui-cascade-selection height="200px" :itemList="itemList" :defaultItemList="defaultItemList" @complete="complete"></tui-cascade-selection>
-		
 
 		<view class="tui-title">请求返回子级数据（8级数据）</view>
 		<tui-cascade-selection
@@ -96,79 +95,80 @@ export default {
 						{ text: '界首市', value: '341282' }
 					]
 				}
-			]
+			],
+			webURL: 'https://thorui.cn'
 		};
 	},
 	onLoad() {
 		this.itemList2 = [
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(1)班',
 				subText: '30人',
 				value: 101
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(2)班',
 				subText: '30人',
 				value: 102
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(3)班',
 				subText: '30人',
 				value: 103
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(4)班',
 				subText: '28人',
 				value: 104
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(5)班',
 				subText: '28人',
 				value: 105
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(6)班',
 				subText: '28人',
 				value: 106
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(7)班',
 				subText: '28人',
 				value: 107
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(8)班',
 				subText: '38人',
 				value: 108
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(9)班',
 				subText: '38人',
 				value: 109
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(10)班',
 				subText: '38人',
 				value: 110
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(11)班',
 				subText: '38人',
 				value: 111
 			},
 			{
-				src: '/static/images/basic/color.png',
+				src: this.webURL + '/images/basic/color.png',
 				text: '高一(12)班',
 				subText: '38人',
 				value: 112

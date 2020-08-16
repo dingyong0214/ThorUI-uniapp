@@ -24,15 +24,11 @@
 		<view class="tui-title">空心按钮</view>
 		<view class="tui-btn-box"><tui-button plain @click="detail">页面主操作</tui-button></view>
 		<view class="tui-btn-box"><tui-button plain disabled loading @click="detail">页面主操作</tui-button></view>
-		<!-- <view class="tui-btn-box">
-			<tui-button type="white" plain @click="detail">页面次要操作</tui-button>
-		</view>
-		<view class="tui-btn-box">
-			<tui-button type="white" plain disabled loading >页面次要操作 Disabled</tui-button>
-		</view> -->
 		<view class="tui-btn-box"><tui-button type="danger" plain @click="detail">页面辅助操作</tui-button></view>
+		<view class="tui-btn-box"><tui-button type="danger" plain link @click="detail">页面辅助操作 link</tui-button></view>
 		<view class="tui-btn-box"><tui-button type="danger" plain disabled loading>页面辅助操作 Disabled</tui-button></view>
 		<view class="tui-btn-box"><tui-button type="warning" plain @click="detail">页面辅助操作</tui-button></view>
+		<view class="tui-btn-box"><tui-button type="warning" plain link @click="detail">页面辅助操作 link</tui-button></view>
 		<view class="tui-btn-box"><tui-button type="warning" plain disabled>页面辅助操作 Disabled</tui-button></view>
 		<view class="tui-btn-box"><tui-button type="green" plain @click="detail">页面辅助操作</tui-button></view>
 		<view class="tui-btn-box"><tui-button type="green" plain disabled>页面辅助操作 Disabled</tui-button></view>

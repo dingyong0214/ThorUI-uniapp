@@ -13,7 +13,7 @@ const store = new Vuex.Store({
 		//登录后跳转的页面路径 + 页面参数
 		returnUrl: "",
 		//app版本
-		version: "1.5.2",
+		version: "1.5.5",
 		//当前是否有网络连接
 		networkConnected: true,
 		isOnline: false

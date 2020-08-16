@@ -146,6 +146,11 @@ export default {
 		isColon: {
 			type: Boolean,
 			default: true
+		},
+		//是否返回剩余时间
+		returnTime:{
+			type: Boolean,
+			default: false
 		}
 	},
 	watch: {
@@ -192,6 +197,9 @@ export default {
 					return;
 				}
 				this.countDown(seconds);
+				if(this.returnTime){
+					this.$emit('time', {seconds:seconds});
+				}
 			}, 1000);
 		},
 		countDown(seconds) {

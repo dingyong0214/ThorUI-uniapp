@@ -15,10 +15,11 @@
 			>
 				<swiper-item v-for="(item, index) in banner" :key="index" class="tui-banner-item">
 					<image
-						:src="'/static/images/mall/banner/' + item"
+						:src="'https://thorui.cn/images/mall/banner/' + item"
 						class="tui-slide-image"
 						:class="[current != index ? 'tui-banner-scale' : '']"
 						mode="scaleToFill"
+						lazy-load
 						@tap="detail"
 					/>
 				</swiper-item>
@@ -39,7 +40,7 @@
 		<!--classify-->
 		<view class="tui-classify-box">
 			<view class="tui-classify-item" v-for="(item, index) in classify" :key="index" @tap="more" :data-key="item.name">
-				<image :src="'/static/images/classify/' + item.img + '.png'" class="tui-classify-img" />
+				<image :src="'https://thorui.cn/images/classify/' + item.img + '.png'" class="tui-classify-img" lazy-load/>
 				<view class="tui-classify-name">{{ item.name }}</view>
 			</view>
 		</view>
@@ -356,6 +357,8 @@ export default {
 .tui-classify-img {
 	width: 88rpx;
 	height: 88rpx;
+	background-color: #ccc;
+	border-radius: 50%;
 }
 
 .tui-classify-name {

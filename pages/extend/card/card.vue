@@ -102,7 +102,7 @@
 		<tui-card :image="card[2].img" :title="card[2].title" :tag="card[2].tag" :header="card[2].header" @click="detail">
 			<template v-slot:body>
 				<view class="tui-article">
-					<image src="/static/images/mall/banner/2.jpg" class="tui-article-img"></image>
+					<image src="https://thorui.cn/images/mall/banner/2.jpg" class="tui-article-img"></image>
 					<view class="tui-article-title">Vue+Node+高德地图+Echart做一款出行可视化全栈webapp</view>
 				</view>
 				<tui-list-cell>

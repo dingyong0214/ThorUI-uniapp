@@ -161,7 +161,7 @@
       </view>
     </view>
     <view class="tui-operation-right tui-center  tui-col-5">
-       <view class="tui-flex-1">
+       <view class="tui-flex-1 tui-center">
 		   <tui-button type="danger"  shape="circle" :size="28"  width="80%" height="72rpx">立即购买</tui-button>
 	   </view>
     </view>

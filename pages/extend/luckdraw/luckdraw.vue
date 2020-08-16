@@ -4,7 +4,7 @@
 		<view class="tui-container-in">
 			<view class="tui-content-out" :class="['tui-award-'+(index+1),index==indexSelect?'tui-awardSelect':'']" v-for="(item,index) in awardList"
 			 :key="index">
-				<image class="tui-award-image" :src="'/static/images/luck/'+item.img"></image>
+				<image class="tui-award-image" :src="'https://thorui.cn/images/luck/'+item.img"></image>
 			</view>
 			<view class="tui-btn-start" :class="[isRunning?'tui-ative':'']" @tap="startDrawing">立即抽奖</view>
 		</view>
