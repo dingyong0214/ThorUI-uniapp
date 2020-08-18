@@ -47,7 +47,7 @@ export default {
 		//tabs宽度，不传值则默认使用windowWidth，单位px
 		width: {
 			type: Number,
-			default: 375
+			default: 0
 		},
 		//rpx
 		height: {
@@ -200,6 +200,7 @@ export default {
 
 <style scoped>
 .tui-tabs-view {
+	width: 100%;
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;

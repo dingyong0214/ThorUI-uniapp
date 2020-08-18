@@ -251,22 +251,13 @@ export default {
 		},
 		reset() {
 			this.initData(this.itemList, -1);
+		},
+		defaultItemList(val){
+			this.setDefaultData(val)
 		}
 	},
 	created() {
-		let defaultItemList = this.defaultItemList || [];
-		if (defaultItemList.length > 0) {
-			defaultItemList.map(item => {
-				item.scrollViewId = `id_${item.index}`;
-			});
-			this.selectedArr = defaultItemList;
-			this.currentTab = defaultItemList.length - 1;
-			this.$nextTick(() => {
-				this.checkCor();
-			});
-		} else {
-			this.initData(this.itemList, -1);
-		}
+		this.setDefaultData(this.defaultItemList)
 	},
 	data() {
 		return {
@@ -277,6 +268,21 @@ export default {
 		};
 	},
 	methods: {
+		setDefaultData(val){
+			let defaultItemList = val || [];
+			if (defaultItemList.length > 0) {
+				defaultItemList.map(item => {
+					item.scrollViewId = `id_${item.index}`;
+				});
+				this.selectedArr = defaultItemList;
+				this.currentTab = defaultItemList.length - 1;
+				this.$nextTick(() => {
+					this.checkCor();
+				});
+			} else {
+				this.initData(this.itemList, -1);
+			}
+		},
 		initData(data, layer) {
 			if (!data || data.length === 0) return;
 			if (this.request) {

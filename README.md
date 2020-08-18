@@ -24,6 +24,20 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
+## V1.5.6（2020-08-18）
+
+1.修复tui-tabs组件宽度不正确的bug。
+
+2.修复级联选择组件(tui-cascade-selection)默认数据不生效的bug。
+
+3.优化tui-button按钮组件，新增props：preventClick[是否阻止用户重复点击，设为true则200ms内只执行一次点击事件，默认false]
+
+ --------------------------
+ 
+ 注：加入会员享受更多权益（￥99/永久)。
+ 
+ 如若需要，请联系QQ：3168647172 或 3039218619。
+
 ## V1.5.5（2020-08-16）
 
 1.自定义导航栏组件优化，新增props：maxOpacity（最大不透明度值），dropDownHide（下拉隐藏NavigationBar，主要针对有回弹效果ios端）。

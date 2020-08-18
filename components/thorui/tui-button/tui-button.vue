@@ -101,11 +101,28 @@ export default {
 		index: {
 			type: [Number, String],
 			default: 0
+		},
+		//是否需要阻止重复点击【默认200ms】
+		preventClick: {
+			type: Boolean,
+			default: false
 		}
+	},
+	data() {
+		return {
+			time: 0
+		};
 	},
 	methods: {
 		handleClick() {
-			if (this.disabled) return false;
+			if (this.disabled) return;
+			if (this.preventClick) {
+				if(new Date().getTime() - this.time <= 200) return;
+				this.time = new Date().getTime();
+				setTimeout(() => {
+					this.time = 0;
+				}, 200);
+			}
 			this.$emit('click', {
 				index: Number(this.index)
 			});
