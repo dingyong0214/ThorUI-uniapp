@@ -24,7 +24,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
-## V1.5.8（2020-08-31）
+## V1.5.8（2020-09-02）
 
 1.tui-navigation-bar组件优化，可设置背景透明 【设置该属性，则背景透明，只出现内容，isOpacity和maxOpacity失效】
 
