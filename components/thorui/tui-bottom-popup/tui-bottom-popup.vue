@@ -1,15 +1,15 @@
 <template>
 	<view @touchmove.stop.prevent>
-		<view class="tui-popup-class tui-bottom-popup" :class="{'tui-popup-show':show,'tui-popup-radius':radius}" :style="{backgroundColor:backgroundColor,height:height?height+'rpx':'auto'}">
+		<view class="tui-popup-class tui-bottom-popup" :class="{ 'tui-popup-show': show, 'tui-popup-radius': radius }" :style="{ backgroundColor: backgroundColor, height: height ? height + 'rpx' : 'auto', zIndex: zIndex,transform:`translate3d(0, ${show?translateY:'100%'}, 0)`}">
 			<slot></slot>
 		</view>
-		<view class="tui-popup-mask" :class="[show?'tui-mask-show':'']" v-if="mask" @tap="handleClose"></view>
+		<view class="tui-popup-mask" :class="[show ? 'tui-mask-show' : '']" :style="{ zIndex: maskZIndex }" v-if="mask" @tap="handleClose"></view>
 	</view>
 </template>
 
 <script>
 	export default {
-		name: "tuiBottomPopup",
+		name: 'tuiBottomPopup',
 		props: {
 			//是否需要mask
 			mask: {
@@ -24,7 +24,7 @@
 			//背景颜色
 			backgroundColor: {
 				type: String,
-				default: "#fff"
+				default: '#fff'
 			},
 			//高度 rpx
 			height: {
@@ -32,9 +32,22 @@
 				default: 0
 			},
 			//设置圆角
-			radius:{
-				type:Boolean,
-				default:true
+			radius: {
+				type: Boolean,
+				default: true
+			},
+			zIndex: {
+				type: [Number, String],
+				default: 997
+			},
+			maskZIndex: {
+				type: [Number, String],
+				default: 996
+			},
+			//弹层显示时，垂直方向移动的距离
+			translateY: {
+				type: String,
+				default: '0'
 			}
 		},
 		methods: {
@@ -45,7 +58,7 @@
 				this.$emit('close', {});
 			}
 		}
-	}
+	};
 </script>
 
 <style scoped>
@@ -55,14 +68,13 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: 997;
-		/* visibility: hidden; */
 		opacity: 0;
 		transform: translate3d(0, 100%, 0);
 		transform-origin: center;
 		transition: all 0.3s ease-in-out;
 		min-height: 20rpx;
 	}
+
 	.tui-popup-radius {
 		border-top-left-radius: 24rpx;
 		border-top-right-radius: 24rpx;
@@ -71,9 +83,8 @@
 	}
 
 	.tui-popup-show {
-		transform: translate3d(0, 0, 0);
 		opacity: 1;
-		/* visibility: visible; */
+		/* transform: translate3d(0, 0, 0); */
 	}
 
 	.tui-popup-mask {
@@ -83,7 +94,6 @@
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.6);
-		z-index: 996;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		visibility: hidden;

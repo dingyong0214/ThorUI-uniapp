@@ -99,7 +99,7 @@
 
 
 		<!--底部分享弹窗-->
-		<tui-bottom-popup :show="popupShow" @close="popup">
+		<tui-bottom-popup  :zIndex="1002" :maskZIndex="1001" :show="popupShow" @close="popup">
 			<view class="tui-share">
 				<view class="tui-share-title">分享到</view>
 				<scroll-view scroll-x style="padding-right:20rpx">

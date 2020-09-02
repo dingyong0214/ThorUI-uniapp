@@ -163,7 +163,6 @@
 					sizeType: _this.sizeType,
 					sourceType: _this.sourceType,
 					success: function(e) {
-						console.log(e)
 						let imageArr = [];
 						for (let i = 0; i < e.tempFiles.length; i++) {
 							let len = _this.imageList.length;
@@ -197,7 +196,7 @@
 
 							if (_this.size * 1024 * 1024 < size){
 								let err=`单张图片大小不能超过：${_this.size}MB`
-								_this.toast(text);
+								_this.toast(err);
 								continue;
 							}
 							imageArr.push(path)
@@ -235,7 +234,6 @@
 						formData: this.formData,
 						filePath: url,
 						success: function(res) {
-							console.log(res)
 							if (res.statusCode == 200) {
 								//返回结果 此处需要按接口实际返回进行修改
 								let d = JSON.parse(res.data.replace(/\ufeff/g, "") || "{}")

@@ -2,7 +2,14 @@
 	<view
 		class="tui-tabs-view"
 		:class="[isFixed ? 'tui-tabs-fixed' : 'tui-tabs-relative', unlined ? 'tui-unlined' : '']"
-		:style="{ width: tabsWidth + 'px', height: height + 'rpx', padding: `0 ${padding}rpx`, background: backgroundColor, top: isFixed ? top + 'px' : 'auto' }"
+		:style="{
+			width: tabsWidth + 'px',
+			height: height + 'rpx',
+			padding: `0 ${padding}rpx`,
+			background: backgroundColor,
+			top: isFixed ? top + 'px' : 'auto',
+			zIndex: isFixed ? zIndex : 'auto'
+		}"
 	>
 		<view v-for="(item, index) in tabs" :key="index" class="tui-tabs-item" :style="{ width: itemWidth }" @tap.stop="swichTabs(index)">
 			<view
@@ -137,6 +144,10 @@ export default {
 		bold: {
 			type: Boolean,
 			default: false
+		},
+		zIndex: {
+			type: [Number, String],
+			default: 996
 		}
 	},
 	watch: {
@@ -214,7 +225,6 @@ export default {
 .tui-tabs-fixed {
 	position: fixed;
 	left: 0;
-	z-index: 996;
 }
 
 .tui-tabs-fixed::before,

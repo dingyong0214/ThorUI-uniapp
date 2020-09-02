@@ -1,5 +1,9 @@
 <template>
-	<view class="tui-tabbar" :class="{ 'tui-tabbar-fixed': isFixed, 'tui-unlined': unlined, 'tui-backdrop__filter': backdropFilter }" :style="{ background: backgroundColor }">
+	<view
+		class="tui-tabbar"
+		:class="{ 'tui-tabbar-fixed': isFixed, 'tui-unlined': unlined, 'tui-backdrop__filter': backdropFilter }"
+		:style="{ background: backgroundColor, zIndex: isFixed ? zIndex : 'auto' }"
+	>
 		<block v-for="(item, index) in tabBar" :key="index">
 			<view
 				class="tui-tabbar-item"
@@ -16,7 +20,7 @@
 				<view class="tui-text-scale" :class="{ 'tui-text-hump': item.hump }" :style="{ color: current == index ? selectedColor : color }">{{ item.text }}</view>
 			</view>
 		</block>
-		<view :style="{ background: backgroundColor }" :class="{ 'tui-hump-box': hump}" v-if="hump && !unlined && !backdropFilter"></view>
+		<view :style="{ background: backgroundColor }" :class="{ 'tui-hump-box': hump }" v-if="hump && !unlined && !backdropFilter"></view>
 	</view>
 </template>
 
@@ -87,6 +91,11 @@ export default {
 		backdropFilter: {
 			type: Boolean,
 			default: false
+		},
+		//z-index
+		zIndex: {
+			type: [Number, String],
+			default: 9999
 		}
 	},
 	watch: {
@@ -125,7 +134,6 @@ export default {
 }
 .tui-tabbar-fixed {
 	position: fixed;
-	z-index: 9999;
 	left: 0;
 	bottom: 0;
 	padding-bottom: constant(safe-area-inset-bottom);

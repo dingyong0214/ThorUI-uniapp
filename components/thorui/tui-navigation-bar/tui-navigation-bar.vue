@@ -1,11 +1,17 @@
 <template>
 	<view
 		class="tui-navigation-bar"
-		:class="{ 'tui-bar-line': opacity > 0.85 && splitLine, 'tui-navbar-fixed': isFixed, 'tui-backdrop__filter': backdropFilter }"
-		:style="{ height: height + 'px', backgroundColor: `rgba(${background},${opacity})`, opacity: dropDownOpacity }"
+		:class="{ 'tui-bar-line': opacity > 0.85 && splitLine, 'tui-navbar-fixed': isFixed, 'tui-backdrop__filter': backdropFilter && dropDownOpacity > 0  }"
+		:style="{ height: height + 'px', backgroundColor: `rgba(${background},${opacity})`, opacity: dropDownOpacity, zIndex: isFixed ? zIndex : 'auto' }"
 	>
 		<view class="tui-status-bar" :style="{ height: statusBarHeight + 'px' }" v-if="isImmersive"></view>
-		<view class="tui-navigation_bar-title" :style="{ opacity: opacity, color: color, paddingTop: top - statusBarHeight + 'px' }" v-if="title && !isCustom">{{ title }}</view>
+		<view
+			class="tui-navigation_bar-title"
+			:style="{ opacity: transparent || opacity >= maxOpacity ? 1 : opacity, color: color, paddingTop: top - statusBarHeight + 'px' }"
+			v-if="title && !isCustom"
+		>
+			{{ title }}
+		</view>
 		<slot />
 	</view>
 </template>
@@ -44,6 +50,11 @@ export default {
 			type: [Number, String],
 			default: 1
 		},
+		//背景透明 【设置该属性，则背景透明，只出现内容，isOpacity和maxOpacity失效】
+		transparent: {
+			type: Boolean,
+			default: false
+		},
 		//滚动条滚动距离
 		scrollTop: {
 			type: [Number, String],
@@ -80,11 +91,16 @@ export default {
 		dropDownHide: {
 			type: Boolean,
 			default: false
+		},
+		//z-index设置
+		zIndex: {
+			type: [Number, String],
+			default: 9998
 		}
 	},
 	watch: {
 		scrollTop(newValue, oldValue) {
-			if (this.isOpacity) {
+			if (this.isOpacity && !this.transparent) {
 				this.opacityChange();
 			}
 		},
@@ -108,7 +124,8 @@ export default {
 		};
 	},
 	created() {
-		this.opacity = this.isOpacity ? 0 : this.maxOpacity;
+		this.dropDownOpacity = this.backdropFilter && 0;
+		this.opacity = this.isOpacity || this.transparent ? 0 : this.maxOpacity;
 		this.background = this.hexToRgb(this.backgroundColor);
 		let obj = {};
 		// #ifdef MP-WEIXIN
@@ -136,7 +153,8 @@ export default {
 					left: this.left,
 					top: this.top,
 					statusBarHeight: this.statusBarHeight,
-					opacity: this.opacity
+					opacity: this.opacity,
+					windowHeight: res.windowHeight
 				});
 			}
 		});
@@ -166,12 +184,16 @@ export default {
 					this.dropDownOpacity = 1;
 				}
 			}
+
 			let scroll = this.scrollTop <= 1 ? 0 : this.scrollTop;
 			let opacity = scroll / this.scrollH;
 			if ((this.opacity >= this.maxOpacity && opacity >= this.maxOpacity) || (this.opacity == 0 && opacity == 0)) {
 				return;
 			}
 			this.opacity = opacity > this.maxOpacity ? this.maxOpacity : opacity;
+			if (this.backdropFilter) {
+				this.dropDownOpacity = this.opacity >= this.maxOpacity ? 1 : this.opacity;
+			}
 			this.$emit('change', {
 				opacity: this.opacity
 			});
@@ -196,7 +218,6 @@ export default {
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: 9998;
 }
 
 .tui-status-bar {

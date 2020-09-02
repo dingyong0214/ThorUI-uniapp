@@ -48,7 +48,7 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		border-top: 1rpx solid #eaeef1;
+		border-top: 1px solid #eaeef1;
 		-webkit-transform: scaleY(0.5) translateZ(0);
 		transform: scaleY(0.5) translateZ(0);
 		transform-origin: 0 0;
@@ -60,7 +60,7 @@
 		content: '';
 		width: 100%;
 		position: absolute;
-		border-bottom: 1rpx solid #eaeef1;
+		border-bottom: 1px solid #eaeef1;
 		-webkit-transform: scaleY(0.5) translateZ(0);
 		transform: scaleY(0.5) translateZ(0);
 		transform-origin: 0 100%;

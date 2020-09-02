@@ -1,5 +1,5 @@
 <template>
-	<view class="tui-swipeout-wrap">
+	<view class="tui-swipeout-wrap" :style="{backgroundColor:backgroundColor}">
 		<view class="tui-swipeout-item" :class="[isShowBtn ? 'swipe-action-show' : '']" @touchstart="handlerTouchstart"
 		 @touchmove="handlerTouchmove" @touchend="handlerTouchend" :style="{ transform: 'translate(' + position.pageX + 'px,0)' }">
 			<view class="tui-swipeout-content">
@@ -67,6 +67,11 @@
 			open: {
 				type: Boolean,
 				default: false
+			},
+			//背景色
+			backgroundColor:{
+				type:String,
+				default:'#fff'
 			}
 		},
 		watch: {
@@ -219,7 +224,6 @@
 
 <style scoped>
 	.tui-swipeout-wrap {
-		background-color: #fff;
 		position: relative;
 		overflow: hidden;
 	}

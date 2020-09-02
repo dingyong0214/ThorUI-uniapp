@@ -1,8 +1,8 @@
 <template>
-	<view class="tui-modal__container" :class="[show ? 'tui-modal-show' : '']" @touchmove.stop.prevent>
+	<view class="tui-modal__container" :class="[show ? 'tui-modal-show' : '']" :style="{zIndex:zIndex}" @touchmove.stop.prevent>
 		<view
 			class="tui-modal-box"
-			:style="{ width: width, padding: padding, borderRadius: radius, backgroundColor: backgroundColor }"
+			:style="{ width: width, padding: padding, borderRadius: radius, backgroundColor: backgroundColor,zIndex:zIndex+1 }"
 			:class="[fadeIn || show ? 'tui-modal-normal' : 'tui-modal-scale', show ? 'tui-modal-show' : '']"
 		>
 			<view v-if="!custom">
@@ -29,7 +29,7 @@
 			</view>
 			<view v-else><slot></slot></view>
 		</view>
-		<view class="tui-modal-mask" :class="[show ? 'tui-mask-show' : '']" @tap="handleClickCancel"></view>
+		<view class="tui-modal-mask" :class="[show ? 'tui-mask-show' : '']" :style="{zIndex:maskZIndex}" @tap="handleClickCancel"></view>
 	</view>
 </template>
 
@@ -114,6 +114,16 @@ export default {
 		custom: {
 			type: Boolean,
 			default: false
+		},
+		//容器z-index
+		zIndex:{
+			type: Number,
+			default: 9997
+		},
+		//mask z-index
+		maskZIndex:{
+			type: Number,
+			default: 9990
 		}
 	},
 	data() {
@@ -142,7 +152,6 @@ export default {
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: 9997;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -154,7 +163,6 @@ export default {
 	visibility: hidden;
 	box-sizing: border-box;
 	transition: all 0.3s ease-in-out;
-	z-index: 9998;
 }
 
 .tui-modal-scale {
@@ -177,7 +185,6 @@ export default {
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.6);
-	z-index: 9996;
 	transition: all 0.3s ease-in-out;
 	opacity: 0;
 	visibility: hidden;

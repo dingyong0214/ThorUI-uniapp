@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<tui-tabs :tabs="tabs3" :isFixed="true" :currentTab="currentTab" @change="change" bottom="50%" :backgroundColor="backgroundColor"
+		<tui-tabs :top="0" :tabs="tabs3" :isFixed="true" :currentTab="currentTab" @change="change" bottom="50%" :backgroundColor="backgroundColor"
 		 color="#fff" selectedColor="#EB0909" :sliderWidth="146" :sliderHeight="52" sliderBgColor="#fff" :unlined="true"></tui-tabs>
 		<view class="header">
 			<view class="title">tabs</view>

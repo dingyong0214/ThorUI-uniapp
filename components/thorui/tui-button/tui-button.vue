@@ -30,7 +30,7 @@ export default {
 	name: 'tuiButton',
 	behaviors: ['wx://form-field-button'],
 	props: {
-		//样式类型 primary, white, danger, warning, green,blue, gray，black,gray-primary,gray-danger,gray-warning,gray-green
+		//样式类型 primary, white, danger, warning, green,blue, gray，black,brown,gray-primary,gray-danger,gray-warning,gray-green
 		type: {
 			type: String,
 			default: 'primary'
@@ -234,6 +234,10 @@ export default {
 	background: #333 !important;
 	color: #fff !important;
 }
+.tui-btn-brown{
+	background: #ac9157 !important;
+	color: #fff !important;
+}
 
 .tui-btn-gray-black {
 	background: #f2f2f2 !important;
@@ -286,6 +290,10 @@ export default {
 
 .tui-black-hover {
 	background: #555 !important;
+	color: #e5e5e5 !important;
+}
+.tui-brown-hover{
+	background: #A37F49 !important;
 	color: #e5e5e5 !important;
 }
 
@@ -467,6 +475,14 @@ export default {
 
 .tui-black-outline::after {
 	border: 1px solid #333 !important;
+}
+
+.tui-brown-outline {
+	color: #ac9157 !important;
+	background: transparent;
+}
+.tui-brown-outline::after {
+	border: 1px solid #ac9157 !important;
 }
 
 /*圆角 */

@@ -4,7 +4,7 @@
 		<view class="tui-tips-content">
 			<slot></slot>
 		</view>
-		<button class="tui-tips-btn" hover-class="tui-tips-btn-hover" :style="{width:btnWidth+'rpx'}" v-if="btnText"  @tap="handleClick">{{btnText}}</button>
+		<view class="tui-tips-btn" hover-class="tui-btn__hover" :hover-stay-time="150" :style="{width:btnWidth+'rpx',height:btnHeight+'rpx',background:backgroundColor,borderRadius:radius,fontSize:size+'rpx'}" v-if="btnText"  @tap="handleClick">{{btnText}}</view>
 	</view>
 </template>
 
@@ -37,10 +37,27 @@
 				type: Number,
 				default: 200
 			},
+			btnHeight:{
+				type: Number,
+				default: 60
+			},
 			//按钮文字，没有则不显示
 			btnText:{
 				type:String,
 				default: ""
+			},
+			//按钮背景色
+			backgroundColor:{
+				type:String,
+				default: "#EB0909"
+			},
+			size:{
+				type:Number,
+				default:28
+			},
+			radius:{
+				type:String,
+				default:'8rpx'
 			}
 		},
 		methods: {
@@ -80,24 +97,21 @@
 		text-align: center;
 		color: #666666;
 		font-size: 28rpx;
-		padding: 0 50rpx 24rpx 50rpx;
+		padding: 0 50rpx 28rpx 50rpx;
 		box-sizing: border-box;
 		word-break: break-all;
 		word-wrap: break-word;
 	}
 
 	.tui-tips-btn {
-		height: 60rpx;
-		line-height: 60rpx;
-		font-size: 28rpx;
-		background-color: #EB0909;
 		color: #fff;
-		border-radius: 6rpx;
 		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-
-	.tui-tips-btn-hover {
-		background-color: #c80808;
-		color: #e5e5e5;
+	.tui-btn__hover{
+		opacity: 0.5;
 	}
+	
 </style>
