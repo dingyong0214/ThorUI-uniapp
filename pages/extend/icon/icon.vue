@@ -14,6 +14,7 @@
 </template>
 
 <script>
+	const thorui = require('@/components/common/tui-clipboard/tui-clipboard.js');
 	export default {
 		data() {
 			return {
@@ -583,7 +584,13 @@
 		},
 		methods:{
 			show(name){
-				this.tui.toast(name)
+				thorui.getClipboardData(name, res => {
+					// #ifdef H5 || MP-ALIPAY
+					if (res) {
+						this.tui.toast(`复制成功：${name}`);
+					}
+					// #endif
+				});
 			}
 		}
 	}

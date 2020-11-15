@@ -26,11 +26,17 @@ export default {
 			this.imageUrl = this.src;
 		},
 		cropper(e) {
+			
 			//裁剪完成后处理逻辑
-			uni.previewImage({
-				current: '', // 当前显示图片的http链接
-				urls: [e.url] // 需要预览的图片http链接列表
-			});
+			if(e.url){
+				uni.previewImage({
+					current: '', // 当前显示图片的http链接
+					urls: [e.url] // 需要预览的图片http链接列表
+				});
+			}else{
+				console.log(e.base64)
+				this.tui.toast('裁剪成功！查看控制台打印')
+			}
 		}
 	}
 };

@@ -1,8 +1,12 @@
 <template>
 	<!-- @touchmove.stop.prevent -->
 	<view>
-		<view v-if="mask" class="tui-drawer-mask" :class="{ 'tui-drawer-mask_show': visible }" :style="{zIndex:maskZIndex}" @tap="handleMaskClick"></view>
-		<view class="tui-drawer-container" :class="[mode == 'left' ? 'tui-drawer-container_left' : 'tui-drawer-container_right', visible ? 'tui-drawer-container_show' : '']" :style="{zIndex:zIndex}">
+		<view v-if="mask" class="tui-drawer-mask" :class="{ 'tui-drawer-mask_show': visible }" :style="{ zIndex: maskZIndex }" @tap="handleMaskClick"></view>
+		<view
+			class="tui-drawer-container"
+			:class="[`tui-drawer-container_${mode}`, visible ? `tui-drawer-${mode}__show` : '']"
+			:style="{ zIndex: zIndex, backgroundColor: backgroundColor }"
+		>
 			<slot></slot>
 		</view>
 	</view>
@@ -27,9 +31,10 @@ export default {
 			type: Boolean,
 			default: true
 		},
+		// left right bottom top
 		mode: {
 			type: String,
-			default: 'true' // left right
+			default: 'right'
 		},
 		//drawer z-index
 		zIndex: {
@@ -40,6 +45,10 @@ export default {
 		maskZIndex: {
 			type: [Number, String],
 			default: 9998
+		},
+		backgroundColor: {
+			type: String,
+			default: '#fff'
 		}
 	},
 	methods: {
@@ -81,7 +90,6 @@ export default {
 	transition: all 0.3s ease-in-out;
 	opacity: 0;
 	overflow-y: scroll;
-	background-color: #fff;
 	-webkit-overflow-scrolling: touch;
 	-ms-touch-action: pan-y cross-slide-y;
 	-ms-scroll-chaining: none;
@@ -99,8 +107,33 @@ export default {
 	left: auto;
 	transform: translate3d(100%, -50%, 0);
 }
-.tui-drawer-container_show {
+
+.tui-drawer-container_bottom,
+.tui-drawer-container_top {
+	width: 100%;
+	height: auto !important;
+	min-height: 20rpx;
+	left: 0;
+	right: 0;
+	transform-origin: center;
+	transition: all 0.3s ease-in-out;
+}
+.tui-drawer-container_bottom {
+	bottom: 0;
+	top: auto;
+	transform: translate3d(0, 100%, 0);
+}
+.tui-drawer-container_top {
+	transform: translate3d(0, -100%, 0);
+}
+.tui-drawer-left__show,
+.tui-drawer-right__show {
 	opacity: 1;
 	transform: translate3d(0, -50%, 0);
+}
+.tui-drawer-top__show,
+.tui-drawer-bottom__show {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
 }
 </style>

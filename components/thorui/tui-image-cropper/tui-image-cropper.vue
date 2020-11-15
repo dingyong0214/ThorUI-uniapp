@@ -419,7 +419,7 @@
 									this.loadding && uni.hideLoading();
 									this.$emit('cropper', data);
 								}
-							});
+							},this);
 						} else {
 							uni.canvasToTempFilePath({
 									...params,

@@ -172,7 +172,7 @@ export default {
 					this.checkCor();
 				}
 			});
-		}, 20);
+		}, 0);
 	},
 	data() {
 		return {

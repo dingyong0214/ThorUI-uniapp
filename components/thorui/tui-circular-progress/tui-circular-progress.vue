@@ -81,7 +81,7 @@
 			//进度条渐变颜色[结合progressColor使用，默认为空]
 			gradualColor: {
 				type: String,
-				default: ''
+				default: '#5677fc'
 			},
 			//起始弧度，单位弧度
 			sAngle: {

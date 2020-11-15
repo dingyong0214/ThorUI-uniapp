@@ -13,7 +13,8 @@
 			</view>
 			<view class="tui-fab-item" :class="{'tui-active':isOpen}" :style="{width:width+'rpx',height:height+'rpx',borderRadius:radius,background:bgColor,color:color}"
 			 @tap.stop="handleClick(-1)">
-				<view class="tui-fab-icon tui-icon-plus"></view>
+				<text class="tui-fab-icon tui-icon-plus" v-if="!custom"></text>
+				<slot></slot>
 			</view>
 		</view>
 		<view class="tui-fab-mask" :class="{'tui-visible':isOpen}" @tap="handleClickCancel"></view>
@@ -54,6 +55,11 @@
 			radius: {
 				type: String,
 				default: "50%"
+			},
+			//默认按钮自定义内容[替换加号]
+			custom:{
+				type:Boolean,
+				default:false
 			},
 			//默认按钮背景颜色
 			bgColor: {

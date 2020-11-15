@@ -9,11 +9,8 @@
 				</view>
 			</view>
 			<view class="tui-page-desc">
-				{{ platform }}
-				<text class="tui-link" @tap="mall">代码片段</text>
-				分享，源码可去
-				<text class="tui-link" @tap="github">GitHub</text>
-				下载
+				<text>ThorUI组件库，让开发效率倍速提升。更多功能请前往小程序</text>
+				<text class="tui-link" @tap="openThorUI">ThorUI示例。</text>
 			</view>
 		</view>
 		<view class="page_bd page_bd_spacing">
@@ -242,33 +239,6 @@
 					this.tui.toast('您选择了：' + data);
 				}, 350);
 			});
-
-			// #ifdef MP-QQ
-			let appbox = qq.createAppBox({
-				adUnitId: '5a1174cf3a58b4b47be85b54388c5e56'
-			});
-			appbox.load().then(() => {
-				appbox.show();
-			});
-			// #endif
-
-			// #ifdef MP-WEIXIN
-			let interstitialAd = null;
-			if (wx.createInterstitialAd) {
-				interstitialAd = wx.createInterstitialAd({
-					adUnitId: 'adunit-44bbe9a9087910e3'
-				});
-				interstitialAd.onLoad(() => {});
-				interstitialAd.onError(err => {});
-				interstitialAd.onClose(() => {});
-			}
-			if (interstitialAd) {
-				interstitialAd.show().catch(err => {
-					console.error(err);
-				});
-			}
-			// #endif
-
 			setTimeout(() => {
 				this.menuHandle();
 			}, 50);
@@ -317,6 +287,25 @@
 				uni.navigateTo({
 					url: '../../doc/doc/doc'
 				});
+			},
+			openThorUI() {
+				// #ifdef MP-WEIXIN
+				wx.navigateToMiniProgram({
+					appId: 'wxd3c1da92cb8fcf40'
+				});
+				// #endif
+			
+				// #ifndef  MP-WEIXIN
+				if (this.sweixin) {
+					this.sweixin.launchMiniProgram({
+						id: 'gh_78d54c9830d3'
+					});
+				} else {
+					uni.previewImage({
+						urls: ['https://thorui.cn/img/applets_extend.jpg']
+					});
+				}
+				// #endif
 			}
 		}
 	};
@@ -437,10 +426,15 @@
 	}
 
 	.tui-page-desc {
+		width: 100%;
 		color: #666;
 		font-size: 28rpx;
 		text-align: center;
-		padding-bottom: 50rpx;
+		padding: 0 80rpx 50rpx;
+		box-sizing: border-box;
+	}
+	.tui-link {
+		color: #586c94;
 	}
 
 	.tui-flex {

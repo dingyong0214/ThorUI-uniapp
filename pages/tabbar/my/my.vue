@@ -65,6 +65,11 @@
 				</view>
 			</view>
 		</view>
+		
+		<view class="tui-applets__vip" @tap="openThorUI">
+			<tui-icon name="applets" color="#07c160" :size="44" unit="rpx"></tui-icon>
+			<text>ThorUI示例</text>
+		</view>
 	</view>
 </template>
 
@@ -143,6 +148,25 @@
 				uni.navigateTo({
 					url: '/pages/my/feedback/feedback'
 				});
+				// #endif
+			},
+			openThorUI() {
+				// #ifdef MP-WEIXIN
+				wx.navigateToMiniProgram({
+					appId: 'wxd3c1da92cb8fcf40'
+				});
+				// #endif
+			
+				// #ifndef  MP-WEIXIN
+				if (this.sweixin) {
+					this.sweixin.launchMiniProgram({
+						id: 'gh_78d54c9830d3'
+					});
+				} else {
+					uni.previewImage({
+						urls: ['https://thorui.cn/img/applets_extend.jpg']
+					});
+				}
 				// #endif
 			}
 		},
@@ -343,5 +367,23 @@
 
 	.btn-feedback::after {
 		border: 0;
+	}
+	.tui-applets__vip{
+		width: 100%;
+		position: fixed;
+		bottom: 20px;
+		/* #ifdef H5 */
+		bottom: 70px;
+		padding-bottom: env(safe-area-inset-bottom);
+		/* #endif */
+		z-index: 10;
+		font-size: 28rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #586c94;
+	}
+	.tui-applets__vip text{
+		padding-left: 10rpx;
 	}
 </style>

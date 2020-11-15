@@ -22,7 +22,7 @@
 					<text v-if="activeSteps !== index" :style="{ color: index <= activeSteps ? '#fff' : '' }">{{ type == 1 ? '' : index + 1 }}</text>
 					<tui-icon name="check" :size="16" color="#fff" v-if="activeSteps === index"></tui-icon>
 				</view>
-				<view class="tui-step-custom" v-if="item.name || item.icon">
+				<view class="tui-step-custom" :style="{backgroundColor:backgroundColor}" v-if="item.name || item.icon">
 					<tui-icon :name="item.name" :size="20" :color="index <= activeSteps ? activeColor : deactiveColor" v-if="item.name"></tui-icon>
 					<image :src="index <= activeSteps ? item.activeIcon : item.icon" class="tui-step-img" mode="widthFix" v-if="!item.name"></image>
 				</view>
@@ -123,6 +123,11 @@ export default {
 			default() {
 				return [];
 			}
+		},
+		//自定义item内容时背景色
+		backgroundColor:{
+			type: String,
+			default: '#fff'
 		}
 	},
 	data() {
@@ -196,7 +201,6 @@ export default {
 	height: 40rpx;
 	position: relative;
 	z-index: 4;
-	background-color: #fff;
 	margin: 0 auto;
 }
 .tui-step-img {

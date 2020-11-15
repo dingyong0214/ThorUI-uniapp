@@ -2,11 +2,15 @@
 	<view class="container">
 		<view class="header">
 			<view class="title">Countdown</view>
-			<view class="sub-title">倒计时 </view>
+			<view class="sub-title">倒计时，毫秒使用css模拟替代js频繁更新操作</view>
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">默认使用</view>
 			<tui-countdown :time="timeList[0]"></tui-countdown>
+		</view>
+		<view class="tui-countdown">
+			<view class="tui-countdown-text">展示毫秒</view>
+			<tui-countdown :time="timeList[0]" isMs></tui-countdown>
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">改变颜色,缩放字体</view>
@@ -54,7 +58,7 @@
 		</view>
 		<view class="tui-countdown">
 			<view class="tui-countdown-text">去掉秒数</view>
-			<tui-countdown :time="timeList[4]" :scale="true" :isColon="false" :days="true" :seconds="false" ></tui-countdown>
+			<tui-countdown :time="timeList[4]" :scale="true" :isColon="false" :days="true" :seconds="false"></tui-countdown>
 		</view>
 	</view>
 </template>

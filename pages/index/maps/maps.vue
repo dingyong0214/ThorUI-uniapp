@@ -18,7 +18,7 @@
 			<view class="cancel-btn" @tap="hideInput" v-show="inputShowed">取消</view>
 		</view>
 		<map class="tui-map" :latitude="lat" :longitude="lng" :markers="covers" @markertap="marker" :scale="12"></map>
-		<scroll-view scroll-y class="scrollView" :style="{height:scrollH +'px'}">
+		<scroll-view scroll-y class="scrollView" :style="{height:scrollH +'px'}" @scrolltolower="pullUp">
 			<view class="tui-list">
 				<view class="tui-list-cell" :class="[index==address.length-1?'tui-cell-last':'']" v-for="(item,index) in address"
 				 :key="index">
@@ -42,36 +42,42 @@
 						</view>
 					</view>
 				</view>
+				<tui-loadmore :index="3" v-if="loading"></tui-loadmore>
 			</view>
 		</scroll-view>
 	</view>
 </template>
 
 <script>
-	const amap = require('@/libs/amap-wx.js')
+	const QQMapWX = require('@/libs/qqmap-wx-jssdk.min.js');
 	export default {
 		data() {
 			return {
 				inputShowed: false,
 				inputVal: "",
-				amapPlugin: null,
-				key: "6799b5f6f88d3d9fb52ac244855a8759",
+				qqmapsdk: null,
+				key: 'W4WBZ-TUD65-IDAIR-QPM36-HMFQ5-CGBZP',
 				lat: 22.63137,
 				lng: 114.010857,
 				covers: [],
 				address: [],
-				scrollH: 256
+				scrollH: 256,
+				pageIndex: 1,
+				loading: true,
+				pullUpOn: true,
+				keywords: ''
 			}
 		},
 		onLoad(options) {
-			this.amapPlugin = new amap.AMapWX({
+			this.qqmapsdk = new QQMapWX({
 				key: this.key
 			});
+			this.keywords = options.key || '加油站';
 			setTimeout(() => {
 				let winHeight = uni.getSystemInfoSync().windowHeight;
 				this.scrollH = winHeight - 44 - uni.upx2px(600);
 				this.getLocation(() => {
-					this.getPoiAround(options.key || "加油站")
+					this.getPoiAround(this.keywords)
 				});
 			}, 300)
 		},
@@ -94,74 +100,138 @@
 				this.inputVal = e.detail.value
 			},
 			getLocation(callback) {
-				const that = this
-				this.amapPlugin.getRegeo({
-					success: (data) => {
-						that.lng = data[0].longitude;
-						that.lat = data[0].latitude;
+				//当前位置
+				const that = this;
+				//H5：使用坐标类型为 gcj02 时，需要配置腾讯地图 sdk 信息（manifest.json -> h5）
+				uni.getLocation({
+					type: 'gcj02',
+					altitude: true,
+					success(res) {
+						that.lat = res.latitude;
+						that.lng = res.longitude;
 						callback();
 					},
-					fail: (info) => {
+					fail(res) {
 						callback();
 					}
-				})
+				});
+			},
+			calculateDistance(to, callback) {
+				// let url=`https://apis.map.qq.com/ws/distance/v1/?mode=walking&to=&output=jsonp&key=W4WBZ-TUD65-IDAIR-QPM36-HMFQ5-CGBZP&from=39.901403%2C116.406243`;
+				this.qqmapsdk.calculateDistance({
+					from: '', //默认当前位置
+					to: to,
+					success: res => {
+						callback && callback(res.result);
+					},
+					fail: res => {
+						callback && callback(false);
+					}
+				});
+			},
+			getResult(data) {
+				let arr = [];
+				let addr = [];
+				let idx = this.address.length;
+				// this.calculateDistance(data, d => {
+				// 	if (d) {
+				// 		let distanceArr = d.elements || [];
+				// 		for (let i = 0, len = data.length; i < len; i++) {
+				// 			data[i].distance = distanceArr[i].distance;
+				// 		}
+				// 	}
+				// });
+				
+				for (let [index, item] of data.entries()) {
+					arr.push({
+						id: index + idx,
+						latitude: item.location.lat,
+						longitude: item.location.lng,
+						title: item.title,
+						iconPath:"/static/images/maps/location.png",
+						width:32,
+						height:32
+					});
+					let tel = this.trim(item.tel);
+					if (~tel.indexOf(';')) {
+						tel = tel.split(';')[0];
+					}
+					addr.push({
+						id: index + idx,
+						latitude: item.location.lat,
+						longitude: item.location.lng,
+						title: item.title,
+						address: item.address,
+						tel: tel,
+						distance: item._distance
+					});
+				}
+				this.address = this.address.concat(addr);
+				this.covers = this.covers.concat(arr);
+				this.pageIndex++;
+				this.loading = false;
+				if (data.length < 10) {
+					this.pullUpOn = false;
+				}
+
+			},
+			pullUp() {
+				if (!this.pullUpOn || this.loading) return;
+				this.loading = true;
+				this.getPoiAround(this.keywords)
 			},
 			getPoiAround(keywords) {
-				//检索周边的POI	
-				uni.showLoading({
-					title: "加载中..."
-				})
-				const that = this;
-				setTimeout(() => {
-					this.amapPlugin.getPoiAround({
-						querykeywords: keywords,
-						location: '', //location： 经纬度坐标。 为空时， 基于当前位置进行地址解析。 格式： '经度,纬度'
-						success: (data) => {
-							let arr = [];
-							let addr = [];
-							for (let i = 0; i < data.markers.length; i++) {
-								arr.push({
-									id: i,
-									latitude: data.markers[i].latitude,
-									longitude: data.markers[i].longitude,
-									title: data.markers[i].name
-								})
-								let tel = that.trim(data.poisData[i].tel);
-								if (~tel.indexOf(";")) {
-									tel = tel.split(";")[0]
-								}
-								addr.push({
-									id: i,
-									latitude: data.markers[i].latitude,
-									longitude: data.markers[i].longitude,
-									title: data.markers[i].name,
-									address: data.markers[i].address,
-									tel: tel,
-									distance: data.poisData[i].distance
-								})
-							}
-
-							this.address = addr;
-							this.covers = arr;
-							uni.hideLoading()
-						},
-						fail: (info) => {
-							uni.showToast({
-								title: '获取位置信息失败，请检查是否打开位置权限'
-							})
-							uni.hideLoading()
+				//检索周边的POI
+				let boundary = `nearby(${this.lat},${this.lng},1000)`;
+				// #ifdef H5
+				//https://lbs.qq.com/service/webService/webServiceGuide/webServiceSearch
+				let url =
+					`https://apis.map.qq.com/ws/place/v1/search?keyword=${keywords}&boundary=${boundary}&page_size=20&page_index=${this.pageIndex}&output=jsonp&key=${this.key}`;
+				this.tui.tuiJsonp(
+					url,
+					res => {
+						if (res.status === 0) {
+							let data = res.data || [];
+							this.getResult(data)
 						}
-					})
-				}, 0);
-
+					},
+					'QQmap'
+				);
+				// #endif
+				
+				// #ifndef H5
+				this.qqmapsdk.search({
+					keyword: keywords,
+					page_index: this.pageIndex,
+					page_size: 20,
+					boundary: boundary,
+					//无此参数
+					location: {
+						latitude: this.lat,
+						longitude: this.lng
+					},
+					success: res => {
+						let data = res.data || [];
+						this.getResult(data)
+					},
+					fail: res => {
+						this.loading = false;
+						this.tui.toast('获取位置信息失败，请检查是否打开位置权限');
+					}
+				});
+				// #endif
 			},
 			bindInput: function(e) {
-				const keywords = e.detail.value;
-				this.getPoiAround(keywords);
+				this.keywords = e.detail.value;
+				this.pageIndex = 1;
+				this.address = [];
+				this.covers = [];
+				this.pullUpOn = true;
+				this.getPoiAround(this.keywords);
 			},
 			marker: function(e) {
 				const that = this
-				const item = that.address[e.markerId || 0];
+				const item = that.address[e.detail.markerId || 0];
 				const menu = item.tel ? ["打电话", "到这里"] : ["到这里"];
 
 				uni.showActionSheet({

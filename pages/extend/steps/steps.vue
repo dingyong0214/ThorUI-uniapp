@@ -9,10 +9,10 @@
 		</view>
 		
 		<view class="tui-top">
-			<tui-steps :items="items2" :type="2" spacing="180rpx" :activeSteps="activeSteps"></tui-steps>
+			<tui-steps :items="items2" :type="2" spacing="180rpx" :activeSteps="activeSteps" backgroundColor="#fafafa"></tui-steps>
 		</view>
 		<view class="tui-top">
-			<tui-steps :items="items2" lineStyle="dashed" :type="2" spacing="180rpx" :activeSteps="activeSteps"></tui-steps>
+			<tui-steps :items="items2" lineStyle="dashed" :type="2" spacing="180rpx" :activeSteps="activeSteps" backgroundColor="#fafafa"></tui-steps>
 		</view>
 		<view class="tui-title">
 			垂直方向

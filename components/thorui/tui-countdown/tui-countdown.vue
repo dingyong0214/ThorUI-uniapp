@@ -60,6 +60,26 @@
 		>
 			{{ unitEn ? 's' : '秒' }}
 		</view>
+
+		<view class="tui-countdown-colon" :style="{ lineHeight: colonSize + 'rpx', fontSize: colonSize + 'rpx', color: colonColor }" v-if="seconds && isMs && isColon">.</view>
+		<view
+			class="tui-countdown__ms"
+			:style="{
+				background: backgroundColor,
+				borderColor: borderColor,
+				fontSize: msSize + 'rpx',
+				color: msColor,
+				height: height + 'rpx',
+				width: msWidth > 0 ? msWidth + 'rpx' : 'auto'
+			}"
+			v-if="seconds && isMs"
+		>
+			<view :class="{ 'tui-ms__list': ani }">
+				<view class="tui-ms__item" :style="{ height: height + 'rpx' }" v-for="(item, index) in ms" :key="index">
+					<view :class="[scale ? 'tui-countdown-scale' : '']">{{item}}</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -70,12 +90,12 @@ export default {
 		//数字框宽度
 		width: {
 			type: Number,
-			default: 25
+			default: 32
 		},
 		//数字框高度
 		height: {
 			type: Number,
-			default: 25
+			default: 32
 		},
 		//数字框border颜色
 		borderColor: {
@@ -148,9 +168,26 @@ export default {
 			default: true
 		},
 		//是否返回剩余时间
-		returnTime:{
+		returnTime: {
 			type: Boolean,
 			default: false
+		},
+		//是否显示毫秒
+		isMs: {
+			type: Boolean,
+			default: false
+		},
+		msWidth: {
+			type: Number,
+			default: 32
+		},
+		msSize: {
+			type: Number,
+			default: 24
+		},
+		msColor: {
+			type: String,
+			default: '#333'
 		}
 	},
 	watch: {
@@ -165,7 +202,10 @@ export default {
 			d: '0',
 			h: '00',
 			i: '00',
-			s: '00'
+			s: '00',
+			//此处若从9到1，结束需要特殊处理
+			ms: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+			ani: false
 		};
 	},
 	created() {
@@ -179,16 +219,18 @@ export default {
 		getWidth: function(num, width) {
 			return num > 99 ? (width / 2) * num.toString().length : width;
 		},
-		clearTimer(){
+		clearTimer() {
 			clearInterval(this.countdown);
 			this.countdown = null;
 		},
 		endOfTime() {
+			this.ani = false;
 			this.clearTimer();
 			this.$emit('end', {});
 		},
 		doLoop: function() {
 			let seconds = this.time || 0;
+			this.ani = true;
 			this.countDown(seconds);
 			this.countdown = setInterval(() => {
 				seconds--;
@@ -197,8 +239,8 @@ export default {
 					return;
 				}
 				this.countDown(seconds);
-				if(this.returnTime){
-					this.$emit('time', {seconds:seconds});
+				if (this.returnTime) {
+					this.$emit('time', { seconds: seconds });
 				}
 			}, 1000);
 		},
@@ -240,7 +282,6 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 2rpx;
 	border-radius: 6rpx;
 	white-space: nowrap;
 	transform: translateZ(0);
@@ -264,5 +305,31 @@ export default {
 .tui-countdown-scale {
 	transform: scale(0.9);
 	transform-origin: center center;
+}
+.tui-countdown__ms {
+	border: 1rpx solid;
+	overflow: hidden;
+	border-radius: 6rpx;
+}
+
+/*ms使用css3代替js频繁更新操作，性能优化*/
+.tui-ms__list {
+	animation: loop 1s steps(10) infinite;
+}
+
+@keyframes loop {
+	from {
+		transform: translateY(0);
+	}
+
+	to {
+		transform: translateY(-100%);
+	}
+}
+
+.tui-ms__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 </style>

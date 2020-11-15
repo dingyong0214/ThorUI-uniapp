@@ -1,0 +1,73 @@
+var slideBarWidth = 200;
+var slideBlockWidth = 32;
+var errorRange = 2
+var disabled = false
+
+function bool(str) {
+	return str === 'true' || str == true ? true : false
+}
+
+function touchstart(e, ins) {
+	var state=e.instance.getState()
+	var touch = e.touches[0] || e.changedTouches[0]
+	var dataset = e.instance.getDataset()
+	state.startX = touch.pageX
+	slideBarWidth = +dataset.slidebarwidth
+	slideBlockWidth = +dataset.slideblockwidth
+	errorRange = +dataset.errorrange
+	disabled = bool(dataset.disabled)
+}
+
+function styleChange(left, ins) {
+	if (!ins) return;
+	ins.selectComponent('.tui-slider-block').setStyle({
+		transform: 'translate3d(' + left + 'px,0,0)'
+	})
+	ins.selectComponent('.tui-slide-glided').setStyle({
+		width: left + 'px'
+	})
+}
+
+function touchmove(e, ins) {
+	if (disabled) return;
+	var state=e.instance.getState()
+	var touch = e.touches[0] || e.changedTouches[0]
+	var pageX = touch.pageX;
+	var left = pageX - state.startX + (state.lastLeft || 0);
+	left = left < 0 ? 0 : left;
+	var width = slideBarWidth - slideBlockWidth;
+	left = left >= width ? width : left;
+	state.startX = pageX
+	state.lastLeft = left
+	styleChange(left, ins)
+}
+
+function touchend(e, ins) {
+	if (disabled) return;
+	var state=e.instance.getState()
+	let left = slideBarWidth - slideBlockWidth
+	if (left - state.lastLeft <= errorRange) {
+		styleChange(left, ins)
+		ins.callMethod('success')
+	} else {
+		state.startX = 0;
+		state.lastLeft = 0;
+		styleChange(0, ins)
+	}
+}
+
+function slidereset(reset, oldreset, owner, ins) {
+	var state=ins.getState()
+	if (reset > 0) {
+		state.startX = 0;
+		state.lastLeft = 0;
+		styleChange(0, owner)
+	}
+}
+
+module.exports = {
+	touchstart: touchstart,
+	touchmove: touchmove,
+	touchend: touchend,
+	slidereset: slidereset
+}

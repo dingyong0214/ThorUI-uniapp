@@ -27,6 +27,20 @@
 				</tui-grid-item>
 			</block>
 		</tui-grid>
+		
+		<view class="tui-title">
+			Grid-3列【去掉所有边框】
+		</view>
+		<tui-grid unlined>
+			<block v-for="(item,index) in dataList" :key="index">
+				<tui-grid-item :border="false" :bottom-line="false" :cell="3" @click="detail">
+					<view class="tui-grid-icon">
+						<tui-icon :name="item.name" :size="item.size" :color="item.color"></tui-icon>
+					</view>
+					<text class="tui-grid-label">{{item.name}}</text>
+				</tui-grid-item>
+			</block>
+		</tui-grid>
 
 		<view class="tui-title">
 			Grid-4列

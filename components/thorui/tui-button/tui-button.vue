@@ -28,7 +28,9 @@
 <script>
 export default {
 	name: 'tuiButton',
+	// #ifndef MP-QQ
 	behaviors: ['wx://form-field-button'],
+	// #endif
 	props: {
 		//样式类型 primary, white, danger, warning, green,blue, gray，black,brown,gray-primary,gray-danger,gray-warning,gray-green
 		type: {
