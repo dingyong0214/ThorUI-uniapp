@@ -240,8 +240,9 @@ export default {
 	left: 0;
 }
 
-.tui-unlined::before {
-	border-bottom: 0 !important;
+
+.tui-unlined .tui-tabs-slider {
+	display: none;
 }
 
 .tui-tabs-item {
