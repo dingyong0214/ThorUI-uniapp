@@ -102,9 +102,9 @@ export default {
 			default: ''
 		},
 		/*
-					 默认正方形，可修改大小控制比例
-					 裁剪框高度 px
-					*/
+		 默认正方形，可修改大小控制比例
+		 裁剪框高度 px
+		*/
 		height: {
 			type: Number,
 			default: 280
@@ -507,7 +507,7 @@ export default {
 					imgHeight = (height / width) * imgWidth;
 				}
 			} else {
-				let sys = this.sysInfo || uni.getSystemInfoSync();
+				let sys = this.sysInfo.windowHeight ? this.sysInfo : uni.getSystemInfoSync();
 				imgWidth = sys.windowWidth;
 				imgHeight = 0;
 			}

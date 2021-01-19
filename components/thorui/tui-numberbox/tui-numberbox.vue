@@ -1,9 +1,9 @@
 <template>
 	<view class="tui-numberbox">
-		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min>=value?'tui-disabled':'']" @tap="reduce"
+		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min>=value?'tui-disabled':'']" @tap.stop="reduce"
 		 :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
 		<input type="number" v-model="inputValue" :disabled="disabled" @blur="blur" class="tui-num-input" :style="{color:color,fontSize:size+'rpx',backgroundColor:backgroundColor,height:height+'rpx',minHeight:height+'rpx',width:width+'rpx'}" />
-		<view class="tui-numbox-icon tui-icon-plus" :class="[disabled || value>=max?'tui-disabled':'']" @tap="plus" :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
+		<view class="tui-numbox-icon tui-icon-plus" :class="[disabled || value>=max?'tui-disabled':'']" @tap.stop="plus" :style="{color:iconColor,fontSize:iconSize+'rpx'}"></view>
 	</view>
 </template>
 

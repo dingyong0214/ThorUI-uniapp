@@ -39,7 +39,7 @@
 				type: Boolean,
 				default: false
 			},
-			//服务器地址
+			//服务器接口地址。当接口地址为空时，直接返回本地图片地址
 			serverUrl: {
 				type: String,
 				default: ""
@@ -75,7 +75,7 @@
 				type: Number,
 				default: 4
 			},
-			//项目名，默认为 file
+			//文件对应的key，默认为 file
 			fileKeyName: {
 				type: String,
 				default: "file"
@@ -93,6 +93,11 @@
 				default () {
 					return {}
 				}
+			},
+			//自定义参数
+			params: {
+				type: [Number, String],
+				default: 0
 			}
 		},
 		data() {
@@ -139,7 +144,10 @@
 					this.change()
 				})
 			},
-			change() {
+			/**
+			 * @param manual 是否手动上传
+			 **/
+			change(manual = false) {
 				let status = ~this.statusArr.indexOf("2") ? 2 : 1
 				if (status != 2 && ~this.statusArr.indexOf("3")) {
 					// 上传失败
@@ -147,7 +155,9 @@
 				}
 				this.$emit('complete', {
 					status: status,
-					imgArr: this.imageList
+					imgArr: this.imageList,
+					params: this.params,
+					manual: manual
 				})
 			},
 			toast(text) {
@@ -194,8 +204,8 @@
 							//过滤超出大小限制图片
 							let size = e.tempFiles[i].size;
 
-							if (_this.size * 1024 * 1024 < size){
-								let err=`单张图片大小不能超过：${_this.size}MB`
+							if (_this.size * 1024 * 1024 < size) {
+								let err = `单张图片大小不能超过：${_this.size}MB`
 								_this.toast(err);
 								continue;
 							}
@@ -224,11 +234,11 @@
 					}
 				})
 			},
-			uploadImage: function(index, url) {
+			uploadImage: function(index, url, serverUrl) {
 				let _this = this;
 				return new Promise((resolve, reject) => {
 					uni.uploadFile({
-						url: this.serverUrl,
+						url: this.serverUrl || serverUrl,
 						name: this.fileKeyName,
 						header: this.header,
 						formData: this.formData,
@@ -264,7 +274,8 @@
 				this.imageList.splice(index, 1)
 				this.statusArr.splice(index, 1)
 				this.$emit("remove", {
-					index: index
+					index: index,
+					params: this.params
 				})
 				this.change()
 			},
@@ -275,6 +286,35 @@
 					loop: true,
 					urls: this.imageList
 				})
+			},
+			/**
+			 * 当属性serverUrl传空时，父级调用该方法一次性上传所有图片
+			 * @param serverUrl 服务器接口地址
+			 **/
+			uploadAllImage(serverUrl) {
+				if (!serverUrl) {
+					this.toast('服务器接口地址不能为空！');
+					return;
+				}
+				let imageArr = [...this.imageList]
+				const len = imageArr.length
+				for (let i = 0; i < len; i++) {
+					//如果是服务器地址图片则无需再次上传
+					if(imageArr[i].startsWith('http')){
+						continue;
+					}else{
+						this.$set(this.statusArr, i, "2")
+						this.uploadImage(i, imageArr[i], serverUrl).then(() => {
+							if (i === len - 1) {
+								this.change(true)
+							}
+						}).catch(() => {
+							if (i === len - 1) {
+								this.change(true)
+							}
+						})
+					}
+				}
 			}
 		}
 	}

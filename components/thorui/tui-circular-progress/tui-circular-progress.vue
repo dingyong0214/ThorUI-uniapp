@@ -81,7 +81,7 @@
 			//进度条渐变颜色[结合progressColor使用，默认为空]
 			gradualColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//起始弧度，单位弧度
 			sAngle: {
@@ -122,11 +122,11 @@
 		data() {
 			return {
 				// #ifdef MP-WEIXIN
-				progressCanvasId:"progressCanvasId",
+				progressCanvasId: "progressCanvasId",
 				defaultCanvasId: "defaultCanvasId",
 				// #endif
 				// #ifndef MP-WEIXIN
-				progressCanvasId:this.getCanvasId(),
+				progressCanvasId: this.getCanvasId(),
 				defaultCanvasId: this.getCanvasId(),
 				// #endif
 				progressContext: null,
@@ -144,6 +144,7 @@
 			//初始化绘制
 			initDraw(init) {
 				let start = this.activeMode === 'backwards' ? 0 : this.startPercentage;
+				start = start > this.percentage ? 0 : start;
 				if (this.defaultShow && init) {
 					this.drawDefaultCircular();
 				}
@@ -170,6 +171,12 @@
 					if (this.gradualColor) {
 						gradient.addColorStop('1', this.gradualColor);
 					}
+					// #ifdef APP-PLUS
+					const res = uni.getSystemInfoSync();
+					if (!this.gradualColor && res.platform.toLocaleLowerCase() == "android") {
+						gradient.addColorStop('1', this.progressColor);
+					}
+					// #endif
 					this.progressContext = ctx;
 					this.linearGradient = gradient;
 				}

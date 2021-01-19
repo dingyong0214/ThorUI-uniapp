@@ -37,6 +37,80 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
+###  V1.6.1 （2021-01-19）
+
+【ThorUI组件库V1.6.1】更新： 
+
+1.商城模板更新：
+
+ 1）商城模板拆分成单独模板项目。
+
+ 2）个人中心，新增未登录状态。
+ 
+ 3）个人信息页面操作优化。
+ 
+ 4）编辑地址页面优化，新增省市区城市选择。
+ 
+ 5）新增我的钱包页面。
+ 
+ 6）新增充值确认页面。
+ 
+ 7）新增我的银行卡页面。
+ 
+ 8）新增交易记录页面。
+ 
+ 9）商品详情页分享优化，新增生成分享海报。
+ 
+2.优化滑动菜单组件多个触摸点滑动问题。
+ 
+3.消息提示组件（tui-tips）优化，支持自定义背景色，字体颜色以及字体大小，参数type废弃。
+
+4.圆形进度条组件优化，修复activeMode=forwards(动画从上次结束点接着播)时且上次进度大于当前进度时进度条不刷新bug。
+
+5.优化日历组件（tui-calendar）滚动穿透问题。
+
+6.优化顶部选项卡示例左右切换过快出现闪动的问题，优化下拉刷新出现动画不关闭的问题。
+
+7.上传图片组件（tui-upload）优化，新增一键上传方法uploadAllImage（当属性serverUrl传空时，父级可调用该方法一次性上传所有图片）。
+
+8.新增富文本渲染示例。
+
+=====================
+
+【ThorUI示例V1.0.1】更新：
+
+1.数字滚轮组件（tui-digital-roller）优化，支持数字中带逗号（,）。
+ 
+2.拖拽排序组件（tui-drag）优化，修复编译到小程序端不执行change和sortend事件的bug。
+
+3.新增grade评分组件，支持滑动半星。
+ 
+4.新增图片裁剪组件（tui-cropper），裁剪框可显示为圆形。 
+ 
+5.新增短信验证码倒计时组件。
+
+6.新增滑动选择器组件，支持区间选择。
+
+7.新增旋转图片验证组件。
+
+8.新增付费成品入口。
+
+=====================
+
+<font color="#5677fc">`其中【ThorUI示例】项目组件，以及商城模板只对会员开放。`</font>
+
+注：会员专用内容加入会员才可使用，点此 [开通会员](https://thorui.cn/doc/docs/member.html)。
+
+ ### 部分功能截图
+
+|  ![](https://thorui.cn/img/V161/1.png)	|![](https://thorui.cn/img/V161/2.png)	|![](https://thorui.cn/img/V161/3.png)	|
+| ------------								| ------------							| ------------							|
+|  ![](https://thorui.cn/img/V161/4.png)	|![](https://thorui.cn/img/V161/5.png)	|![](https://thorui.cn/img/V161/6.png)	|
+|  ![](https://thorui.cn/img/V161/7.png)	|![](https://thorui.cn/img/V161/8.png)	|![](https://thorui.cn/img/V161/9.png)	|
+|  ![](https://thorui.cn/img/V161/10.jpg)	|![](https://thorui.cn/img/V161/11.png)	|![](https://thorui.cn/img/V161/12.jpg)	|
+|  ![](https://thorui.cn/img/V161/13.jpg)	|![](https://thorui.cn/img/V161/14.png)	|![](https://thorui.cn/img/V161/15.jpg)	|
+
+
 ### V1.6.0 （2020-11-15）
 
 【ThorUI组件库V1.6.0】更新：

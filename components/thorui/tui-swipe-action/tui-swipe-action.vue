@@ -1,7 +1,8 @@
 <template>
-	<view class="tui-swipeout-wrap" :style="{backgroundColor:backgroundColor}">
+	<view class="tui-swipeout-wrap" :style="{ backgroundColor: backgroundColor }">
 		<view class="tui-swipeout-item" :class="[isShowBtn ? 'swipe-action-show' : '']" @touchstart="handlerTouchstart"
-		 @touchmove="handlerTouchmove" @touchend="handlerTouchend" :style="{ transform: 'translate(' + position.pageX + 'px,0)' }">
+		 @touchmove="handlerTouchmove" @touchend="handlerTouchend" @mousedown="handlerTouchstart" @mousemove="handlerTouchmove"
+		 @mouseup="handlerTouchend" :style="{ transform: 'translate(' + position.pageX + 'px,0)' }">
 			<view class="tui-swipeout-content">
 				<slot name="content"></slot>
 			</view>
@@ -69,9 +70,9 @@
 				default: false
 			},
 			//背景色
-			backgroundColor:{
-				type:String,
-				default:'#fff'
+			backgroundColor: {
+				type: String,
+				default: '#fff'
 			}
 		},
 		watch: {
@@ -96,7 +97,8 @@
 					pageX: 0,
 					pageY: 0
 				},
-				isShowBtn: false
+				isShowBtn: false,
+				move: false
 			};
 		},
 		mounted() {
@@ -123,7 +125,16 @@
 			},
 			handlerTouchstart(event) {
 				if (this.forbid) return;
-				const touches = event.touches ? event.touches[0] : {};
+				let touches = event.touches
+				if (touches && touches.length > 1) return;
+				this.move = true;
+				touches = touches ? event.touches[0] : {};
+				if (!touches || (touches.pageX === undefined && touches.pageY === undefined)) {
+					touches = {
+						pageX: event.pageX,
+						pageY: event.pageY
+					};
+				}
 				const tStart = this.tStart;
 				if (touches) {
 					for (let i in tStart) {
@@ -145,9 +156,15 @@
 				this.position = spacing;
 			},
 			handlerTouchmove(event) {
-				if (this.forbid) return;
+				if (this.forbid || !this.move) return;
 				const start = this.tStart;
-				const touches = event.touches ? event.touches[0] : {};
+				let touches = event.touches ? event.touches[0] : {};
+				if (!touches || (touches.pageX === undefined && touches.pageY === undefined)) {
+					touches = {
+						pageX: event.pageX,
+						pageY: event.pageY
+					};
+				}
 				if (touches) {
 					const direction = this.swipeDirection(start.pageX, touches.pageX, start.pageY, touches.pageY);
 					if (direction === 'Left' && Math.abs(this.position.pageX) !== this.limitMove) {
@@ -156,9 +173,16 @@
 				}
 			},
 			handlerTouchend(event) {
-				if (this.forbid) return;
+				if (this.forbid || !this.move) return;
+				this.move = false;
 				const start = this.tStart;
-				const touches = event.changedTouches ? event.changedTouches[0] : {};
+				let touches = event.changedTouches ? event.changedTouches[0] : {};
+				if (!touches || (touches.pageX === undefined && touches.pageY === undefined)) {
+					touches = {
+						pageX: event.pageX,
+						pageY: event.pageY
+					};
+				}
 				if (touches) {
 					const direction = this.swipeDirection(start.pageX, touches.pageX, start.pageY, touches.pageY);
 					const spacing = {
@@ -239,6 +263,7 @@
 		box-sizing: border-box;
 		transition: transform 0.2s ease;
 		font-size: 14px;
+		cursor: pointer;
 	}
 
 	.tui-swipeout-content {

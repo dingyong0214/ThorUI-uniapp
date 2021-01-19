@@ -1,7 +1,7 @@
 <template>
-	<view>
-		<view :class="{ 'tui-bottom-popup': isFixed, 'tui-popup-show': isShow && isFixed }">
-			<view class="tui-calendar-header" :class="{ 'tui-calendar-radius': radius }" @touchmove.stop.prevent="stop" v-if="isFixed">
+	<view @touchmove.stop.prevent="stop" v-if="isFixed">
+		<view class="tui-bottom-popup" :class="{'tui-popup-show': isShow}">
+			<view class="tui-calendar-header" :class="{ 'tui-calendar-radius': radius }" >
 				<view>日期选择</view>
 				<view class="tui-iconfont tui-font-close" hover-class="tui-opacity" :hover-stay-time="150" @tap="hide"></view>
 			</view>
@@ -66,7 +66,7 @@
 				<view class="tui-bg-month">{{ month }}</view>
 			</view>
 
-			<view class="tui-calendar-op" v-if="isFixed" @touchmove.stop.prevent="stop">
+			<view class="tui-calendar-op">
 				<view class="tui-calendar-result">
 					<text>{{ type == 1 ? activeDate : startDate }}</text>
 					<text v-if="endDate">至{{ endDate }}</text>
@@ -75,7 +75,68 @@
 			</view>
 		</view>
 
-		<view class="tui-popup-mask" :class="[isShow ? 'tui-mask-show' : '']" @touchmove.stop.prevent="stop" v-if="isFixed" @tap="hide"></view>
+		<view class="tui-popup-mask" :class="[isShow ? 'tui-mask-show' : '']"  @tap="hide"></view>
+	</view>
+	<view v-else>
+		<view class="tui-date-box">
+			<view
+				class="tui-iconfont tui-font-arrowleft"
+				:style="{ color: yearArrowColor }"
+				hover-class="tui-opacity"
+				:hover-stay-time="150"
+				v-if="arrowType == 1"
+				@tap="changeYear(0)"
+			></view>
+			<view class="tui-iconfont tui-font-arrowleft" :style="{ color: monthArrowColor }" hover-class="tui-opacity" :hover-stay-time="150" @tap="changeMonth(0)"></view>
+			<view class="tui-date_time">{{ showTitle }}</view>
+			<view class="tui-iconfont tui-font-arrowright" :style="{ color: monthArrowColor }" hover-class="tui-opacity" :hover-stay-time="150" @tap="changeMonth(1)"></view>
+			<view
+				class="tui-iconfont tui-font-arrowright"
+				:style="{ color: yearArrowColor }"
+				hover-class="tui-opacity"
+				:hover-stay-time="150"
+				v-if="arrowType == 1"
+				@tap="changeYear(1)"
+			></view>
+		</view>
+		<view class="tui-date-header">
+			<view class="tui-date">日</view>
+			<view class="tui-date">一</view>
+			<view class="tui-date">二</view>
+			<view class="tui-date">三</view>
+			<view class="tui-date">四</view>
+			<view class="tui-date">五</view>
+			<view class="tui-date">六</view>
+		</view>
+		<view class="tui-date-content" :style="{ height: isFixed && fixedHeight ? dateHeight * 6 + 'px' : 'auto' }">
+			<block v-for="(item, index) in weekdayArr" :key="index"><view class="tui-date"></view></block>
+			<view
+				class="tui-date"
+				:class="{
+					'tui-date-pd_0': isFixed && fixedHeight,
+					'tui-opacity': openDisAbled(year, month, index + 1),
+					'tui-start-date': (type == 2 && startDate == `${year}-${month}-${index + 1}`) || type == 1,
+					'tui-end-date': (type == 2 && endDate == `${year}-${month}-${index + 1}`) || type == 1
+				}"
+				:style="{ backgroundColor: isFixed ? getColor(index, 1) : 'transparent', height: isFixed && fixedHeight ? dateHeight + 'px' : 'auto' }"
+				v-for="(item, index) in daysArr"
+				:key="index"
+				@tap="dateClick(index)"
+			>
+				<view class="tui-date-text" :style="{ color: isFixed ? getColor(index, 2) : getStatusData(3, index), backgroundColor: getStatusData(2, index) }">
+					<view v-if="isFixed || !getStatusData(4, index)">{{ index + 1 }}</view>
+					<view v-if="!getStatusData(4, index)" class="tui-custom-desc" :class="{ 'tui-lunar-unshow': !lunar && isFixed }">
+						{{ getDescText(index, startDate, endDate) }}
+					</view>
+					<text class="tui-iconfont tui-font-check" v-if="getStatusData(4, index)"></text>
+				</view>
+				<view class="tui-date-desc" :style="{ color: activeColor }" v-if="!lunar && type == 2 && startDate == `${year}-${month}-${index + 1}` && startDate != endDate">
+					{{ startText }}
+				</view>
+				<view class="tui-date-desc" :style="{ color: activeColor }" v-if="!lunar && type == 2 && endDate == `${year}-${month}-${index + 1}`">{{ endText }}</view>
+			</view>
+			<view class="tui-bg-month">{{ month }}</view>
+		</view>
 	</view>
 </template>
 <script>
@@ -421,7 +482,7 @@ export default {
 			return num < 10 ? '0' + num : num + '';
 		},
 		stop() {
-			return !this.isFixed;
+			return false;
 		},
 		//一个月有多少天
 		getMonthDay(year, month) {
@@ -517,6 +578,7 @@ export default {
 		},
 		hide() {
 			this.isShow = false;
+			this.$emit('hide', {})
 		},
 		getWeekText(date) {
 			date = new Date(`${date.replace(/\-/g, '/')} 00:00:00`);

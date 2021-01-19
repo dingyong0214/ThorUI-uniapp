@@ -1,6 +1,6 @@
 <template>
-	<view class="tui-list-view tui-view-class" :style="{backgroundColor:backgroundColor}">
-		<view class="tui-list-title" v-if="title">{{title}}</view>
+	<view class="tui-list-view tui-view-class" :style="{backgroundColor:backgroundColor,marginTop:marginTop}">
+		<view class="tui-list-title" :style="{color:color,fontSize:size+'rpx',lineHeight:30+'rpx'}" v-if="title">{{title}}</view>
 		<view class="tui-list-content" :class="[unlined?'tui-border-'+unlined:'']">
 			<slot></slot>
 		</view>
@@ -15,6 +15,15 @@
 				type: String,
 				default: ''
 			},
+			color:{
+				type: String,
+				default: '#666'
+			},
+			//rpx
+			size:{
+				type:Number,
+				default:30
+			},
 			backgroundColor:{
 				type: String,
 				default: 'transparent'
@@ -22,6 +31,10 @@
 			unlined: {
 				type: String,
 				default: '' //top,bottom,all
+			},
+			marginTop:{
+				type:String,
+				default:'0'
 			}
 		}
 	}
@@ -32,9 +45,6 @@
 		width: 100%;
 		padding: 30rpx;
 		box-sizing: border-box;
-		font-size: 30rpx;
-		line-height: 30rpx;
-		color: #666;
 	}
 
 	.tui-list-content {

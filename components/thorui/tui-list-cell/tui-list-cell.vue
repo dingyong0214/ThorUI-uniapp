@@ -122,6 +122,7 @@ export default {
 	bottom: 0;
 	right: 0;
 	left: 0;
+	pointer-events: none;
 }
 
 .tui-line-left::after {
