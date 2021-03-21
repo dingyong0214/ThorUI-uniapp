@@ -75,9 +75,10 @@
 			},
 			handleClickItem(e) {
 				if (!this.show) return;
-				const dataset = e.currentTarget.dataset;
+				const index = Number(e.currentTarget.dataset.index);
 				this.$emit('click', {
-					index: Number(dataset.index)
+					index: index,
+					...this.itemList[index]
 				});
 			},
 			handleClickCancel() {

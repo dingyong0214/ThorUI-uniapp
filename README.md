@@ -37,6 +37,63 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
+###  V1.6.2 （2021-03-21）
+
+1.tui-actionsheet（操作菜单）组件优化，点击事件返回参数中新增按钮obj对象数据。
+
+2.tui-upload（图片上传）组件优化，可设置展示图片的宽高。
+
+3.圆形进度条组件优化，修复已知问题。
+
+4.tui-validation.js（表单验证）优化，具体查看文档。
+
+5.tui-numberbox（数字框组件优化），修复已知问题。
+
+6.修复productNvue页，回到顶部在android端失效的问题。
+
+<font color="#5677fc">`扫码体验[ThorUI组件库]小程序`</font>
+
+![ThorUI组件库](https://thorui.cn/img/applets_sm.jpg) 
+
+=====================
+
+【ThorUI示例V1.0.2】更新：
+
+1.ThorUI示例个人中心内容对会员开放（个人中心、分享、会员介绍、版本介绍、开源地址、帮助中心等）。
+
+2.tui-timer（计时器）组件优化，可设置初始时间。
+
+3.tui-poster.js（生成海报）优化，修复已知问题，保存图片到本地相册时新增相册权限判断。
+
+4.新增tui-scale（刻度尺滚动选择器）组件。
+
+5.新增tui-waterfall（瀑布流）组件。
+
+6.新增tui-lazyload-img（图片懒加载）组件。
+
+7.新增tui-overflow-hidden（内容超出隐藏）组件。
+
+8.新增tui-org-tree（组织架构树）组件。
+
+<font color="#5677fc">`扫码体验[ThorUI示例]小程序`</font>
+
+![ThorUI示例](https://thorui.cn/img/thorui-extend__sm.jpg) 
+
+=====================
+
+<font color="#5677fc">`其中【ThorUI示例】项目只对会员开放。`</font>
+
+注：会员专用内容加入会员才可使用，点此 [开通会员](https://thorui.cn/doc/docs/member.html)。
+
+ ### 部分功能截图
+
+|  ![](https://thorui.cn/img/V162/1.png)	|![](https://thorui.cn/img/V162/2.png)	|![](https://thorui.cn/img/V162/3.png)	|
+| ------------								| ------------							| ------------							|
+|  ![](https://thorui.cn/img/V162/4.png)	|![](https://thorui.cn/img/V162/5.jpg)	|![](https://thorui.cn/img/V162/6.png)	|
+|  ![](https://thorui.cn/img/V162/7.jpg)	|![](https://thorui.cn/img/V162/8.jpg)	|![](https://thorui.cn/img/V162/9.png)	|
+|  ![](https://thorui.cn/img/V162/10.png)	|![](https://thorui.cn/img/V162/11.jpg)	|![](https://thorui.cn/img/V162/12.jpg)	|
+
+
 ###  V1.6.1 （2021-01-19）
 
 【ThorUI组件库V1.6.1】更新： 

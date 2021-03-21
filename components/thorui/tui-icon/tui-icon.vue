@@ -13,7 +13,7 @@
 				default: ''
 			},
 			size: {
-				type: Number,
+				type: [Number,String],
 				default: 32
 			},
 			//px或者rpx

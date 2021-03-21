@@ -1,8 +1,8 @@
 <template>
 	<view class="tui-container">
 		<view class="tui-upload-box">
-			<view class="tui-image-item" v-for="(item,index) in imageList" :key="index">
-				<image :src="item" class="tui-item-img" @tap.stop="previewImage(index)" mode="aspectFill"></image>
+			<view class="tui-image-item" :style="{width:width+'rpx',height:height+'rpx'}" v-for="(item,index) in imageList" :key="index">
+				<image :src="item" class="tui-item-img" :style="{width:width+'rpx',height:height+'rpx'}" @tap.stop="previewImage(index)" mode="aspectFill"></image>
 				<view v-if="!forbidDel" class="tui-img-del" @tap.stop="delImage(index)"></view>
 				<view v-if="statusArr[index]!=1" class="tui-upload-mask">
 					<view class="tui-upload-loading" v-if="statusArr[index]==2"></view>
@@ -11,7 +11,7 @@
 					 :hover-stay-time="150">重新上传</view>
 				</view>
 			</view>
-			<view v-if="isShowAdd" class="tui-upload-add" @tap="chooseImage">
+			<view v-if="isShowAdd" class="tui-upload-add" :style="{width:width+'rpx',height:height+'rpx'}" @tap="chooseImage">
 				<view class="tui-upload-icon tui-icon-plus"></view>
 			</view>
 		</view>
@@ -22,6 +22,16 @@
 	export default {
 		name: 'tuiUpload',
 		props: {
+			//展示图片宽度
+			width:{
+				type:[Number,String],
+				default:220
+			},
+			//展示图片高度
+			height:{
+				type:[Number,String],
+				default:220
+			},
 			//初始化图片路径
 			value: {
 				type: Array,
@@ -351,8 +361,6 @@
 	}
 
 	.tui-upload-add {
-		width: 220rpx;
-		height: 220rpx;
 		font-size: 68rpx;
 		font-weight: 100;
 		color: #888;
@@ -364,8 +372,6 @@
 	}
 
 	.tui-image-item {
-		width: 220rpx;
-		height: 220rpx;
 		position: relative;
 		margin-right: 20rpx;
 		margin-bottom: 20rpx;
@@ -376,8 +382,6 @@
 	}
 
 	.tui-item-img {
-		width: 220rpx;
-		height: 220rpx;
 		display: block;
 	}
 
@@ -413,7 +417,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: center;
 		padding: 40rpx 0;
 		box-sizing: border-box;
 		background-color: rgba(0, 0, 0, 0.6);
@@ -453,6 +457,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-shrink: 0;
+		margin-top: 26rpx;
 	}
 
 	.tui-btn-hover {

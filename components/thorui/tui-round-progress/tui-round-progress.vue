@@ -105,10 +105,12 @@
 					if (that.bool(res.fontshow)) {
 						that.drawPercentage(ctx, startPercentage, res);
 					}
-					if (percentage === 0 || (that.bool(res.counterclockwise) && startPercentage === 100)) return;
-					let sangle = Number(res.sangle) * Math.PI
-					let eAngle = ((2 * Math.PI) / 100) * startPercentage + sangle;
-					that.drawArc(ctx, eAngle, gradient, res);
+					let isEnd = percentage === 0 || (that.bool(res.counterclockwise) && startPercentage === 100);
+					if (!isEnd) {
+						let sangle = Number(res.sangle) * Math.PI
+						let eAngle = ((2 * Math.PI) / 100) * startPercentage + sangle;
+						that.drawArc(ctx, eAngle, gradient, res);
+					}
 					owner.callMethod('change', {
 						percentage: startPercentage
 					})
