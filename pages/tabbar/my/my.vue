@@ -287,6 +287,7 @@
 		box-shadow: 0 15rpx 10rpx -15rpx #efefef;
 		position: relative;
 		z-index: 2;
+		justify-content: space-around;
 	}
 
 	.middle-item {
@@ -299,7 +300,6 @@
 	.ticket-img {
 		width: 80rpx;
 		height: 80rpx;
-		margin-left: 65rpx;
 	}
 
 	.middle-tag {
