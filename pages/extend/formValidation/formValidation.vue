@@ -4,7 +4,8 @@
 			<tui-list-cell :hover="false">
 				<view class="tui-line-cell">
 					<view class="tui-title">姓名</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="name" placeholder="请输入姓名" maxlength="50" type="text" />
+					<input placeholder-class="tui-phcolor" class="tui-input" name="name" placeholder="请输入姓名"
+						maxlength="50" type="text" />
 					<radio-group class="radio-group" name="sex">
 						<label class="tui-radio">
 							<radio value="1" color="#5677fc" />男
@@ -18,63 +19,87 @@
 			<tui-list-cell :hover="false">
 				<view class="tui-line-cell">
 					<view class="tui-title">年龄</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="age" placeholder="请输入年龄" maxlength="50" type="number" />
+					<input placeholder-class="tui-phcolor" class="tui-input" name="age" placeholder="请输入年龄"
+						maxlength="50" type="number" />
 				</view>
 			</tui-list-cell>
 			<tui-list-cell :hover="false">
 				<view class="tui-line-cell">
 					<view class="tui-title">手机号</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="mobile" placeholder="请输入手机号" maxlength="50" type="text" />
+					<input placeholder-class="tui-phcolor" class="tui-input" name="mobile" placeholder="请输入手机号"
+						maxlength="50" type="text" />
 				</view>
 			</tui-list-cell>
 			<tui-list-cell :hover="false">
 				<view class="tui-line-cell">
 					<view class="tui-title">邮箱</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="email" placeholder="请输入邮箱" maxlength="50" type="text" />
+					<input placeholder-class="tui-phcolor" class="tui-input" name="email" placeholder="请输入邮箱"
+						maxlength="50" type="text" />
 				</view>
 			</tui-list-cell>
 			<tui-list-cell :hover="false">
 				<view class="tui-line-cell">
 					<view class="tui-title">身份证</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="idcard" placeholder="请输入身份证号码" maxlength="50" type="text" />
+					<input placeholder-class="tui-phcolor" class="tui-input" name="idcard" placeholder="请输入身份证号码"
+						maxlength="50" type="text" />
 				</view>
 			</tui-list-cell>
 			<tui-list-cell :hover="false">
 				<view class="tui-line-cell">
 					<view class="tui-title">密码</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="pwd" placeholder="请输入密码" maxlength="50" type="text" />
+					<input password placeholder-class="tui-phcolor" class="tui-input" name="pwd" placeholder="请输入密码"
+						maxlength="50" type="text" />
 				</view>
 			</tui-list-cell>
 			<tui-list-cell :hover="false">
 				<view class="tui-line-cell">
 					<view class="tui-title">确认密码</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="pwd2" placeholder="请输入确认密码" maxlength="50" type="text" />
+					<input password placeholder-class="tui-phcolor" class="tui-input" name="pwd2" placeholder="请输入确认密码"
+						maxlength="50" type="text" />
 				</view>
 			</tui-list-cell>
-			<tui-list-cell :hover="false" >
+			<tui-list-cell :hover="false">
 				<view class="tui-line-cell">
 					<view class="tui-title">区间</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="range" placeholder="请输入3-20之间的数" maxlength="50" type="number" />
+					<input placeholder-class="tui-phcolor" class="tui-input" name="range" placeholder="请输入3-20之间的数"
+						maxlength="50" type="number" />
 				</view>
 			</tui-list-cell>
 			<tui-list-cell :hover="false" unlined>
 				<view class="tui-line-cell">
 					<view class="tui-title">金额</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="amount" placeholder="请输入金额,允许保留两位小数" maxlength="50"
-					 type="digit" />
+					<input placeholder-class="tui-phcolor" class="tui-input" name="amount" placeholder="请输入金额,允许保留两位小数"
+						maxlength="50" type="digit" />
 				</view>
 			</tui-list-cell>
+			<tui-list-cell :hover="false" unlined>
+				<view class="tui-line-cell">
+					<view class="tui-title">自定义</view>
+					<input placeholder-class="tui-phcolor" class="tui-input" name="custom" placeholder="自定义验证,屏蔽***"
+						maxlength="50" />
+				</view>
+			</tui-list-cell>
+
 			<view class="tui-tips">更多验证请参考文档</view>
 
 			<view class="tui-btn-box">
-				<button class="tui-button-primary" hover-class="tui-button-hover" formType="submit" type="primary">Submit</button>
-				<button class="tui-button-primary tui-button-gray" hover-class="tui-button-gray_hover" formType="reset">Reset</button>
+				<button class="tui-button-primary" hover-class="tui-button-hover" formType="submit"
+					type="primary">Submit</button>
+				<button class="tui-button-primary tui-button-gray" hover-class="tui-button-gray_hover"
+					formType="reset">Reset</button>
 			</view>
 		</form>
 	</view>
 </template>
 <script>
 	const form = require("@/components/common/tui-validation/tui-validation.js")
+
+	function checkKeyword(value) {
+		if (~value.indexOf("***")) {
+			return false;
+		}
+		return true;
+	}
 	export default {
 		data() {
 			return {}
@@ -122,6 +147,14 @@
 					name: "amount",
 					rule: ["required", "isAmount"],
 					msg: ["请输入金额", "请输入正确的金额，允许保留两位小数"]
+				}, {
+					name: "custom",
+					rule: ["required"],
+					msg: ["请输入自定义内容"],
+					validator: [{
+						msg: "内容不可包含非法字符***",
+						method: checkKeyword
+					}]
 				}];
 				//进行表单检查
 				let formData = e.detail.value;

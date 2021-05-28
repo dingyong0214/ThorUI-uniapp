@@ -1,11 +1,12 @@
 <template>
 	<view class="tui-circular-container" :style="{ width: diam + 'px', height: (height || diam) + 'px' }">
-		<canvas :start="percent" :change:start="parse.initDraw" :data-width="diam" :data-height="height" :data-lineWidth="lineWidth"
-		 :data-lineCap="lineCap" :data-fontSize="fontSize" :data-fontColor="fontColor" :data-fontShow="fontShow"
-		 :data-percentText="percentText" :data-defaultShow="defaultShow" :data-defaultColor="defaultColor"
-		 :data-progressColor="progressColor" :data-gradualColor="gradualColor" :data-sAngle="sAngle" :data-counterclockwise="counterclockwise"
-		 :data-multiple="multiple" :data-speed="speed" :data-activeMode="activeMode" :data-cid="progressCanvasId" :canvas-id="progressCanvasId"
-		 :class="[progressCanvasId]" :style="{ width: diam + 'px', height: (height || diam) + 'px' }"></canvas>
+		<canvas :start="percent" :change:start="parse.initDraw" :data-width="diam" :data-height="height"
+			:data-lineWidth="lineWidth" :data-lineCap="lineCap" :data-fontSize="fontSize" :data-fontColor="fontColor"
+			:data-fontShow="fontShow" :data-percentText="percentText" :data-defaultShow="defaultShow"
+			:data-defaultColor="defaultColor" :data-progressColor="progressColor" :data-gradualColor="gradualColor"
+			:data-sAngle="sAngle" :data-counterclockwise="counterclockwise" :data-multiple="multiple"
+			:data-speed="speed" :data-activeMode="activeMode" :data-cid="progressCanvasId" :canvas-id="progressCanvasId"
+			:class="[progressCanvasId]" :style="{ width: diam + 'px', height: (height || diam) + 'px' }"></canvas>
 		<slot></slot>
 	</view>
 </template>
@@ -89,13 +90,16 @@
 						if (res) {
 							requestId = requestAnimationFrame(renderLoop)
 						} else {
-							cancelAnimationFrame(requestId)
-							requestId = null;
-							renderLoop = null;
+							setTimeout(() => {
+								cancelAnimationFrame(requestId)
+								requestId = null;
+								renderLoop = null;
+							}, 20)
 						}
 					})
 				}
-				requestId = requestAnimationFrame(renderLoop)
+				renderLoop()
+				// requestId = requestAnimationFrame(renderLoop)
 
 				function drawFrame(callback) {
 					ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -119,13 +123,12 @@
 						owner.callMethod('end', {
 							canvasId: that.format(res.canvasid)
 						})
-						cancelAnimationFrame(requestId)
 						callback && callback(false)
-						return;
+					} else {
+						let num = startPercentage + Number(res.speed)
+						startPercentage = num > percentage ? percentage : num;
+						callback && callback(true)
 					}
-					let num = startPercentage + Number(res.speed)
-					startPercentage = num > percentage ? percentage : num;
-					callback && callback(true)
 				}
 
 			},

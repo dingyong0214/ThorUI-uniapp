@@ -37,7 +37,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
-###  V1.6.5（2021-05-28）
+###  V1.6.5（2021-05-24）
 
 1.tui-validation（表单验证）优化，新增validator自定义验证配置项，具体查看文档。
 
@@ -122,7 +122,6 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 |  ![](https://thorui.cn/img/V165/t_16.jpg)	|![](https://thorui.cn/img/V165/t_17.jpg)	|![](https://thorui.cn/img/V165/t_18.jpg)	|
 |  ![](https://thorui.cn/img/V165/t_19.jpg)	|![](https://thorui.cn/img/V165/t_20.jpg)	|![](https://thorui.cn/img/V165/t_21.jpg)	|
 |  ![](https://thorui.cn/img/V165/t_22.jpg)	|											|											|
-
 
 ###  V1.6.2 （2021-03-21）
 

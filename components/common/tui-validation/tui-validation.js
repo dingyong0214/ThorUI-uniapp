@@ -1,7 +1,7 @@
 /**
  * 表单验证
  * @author echo.
- * @version 1.5.0
+ * @version 1.6.5
  **/
 
 const form = {
@@ -9,25 +9,27 @@ const form = {
 	//当出现错误时返回错误消息，否则返回空即为验证通过
 	/*
 	 formData:Object 表单对象。{key:value,key:value},key==rules.name
-	 rules: Array [{name:name,rule:[],msg:[]},{name:name,rule:[],msg:[]}]
+	 rules: Array [{name:name,rule:[],msg:[],validator:[],{name:name,rule:[],msg:[],validator:[]}]
 			name:name 属性=> 元素的名称
-			rule:字符串数组 ["required","isMobile","isEmail","isCarNo","isIdCard","isAmount","isNum","isChinese","isEnglish",isEnAndNo","isSpecial","isEmoji",""isDate","isUrl","isSame:key","range:[1,9]","minLength:9","maxLength:Number"]
+			rule:字符串数组 ["required","isMobile","isEmail","isCarNo","isIdCard","isAmount","isNum","isChinese","isNotChinese","isEnglish",isEnAndNo","isSpecial","isEmoji",""isDate","isUrl","isSame:key","range:[1,9]","minLength:9","maxLength:Number","isKeyword:key1,key2,key3..."]
 			msg:数组 []。 与数组 rule 长度相同,对应的错误提示信息
+			validator:[{msg:'错误消息',method:Function}]，自定义验证方法组，函数约定：(value)=>{ return true or false}
 	*/
 	validation: function(formData, rules) {
 		for (let item of rules) {
 			let key = item.name;
 			let rule = item.rule;
+			let validator = item.validator;
 			let msgArr = item.msg;
-			if (!key || !rule || rule.length === 0 || !msgArr || msgArr.length === 0) {
+			if (!key || !rule || rule.length === 0 || !msgArr || msgArr.length === 0 || (!~rule.indexOf(
+						"required") && formData[key].toString()
+					.length === 0)) {
 				continue;
 			}
 			for (let i = 0, length = rule.length; i < length; i++) {
 				let ruleItem = rule[i];
 				let msg = msgArr[i];
-				if (!ruleItem || !msg || (!~rule.indexOf("required") && formData[key].toString().length === 0)) {
-					continue;
-				}
+				if (!msg || !ruleItem) continue;
 				//数据处理
 				let value = null;
 				if (~ruleItem.indexOf(":")) {
@@ -60,6 +62,9 @@ const form = {
 						break;
 					case "isChinese":
 						isError = !form._isChinese(formData[key]);
+						break;
+					case "isNotChinese":
+						isError = !form._isNotChinese(formData[key]);
 						break;
 					case "isEnglish":
 						isError = !form._isEnglish(formData[key]);
@@ -103,16 +108,29 @@ const form = {
 					case "maxLength":
 						isError = !form._maxLength(formData[key], value)
 						break;
+					case "isKeyword":
+						isError = !form._isKeyword(formData[key], value)
+						break;
 					default:
 						break;
 				}
+
 				if (isError) {
 					return msg;
+				}
+			}
+			if (validator && validator.length > 0) {
+				for (let model of validator) {
+					let func = model.method;
+					if (func && !func(formData[key])) {
+						return model.msg;
+					}
 				}
 			}
 		}
 		return "";
 	},
+	//允许填写字符串null或者undefined
 	_isNullOrEmpty: function(value) {
 		return (value === null || value === '' || value === undefined) ? true : false;
 	},
@@ -124,9 +142,11 @@ const form = {
 	},
 	_isCarNo: function(value) {
 		// 新能源车牌
-		const xreg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}(([0-9]{5}[DF]$)|([DF][A-HJ-NP-Z0-9][0-9]{4}$))/;
+		const xreg =
+			/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}(([0-9]{5}[DF]$)|([DF][A-HJ-NP-Z0-9][0-9]{4}$))/;
 		// 旧车牌
-		const creg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]{1}$/;
+		const creg =
+			/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]{1}$/;
 		if (value.length === 7) {
 			return creg.test(value);
 		} else if (value.length === 8) {
@@ -172,7 +192,8 @@ const form = {
 		let month = idCard18.substring(10, 12);
 		let day = idCard18.substring(12, 14);
 		let temp_date = new Date(year, parseFloat(month) - 1, parseFloat(day));
-		if (temp_date.getFullYear() != parseFloat(year) || temp_date.getMonth() != parseFloat(month) - 1 || temp_date.getDate() !=
+		if (temp_date.getFullYear() != parseFloat(year) || temp_date.getMonth() != parseFloat(month) - 1 ||
+			temp_date.getDate() !=
 			parseFloat(day)) {
 			return false;
 		} else {
@@ -185,7 +206,8 @@ const form = {
 		let day = idCard15.substring(10, 12);
 		let temp_date = new Date(year, parseFloat(month) - 1, parseFloat(day));
 
-		if (temp_date.getYear() != parseFloat(year) || temp_date.getMonth() != parseFloat(month) - 1 || temp_date.getDate() !=
+		if (temp_date.getYear() != parseFloat(year) || temp_date.getMonth() != parseFloat(month) - 1 ||
+			temp_date.getDate() !=
 			parseFloat(day)) {
 			return false;
 		} else {
@@ -200,9 +222,19 @@ const form = {
 		//只能为数字
 		return /^[0-9]+$/.test(value);
 	},
+	//是否全部为中文
 	_isChinese: function(value) {
-		let reg = /.*[\u4e00-\u9fa5]+.*$/;
+		let reg = /^[\u4e00-\u9fa5]+$/;
 		return value !== "" && reg.test(value) && !form._isSpecial(value) && !form._isEmoji(value)
+	},
+	//是否不包含中文，可以有特殊字符
+	_isNotChinese: function(value) {
+		let reg = /.*[\u4e00-\u9fa5]+.*$/;
+		let result = true;
+		if (reg.test(value)) {
+			result = false
+		}
+		return result
 	},
 	_isEnglish: function(value) {
 		return /^[a-zA-Z]*$/.test(value)
@@ -261,6 +293,19 @@ const form = {
 	},
 	_maxLength: function(value, max) {
 		return value.length <= Number(max)
+	},
+	_isKeyword: function(value, keywords) {
+		//是否包含关键词，敏感词，多个以英文逗号分隔，包含则为false,弹出提示语！
+		let result = true;
+		if (!keywords) return result;
+		let key = keywords.split(',');
+		for (let i = 0, len = key.length; i < len; i++) {
+			if (~value.indexOf(key[i])) {
+				result = false;
+				break;
+			}
+		}
+		return result;
 	}
 };
 module.exports = {
