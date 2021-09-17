@@ -14,6 +14,7 @@
 <script>
 	export default {
 		name:"tuiAlert",
+		emits: ['click','cancel'],
 		props: {
 			//控制显示
 			show: {

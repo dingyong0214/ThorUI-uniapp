@@ -81,7 +81,7 @@ const utils = {
 	}
 }
 
-module.exports = {
+export default {
 	trim: utils.trim,
 	replaceAll: utils.replaceAll,
 	formatNumber: utils.formatNumber,

@@ -1,9 +1,11 @@
 <template>
 	<view class="container">
-		<view class="btn-box"><tui-button shape="circle" shadow @click="showModal">从底部弹出</tui-button></view>
-		<view class="btn-box "><tui-button shape="circle" shadow @click="rDrawer">从右边弹出</tui-button></view>
-		<view class="btn-box "><tui-button shape="circle" shadow @click="lDrawer">从左边弹出</tui-button></view>
-		<view class="btn-box"><tui-button shape="circle" shadow @click="topPopup">从顶部部弹出</tui-button></view>
+		<view class="btn-box"><tui-button shape="circle" shadow @click="showModal">从底部弹出 bottom-popup</tui-button></view>
+		<view class="btn-box "><tui-button shape="circle" shadow @click="rDrawer">从右边弹出 Drawer</tui-button></view>
+		<view class="btn-box "><tui-button shape="circle" shadow @click="lDrawer">从左边弹出 Drawer</tui-button></view>
+		<view class="btn-box "><tui-button shape="circle" shadow @click="bDrawer">从底部弹出 Drawer</tui-button></view>
+		<view class="btn-box "><tui-button shape="circle" shadow @click="tDrawer">从顶部部弹出 Drawer</tui-button></view>
+		<view class="btn-box"><tui-button shape="circle" shadow @click="topPopup">弹层、下拉框</tui-button></view>
 
 		<!--底部抽屉-->
 		<tui-bottom-popup :show="bottomPopup" :radius="false" @close="hideModal">
@@ -29,6 +31,14 @@
 		<!--右抽屉-->
 		<tui-drawer mode="right" :visible="rightDrawer" @close="closeDrawer">
 			<view class="d-container"><tui-button height="80rpx" type="danger" shape="circle" @click="closeDrawer">关闭抽屉</tui-button></view>
+		</tui-drawer>
+		<!--底部抽屉-->
+		<tui-drawer mode="bottom" :visible="bottomDrawer" @close="closeDrawer">
+			<view class="tui-drawer__box"><tui-button height="80rpx" type="green" shape="circle" @click="closeDrawer">关闭抽屉</tui-button></view>
+		</tui-drawer>
+		<!--顶部抽屉-->
+		<tui-drawer mode="top" :visible="topDrawer" @close="closeDrawer">
+			<view class="tui-drawer__box"><tui-button height="80rpx" type="green" shape="circle" @click="closeDrawer">关闭抽屉</tui-button></view>
 		</tui-drawer>
 	</view>
 </template>
@@ -77,6 +87,8 @@ export default {
 			tabIndex: 26,
 			leftDrawer: false,
 			rightDrawer: false,
+			bottomDrawer: false,
+			topDrawer: false,
 			mode: 'right'
 		};
 	},
@@ -97,6 +109,8 @@ export default {
 		closeDrawer(e) {
 			this.leftDrawer = false;
 			this.rightDrawer = false;
+			this.bottomDrawer = false;
+			this.topDrawer = false;
 		},
 		rDrawer() {
 			this.rightDrawer = true;
@@ -104,8 +118,14 @@ export default {
 		lDrawer() {
 			this.leftDrawer = true;
 		},
-		topPopup(){
-			this.tui.href("/pages/extend/popup/popup")
+		bDrawer() {
+			this.bottomDrawer = true;
+		},
+		tDrawer() {
+			this.topDrawer = true;
+		},
+		topPopup() {
+			this.tui.href('/pages/extend/popup/popup');
 		}
 	}
 };
@@ -123,6 +143,12 @@ export default {
 .d-container {
 	width: 400rpx;
 	padding: 80rpx 30rpx;
+}
+
+.tui-drawer__box {
+	height: 600rpx;
+	padding: 80rpx;
+	box-sizing: border-box;
 }
 
 /*底部抽屉样式 start*/

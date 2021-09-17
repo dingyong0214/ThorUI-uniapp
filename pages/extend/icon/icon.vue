@@ -2,9 +2,9 @@
 	<view class="container">
 		<tui-grid>
 			<block v-for="(item,index) in iconList" :key="index">
-				<tui-grid-item>
+				<tui-grid-item @click="show(item.name)">
 					<view class="tui-grid-icon">
-						<tui-icon :name="item.name" :size="item.size" :color="item.color || '#999'" @click="show(item.name)"></tui-icon>
+						<tui-icon :name="item.name" :size="item.size" :color="item.color || '#999'"></tui-icon>
 					</view>
 					<text class="tui-grid-label">{{item.name}}</text>
 				</tui-grid-item>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-	const thorui = require('@/components/common/tui-clipboard/tui-clipboard.js');
+	import thorui from '@/components/common/tui-clipboard/tui-clipboard.js'
 	export default {
 		data() {
 			return {
@@ -376,7 +376,13 @@
 					name: "play",
 					size: 30
 				}, {
+					name: "suspend",
+					size: 30
+				}, {
 					name: "plus",
+					size: 30
+				}, {
+					name: "reduce",
 					size: 30
 				}, {
 					name: "polygonal",
@@ -399,9 +405,6 @@
 				}, {
 					name: "redpacket-fill",
 					size: 32
-				}, {
-					name: "reduce",
-					size: 30
 				}, {
 					name: "refresh",
 					size: 30
@@ -536,6 +539,9 @@
 					size: 30
 				}, {
 					name: "unreceive",
+					size: 30
+				}, {
+					name: "seen",
 					size: 30
 				}, {
 					name: "unseen",

@@ -387,6 +387,13 @@
 						bg: this.getRandom()
 					},
 					{
+						name: '富文本解析',
+						desc: 'uParse，uni-app框架下富文本解析，支持markdown和html解析。',
+						page: '/pages/extend/richText/richText',
+						like: false,
+						bg: this.getRandom()
+					},
+					{
 						name: '网络请求',
 						desc: 'Network request，发起网络请求，简单的封装与使用 。',
 						page: '/pages/extend/request/request',
@@ -427,6 +434,13 @@
 						page: '/pages/extend/template/template',
 						like: false,
 						bg: this.getRandom()
+					},
+					{
+						name: 'ThorUI示例',
+						desc: 'ThorUI示例项目中组件内容只对会员开放，ThorUI示例是该组件库的扩展项目。',
+						page: 'thorui',
+						like: false,
+						bg: this.getRandom()
 					}
 				]
 			};
@@ -464,7 +478,12 @@
 				return rnd;
 			},
 			detail: function(pageUrl) {
-				this.tui.href(pageUrl);
+				if(pageUrl=='thorui'){
+					this.openThorUI()
+				}else{
+					this.tui.href(pageUrl);
+				}
+				
 			},
 			like: function(index) {
 				this.$set(this.list[index], 'like', !this.list[index].like);
@@ -486,6 +505,25 @@
 				);
 				//#endif
 				return false;
+			},
+			openThorUI() {
+				// #ifdef MP-WEIXIN
+				wx.navigateToMiniProgram({
+					appId: 'wxd3c1da92cb8fcf40'
+				});
+				// #endif
+			
+				// #ifndef  MP-WEIXIN
+				if (this.sweixin) {
+					this.sweixin.launchMiniProgram({
+						id: 'gh_78d54c9830d3'
+					});
+				} else {
+					uni.previewImage({
+						urls: ['https://thorui.cn/img/applets_extend.jpg']
+					});
+				}
+				// #endif
 			}
 		},
 		onShareAppMessage: function(e) {

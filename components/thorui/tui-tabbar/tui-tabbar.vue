@@ -27,6 +27,7 @@
 <script>
 export default {
 	name: 'tuiTabbar',
+	emits: ['click'],
 	props: {
 		//当前索引
 		current: {

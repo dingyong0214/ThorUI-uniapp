@@ -38,9 +38,6 @@ export default {
 		// 	vm.page = data.page;
 		// })
 	},
-	beforeDestroy() {
-		//uni.$off('page-share')
-	},
 	methods: {
 		shareCancel() {
 			const subNVue = uni.getCurrentSubNVue();

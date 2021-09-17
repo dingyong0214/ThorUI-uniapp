@@ -125,6 +125,7 @@ export default {
 	},
 	methods: {
 		detail: function() {
+			console.log('click~');
 			this.tui.toast('click~');
 		}
 	}

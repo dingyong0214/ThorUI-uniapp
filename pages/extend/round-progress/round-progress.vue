@@ -10,7 +10,7 @@
 		</view>
 		<view class="tui-progress-box" v-if="status[0]">
 			<tui-round-progress :percentage="0"></tui-round-progress>
-			<tui-round-progress progressColor="#EB0909" fontColor="#EB0909" :percentage="70"></tui-round-progress>
+			<tui-round-progress progressColor="#EB0909" fontColor="#EB0909" :percentage="percentage" activeMode="forwards"></tui-round-progress>
 			<tui-round-progress progressColor="#19be6b" fontColor="#19be6b" :percentage="100"></tui-round-progress>
 		</view>
 		<view class="tui-title">
@@ -79,7 +79,8 @@
 				sAngle:-1,
 				progress: 20,
 				progress2:0,
-				status:[false,false,false,false,false,false]
+				status:[false,false,false,false,false,false],
+				percentage:70
 			}
 		},
 		methods: {

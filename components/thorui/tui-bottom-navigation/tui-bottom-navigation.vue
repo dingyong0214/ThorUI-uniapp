@@ -38,7 +38,7 @@
 						:hover-stay-time="150"
 						v-for="(subItem, subIndex) in item.itemList || []"
 						:key="subIndex"
-						@tap="subMenuClick(index, item.type, subIndex, subItem.parameter)"
+						@tap="subMenuClick(index, item.type, subIndex, subItem.parameter || '')"
 					>
 						<text class="tui-ellipsis" :style="{ color: isDarkMode ? '#fff' : subMenuColor, fontSize: subMenufontSize, lineHeight: subMenufontSize }">
 							{{ subItem.text }}
@@ -55,6 +55,7 @@
 <script>
 export default {
 	name: 'tuiBottomNavigation',
+	emits: ['click'],
 	props: {
 		//当前索引
 		current: {

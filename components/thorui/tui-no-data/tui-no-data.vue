@@ -11,6 +11,7 @@
 <script>
 	export default {
 		name: "tuiNoData",
+		emits: ['click'],
 		props: {
 			//是否垂直居中
 			fixed: {

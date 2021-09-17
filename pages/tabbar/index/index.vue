@@ -17,9 +17,11 @@
 			<view class="kind-list">
 				<block v-for="(item, index) in list" :key="item.id">
 					<view class="kind-list_item">
-						<view :id="item.id" class="tui-flex kind-list_item-hd" :class="{ 'kind-list_item-hd_show': item.open }" @tap="kindToggle">
+						<view :id="item.id" class="tui-flex kind-list_item-hd"
+							:class="{ 'kind-list_item-hd_show': item.open }" @tap="kindToggle">
 							<view class="tui-flex_item">{{ item.name }}</view>
-							<image class="kind-list_img" :class="['tui-img-' + index]" :src="'/static/images/index/' + item.id + '.png'"></image>
+							<image class="kind-list_img" :class="['tui-img-' + index]"
+								:src="'/static/images/index/' + item.id + '.png'"></image>
 						</view>
 						<view class="kind-list_item-bd" :class="{ 'kind-list_item-bd_show': item.open }">
 							<view class="tui-cells" :class="{ 'tui-cells_show': item.open }">
@@ -39,7 +41,7 @@
 </template>
 
 <script>
-	const thorui = require('@/components/common/tui-clipboard/tui-clipboard.js');
+	import thorui from '@/components/common/tui-clipboard/tui-clipboard.js'
 	import {
 		mapActions,
 		mapState
@@ -234,7 +236,7 @@
 			// #ifdef MP
 			this.platform = '小程序';
 			// #endif
-			this.$eventHub.$on('emit', data => {
+			uni.$on('emit', data => {
 				setTimeout(() => {
 					this.tui.toast('您选择了：' + data);
 				}, 350);
@@ -275,7 +277,7 @@
 						this.tui.toast('链接复制失败');
 					}
 					// #endif
-				},event);
+				}, event);
 			},
 			mall: function() {
 				if (this.list.length < 8) return;
@@ -294,7 +296,7 @@
 					appId: 'wxd3c1da92cb8fcf40'
 				});
 				// #endif
-			
+
 				// #ifndef  MP-WEIXIN
 				if (this.sweixin) {
 					this.sweixin.launchMiniProgram({
@@ -433,6 +435,7 @@
 		padding: 0 80rpx 50rpx;
 		box-sizing: border-box;
 	}
+
 	.tui-link {
 		color: #586c94;
 	}

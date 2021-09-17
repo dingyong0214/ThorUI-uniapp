@@ -14,7 +14,7 @@
 </template>
 
 <script>
-	const amap = require('@/libs/amap-wx.js')
+	import amap from '@/libs/amap-wx.js'
 	export default {
 		data() {
 			return {

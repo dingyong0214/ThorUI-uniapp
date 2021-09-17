@@ -49,7 +49,7 @@
 </template>
 
 <script>
-	const QQMapWX = require('@/libs/qqmap-wx-jssdk.min.js');
+	import QQMapWX from '@/libs/qqmap-wx-jssdk.min.js';
 	export default {
 		data() {
 			return {
@@ -149,8 +149,8 @@
 						longitude: item.location.lng,
 						title: item.title,
 						iconPath:"/static/images/maps/location.png",
-						width:32,
-						height:32
+						width:40,
+						height:40
 					});
 					let tel = this.trim(item.tel);
 					if (~tel.indexOf(';')) {

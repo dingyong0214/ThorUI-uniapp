@@ -1,5 +1,5 @@
 //测试数据，数据并非完整，只验证功能
-module.exports = [{
+export default [{
     "text": "北京市",
     "value": "110000",
     "children": [{

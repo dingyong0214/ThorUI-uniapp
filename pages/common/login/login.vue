@@ -28,8 +28,8 @@
 
 <script>
 import { mapMutations } from 'vuex';
-const util = require('@/utils/util.js');
-const form = require('@/components/common/tui-validation/tui-validation.js');
+import util from '@/utils/util.js'
+import form from '@/components/common/tui-validation/tui-validation.js'
 export default {
 	data() {
 		return {

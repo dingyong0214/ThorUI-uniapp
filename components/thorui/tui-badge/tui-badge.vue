@@ -8,6 +8,7 @@
 <script>
 	export default {
 		name: 'tuiBadge',
+		emits: ['click'],
 		props: {
 			//primary,warning,green,danger,white，black，gray,white_red
 			type: {

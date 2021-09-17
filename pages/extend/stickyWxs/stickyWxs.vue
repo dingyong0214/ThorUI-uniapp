@@ -4,7 +4,7 @@
 			<view>1、吸顶容器 wxs实现，与之前sticky组件使用方法基本一致，异步数据加载实现吸顶略有调整，具体参考文档</view>
 			<view>2、tui-sticky可直接换成tui-sticky-wxs</view>
 		</view>
-		<tui-sticky-wxs  :scrollTop="scrollTop" stickyHeight="104rpx" container>
+		<tui-sticky-wxs @sticky="sticky"  :scrollTop="scrollTop" stickyHeight="104rpx" container>
 			<template v-slot:header>
 				<view class="sticky-item">
 					<view class="date">本月</view>

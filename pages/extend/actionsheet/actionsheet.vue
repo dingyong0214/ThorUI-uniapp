@@ -108,6 +108,7 @@
 				}, 0)
 			},
 			itemClick: function(e) {
+				console.log(e)
 				let index = e.index;
 				this.closeActionSheet();
 				this.tui.toast(`您点击的按钮索引为：${index}`)

@@ -33,10 +33,10 @@ var stickyChange = function(scrollTop, oldScrollTop, ownerInstance, ins) {
 			"display": 'none'
 		})
 	}
-	ownerInstance.triggerEvent("sticky", {
+	ownerInstance.triggerEvent("sticky", [{
 		isFixed: isFixed,
 		index: parseInt(dataset.index)
-	})
+	}])
 }
 
 module.exports = {

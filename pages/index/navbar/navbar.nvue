@@ -219,7 +219,7 @@
 						isLoading: false,
 						pageIndex: 1
 					};
-					if (i === 0) {
+					if (i === this.tabIndex) {
 						aryItem.pageIndex = 2;
 						aryItem.data = aryItem.data.concat(newsData);
 					}

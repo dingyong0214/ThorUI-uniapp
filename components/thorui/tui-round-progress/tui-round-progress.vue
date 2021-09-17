@@ -152,6 +152,7 @@
 <script>
 	export default {
 		name: 'tuiRoundProgress',
+		emits: ['change','end'],
 		props: {
 			/*
 			  传值需使用rpx进行转换保证各终端兼容

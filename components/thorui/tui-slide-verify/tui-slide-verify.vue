@@ -17,6 +17,7 @@
 <script>
 	export default {
 		name: "tuiSlideVerify",
+		emits: ['success'],
 		props: {
 			//滑动条宽度 px
 			slideBarWidth: {

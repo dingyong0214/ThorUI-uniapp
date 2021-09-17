@@ -145,6 +145,7 @@
 const calendar = require('./tui-calendar.js');
 export default {
 	name: 'tuiCalendar',
+	emits: ['hide','change'],
 	// components:{
 	// 	tuiButton
 	// },

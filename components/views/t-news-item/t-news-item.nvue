@@ -18,6 +18,7 @@
 <script>
 export default {
 	name: 'tNewsItem',
+	emits: ['click'],
 	props: {
 		entity: {
 			type: Object,

@@ -4,13 +4,13 @@
 			:style="{ backgroundColor: headerBgColor }" class="tui-bottom-line"
 			:class="{ 'tui-btm-none': !headerLine }">
 			<view class="tui-selection-header" :style="{ height: tabsHeight, backgroundColor: backgroundColor }">
-				<view class="tui-header-item" :class="{ 'tui-font-bold': index === currentTab && bold }"
-					:style="{ color: index === currentTab ? activeColor : color, fontSize: size + 'rpx' }"
-					:id="`id_${index}`" @tap.stop="swichNav" :data-current="index" v-for="(item, index) in selectedArr"
-					:key="index">
+				<view class="tui-header-item" :class="{ 'tui-font-bold': idx === currentTab && bold }"
+					:style="{ color: idx === currentTab ? activeColor : color, fontSize: size + 'rpx' }"
+					:id="`id_${idx}`" @tap.stop="swichNav" :data-current="idx" v-for="(item, idx) in selectedArr"
+					:key="idx">
 					{{ item.text }}
 					<view class="tui-active-line" :style="{ backgroundColor: lineColor }"
-						v-if="index === currentTab && showLine"></view>
+						v-if="idx === currentTab && showLine"></view>
 				</view>
 			</view>
 		</scroll-view>
@@ -44,6 +44,7 @@
 <script>
 	export default {
 		name: 'tuiCascadeSelection',
+		emits: ['change','complete'],
 		props: {
 			/**
 				 * 如果下一级是请求返回，则为第一级数据，否则所有数据
@@ -75,7 +76,7 @@
 				value: '',//选中value
 				src: '', //选中src，没有则传空或不传
 				index: 0, //选中数据在当前layer索引
-				list: [{src: "", text: "", subText: "", value: 101}] //所有layer数据集合
+				list: [{src: "", text: "", subText: "", value: 101}] //当前layer下所有数据集合
 			  }];
 			    
 			   */

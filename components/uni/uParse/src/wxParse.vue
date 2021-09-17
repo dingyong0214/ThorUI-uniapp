@@ -4,14 +4,14 @@
  * github地址: https://github.com/dcloudio/uParse
  *
  * uni-app框架下 富文本解析
+ * 全局引入css文件，@import '/.../wxParse.css';
  * 
  */-->
 
 <template>
-
 	<!--基础元素-->
-	<div class="wxParse" :class="className" :style="'user-select:' + userSelect" v-if="!loading">
-		<block v-for="(node, index) of nodes" :key="index">
+	<div class="wxParse" :class="className" :style="'user-select:' + userSelect">
+		<block v-for="(node, index) of nodes" :key="index" v-if="!loading">
 			<wxParseTemplate :node="node" />
 		</block>
 	</div>
@@ -20,15 +20,13 @@
 <script>
 	import HtmlToJson from './libs/html2json';
 	import wxParseTemplate from './components/wxParseTemplate0';
-
-
 	export default {
 		name: 'wxParse',
+		emits: ['navigate','preview'],
 		props: {
-			// user-select:none;
 			userSelect: {
 				type: String,
-				default: 'none' //none |text| all | element
+				default: 'text' //none |text| all | element
 			},
 			imgOptions: {
 				type: [Object, Boolean],
@@ -54,7 +52,7 @@
 			},
 			noData: {
 				type: String,
-				default: ''
+				default: '<text></text>'
 			},
 			startHandler: {
 				type: Function,
@@ -123,15 +121,16 @@
 				let results = HtmlToJson(parseData, customHandler, imageProp, this);
 
 				this.imageUrls = results.imageUrls;
-				// this.nodes = results.nodes;
-
-
 				this.nodes = [];
-				results.nodes.forEach((item) => {
-					setTimeout(() => {
-						this.nodes.push(item)
-					}, 0);
-				})
+				setTimeout(()=>{
+					this.nodes = results.nodes;
+				},20)
+
+				// results.nodes.forEach((item) => {
+				// 	setTimeout(() => {
+				// 		this.nodes.push(item)
+				// 	}, 0);
+				// })
 			},
 			getWidth() {
 				return new Promise((res, rej) => {
@@ -165,7 +164,6 @@
 				});
 			},
 			navigate(href, $event, attr) {
-				console.log(href, attr);
 				this.$emit('navigate', href, $event);
 			},
 			preview(src, $event) {

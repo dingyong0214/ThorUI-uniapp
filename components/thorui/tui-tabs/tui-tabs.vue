@@ -38,6 +38,7 @@
 <script>
 	export default {
 		name: 'tuiTabs',
+		emits: ['change'],
 		props: {
 			//标签页
 			tabs: {

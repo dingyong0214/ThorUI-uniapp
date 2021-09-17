@@ -95,6 +95,7 @@
  * */
 export default {
 	name: 'tuiPictureCropper',
+	emits: ['ready','cropper','initAngle','imageLoad'],
 	props: {
 		//图片路径
 		imageUrl: {
@@ -402,7 +403,7 @@ export default {
 						this.ctx.toTempFilePath({
 							...params,
 							success: res => {
-								data.url = res.tempFilePath;
+								data.url = res.apFilePath;
 								this.loadding && uni.hideLoading();
 								this.$emit('cropper', data);
 							}

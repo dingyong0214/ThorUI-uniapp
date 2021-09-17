@@ -19,6 +19,7 @@
 <script>
 export default {
 	name: 'tuiTopDropdown',
+	emits: ['close'],
 	props: {
 		//是否需要mask
 		mask: {

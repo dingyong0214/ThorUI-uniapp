@@ -86,6 +86,7 @@
 <script>
 export default {
 	name: 'tuiCountdown',
+	emits: ['end','time'],
 	props: {
 		//数字框宽度
 		width: {
@@ -212,9 +213,16 @@ export default {
 		this.clearTimer();
 		this.doLoop();
 	},
+	// #ifndef VUE3
 	beforeDestroy() {
 		this.clearTimer();
 	},
+	// #endif
+	// #ifdef VUE3
+	beforeUnmount(){
+		this.clearTimer();
+	},
+	// #endif
 	methods: {
 		getWidth: function(num, width) {
 			return num > 99 ? (width / 2) * num.toString().length : width;

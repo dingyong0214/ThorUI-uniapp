@@ -36,6 +36,7 @@
 <script>
 export default {
 	name: 'tuiModal',
+	emits: ['click','cancel'],
 	props: {
 		//是否显示
 		show: {

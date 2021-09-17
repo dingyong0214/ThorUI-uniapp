@@ -1,10 +1,19 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import fetch from '../common/httpRequest'
 
+// #ifndef VUE3
+import Vue from 'vue'
+import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
+// #endif
+
+// #ifdef VUE3
+import {
+	createStore
+} from 'vuex'
+const store = createStore({
+// #endif
 	state: {
 		//用户登录手机号
 		mobile: uni.getStorageSync("thorui_mobile") || "echo.",
@@ -13,7 +22,7 @@ const store = new Vuex.Store({
 		//登录后跳转的页面路径 + 页面参数
 		returnUrl: "",
 		//app版本
-		version: "1.6.5",
+		version: "1.7.0",
 		//当前是否有网络连接
 		networkConnected: true,
 		isOnline: false

@@ -17,6 +17,7 @@
 <script>
 	export default {
 		name: "tuiCollapse",
+		emits: ['click'],
 		props: {
 			//collapse背景颜色
 			bgColor: {

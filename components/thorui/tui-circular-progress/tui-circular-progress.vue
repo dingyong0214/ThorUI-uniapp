@@ -15,6 +15,7 @@
 <script>
 export default {
 	name: 'tuiCircularProgress',
+	emits: ['change','end'],
 	props: {
 		/*
 			  传值需使用rpx进行转换保证各终端兼容
@@ -176,7 +177,7 @@ export default {
 				if (this.gradualColor) {
 					gradient.addColorStop('1', this.gradualColor);
 				}
-				// #ifdef APP-PLUS
+				// #ifdef APP-PLUS || MP
 				const res = uni.getSystemInfoSync();
 				if (!this.gradualColor && res.platform.toLocaleLowerCase() == 'android') {
 					gradient.addColorStop('1', this.progressColor);

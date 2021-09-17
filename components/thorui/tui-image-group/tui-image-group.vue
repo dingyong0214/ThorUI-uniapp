@@ -39,6 +39,7 @@
 <script>
 export default {
 	name: 'tuiImageGroup',
+	emits: ['errorEvent','loaded','click'],
 	props: {
 		//图片集合
 		/*

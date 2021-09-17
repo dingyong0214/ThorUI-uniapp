@@ -20,6 +20,7 @@
 <script>
 	export default {
 		name: "tuiKeyboard",
+		emits: ['click','close'],
 		props: {
 			//是否需要mask
 			mask: {

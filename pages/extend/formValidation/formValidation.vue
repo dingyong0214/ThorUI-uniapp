@@ -92,7 +92,7 @@
 	</view>
 </template>
 <script>
-	const form = require("@/components/common/tui-validation/tui-validation.js")
+	import form from "@/components/common/tui-validation/tui-validation.js"
 
 	function checkKeyword(value) {
 		if (~value.indexOf("***")) {

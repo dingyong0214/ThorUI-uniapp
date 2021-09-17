@@ -48,6 +48,8 @@ const thorui = {
 	}
 };
 
-module.exports = {
+export default {
 	getClipboardData: thorui.getClipboardData
 };
+
+

@@ -56,8 +56,6 @@
 	export default {
 		data() {
 			return {
-				loadding: false,
-				show: false,
 				current: 0,
 				index: 3
 			}

@@ -60,8 +60,8 @@
 </template>
 
 <script>
-const util = require('@/utils/util.js');
-const qrCode = require('@/libs/weapp-qrcode.js');
+import util from '@/utils/util.js'
+import qrCode from '@/libs/weapp-qrcode.js';
 export default {
 	data() {
 		return {

@@ -50,7 +50,7 @@
 </template>
 
 <script>
-	const util = require("@/utils/util.js")
+	import util from "@/utils/util.js"
 	export default {
 		data() {
 			return {

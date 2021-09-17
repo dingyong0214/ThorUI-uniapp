@@ -18,6 +18,7 @@
  **/
 export default {
 	name: 'tuiDrawer',
+	emits: ['close'],
 	props: {
 		visible: {
 			type: Boolean,

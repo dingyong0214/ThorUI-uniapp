@@ -3,6 +3,7 @@
 page {
 	background-color: #fafafa;
 	font-size: 32rpx;
+	font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
 }
 
 ::-webkit-scrollbar {

@@ -39,7 +39,7 @@
 </template>
 
 <script>
-	import ZhToPinYin from '../../../components/common/tui-zh-pinyin/tui-zh-pinyin.js';
+	import ZhToPinYin from '@/components/common/tui-zh-pinyin/tui-zh-pinyin.js';
 	export default {
 		data() {
 			return {

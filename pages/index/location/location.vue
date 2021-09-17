@@ -17,21 +17,18 @@
 		 :style="{height:winHeight}">
 			<!-- #ifndef MP-ALIPAY -->
 			<cover-image class="cover-image" src="/static/images/maps/location.png" />
+			<cover-image src="/static/images/maps/current.png?v=1" class="tui-current__img" @tap="currentLocation"></cover-image>
 			<!-- #endif -->
 		</map>
 		<!-- #ifdef MP-ALIPAY -->
 		<cover-image class="cover-image" src="/static/images/maps/location.png" />
-		<!-- #endif -->
-		<!-- #ifndef APP-PLUS -->
-		<cover-view class="current-location">
-			<cover-image src="/static/images/maps/current.png" class="current-img" @tap="currentLocation"></cover-image>
-		</cover-view>
+		<cover-image src="/static/images/maps/current.png?v=1" class="tui-current__img" @tap="currentLocation"></cover-image>
 		<!-- #endif -->
 	</view>
 </template>
 
 <script>
-	const QQMapWX = require('@/libs/qqmap-wx-jssdk.min.js');
+	import QQMapWX from '@/libs/qqmap-wx-jssdk.min.js';
 	export default {
 		data() {
 			return {
@@ -189,8 +186,8 @@
 	}
 
 	.cover-image {
-		height: 60rpx;
-		width: 60rpx;
+		height: 68rpx;
+		width: 68rpx;
 		position: fixed;
 		/* #ifdef APP-PLUS */
 		position: absolute;
@@ -250,23 +247,15 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
-
-	.current-location {
+	.tui-current__img {
 		position: fixed;
-		height: 76rpx;
-		width: 76rpx;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		/* #ifdef APP-PLUS */
+		position: absolute;
+		/* #endif */
+		height: 80rpx;
+		width: 80rpx;
 		bottom: 80rpx;
 		right: 60rpx;
-		background: rgba(255, 255, 255, 0.94);
-		border-radius: 38rpx;
-		z-index: 999999;
-	}
-
-	.current-img {
-		width: 42rpx;
-		height: 42rpx;
+		z-index: 9999;
 	}
 </style>

@@ -1,14 +1,14 @@
 {
     "name" : "ThorUI组件库",
-    "appid" : "",
+    "appid" : "__UNI__40E4670",
     "description" : "ThorUI跨端项目，uni-app版本，v3编译，支持nvue uni-app编译模式（原weex编译模式），easycom组件模式（无需手动引入，开发工具自带智能感知）",
-    "versionName" : "1.6.5",
-    "versionCode" : 121,
+    "versionName" : "1.7.0",
+    "versionCode" : 130,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
         "usingComponents" : true,
-        "nvueCompiler" : "uni-app",
+        "nvueStyleCompiler" : "uni-app",
         "compilerVersion" : 3,
         "splashscreen" : {
             "alwaysShowBeforeRender" : true,
@@ -60,8 +60,8 @@
             "sdkConfigs" : {
                 "maps" : {
                     "amap" : {
-                        "appkey_ios" : "",
-                        "appkey_android" : ""
+                        "appkey_ios" : "110e39a865a3265432853b47f8f7a576",
+                        "appkey_android" : "ccbe5c19ff124f7b7fc9af59c674c5a1"
                     }
                 }
             }
@@ -72,7 +72,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wxb6a98ca343f57a38",
         "setting" : {
             "urlCheck" : false,
             "es6" : true,
@@ -102,14 +102,20 @@
         "sdkConfigs" : {
             "maps" : {
                 "qqmap" : {
-                    "key" : ""
+                    "key" : "W4WBZ-TUD65-IDAIR-QPM36-HMFQ5-CGBZP"
                 }
             }
         },
-        "domain" : "",
+        "domain" : "https://www.thorui.cn/",
         "router" : {
             "mode" : "hash",
             "base" : ""
+        },
+        "devServer" : {
+            "https" : false
         }
+    },
+    "mp-qq" : {
+        "appid" : "1109627073"
     }
 }

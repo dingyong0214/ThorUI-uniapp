@@ -272,7 +272,7 @@ const form = {
 		return reg.test(value);
 	},
 	_isUrl: function(value) {
-		return /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(value);
+		return /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})(:[0-9]{1,5})?((\/?)|(\/[\\\w_!~*\\'()\\\.;?:@&=+$,%#-]+)+\/?)$/.test(value);
 	},
 	_isSame: function(value1, value2) {
 		return value1 === value2
@@ -308,6 +308,6 @@ const form = {
 		return result;
 	}
 };
-module.exports = {
+export default {
 	validation: form.validation
 };

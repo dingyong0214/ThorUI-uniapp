@@ -1,7 +1,7 @@
 <template>
-	<div class='tablebox'>
+	<view class="wxTable" @tap="wxParseTableTap">
 		<rich-text :nodes="nodes" :class="node.classStr" :style="'user-select:' + parseSelect"></rich-text>
-	</div>
+	</view>
 </template>
 <script>
 export default {
@@ -24,6 +24,14 @@ export default {
 		this.nodes=this.loadNode([this.node]);
 	},
 	methods: {
+		wxParseTableTap(e) {
+			let parent = this.$parent;
+			while (!parent.preview || typeof parent.preview !== 'function') {
+				// TODO 遍历获取父节点执行方法
+				parent = parent.$parent;
+			}
+			parent.preview("", e);
+		},
 		loadNode(node) {
 			let obj = [];
 			for (let children of node) {
@@ -31,12 +39,15 @@ export default {
 					let t = {
 						name:children.tag,
 						attrs: {
-							class: children.classStr,
-							// style: children.styleStr,
+							class: children.classStr
 						},
 						children: children.nodes?this.loadNode(children.nodes):[]
 					}
-					
+					if(children.tag==="img"){
+						t.attrs.src= children.attr.src;
+						t.attrs.mode=children.attr.mode;
+						t.attrs.alt=children.attr.alt;
+					}
 					obj.push(t)
 				} else if(children.node=='text'){
 					obj.push({
@@ -50,6 +61,3 @@ export default {
 	}
 };
 </script>
-<style>
-	@import url("../wxParse.css");
-</style>

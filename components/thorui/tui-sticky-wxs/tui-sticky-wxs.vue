@@ -15,6 +15,7 @@
 <script>
 	export default {
 		name: 'tuiStickyWxs',
+		emits: ['prop', 'change'],
 		props: {
 			scrollTop: {
 				type: [Number, String],

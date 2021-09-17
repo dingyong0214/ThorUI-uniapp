@@ -10,6 +10,7 @@
 <script>
 	export default {
 		name: 'tuiBottomPopup',
+		emits: ['close'],
 		props: {
 			//是否需要mask
 			mask: {

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-	const QQMapWX = require('@/libs/qqmap-wx-jssdk.min.js');
+	import QQMapWX from '@/libs/qqmap-wx-jssdk.min.js';
 	export default {
 		data() {
 			return {
@@ -25,7 +25,7 @@
 			}
 		},
 		onLoad() {
-			this.$eventHub.$on('emit', (data) => {
+			uni.$on('emit', (data) => {
 				this.cityName= data
 				this.getLonglatByLocation()
 			});

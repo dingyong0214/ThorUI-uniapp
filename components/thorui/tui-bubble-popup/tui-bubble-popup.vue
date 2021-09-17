@@ -46,6 +46,7 @@
 <script>
 	export default {
 		name: 'tuiBubblePopup',
+		emits: ['close'],
 		props: {
 			//宽度
 			width: {

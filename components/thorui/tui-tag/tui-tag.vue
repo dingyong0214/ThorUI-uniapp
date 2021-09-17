@@ -9,6 +9,7 @@
 <script>
 	export default {
 		name: 'tuiTag',
+		emits: ['click'],
 		props: {
 			type: {
 				type: String,

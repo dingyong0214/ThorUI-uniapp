@@ -45,9 +45,9 @@
 				</view>
 			</view>
 		</scroll-view>
-		<view class="tui-indexed-list-bar" :style="{height:indexBarHeight+'px'}" @touchstart="touchStart" @touchmove.stop="touchMove"
+		<view class="tui-indexed-list-bar" :style="{height:indexBarHeight+'px'}"  @touchstart="touchStart" @touchmove.stop.prevent="touchMove"
 		 @touchend.stop="touchEnd" @touchcancel.stop="touchCancel" v-if="!inputShowed">
-			<text v-for="(items,index)  in lists" :key="index" class="tui-indexed-list-text" :style="{height:indexBarItemHeight+'px'}">
+			<text v-for="(items,index)  in lists" :key="index" class="tui-indexed-list-text" :style="{height:indexBarItemHeight+'px'}" @tap="handleClick(index)">
 				{{items.letter=="well"?"#":items.letter}}
 			</text>
 		</view>
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-	const cityData = require('@/utils/index.list.js')
+	import cityData from '@/utils/index.list.js'
 	export default {
 		data() {
 			return {
@@ -151,6 +151,14 @@
 			touchCancel() {
 				this.touchmove = false;
 				this.touchmoveIndex = -1
+			},
+			handleClick(index){
+				if(index===undefined || this.touchmove) return;
+				let item = this.lists[index]
+				if (item) {
+					this.scrollViewId = item.letter;
+					this.touchmoveIndex = index;
+				}
 			}
 		}
 	}

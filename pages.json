@@ -369,9 +369,42 @@
 
 
 		}
+	}, {
+		"path": "pages/index/index-list/index-list",
+		"style": {
+			// #ifdef H5
+			"titleNView": false,
+			// #endif
+			"navigationBarTitleText": "索引列表",
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black"
+		}
+
+	}, {
+		"path": "pages/index/picker-select/picker-select",
+		"style": {
+			// #ifdef H5
+			"titleNView": false,
+			// #endif
+			"navigationBarTitleText": "picker 联动选择",
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black"
+		}
+
+	}, {
+		"path": "pages/index/map/map",
+		"style": {
+			// #ifdef H5
+			"titleNView": false,
+			// #endif
+			"navigationBarTitleText": "地图",
+			"navigationBarBackgroundColor": "#FFFFFF",
+			"navigationBarTextStyle": "black"
+		}
+
 	}],
 	"subPackages": [{
-		"root": "pages/extend/",
+		"root": "pages/extend",
 		"pages": [{
 			"path": "icon/icon",
 			"style": {
@@ -1191,9 +1224,20 @@
 					"disableScroll": true
 				}
 			}
+		}, {
+			"path": "richText/richText",
+			"style": {
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "富文本解析",
+				"app-plus": {
+					"bounce": "vertical"
+				}
+			}
+
 		}]
 	}, {
-		"root": "pages/template/",
+		"root": "pages/template",
 		"pages": [{
 			"path": "login/login/login",
 			"style": {
@@ -1203,26 +1247,6 @@
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView": false
-				}
-			}
-		}, {
-			"path": "login/reg/reg",
-			"style": {
-				"navigationBarTitleText": "",
-				"navigationBarBackgroundColor": "#fafafa",
-				"navigationBarTextStyle": "black",
-				"app-plus": {
-					"bounce": "vertical"
-				}
-			}
-		}, {
-			"path": "login/forgetPwd/forgetPwd",
-			"style": {
-				"navigationBarTitleText": "",
-				"navigationBarBackgroundColor": "#fafafa",
-				"navigationBarTextStyle": "black",
-				"app-plus": {
-					"bounce": "vertical"
 				}
 			}
 		}, {
@@ -1243,76 +1267,6 @@
 				"navigationBarTextStyle": "black",
 				"backgroundColorTop": "#fff",
 				"backgroundColorBottom": "#fff",
-				"app-plus": {
-					"bounce": "vertical"
-				}
-			}
-		}, {
-			"path": "news/newsDetail/newsDetail",
-			"style": {
-				"navigationBarTitleText": "新闻详情",
-				"backgroundColorTop": "#fff",
-				"backgroundColorBottom": "#fff",
-				"onReachBottomDistance": 0,
-				"app-plus": {
-					"bounce": "vertical"
-				}
-			}
-		}, {
-			"path": "news/comment/comment",
-			"style": {
-				"navigationBarTitleText": "发表评论",
-				"backgroundColorTop": "#fff",
-				"backgroundColorBottom": "#fff",
-				"app-plus": {
-					"bounce": "vertical"
-				}
-			}
-		}, {
-			"path": "news/commentList/commentList",
-			"style": {
-				"navigationBarTitleText": "评论",
-				"backgroundColorTop": "#fff",
-				"backgroundColorBottom": "#fff",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 0,
-				"app-plus": {
-					"bounce": "vertical"
-				}
-			}
-		}, {
-			"path": "news/commentReply/commentReply",
-			"style": {
-				"navigationBarTitleText": "回复",
-				"backgroundColorTop": "#fff",
-				"backgroundColorBottom": "#fff",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 0,
-				"app-plus": {
-					"bounce": "vertical"
-				}
-			}
-		}, {
-			"path": "news/newsVideo/newsVideo",
-			"style": {
-				"navigationBarTitleText": "新闻详情",
-				"backgroundColorTop": "#fff",
-				"backgroundColorBottom": "#fff",
-				"onReachBottomDistance": 0,
-				"app-plus": {
-					"bounce": "vertical",
-					"titleNView": {
-						"type": "transparent"
-					}
-				}
-			}
-		}, {
-			"path": "chat/msgList/msgList",
-			"style": {
-				"navigationBarBackgroundColor": "#fff",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": "消息 ",
-				"enablePullDownRefresh": true,
 				"app-plus": {
 					"bounce": "vertical"
 				}
@@ -1346,27 +1300,6 @@
 				"mp-baidu": {
 					"disableScroll": true
 				}
-			}
-		}, {
-			"path": "chat/contacts/contacts",
-			"style": {
-				"navigationBarBackgroundColor": "#fff",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": "联系人 ",
-				"app-plus": {
-					"bounce": "vertical"
-				}
-			}
-		}, {
-			"path": "mall/mall/mall",
-			"style": {
-				"navigationBarBackgroundColor": "#fff",
-				"navigationBarTextStyle": "black",
-				"backgroundColorTop": "#F7F7F7",
-				"backgroundColorBottom": "#F7F7F7",
-				"navigationBarTitleText": "ThorUI商城",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 50
 			}
 		}]
 	}],

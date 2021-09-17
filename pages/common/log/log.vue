@@ -49,7 +49,7 @@
 </template>
 
 <script>
-	const thorui = require('@/components/common/tui-clipboard/tui-clipboard.js');
+	import thorui from '@/components/common/tui-clipboard/tui-clipboard.js'
 	import {
 		mapState
 	} from 'vuex';
@@ -505,6 +505,55 @@
 							'注：会员专用内容加入会员才可使用（￥120/永久)，付费模板会员可享受折扣。',
 							'如若需要，请联系QQ：3168647172 或 3039218619。'
 
+						]
+					},
+					{
+						version: '1.7.0',
+						date: '2021.09.17',
+						log: [
+							'【ThorUI组件库V1.7.0】更新：',
+							'1.修复tui-bottom-navigation（底部导航菜单）组件编译到小程序点击二级菜单报错的问题。',
+							'2.tui-datetime（日期时间选择器）组件优化，可以自定义设置滚动区域高度。',
+							'3.tui-datetime（日期时间选择器）组件优化，新增类型type=8，即选择：时分秒+小时。',
+							'4.tui-cascade-selection（级联选择器）组件优化，修复编译到小程序端索引错乱问题。',
+							'5.uni-app端所有 commonJS 改为 ES6 模块规范，详见文档升级指南。',
+							'6.组件兼容vue3调整优化，支持情况与uni-app同步。',
+							'7.tui-icon（字体图标组件优化），删除以前播放（play）图标，新增播放（play）、暂停（suspend）图标；删除以前不可见（unseen）图标，新增可见（seen）,不可见（unseen）图标。',
+							'8.tui-icon（字体图标组件优化），uni-app版新增支持包含App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'9.微信小程序原生版组件属性类型调整，修复高版本调试基础库出现警告提示。',
+							'10.tui-swipe-action（滑动菜单）组件优化，修复已知问题。',
+							'========================',
+							'========================',
+							'【ThorUI示例V1.2.0】更新：',
+							'1.tui-picker（选择器）组件新增暗黑模式示例。',
+							'2.tui-charts-pie（饼状图表-css版）组件优化，修复部分场景可能导致样式错乱的问题。',
+							'3.tui-charts-line（折线图表-css版）组件优化，修复部分Android手机显示空白问题。',
+							'4.图表组件（所有）优化，修复其它已知问题。',
+							'5.tui-form（表单验证）组件优化，部分平台不支持在props中嵌套传入Function函数，model和rules参数由props传入改为校验方法validate中传入。',
+							'6.tui-slider（滑动选择器）组件优化，修复已知问题。',
+							'7.tui-timer（计时器）组件优化，修复冒号换成文字时显示错误的问题。',
+							'8.uni-app端所有 commonJS 改为 ES6 模块规范，详见文档升级指南。',
+							'9.组件兼容vue3调整优化，支持情况与uni-app同步。',
+							'10.tui-progress（进度条）组件优化。',
+							'11.tui-checkbox（多项选择器）组件优化，修复v-model手动修改值视图不更新的问题。',
+							'12.tui-radio（单项选择器）组件优化，修复v-model手动修改值视图不更新的问题。',
+							'13.微信小程序原生版组件属性类型调整，修复高版本调试基础库出现警告提示。',
+							'14.tui-tab（标签页）组件优化，支持设置左右间距，需传入属性leftGap（距离左侧间隙）值。',
+							'15.tui-row/tui-col（栅格布局）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'16.tui-form-button（按钮）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'17.tui-popup（弹层动画）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'18.tui-input（输入框） 组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'19.tui-radio（单项选择器）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'20.tui-checkbox（多项选择器）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'21.tui-switch（开关选择器）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'22.tui-textarea（多行输入框）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'23.tui-alerts（警告提示）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'24.新增 tui-status-bar（状态栏）组件。',
+							'25.tui-pagination（分页器）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'26.tui-segmented-control（分段器）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'27.tui-notice-bar（通告栏）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'28.tui-form（表单验证）组件优化，uni-app版新增支持App-Nvue、支付宝/百度/字节/QQ小程序。',
+							'29.其他已知问题优化。'
 						]
 					}
 				].reverse()

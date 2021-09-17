@@ -23,6 +23,7 @@
 <script>
 	export default {
 		name: "tuiCard",
+		emits: ['click','longclick'],
 		props: {
 			//是否铺满
 			full: {

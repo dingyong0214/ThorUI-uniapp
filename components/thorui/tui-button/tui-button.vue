@@ -28,6 +28,7 @@
 <script>
 export default {
 	name: 'tuiButton',
+	emits: ['click','getuserinfo','contact','getphonenumber','error'],
 	// #ifndef MP-QQ
 	behaviors: ['wx://form-field-button'],
 	// #endif

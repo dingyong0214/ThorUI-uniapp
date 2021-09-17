@@ -35,7 +35,7 @@
 </template>
 
 <script>
-	const thorui = require("@/components/common/tui-clipboard/tui-clipboard.js")
+	import thorui from "@/components/common/tui-clipboard/tui-clipboard.js"
 	export default {
 		data() {
 			return {

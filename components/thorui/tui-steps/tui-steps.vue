@@ -51,6 +51,7 @@
 	//如果自定义传入图标内容，则需要拆分组件
 	export default {
 		name: 'tuiSteps',
+		emits: ['click'],
 		props: {
 			// 1-默认步骤 2-数字步骤
 			type: {

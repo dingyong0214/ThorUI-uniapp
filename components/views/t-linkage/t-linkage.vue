@@ -6,6 +6,7 @@
 //分类菜单左右联动
 export default {
 	name: 'tLinkage',
+	emits: ['linkage'],
 	props: {
 		scrollTop: {
 			type: Number

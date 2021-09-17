@@ -16,7 +16,7 @@
 </template>
 
 <script>
-	const form = require("@/components/common/tui-validation/tui-validation.js")
+	import form from "@/components/common/tui-validation/tui-validation.js"
 	export default {
 		computed:{
 			descNum:function(){

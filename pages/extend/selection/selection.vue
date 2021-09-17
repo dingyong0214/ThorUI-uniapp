@@ -35,7 +35,7 @@
 </template>
 
 <script>
-const cityData = require('@/utils/picker.city.js');
+import cityData from '@/utils/picker.city.js';
 export default {
 	data() {
 		return {

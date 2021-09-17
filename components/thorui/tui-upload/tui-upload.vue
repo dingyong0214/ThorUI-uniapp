@@ -1,17 +1,20 @@
 <template>
 	<view class="tui-container">
 		<view class="tui-upload-box">
-			<view class="tui-image-item" :style="{width:width+'rpx',height:height+'rpx'}" v-for="(item,index) in imageList" :key="index">
-				<image :src="item" class="tui-item-img" :style="{width:width+'rpx',height:height+'rpx'}" @tap.stop="previewImage(index)" mode="aspectFill"></image>
+			<view class="tui-image-item" :style="{width:width+'rpx',height:height+'rpx'}"
+				v-for="(item,index) in imageList" :key="index">
+				<image :src="item" class="tui-item-img" :style="{width:width+'rpx',height:height+'rpx'}"
+					@tap.stop="previewImage(index)" mode="aspectFill"></image>
 				<view v-if="!forbidDel" class="tui-img-del" @tap.stop="delImage(index)"></view>
 				<view v-if="statusArr[index]!=1" class="tui-upload-mask">
 					<view class="tui-upload-loading" v-if="statusArr[index]==2"></view>
 					<text class="tui-tips">{{statusArr[index]==2?'上传中...':'上传失败'}}</text>
-					<view class="tui-mask-btn" v-if="statusArr[index]==3" @tap.stop="reUpLoad(index)" hover-class="tui-btn-hover"
-					 :hover-stay-time="150">重新上传</view>
+					<view class="tui-mask-btn" v-if="statusArr[index]==3" @tap.stop="reUpLoad(index)"
+						hover-class="tui-btn-hover" :hover-stay-time="150">重新上传</view>
 				</view>
 			</view>
-			<view v-if="isShowAdd" class="tui-upload-add" :style="{width:width+'rpx',height:height+'rpx'}" @tap="chooseImage">
+			<view v-if="isShowAdd" class="tui-upload-add" :style="{width:width+'rpx',height:height+'rpx'}"
+				@tap="chooseImage">
 				<view class="tui-upload-icon tui-icon-plus"></view>
 			</view>
 		</view>
@@ -21,16 +24,17 @@
 <script>
 	export default {
 		name: 'tuiUpload',
+		emits: ['remove','complete'],
 		props: {
 			//展示图片宽度
-			width:{
-				type:[Number,String],
-				default:220
+			width: {
+				type: [Number, String],
+				default: 220
 			},
 			//展示图片高度
-			height:{
-				type:[Number,String],
-				default:220
+			height: {
+				type: [Number, String],
+				default: 220
 			},
 			//初始化图片路径
 			value: {
@@ -139,6 +143,7 @@
 		},
 		methods: {
 			initImages() {
+				this.statusArr = [];
 				this.imageList = [...this.value];
 				for (let item of this.imageList) {
 					this.statusArr.push("1")
@@ -310,9 +315,9 @@
 				const len = imageArr.length
 				for (let i = 0; i < len; i++) {
 					//如果是服务器地址图片则无需再次上传
-					if(imageArr[i].startsWith('http')){
+					if (imageArr[i].startsWith('https')) {
 						continue;
-					}else{
+					} else {
 						this.$set(this.statusArr, i, "2")
 						this.uploadImage(i, imageArr[i], serverUrl).then(() => {
 							if (i === len - 1) {

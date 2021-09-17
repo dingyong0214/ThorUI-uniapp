@@ -420,5 +420,4 @@ var QRCode;
 
     QRCode.CorrectLevel = QRErrorCorrectLevel;
 })();
-
-module.exports = QRCode
+export default QRCode

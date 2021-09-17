@@ -10,6 +10,7 @@
 <script>
 	export default {
 		name: "tuiGridItem",
+		emits: ['click'],
 		props: {
 			cell: {
 				type: [Number,String],

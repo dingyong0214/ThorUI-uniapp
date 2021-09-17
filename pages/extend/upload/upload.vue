@@ -16,16 +16,14 @@
 		data() {
 			return {
 				imageData: [],
-				//上传地址
+				//上传接口地址
 				serverUrl: "https://api.thorui.cn/",
 				value:[] //初始化图片
 			}
 		},
 		onLoad() {
-			//实际应为请求返回数据，此处故意延时，实际中可去除
 			setTimeout(()=>{
-				//实际开发中图片地址应为网络地址
-				this.value=['/static/images/index/logo.png']
+				this.value=['https://thorui.cn/images/index/logo.png']
 			},200)
 		},
 		methods: {

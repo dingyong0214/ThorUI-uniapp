@@ -10,19 +10,23 @@
 			</view>
 			<view class="tui-cell">
 				<view class="tui-title">uni-app版本GitHub地址：</view>
-				<view class="tui-link" @tap="getLink('https://github.com/dingyong0214/ThorUI-uniapp')">https://github.com/dingyong0214/ThorUI-uniapp</view>
+				<view class="tui-link" @tap="getLink('https://github.com/dingyong0214/ThorUI-uniapp')">
+					https://github.com/dingyong0214/ThorUI-uniapp</view>
 			</view>
 			<view class="tui-cell">
 				<view class="tui-title">uni-app版本插件市场地址：</view>
-				<view class="tui-link" @tap="getLink('https://ext.dcloud.net.cn/plugin?id=556')">https://ext.dcloud.net.cn/plugin?id=556</view>
+				<view class="tui-link" @tap="getLink('https://ext.dcloud.net.cn/plugin?id=556')">
+					https://ext.dcloud.net.cn/plugin?id=556</view>
 			</view>
 			<view class="tui-cell">
 				<view class="tui-title">小程序版本GitHub地址：</view>
-				<view class="tui-link" @tap="getLink('https://github.com/dingyong0214/ThorUI')">https://github.com/dingyong0214/ThorUI</view>
+				<view class="tui-link" @tap="getLink('https://github.com/dingyong0214/ThorUI')">
+					https://github.com/dingyong0214/ThorUI</view>
 			</view>
 			<view class="tui-cell">
 				<view class="tui-title">小程序版本插件市场地址：</view>
-				<view class="tui-link" @tap="getLink('https://ext.dcloud.net.cn/plugin?id=569')">https://ext.dcloud.net.cn/plugin?id=569</view>
+				<view class="tui-link" @tap="getLink('https://ext.dcloud.net.cn/plugin?id=569')">
+					https://ext.dcloud.net.cn/plugin?id=569</view>
 			</view>
 		</view>
 
@@ -30,7 +34,7 @@
 </template>
 
 <script>
-	const thorui = require("@/components/common/tui-clipboard/tui-clipboard.js")
+	import thorui from '@/components/common/tui-clipboard/tui-clipboard.js'
 	export default {
 		data() {
 			return {

@@ -22,6 +22,7 @@
 <script>
 export default {
 	name: 'tuiListCell',
+	emits: ['click'],
 	props: {
 		//是否有箭头
 		arrow: {

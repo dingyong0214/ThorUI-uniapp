@@ -14,6 +14,7 @@
 <script>
 	export default {
 		name: "tuiSticky",
+		emits: ['sticky', 'change'],
 		props: {
 			scrollTop: {
 				type: Number
@@ -21,11 +22,13 @@
 			//吸顶时与顶部的距离，单位px
 			stickyTop: {
 				type: [Number, String]
-				// #ifndef H5
-				,default: 0
-				// #endif
-				// #ifdef H5
-				,default: 44
+					// #ifndef H5
+					,
+				default: 0
+					// #endif
+					// #ifdef H5
+					,
+				default: 44
 				// #endif
 			},
 			//是否指定容器，即内容放置插槽content内

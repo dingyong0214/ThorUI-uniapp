@@ -11,10 +11,10 @@ export default {
 		let platform = plus.os.name.toLocaleLowerCase()
 		plus.runtime.getProperty(plus.runtime.appid, (widgetInfo) => {
 			return false;
-			that.tui.request('/config/getNewestVersion', {
+			that.tui.request('/config/getNewestVersion', 'POST', {
 				platform: platform,
 				version: widgetInfo.version //资源版本号
-			}, 'POST', false, true).then((res) => {
+			}, false, false,true).then((res) => {
 				if (res.code === 200 && res.data && (res.data.updateUrl || res.data.partUpdateUrl)) {
 					let data = res.data
 					that.tui.modal('检测到新版本', data.updateLog ? data.updateLog : '请您先更新再进行操作，若不及时更新可能导致部分功能无法正常使用。', false, res => {

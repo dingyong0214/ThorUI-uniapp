@@ -116,7 +116,6 @@ export default {
 	"pic-fill": "\ue68e",
 	"picture": "\ue68d",
 	"pie": "\ue68c",
-	"play": "\ue68b",
 	"plus": "\ue689",
 	"polygonal": "\ue688",
 	"position": "\ue686",
@@ -171,11 +170,12 @@ export default {
 	"turningright": "\ue652",
 	"turningup": "\ue651",
 	"unreceive": "\ue650",
-	"unseen": "\ue64f",
+	"seen": "\ue7d2",
+	"unseen": "\ue7d1",
 	"up": "\ue64e",
 	"upload": "\ue64c",
 	"video": "\ue64b",
-	"voice": "\ue411",
+	"voice": "\ue649",
 	"voice-fill": "\ue648",
 	"voipphone": "\ue647",
 	"wallet": "\ue646",
@@ -184,5 +184,7 @@ export default {
 	"wealth-fill": "\ue643",
 	"weather": "\ue642",
 	"wechat": "\ue641",
-	"wifi": "\ue640"
+	"wifi": "\ue640",
+	"play": "\ue7d5",
+	"suspend": "\ue7d4"
 }

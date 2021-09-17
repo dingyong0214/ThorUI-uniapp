@@ -21,6 +21,7 @@
 <script>
 	export default {
 		name: "tuiActionsheet",
+		emits: ['click','cancel'],
 		props: {
 			//点击遮罩 是否可关闭
 			maskClosable: {
