@@ -22,10 +22,10 @@ const store = createStore({
 		//登录后跳转的页面路径 + 页面参数
 		returnUrl: "",
 		//app版本
-		version: "1.7.0",
+		version: "1.7.1",
 		//当前是否有网络连接
 		networkConnected: true,
-		isOnline: false
+		isOnline: true
 	},
 	mutations: {
 		login(state, payload) {

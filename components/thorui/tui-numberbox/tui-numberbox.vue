@@ -15,7 +15,7 @@
 		emits: ['change'],
 		props: {
 			value: {
-				type: Number,
+				type: [Number, String],
 				default: 1
 			},
 			//最小值
@@ -96,34 +96,51 @@
 			}
 		},
 		methods: {
-			getScale() {
-				let scale = 1;
+			getLen(val, step) {
+				let len = 0;
+				let lenVal = 0;
 				//浮点型
-				if (!Number.isInteger(this.step)) {
-					scale = Math.pow(10, (this.step + '').split('.')[1].length);
+				if (!Number.isInteger(step)) {
+					len = (step + '').split('.')[1].length
 				}
-				return scale;
+				//浮点型
+				if (!Number.isInteger(val)) {
+					lenVal = (val + '').split('.')[1].length
+				}
+				return Math.max(len, lenVal);
+			},
+			getScale(val, step) {
+				let scale = 1;
+				let scaleVal = 1;
+				//浮点型
+				if (!Number.isInteger(step)) {
+					scale = Math.pow(10, (step + '').split('.')[1].length);
+				}
+				//浮点型
+				if (!Number.isInteger(val)) {
+					scaleVal = Math.pow(10, (val + '').split('.')[1].length);
+				}
+				return Math.max(scale, scaleVal);
 			},
 			calcNum: function(type) {
-				if (this.disabled) {
+				if (this.disabled || (this.inputValue == this.min && type === 'reduce') || (this.inputValue == this
+						.max && type === 'plus')) {
 					return;
 				}
-				const scale = this.getScale();
-				let num = this.inputValue * scale;
+				const scale = this.getScale(this.inputValue, this.step);
+				let len = this.getLen(this.inputValue, this.step);
+				let num = Number(this.inputValue) * scale;
 				let step = this.step * scale;
 				if (type === 'reduce') {
 					num -= step;
 				} else if (type === 'plus') {
 					num += step;
 				}
-				let value = num / scale;
-				if (type === 'plus' && value < this.min) {
+				let value = this.toFixed(num / scale, len);
+				if (value < this.min) {
 					value = this.min;
-				} else if (type === 'reduce' && value > this.max) {
+				}else if (value > this.max) {
 					value = this.max;
-				}
-				if (value < this.min || value > this.max) {
-					return;
 				}
 				this.handleChange(value, type);
 			},
@@ -136,7 +153,7 @@
 			blur: function(e) {
 				let value = e.detail.value;
 				if (value) {
-					if (~value.indexOf('.') && Number.isInteger(this.step)) {
+					if (~value.indexOf('.') && Number.isInteger(this.step) && Number.isInteger(Number(value))) {
 						value = value.split('.')[0];
 					}
 					value = Number(value);
@@ -156,11 +173,17 @@
 			handleChange(value, type) {
 				if (this.disabled) return;
 				this.$emit('change', {
-					value: value,
+					value: Number(value),
 					type: type,
 					index: this.index,
 					custom: this.custom
 				});
+			},
+			toFixed(num, s) {
+				let times = Math.pow(10, s)
+				let des = num * times + 0.5
+				des = parseInt(des, 10) / times
+				return des + ''
 			}
 		}
 	};

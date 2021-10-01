@@ -46,7 +46,7 @@
 	export default {
 		data() {
 			return {
-				value: 0,
+				value: 1.1,
 				value2: 1,
 				value3: 1,
 				value4: 0,
@@ -57,6 +57,7 @@
 		},
 		methods: {
 			change: function(e) {
+				console.log(e)
 				this.value = e.value
 			},
 			change2: function(e) {

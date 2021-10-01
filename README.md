@@ -37,7 +37,50 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
-###  V1.7.0（2021-09-18）
+### V1.7.1 (2021-10-01)
+
+1.微信小程序版wx:key赋值优化，去除警告。
+
+2.tui-icon（图标组件优化），修复同时引入组件和样式文件冲突的问题。
+
+3.tui-calendar（日历）组件优化，选择区间时需选择起始和结束日期才可点击确定按钮。
+
+4.微信小程序版本索引列表（吸顶效果）页面优化，修复索引和吸顶索引不一致的问题。
+
+5.tui-numberbox（数字框）组件优化，当步长step为整数时，value支持传入小数。
+
+<font color="#5677fc">`扫码体验[ThorUI组件库]小程序`</font>
+
+![ThorUI组件库](https://thorui.cn/img/applets_sm.jpg) 
+
+========================
+
+【ThorUI示例V1.2.1】更新：
+
+1.tui-searchbar（搜索栏）组件优化，新增属性showLabel、showInput用于控制是否显示占位标签和输入框。
+
+2.tui-rotate-verify (旋转图片验证) 组件优化，新增type类型，当type=2时，返回旋转角度，可传给后端进行验证。
+
+3.tui-input（输入框）、tui-textarea （多行输入框）组件优化，修复v-model赋值Number类型值报错的问题。
+
+4.tui-waterfall（瀑布流）组件优化，修复已知问题。
+
+5.微信小程序版本 tui-table（表格）组件优化，修复数字或英文内容换行显示不正确问题。
+
+6.其他已知问题优化。
+
+=====================
+
+<font color="#5677fc">`扫码体验[ThorUI示例]小程序`</font>
+
+![ThorUI示例](https://thorui.cn/img/thorui-extend__sm.jpg) 
+
+=====================
+
+其中【ThorUI示例】项目只对会员开放。点此 [开通会员](https://thorui.cn/doc/docs/member.html)。
+
+
+###  V1.7.0（2021-09-17）
 
 1.修复tui-bottom-navigation（底部导航菜单）组件编译到小程序点击二级菜单报错的问题。
 

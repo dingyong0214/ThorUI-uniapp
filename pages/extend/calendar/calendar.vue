@@ -96,8 +96,8 @@ export default {
 					this.type = 2;
 					break;
 				case 3:
-					this.minDate = '2020-04-01';
-					this.maxDate = '2021-06-08';
+					this.minDate = '2021-01-01';
+					this.maxDate = '2022-12-12';
 					this.type = 1;
 					break;
 				case 4:

@@ -183,36 +183,6 @@
 							}
 							// #endif
 						]
-					},
-					{
-						id: 'template',
-						name: '模板',
-						open: false,
-						pages: [{
-								name: '商城模板',
-								page: '/pages/template/mall/mall/mall'
-							},
-							{
-								name: '新闻模板',
-								page: '/pages/template/news/index/index'
-							},
-							{
-								name: '聊天模板',
-								page: '/pages/template/chat/msgList/msgList'
-							},
-							{
-								name: '登录模板',
-								page: '/pages/template/login/login/login'
-							},
-							{
-								name: '签到模板',
-								page: '/pages/extend/template/template'
-							},
-							{
-								name: '多语言模板',
-								page: '/pages/extend/template/template'
-							}
-						]
 					}
 				]
 			};
@@ -248,12 +218,7 @@
 		methods: {
 			...mapActions(['getOnlineStatus']),
 			async menuHandle() {
-				let list = [...this.listOnline];
-				this.list = list.splice(0, 7);
-				let isOnline = await this.getOnlineStatus();
-				if (isOnline) {
-					this.list = this.listOnline;
-				}
+				this.list = this.listOnline;
 			},
 			kindToggle: function(e) {
 				var id = e.currentTarget.id,

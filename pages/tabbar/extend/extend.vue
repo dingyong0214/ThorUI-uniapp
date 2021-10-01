@@ -408,34 +408,6 @@
 						bg: this.getRandom()
 					},
 					{
-						name: '新闻模板',
-						desc: '新闻模板包含：新闻列表，新闻详情，评论等。',
-						page: '/pages/template/news/index/index',
-						like: false,
-						bg: this.getRandom()
-					},
-					{
-						name: '聊天模板',
-						desc: '聊天模板包含：消息列表，好友列表，聊天界面等。',
-						page: '/pages/template/chat/msgList/msgList',
-						like: false,
-						bg: this.getRandom()
-					},
-					{
-						name: '商城模板',
-						desc: '商城模板包含：商城首页，商城列表，商城详情，购物车等。',
-						page: '/pages/template/mall/mall/mall',
-						like: false,
-						bg: this.getRandom()
-					},
-					{
-						name: '模板',
-						desc: '计划前三套模板：新闻，聊天，商城。敬请期待！',
-						page: '/pages/extend/template/template',
-						like: false,
-						bg: this.getRandom()
-					},
-					{
 						name: 'ThorUI示例',
 						desc: 'ThorUI示例项目中组件内容只对会员开放，ThorUI示例是该组件库的扩展项目。',
 						page: 'thorui',
@@ -466,12 +438,7 @@
 		methods: {
 			...mapActions(['getOnlineStatus']),
 			async statusChange() {
-				let list = [...this.listOnline];
-				this.list = list.splice(0, 50);
-				let isOnline = await this.getOnlineStatus();
-				if (isOnline) {
-					this.list = this.listOnline;
-				}
+				this.list = this.listOnline;
 			},
 			getRandom: function(index) {
 				var rnd = Math.floor(Math.random() * 6 + 1);
