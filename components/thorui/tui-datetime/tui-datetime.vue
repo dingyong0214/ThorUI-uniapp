@@ -13,10 +13,10 @@
 			<view class="tui-date-header" :style="{ backgroundColor: unitBackground }" v-if="unitTop">
 				<view class="tui-date-unit" v-if="type < 4 || type == 7 || type==8">年</view>
 				<view class="tui-date-unit" v-if="type < 4 || type == 7 || type==8">月</view>
-				<view class="tui-date-unit" v-if="type == 1 || type == 2 || type == 7 || type==8">日</view>
+				<view class="tui-date-unit" v-if="type == 1 || type == 2 || type == 7 || type==8  || type==9">日</view>
 				<view class="tui-date-unit" v-if="type == 1 || type == 4 || type == 5 || type == 7 || type==8">时</view>
-				<view class="tui-date-unit" v-if="(type == 1 || type > 3) && type!=8">分</view>
-				<view class="tui-date-unit" v-if="type > 4 && type !=8">秒</view>
+				<view class="tui-date-unit" v-if="(type == 1 || type > 3) && type!=8 && type!=9">分</view>
+				<view class="tui-date-unit" v-if="type > 4 && type !=8 && type !=9">秒</view>
 			</view>
 			<view class="tui-date__picker-body" :style="{ backgroundColor: bodyBackground,height:height+'rpx' }">
 				<picker-view :value="value" @change="change" class="tui-picker-view">
@@ -34,7 +34,7 @@
 							<text class="tui-date__unit-text" v-if="!unitTop">月</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="!reset && (type == 1 || type == 2 || type == 7 || type==8)">
+					<picker-view-column v-if="!reset && (type == 1 || type == 2 || type == 7 || type==8 || type==9)">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in days" :key="index">
 							{{ formatNum(item) }}
@@ -48,14 +48,14 @@
 							<text class="tui-date__unit-text" v-if="!unitTop">时</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="!reset && (type == 1 || type > 3)  && type!=8">
+					<picker-view-column v-if="!reset && (type == 1 || type > 3)  && type!=8 && type!=9">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in minutes" :key="index">
 							{{ formatNum(item) }}
 							<text class="tui-date__unit-text" v-if="!unitTop">分</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="!reset && type > 4 && type!=8">
+					<picker-view-column v-if="!reset && type > 4 && type!=8 && type!=9">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in seconds" :key="index">
 							{{ formatNum(item) }}
@@ -73,7 +73,7 @@
 		name: 'tuiDatetime',
 		emits: ['cancel', 'confirm'],
 		props: {
-			//1-日期+时间（年月日+时分） 2-日期(年月日) 3-日期(年月) 4-时间（时分） 5-时分秒 6-分秒 7-年月日 时分秒 8-年月日+小时
+			//1-日期+时间（年月日+时分） 2-日期(年月日) 3-日期(年月) 4-时间（时分） 5-时分秒 6-分秒 7-年月日 时分秒 8-年月日+小时 9-日
 			type: {
 				type: Number,
 				default: 1
@@ -260,6 +260,10 @@
 						this.setDays();
 						this.setHours();
 						break;
+          case 9:
+            this.value = [0];
+            this.setDays();
+            break;
 					default:
 						break;
 				}
@@ -359,6 +363,9 @@
 						this.day = this.days[this.value[2]];
 						this.hour = this.hours[this.value[3]];
 						break;
+          case 9:
+            this.day = this.days[this.value[0]];
+            break;
 					default:
 						break;
 				}
@@ -440,6 +447,12 @@
 								result: `${year}-${month}-${day} ${hour}:00`
 							};
 							break;
+            case 9:
+              result = {
+                day: day,
+                result: `${day}`
+              };
+              break;
 						default:
 							break;
 					}
