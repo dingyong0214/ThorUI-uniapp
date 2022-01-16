@@ -714,8 +714,6 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 |  ![](https://thorui.cn/img/V152/4.png)	|![](https://thorui.cn/img/V152/5.png)	|	|
 
 
-[![Watch the video](https://thorui.cn/img/V152/6.png)](https://thorui.cn/img/V152/0720.MP4)
-
 ### V1.5.1（2020-06-06）
 
 1.日历组件支持农历（古历）。
