@@ -692,7 +692,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 7.日历组件单个日期选择和区间选择支持设置默认选中。
 
-8.新增多语言模板。 
+8.新增多语言模板。源码地址 ：[ThorUI-utag](https://github.com/dingyong0214/ThorUI-utag) 
 
 9.新增拖拽排序组件，wxs实现，详细查看多语言模板示例。
 
@@ -709,9 +709,12 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 
 ### 部分功能截图 
-|  ![](https://thorui.cn/img/V152/1.png)|![](https://thorui.cn/img/V152/2.png)	|![](https://thorui.cn/img/V152/3.png)	|
-| ------------							| ------------							| ------------							|
-|  ![](https://thorui.cn/img/V152/4.png)|![](https://thorui.cn/img/V152/5.png)	|										|
+|  ![](https://thorui.cn/img/V152/1.png)	|![](https://thorui.cn/img/V152/2.png)	|![](https://thorui.cn/img/V152/3.png)	|
+| ------------								| ------------							| ------------							|
+|  ![](https://thorui.cn/img/V152/4.png)	|![](https://thorui.cn/img/V152/5.png)	|![](https://thorui.cn/img/V152/6.png)	|
+|  ![](https://thorui.cn/img/V152/7.png)	|![](https://thorui.cn/img/V152/8.png)	|![](https://thorui.cn/img/V152/9.png)	|
+|  ![](https://thorui.cn/img/V152/10.png)	|![](https://thorui.cn/img/V152/11.png)	|![](https://thorui.cn/img/V152/12.png)	|
+|  ![](https://thorui.cn/img/V152/13.png)	|![](https://thorui.cn/img/V152/14.png)	|![](https://thorui.cn/img/V152/17.png)	|
 
 [![Watch the video](https://thorui.cn/img/V152/6.png)](https://thorui.cn/img/V152/0720.MP4)
 
