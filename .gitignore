@@ -1,1 +1,3 @@
 /unpackage
+.hbuilderx/launch.json
+*.json
