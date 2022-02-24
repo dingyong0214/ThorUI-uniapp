@@ -17,7 +17,7 @@ setTimeout(() => {
 }, 100)
 // #endif
 
-// #ifndef VUE3
+// #ifndef VUE3 
 import Vue from 'vue'
 
 Vue.config.productionTip = false

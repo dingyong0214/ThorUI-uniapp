@@ -123,7 +123,7 @@
 			}
 		}
 	}, {
-		"path": "pages/index/color/color",
+		"path": "pages/index/color/color", 
 		"style": {
 			"navigationBarBackgroundColor": "#FFFFFF",
 			"navigationBarTextStyle": "black",
