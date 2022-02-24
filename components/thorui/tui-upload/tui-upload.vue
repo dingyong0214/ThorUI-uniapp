@@ -24,7 +24,7 @@
 <script>
 	export default {
 		name: 'tuiUpload',
-		emits: ['remove','complete'],
+		emits: ['remove', 'complete'],
 		props: {
 			//展示图片宽度
 			width: {
@@ -42,6 +42,11 @@
 				default () {
 					return []
 				}
+			},
+			//删除图片前是否弹框确认
+			delConfirm: {
+				type: Boolean,
+				default: false
 			},
 			//禁用删除
 			forbidDel: {
@@ -286,13 +291,36 @@
 
 			},
 			delImage: function(index) {
-				this.imageList.splice(index, 1)
-				this.statusArr.splice(index, 1)
-				this.$emit("remove", {
-					index: index,
-					params: this.params
-				})
-				this.change()
+				let that = this
+				if (this.delConfirm) {
+					uni.showModal({
+						title: '提示',
+						content: '确认删除该图片吗？',
+						showCancel: true,
+						cancelColor: "#555",
+						confirmColor: "#eb0909",
+						confirmText: "确定",
+						success(res) {
+							if (res.confirm) {
+								that.imageList.splice(index, 1)
+								that.statusArr.splice(index, 1)
+								that.$emit("remove", {
+									index: index,
+									params: that.params
+								})
+								that.change()
+							}
+						}
+					})
+				} else {
+					that.imageList.splice(index, 1)
+					that.statusArr.splice(index, 1)
+					that.$emit("remove", {
+						index: index,
+						params: that.params
+					})
+					that.change()
+				}
 			},
 			previewImage: function(index) {
 				if (!this.imageList.length) return;
@@ -458,7 +486,7 @@
 		text-align: center;
 		font-size: 24rpx;
 		color: #fff;
-		border: 1rpx solid #fff;
+		border: 1px solid #fff;
 		display: flex;
 		align-items: center;
 		justify-content: center;

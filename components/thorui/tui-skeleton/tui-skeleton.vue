@@ -1,6 +1,9 @@
 <template>
-	<view class="tui-skeleton-cmomon tui-skeleton-box" :style="{width: winWidth+'px', height:winHeight+'px', backgroundColor:backgroundColor}">
-		<view class="tui-skeleton-cmomon" v-for="(item,index) in skeletonElements" :key="index" :style="{width: item.width+'px', height:item.height+'px', left: item.left+'px', top: item.top+'px',backgroundColor: skeletonBgColor,borderRadius:getRadius(item.skeletonType,borderRadius)}"></view>
+	<view class="tui-skeleton-cmomon tui-skeleton-box"
+		:style="{width: winWidth+'px', height:winHeight+'px', backgroundColor:backgroundColor}">
+		<view class="tui-skeleton-cmomon" :class="{'tui-skeleton__active':active}" v-for="(item,index) in skeletonElements" :key="index"
+			:style="{width: item.width+'px', height:item.height+'px', left: item.left+'px', top: item.top+'px',backgroundColor: skeletonBgColor,borderRadius:getRadius(item.skeletonType,borderRadius)}">
+		</view>
 		<view class="tui-loading" :class="[getLoadingType(loadingType)]" v-if="isLoading"></view>
 	</view>
 </template>
@@ -49,12 +52,17 @@
 			//是否需要loading
 			isLoading: {
 				type: Boolean,
-				default: true
+				default: false
 			},
 			//loading类型[1-10]
 			loadingType: {
 				type: Number,
 				default: 1
+			},
+			//是否展示动画效果
+			active: {
+				type: Boolean,
+				default: true
 			}
 		},
 		created() {
@@ -67,7 +75,7 @@
 		mounted() {
 			this.$nextTick(() => {
 				this.nodesRef(`.${this.selector}`).then((res) => {
-					if(res && res[0]){
+					if (res && res[0]) {
 						this.winHeight = res[0].height + Math.abs(res[0].top)
 					}
 				});
@@ -118,7 +126,7 @@
 						className = `.${this.selector}-${item}`;
 					}
 					// #endif
-					
+
 					// #ifdef MP-WEIXIN
 					className = `.${this.selector} >>> .${item}`;
 					if (~'rect_circular_fillet'.indexOf(item)) {
@@ -234,6 +242,22 @@
 
 		100% {
 			transform: rotate(360deg);
+		}
+	}
+
+	.tui-skeleton__active {
+		background: linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+		animation: tui-active 1.4s ease infinite;
+		background-size: 400% 100%
+	}
+
+	@keyframes tui-active {
+		0% {
+			background-position: 100% 50%
+		}
+
+		100% {
+			background-position: 0 50%
 		}
 	}
 </style>

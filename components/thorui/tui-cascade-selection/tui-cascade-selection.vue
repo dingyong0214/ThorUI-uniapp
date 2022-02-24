@@ -44,7 +44,7 @@
 <script>
 	export default {
 		name: 'tuiCascadeSelection',
-		emits: ['change','complete'],
+		emits: ['change', 'complete'],
 		props: {
 			/**
 				 * 如果下一级是请求返回，则为第一级数据，否则所有数据
@@ -83,6 +83,10 @@
 			defaultItemList: {
 				type: Array,
 				value: []
+			},
+			defaultKey: {
+				type: String,
+				default: 'text'
 			},
 			//是否显示header底部细线
 			headerLine: {
@@ -260,17 +264,66 @@
 			setDefaultData(val) {
 				let defaultItemList = val || [];
 				if (defaultItemList.length > 0) {
-					defaultItemList.map(item => {
-						item.scrollViewId = `id_${item.index}`;
-					});
-					this.selectedArr = defaultItemList;
-					this.currentTab = defaultItemList.length - 1;
-					this.$nextTick(() => {
-						this.checkCor();
-					});
+					if ((typeof defaultItemList[0] === 'string' || typeof defaultItemList[0] === 'number') && !this
+						.request) {
+						let subi = -1
+						let selectedArr = []
+						for (let j = 0, len = defaultItemList.length; j < len; j++) {
+							let item = defaultItemList[j]
+							let list = []
+							let obj = {}
+							if (j === 0) {
+								list = this.getItemList(-1)
+							} else {
+								list = this.getItemList(j - 1, subi,selectedArr)
+							}
+							subi = this.getDefaultIndex(list, item)
+							if (subi !== -1) {
+								obj = list[subi]
+								selectedArr.push({
+									text: obj.text || this.text,
+									value: obj.value || '',
+									src: obj.src || '',
+									subText: obj.subText || '',
+									index: subi,
+									scrollViewId: `id_${subi}`,
+									list: list
+								})
+							}
+
+							if (subi === -1) break;
+						}
+						this.selectedArr = selectedArr;
+						this.currentTab = selectedArr.length - 1;
+						this.$nextTick(() => {
+							this.checkCor();
+						});
+					} else {
+						defaultItemList.map(item => {
+							item.scrollViewId = `id_${item.index}`;
+						});
+						this.selectedArr = defaultItemList;
+						this.currentTab = defaultItemList.length - 1;
+						this.$nextTick(() => {
+							this.checkCor();
+						});
+					}
+
 				} else {
 					this.initData(this.itemList, -1);
 				}
+			},
+			getDefaultIndex(arr, val) {
+				if (!arr || arr.length === 0 || val === undefined) return -1;
+				let index = -1;
+				let key = this.defaultKey || 'text'
+				for (let i = 0, len = arr.length; i < len; i++) {
+					if (arr[i][key] == val) {
+						index = i;
+						break;
+					}
+				}
+				return index;
 			},
 			initData(data, layer) {
 				if (!data || data.length === 0) return;
@@ -293,18 +346,19 @@
 				});
 				return list;
 			},
-			getItemList(layer, index) {
+			getItemList(layer, index, selectedArr) {
 				let list = [];
 				let arr = JSON.parse(JSON.stringify(this.itemList));
+				selectedArr = selectedArr || this.selectedArr
 				if (layer == -1) {
 					list = this.removeChildren(arr);
 				} else {
-					let value = this.selectedArr[0].index;
+					let value = selectedArr[0].index;
 					value = value == -1 ? index : value;
 					list = arr[value].children || [];
 					if (layer > 0) {
 						for (let i = 1; i < layer + 1; i++) {
-							let val = layer === i ? index : this.selectedArr[i].index;
+							let val = layer === i ? index : selectedArr[i].index;
 							list = list[val].children || [];
 							if (list.length === 0) break;
 						}

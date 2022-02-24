@@ -127,8 +127,8 @@
 						.max && type === 'plus')) {
 					return;
 				}
-				const scale = this.getScale(this.inputValue, this.step);
-				let len = this.getLen(this.inputValue, this.step);
+				const scale = this.getScale(Number(this.inputValue), Number(this.step));
+				let len = this.getLen(Number(this.inputValue), Number(this.step));
 				let num = Number(this.inputValue) * scale;
 				let step = this.step * scale;
 				if (type === 'reduce') {
@@ -139,7 +139,7 @@
 				let value = this.toFixed(num / scale, len);
 				if (value < this.min) {
 					value = this.min;
-				}else if (value > this.max) {
+				} else if (value > this.max) {
 					value = this.max;
 				}
 				this.handleChange(value, type);
@@ -183,7 +183,7 @@
 				let times = Math.pow(10, s)
 				let des = num * times + 0.5
 				des = parseInt(des, 10) / times
-				return des + ''
+				return Number(des + '')
 			}
 		}
 	};

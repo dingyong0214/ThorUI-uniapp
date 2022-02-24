@@ -17,7 +17,7 @@
 				</view>
 				<view class="tui-step-custom" :style="{ backgroundColor: backgroundColor }"
 					v-if="item.name || item.icon">
-					<tui-icon :name="item.name" :size="20" :color="index <= activeSteps ? activeColor : deactiveColor"
+					<tui-icon :name="item.name" :size="item.size || 20" :color="index <= activeSteps ? activeColor : deactiveColor"
 						v-if="item.name"></tui-icon>
 					<image :src="index <= activeSteps ? item.activeIcon : item.icon" class="tui-step-img"
 						mode="widthFix" v-if="!item.name"></image>
@@ -107,6 +107,7 @@
 						title: "标题",
 						desc: "描述",
 						name:"字体图标 thorui icon内", 
+						size:字体图标大小，单位px
 						icon:"图片图标", 
 						activeIcon:"已完成步骤显示图片图标"
 					}]
@@ -174,7 +175,7 @@
 		top: 20rpx;
 		width: 100%;
 		height: 0rpx;
-		border-top-width: 1rpx;
+		border-top-width: 1px;
 		z-index: 2;
 		transform: translateY(-50%) translateZ(0);
 	}
@@ -234,6 +235,7 @@
 	.tui-step-column_item_main {
 		margin-top: 0;
 		padding-left: 20rpx;
+		max-width: 80%;
 	}
 
 	.tui-step-column_line {
@@ -243,7 +245,7 @@
 		left: 18rpx;
 		margin: 0;
 		width: 0rpx;
-		border-right-width: 1rpx;
+		border-right-width: 1px;
 		transform: none !important;
 	}
 

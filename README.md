@@ -37,6 +37,75 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
+### V1.7.2 (2022-02-25)
+
+1.tui-time-axis（时间轴）组件优化，新增属性来设置节点层级。
+
+2.tui-steps（步骤条）组件优化，字体图标支持设置字体大小。
+
+3.tui-datetime（日期时间选择器）组件优化，新增属性 maskClosable 来设置是否可点击遮罩关闭选择器。
+
+4.tui-datetime（日期时间选择器）组件优化，优化微信小程序端快速滚动点击确定按钮时数据未更新的问题。
+
+5.tui-datetime （日期时间选择器）组件优化，可设置标题。
+
+6.优化tui-numberbox组件，修复数据类型问题。
+
+7.优化tui-tabs（标签页）组件，可控制底部滑块是否显示。
+
+8.微信小程序tui-tabbar（标签栏）组件优化，修复页面路径传值错误的问题。
+
+9.tui-calendar（日历）组件优化，选择日期时显示标题内容可配置。
+
+10.tui-cascade-selection（级联选择器） 默认选中优化，当一次性传入所有数据时默认选项传值可为字符串数组，如：['安徽省','阜阳市','颍上县']。
+
+11.tui-skeleton（骨架屏）组件优化，加入背景动画效果。
+
+12.tui-upload（上传组件优化），新增属性控制删除图片时是否弹框确认。
+
+13.已知问题优化。
+
+<font color="#5677fc">`扫码体验[ThorUI组件库]小程序`</font>
+
+![ThorUI组件库](https://thorui.cn/img/applets_sm.jpg) 
+
+========================
+
+【ThorUI示例V1.2.2】更新：
+
+1.tui-index-list（索引列表）组件优化，修复App端右侧索引随页面滚动的bug。
+
+2.tui-textarea (多行输入框) 组件优化，修复初始化赋值时计数错误问题。
+
+3.tui-picker（选择器）组件优化，优化微信小程序端快速滚动点击确定按钮时数据未更新的问题。
+
+4.tui-utils.js（工具库）优化，优化日期格式化方法，新增isMs（时间戳精度是否为毫秒）参数。（当 type=2 精度为秒时，参数isMs需要传入false）
+
+5.tui-picker（选择器）组件优化，新增属性 maskClosable 来设置是否可点击遮罩关闭选择器。
+
+6.新增 tui-week-date（周日期选择）组件。
+
+7.新增 tui-vcode（验证码）组件。
+
+8.新增 tui-divide-list（分隔列表组件）。
+
+9.新增 tui-select（选择框）组件。
+
+10.新增 tui-amount-inwords（数字金额转大写）组件。
+
+11.已知问题优化。
+
+=====================
+
+<font color="#5677fc">`扫码体验[ThorUI示例]小程序`</font>
+
+![ThorUI示例](https://thorui.cn/img/thorui-extend__sm.jpg) 
+
+=====================
+
+其中【ThorUI示例】项目只对会员开放。点此 [开通会员](https://thorui.cn/doc/docs/member.html)。
+ 
+
 ### V1.7.1 (2021-10-01)
 
 1.微信小程序版wx:key赋值优化，去除警告。
@@ -692,7 +761,7 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 7.日历组件单个日期选择和区间选择支持设置默认选中。
 
-8.新增多语言模板。
+8.新增多语言模板。源码地址 ：[ThorUI-utag](https://github.com/dingyong0214/ThorUI-utag) 
 
 9.新增拖拽排序组件，wxs实现，详细查看多语言模板示例。
 
@@ -711,8 +780,12 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 ### 部分功能截图 
 |  ![](https://thorui.cn/img/V152/1.png)	|![](https://thorui.cn/img/V152/2.png)	|![](https://thorui.cn/img/V152/3.png)	|
 | ------------								| ------------							| ------------							|
-|  ![](https://thorui.cn/img/V152/4.png)	|![](https://thorui.cn/img/V152/5.png)	|	|
+|  ![](https://thorui.cn/img/V152/4.png)	|![](https://thorui.cn/img/V152/5.png)	|![](https://thorui.cn/img/V152/6.png)	|
+|  ![](https://thorui.cn/img/V152/7.png)	|![](https://thorui.cn/img/V152/8.png)	|![](https://thorui.cn/img/V152/9.png)	|
+|  ![](https://thorui.cn/img/V152/10.png)	|![](https://thorui.cn/img/V152/11.png)	|![](https://thorui.cn/img/V152/12.png)	|
+|  ![](https://thorui.cn/img/V152/13.png)	|![](https://thorui.cn/img/V152/14.png)	|![](https://thorui.cn/img/V152/17.png)	|
 
+[![Watch the video](https://thorui.cn/img/V152/6.png)](https://thorui.cn/img/V152/0720.MP4)
 
 ### V1.5.1（2020-06-06）
 

@@ -8,8 +8,8 @@
 			top: isFixed ? top + 'px' : 'auto',
 			zIndex: isFixed ? zIndex : 'auto'
 		}" v-if="tabsWidth>0">
-		<view v-for="(item, index) in tabs" :key="index" class="tui-tabs-item" :style="{ width: itemWidth }"
-			@tap.stop="swichTabs(index)">
+		<view v-for="(item, index) in tabs" :key="index" class="tui-tabs-item"
+			:style="{ width: itemWidth,height: height + 'rpx' }" @tap.stop="swichTabs(index)">
 			<view class="tui-tabs-title"
 				:class="{ 'tui-tabs-active': currentTab == index, 'tui-tabs-disabled': item.disabled }" :style="{
 					color: currentTab == index ? selectedColor : color,
@@ -23,7 +23,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="tui-tabs-slider" :style="{
+		<view v-if="isSlider" class="tui-tabs-slider" :style="{
 				transform: 'translateX(' + scrollLeft + 'px)',
 				width: sliderWidth + 'rpx',
 				height: sliderHeight + 'rpx',
@@ -91,6 +91,10 @@
 			currentTab: {
 				type: Number,
 				default: 0
+			},
+			isSlider: {
+				type: Boolean,
+				default: true
 			},
 			//滑块宽度
 			sliderWidth: {
@@ -255,6 +259,9 @@
 		align-items: center;
 		justify-content: center;
 		overflow: visible;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
 	}
 
 	.tui-tabs-disabled {
@@ -297,7 +304,7 @@
 		justify-content: center;
 		flex-shrink: 0;
 		z-index: 4;
-		font-weight: normal !important; 
+		font-weight: normal !important;
 	}
 
 	.tui-badge__dot {

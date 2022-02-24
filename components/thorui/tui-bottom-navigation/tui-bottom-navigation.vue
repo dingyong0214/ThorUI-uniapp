@@ -10,7 +10,7 @@
 			>
 				<view class="tui-item-inner" @tap="menuClick(index, item.parameter, item.type)">
 					<image
-						:src="current | getIcon(index, item)"
+						:src="getIcon(current,index, item)"
 						class="tui-navigation-img"
 						v-if="item.iconPath || (current == index && item.selectedIconPath && item.type == 1)"
 					></image>
@@ -161,21 +161,19 @@ export default {
 			default: false
 		}
 	},
-	filters: {
-		getIcon: function(current, index, item) {
-			let url = item.iconPath;
-			if (item.type == 1) {
-				url = current == index ? item.selectedIconPath || item.iconPath : item.iconPath;
-			}
-			return url;
-		}
-	},
 	data() {
 		return {
 			showMenuIndex: -1 //显示的菜单index
 		};
 	},
 	methods: {
+		getIcon: function(current, index, item) {
+			let url = item.iconPath;
+			if (item.type == 1) {
+				url = current == index ? item.selectedIconPath || item.iconPath : item.iconPath;
+			}
+			return url;
+		},
 		stop() {
 			return false;
 		},
@@ -231,7 +229,7 @@ export default {
 .tui-bottom-navigation::after {
 	content: '';
 	width: 100%;
-	border-top: 1rpx solid #bfbfbf;
+	border-top: 1px solid #bfbfbf;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -263,7 +261,7 @@ export default {
 	height: 100%;
 	content: '';
 	position: absolute;
-	border-right: 1rpx solid #bfbfbf;
+	border-right: 1px solid #bfbfbf;
 	transform: scaleX(0.5) translateZ(0);
 	right: 0;
 	top: 0;

@@ -2,7 +2,7 @@
 	<view @touchmove.stop.prevent="stop" v-if="isFixed">
 		<view class="tui-bottom-popup" :class="{'tui-popup-show': isShow}">
 			<view class="tui-calendar-header" :class="{ 'tui-calendar-radius': radius }">
-				<view>日期选择</view>
+				<view>{{title}}</view>
 				<view class="tui-iconfont tui-font-close" hover-class="tui-opacity" :hover-stay-time="150" @tap="hide">
 				</view>
 			</view>
@@ -141,7 +141,7 @@
 				type: [Number, String],
 				default: 1
 			},
-			//1-单个日期选择 2-开始日期+结束日期选择
+			//1-单个日期选择 2-开始日期+结束日期选择 3-多个日期
 			type: {
 				type: Number,
 				default: 1
@@ -169,6 +169,10 @@
 			maxDate: {
 				type: String,
 				default: ''
+			},
+			title:{
+				type:String,
+				default:'日期选择'
 			},
 			//显示圆角
 			radius: {
@@ -270,7 +274,7 @@
 			},
 			//初始化起始选中日期 格式： 2020-06-06 或 2020/06/06 【type=1 or 2】
 			initStartDate: {
-				type: String,
+				type: [String,Array],
 				default: ''
 			},
 			//初始化结束日期 格式： 2020-06-06 或 2020/06/06【type=2】

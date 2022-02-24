@@ -1,12 +1,14 @@
 <template>
 	<view class="tui-datetime-picker">
 		<view class="tui-mask" :class="{ 'tui-mask-show': isShow }" @touchmove.stop.prevent="stop" catchtouchmove="stop"
-			@tap="hide"></view>
+			@tap="maskClick"></view>
 		<view class="tui-header" :class="{ 'tui-show': isShow }">
 			<view class="tui-picker-header" :class="{ 'tui-date-radius': radius }"
 				:style="{ backgroundColor: headerBackground }" @touchmove.stop.prevent="stop" catchtouchmove="stop">
 				<view class="tui-btn-picker" :style="{ color: cancelColor }" hover-class="tui-opacity"
 					:hover-stay-time="150" @tap="hide">取消</view>
+				<view class="tui-pickerdate__title" :style="{fontSize:titleSize+'rpx',color:titleColor}">{{title}}
+				</view>
 				<view class="tui-btn-picker" :style="{ color: color }" hover-class="tui-opacity" :hover-stay-time="150"
 					@tap="btnFix">确定</view>
 			</view>
@@ -18,7 +20,8 @@
 				<view class="tui-date-unit" v-if="(type == 1 || type > 3) && type!=8">分</view>
 				<view class="tui-date-unit" v-if="type > 4 && type !=8">秒</view>
 			</view>
-			<view class="tui-date__picker-body" :style="{ backgroundColor: bodyBackground,height:height+'rpx' }">
+			<view @touchstart.stop="pickerstart" class="tui-date__picker-body"
+				:style="{ backgroundColor: bodyBackground,height:height+'rpx' }">
 				<picker-view :value="value" @change="change" class="tui-picker-view">
 					<picker-view-column v-if="!reset && (type < 4 || type == 7 || type==8)">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
@@ -88,6 +91,21 @@
 				type: Number,
 				default: 2050
 			},
+			//显示标题
+			title: {
+				type: String,
+				default: ''
+			},
+			//标题字体大小
+			titleSize: {
+				type: [Number, String],
+				default: 34
+			},
+			//标题字体颜色
+			titleColor: {
+				type: String,
+				default: '#333'
+			},
 			//"取消"字体颜色
 			cancelColor: {
 				type: String,
@@ -128,11 +146,16 @@
 				type: String,
 				default: '#fff'
 			},
-			height:{
-				type:[Number,String],
-				default:520
+			height: {
+				type: [Number, String],
+				default: 520
+			},
+			//点击遮罩 是否可关闭
+			maskClosable: {
+				type: Boolean,
+				default: true
 			}
-			
+
 		},
 		data() {
 			return {
@@ -152,7 +175,8 @@
 				startDate: '',
 				endDate: '',
 				value: [0, 0, 0, 0, 0, 0],
-				reset: false
+				reset: false,
+				isEnd: true
 			};
 		},
 		mounted() {
@@ -191,9 +215,17 @@
 				let index = arr.indexOf(val);
 				return ~index ? index : 0;
 			},
+			getCharCount(str) {
+				let regex = new RegExp('/', 'g');
+				let result = str.match(regex);
+				return !result ? 0 : result.length;
+			},
 			//日期时间处理
 			initSelectValue() {
 				let fdate = this.setDateTime.replace(/\-/g, '/');
+				if (this.type == 3 && this.getCharCount(fdate) === 1) {
+					fdate += '/01'
+				}
 				fdate = fdate && fdate.indexOf('/') == -1 ? `2020/01/01 ${fdate}` : fdate;
 				let time = null;
 				if (fdate) time = new Date(fdate);
@@ -279,6 +311,7 @@
 			setDays() {
 				if (this.type == 3 || this.type == 4) return;
 				let totalDays = new Date(this.year, this.month, 0).getDate();
+				totalDays = !totalDays || totalDays < 1 ? 1 : totalDays
 				this.days = this.generateArray(1, totalDays);
 				setTimeout(() => {
 					this.$set(this.value, 2, this.getIndex(this.days, this.day));
@@ -287,7 +320,12 @@
 			setHours() {
 				this.hours = this.generateArray(0, 23);
 				setTimeout(() => {
-					let index = this.type == 5 || this.type == 7 ? this.value.length - 3 : this.value.length - 2;
+					let index = 0
+					if (this.type == 8) {
+						index = this.value.length - 1
+					} else {
+						index = this.type == 5 || this.type == 7 ? this.value.length - 3 : this.value.length - 2;
+					}
 					this.$set(this.value, index, this.getIndex(this.hours, this.hour));
 				}, 8);
 			},
@@ -312,6 +350,10 @@
 			hide() {
 				this.isShow = false;
 				this.$emit('cancel', {});
+			},
+			maskClick() {
+				if (!this.maskClosable) return;
+				this.hide()
 			},
 			change(e) {
 				this.value = e.detail.value;
@@ -362,90 +404,106 @@
 					default:
 						break;
 				}
+				this.isEnd = true
+			},
+			selectResult() {
+				let result = {};
+				let year = this.year;
+				let month = this.formatNum(this.month || 0);
+				let day = this.formatNum(this.day || 0);
+				let hour = this.formatNum(this.hour || 0);
+				let minute = this.formatNum(this.minute || 0);
+				let second = this.formatNum(this.second || 0);
+				switch (this.type) {
+					case 1:
+						result = {
+							year: year,
+							month: month,
+							day: day,
+							hour: hour,
+							minute: minute,
+							result: `${year}-${month}-${day} ${hour}:${minute}`
+						};
+						break;
+					case 2:
+						result = {
+							year: year,
+							month: month,
+							day: day,
+							result: `${year}-${month}-${day}`
+						};
+						break;
+					case 3:
+						result = {
+							year: year,
+							month: month,
+							result: `${year}-${month}`
+						};
+						break;
+					case 4:
+						result = {
+							hour: hour,
+							minute: minute,
+							result: `${hour}:${minute}`
+						};
+						break;
+					case 5:
+						result = {
+							hour: hour,
+							minute: minute,
+							second: second,
+							result: `${hour}:${minute}:${second}`
+						};
+						break;
+					case 6:
+						result = {
+							minute: minute,
+							second: second,
+							result: `${minute}:${second}`
+						};
+						break;
+					case 7:
+						result = {
+							year: year,
+							month: month,
+							day: day,
+							hour: hour,
+							minute: minute,
+							second: second,
+							result: `${year}-${month}-${day} ${hour}:${minute}:${second}`
+						};
+						break;
+					case 8:
+						result = {
+							year: year,
+							month: month,
+							day: day,
+							hour: hour,
+							result: `${year}-${month}-${day} ${hour}:00`
+						};
+						break;
+					default:
+						break;
+				}
+				this.$emit('confirm', result);
+			},
+			waitFix() {
+				if (this.isEnd) {
+					this.selectResult()
+				} else {
+					setTimeout(() => {
+						this.waitFix()
+					}, 50)
+				}
 			},
 			btnFix() {
 				setTimeout(() => {
-					let result = {};
-					let year = this.year;
-					let month = this.formatNum(this.month || 0);
-					let day = this.formatNum(this.day || 0);
-					let hour = this.formatNum(this.hour || 0);
-					let minute = this.formatNum(this.minute || 0);
-					let second = this.formatNum(this.second || 0);
-					switch (this.type) {
-						case 1:
-							result = {
-								year: year,
-								month: month,
-								day: day,
-								hour: hour,
-								minute: minute,
-								result: `${year}-${month}-${day} ${hour}:${minute}`
-							};
-							break;
-						case 2:
-							result = {
-								year: year,
-								month: month,
-								day: day,
-								result: `${year}-${month}-${day}`
-							};
-							break;
-						case 3:
-							result = {
-								year: year,
-								month: month,
-								result: `${year}-${month}`
-							};
-							break;
-						case 4:
-							result = {
-								hour: hour,
-								minute: minute,
-								result: `${hour}:${minute}`
-							};
-							break;
-						case 5:
-							result = {
-								hour: hour,
-								minute: minute,
-								second: second,
-								result: `${hour}:${minute}:${second}`
-							};
-							break;
-						case 6:
-							result = {
-								minute: minute,
-								second: second,
-								result: `${minute}:${second}`
-							};
-							break;
-						case 7:
-							result = {
-								year: year,
-								month: month,
-								day: day,
-								hour: hour,
-								minute: minute,
-								second: second,
-								result: `${year}-${month}-${day} ${hour}:${minute}:${second}`
-							};
-							break;
-						case 8:
-							result = {
-								year: year,
-								month: month,
-								day: day,
-								hour: hour,
-								result: `${year}-${month}-${day} ${hour}:00`
-							};
-							break;
-						default:
-							break;
-					}
-					this.$emit('confirm', result);
+					this.waitFix()
 					this.hide();
 				}, 80);
+			},
+			pickerstart() {
+				this.isEnd = false
 			}
 		}
 	};
@@ -574,9 +632,23 @@
 		box-sizing: border-box;
 		text-align: center;
 		text-decoration: none;
+		flex-shrink: 0;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
 	}
 
 	.tui-opacity {
 		opacity: 0.5;
+	}
+
+	.tui-pickerdate__title {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		flex: 1;
+		padding: 0 30rpx;
+		box-sizing: border-box;
+		text-align: center;
 	}
 </style>

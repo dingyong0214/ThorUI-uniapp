@@ -5,7 +5,7 @@
 			<view class="sub-title">级联选择：可设置内容区域的高度，以及相关主题色等基本样式修改</view>
 		</view>
 		<view class="tui-title">传入所有数据</view>
-		<tui-cascade-selection height="200px" :itemList="itemList" @complete="complete"></tui-cascade-selection>
+		<tui-cascade-selection height="200px" :itemList="itemList" :defaultItemList="defaultItemList1" @complete="complete"></tui-cascade-selection>
 
 		<view class="tui-title">设置默认数据</view>
 		<tui-cascade-selection height="200px" :itemList="itemList" :defaultItemList="defaultItemList" @complete="complete"></tui-cascade-selection>
@@ -44,6 +44,7 @@ export default {
 			receiveData: [],
 			reset: 0,
 			show: false,
+			defaultItemList1:['安徽省','阜阳市','颍上县'],
 			defaultItemList: [
 				{
 					text: '安徽省',

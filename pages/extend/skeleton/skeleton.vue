@@ -45,7 +45,7 @@
 		onLoad() {
 			setTimeout(() => {
 				this.skeletonShow = false
-			}, 1800);
+			}, 2200);
 		},
 		methods: {
 			getLink(e) {
