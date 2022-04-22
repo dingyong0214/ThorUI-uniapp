@@ -37,7 +37,7 @@
 		</view>
 
 	</view>
-</template> 
+</template>
 
 <script>
 	import thorui from '@/components/common/tui-clipboard/tui-clipboard.js'

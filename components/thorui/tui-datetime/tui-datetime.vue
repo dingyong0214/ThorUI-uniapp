@@ -297,7 +297,7 @@
 				}
 			},
 			setYears() {
-				this.years = this.generateArray(this.startYear, this.endYear);
+				this.years = this.generateArray(Number(this.startYear), Number(this.endYear));
 				setTimeout(() => {
 					this.$set(this.value, 0, this.getIndex(this.years, this.year));
 				}, 8);

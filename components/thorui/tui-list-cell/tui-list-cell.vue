@@ -112,6 +112,11 @@ export default {
 .tui-cell-hover {
 	background-color: #f1f1f1 !important;
 }
+/* #ifdef MP-BAIDU */
+.tui-list-cell:active {
+	background-color: #f1f1f1 !important;
+}
+/* #endif */
 
 .tui-list-cell::after {
 	content: '';

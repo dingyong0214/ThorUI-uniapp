@@ -37,6 +37,99 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
+### V1.8.0 (2022-04-19)
+
+1.tui-countdown（倒计时）组件优化，修复已知问题。
+
+2.tui-button（按钮）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+3.tui-tag（标签）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+4.tui-badge（徽章）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+5.tui-list-view（列表）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+6.tui-list-cell（列表Item）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+7.tui-card（卡片）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+8.tui-grid（宫格）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+9.tui-grid-item（宫格Item）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+10.tui-loading（加载中）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+11.tui-loadmore（加载更多）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+12.tui-nomore（没有更多了）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+13.tui-footer（页脚）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+14.tui-tips（消息提示）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+15.tui-sticky（吸顶容器）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+16.tui-keyboard（数字键盘）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+17.tui-keyboard-input（数字键盘输入框）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+18.tui-time-axis（时间轴）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+19.tui-timeaxis-item（时间轴Item）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+20.tui-top-dropdown（顶部弹出层）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+21.tui-bottom-popup（底部弹出层）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+22.tui-dropdown-list（下拉列表）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+23.tui-actionsheet（操作菜单）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+24.tui-numberbox（数字框）组件优化，支持支付宝、百度、QQ、字节小程序。
+
+25.tui-rate（评分）组件优化，支持支付宝、百度、QQ、字节小程序。 
+
+26.tui-modal（弹框）组件优化，支持支付宝、百度、QQ、字节小程序。 
+
+<font color="#5677fc">`扫码体验[ThorUI组件库]小程序`</font>
+
+![ThorUI组件库](https://thorui.cn/img/applets_sm.jpg) 
+
+========================
+
+【ThorUI示例V1.3.0】更新：
+
+1.新增 tui-banner-arc（banner底部圆弧效果）组件。
+
+2.新增 tui-data-checkbox（数据选择器）组件。
+
+3.新增 tui-charts-area（面积图表-css版）组件。
+
+4.新增 tui-charts-funnel（漏斗图表-css版）组件。
+
+5.新增 tui-charts-scatter（散点图表-css版）组件。
+
+6.新增 tui-charts-radar（雷达图表-css版）组件。
+
+7.新增 tui-poster（绘制海报）组件，配置数据绘制海报。
+
+8.小程序端 tui-input（输入框） 组件优化，修复已知问题。
+
+9.tui-tab（标签页）组件优化，修复已知问题。
+
+10.其他已知问题优化。
+
+=====================
+
+<font color="#5677fc">`扫码体验[ThorUI示例]小程序`</font>
+
+![ThorUI示例](https://thorui.cn/img/thorui-extend__sm.jpg) 
+
+=====================
+
+其中【ThorUI示例】项目只对会员开放。点此 [开通会员](https://thorui.cn/doc/docs/member.html)。
+ 
+
 ### V1.7.2 (2022-02-25)
 
 1.tui-time-axis（时间轴）组件优化，新增属性来设置节点层级。
@@ -566,10 +659,10 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 <font color="#5677fc">`【ThorUI示例】项目只对会员开放。`</font>
 
-注：会员专用内容加入会员才可使用（￥150/永久)，付费模板会员可享受折扣。 
+注：会员专用内容加入会员才可使用（￥150/永久)，付费模板会员可享受折扣。
 如若需要，请联系QQ：3168647172 或 3039218619。
 
- ### 部分功能截图 
+ ### 部分功能截图
 
 |  ![](https://thorui.cn/img/V160/1.png)	|![](https://thorui.cn/img/V160/2.png)	|![](https://thorui.cn/img/V160/3.png)	|
 | ------------								| ------------							| ------------							|

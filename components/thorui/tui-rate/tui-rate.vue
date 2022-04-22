@@ -1,11 +1,11 @@
 <template>
-	<view class="tui-rate-class tui-rate-box" @touchmove="touchMove">
-		<block v-for="(item, index) in quantity" :key="index">
-			<view class="tui-icon tui-relative"
-				:class="['tui-icon-collection' + (hollow && (current <= index || (disabled && current <= index + 1)) ? '' : '-fill')]"
+	<view class="tui-rate-box" @touchmove="touchMove">
+		<block v-for="(item, index) in numbers" :key="index">
+			<view class="tui-icon"
+				:class="['tui-relative','tui-icon-collection' + (hollow && (current <= index || (disabled && current <= index + 1)) ? '' : '-fill')]"
 				:data-index="index" @tap="handleTap"
 				:style="{ fontSize: size + 'px', color: current > index + 1 || (!disabled && current > index) ? active : normal }">
-				<view class="tui-icon tui-icon-main tui-icon-collection-fill" v-if="disabled && current == index + 1"
+				<view class="tui-icon" :class="['tui-icon-main','tui-icon-collection-fill']" v-if="disabled && current == index + 1"
 					:style="{ fontSize: size + 'px', color: active, width: percent + '%' }"></view>
 			</view>
 		</block>
@@ -19,7 +19,7 @@
 		props: {
 			//数量
 			quantity: {
-				type: Number,
+				type: [Number,String],
 				default: 5
 			},
 			//当前选中
@@ -66,15 +66,20 @@
 		data() {
 			return {
 				pageX: 0,
-				percent: 0
+				percent: 0,
+				numbers:[]
 			};
 		},
 		created() {
+			this.handleQuantity(this.quantity)
 			this.percent = Number(this.score || 0) * 100;
 		},
 		watch: {
 			score(newVal, oldVal) {
 				this.percent = Number(newVal || 0) * 100;
+			},
+			quantity(val){
+				this.handleQuantity(val)
 			}
 		},
 		methods: {
@@ -107,17 +112,24 @@
 					index: index,
 					params: this.params
 				});
+			},
+			handleQuantity(quantity){
+				quantity = Number(quantity) || 5
+				quantity = Math.ceil(quantity)
+				this.numbers = Array.from(new Array(quantity + 1).keys()).slice(1)
 			}
 		},
 		mounted() {
-			const className = '.tui-rate-box';
-			let query = uni.createSelectorQuery().in(this);
-			query
-				.select(className)
-				.boundingClientRect(res => {
-					this.pageX = res.left || 0;
-				})
-				.exec();
+			setTimeout(()=>{
+				const className = '.tui-rate-box';
+				let query = uni.createSelectorQuery().in(this);
+				query
+					.select(className)
+					.boundingClientRect(res => {
+						this.pageX = res.left || 0;
+					})
+					.exec();
+			},80)
 		}
 	};
 </script>
@@ -159,7 +171,6 @@
 	}
 
 	.tui-rate-box {
-		display: -webkit-inline-flex;
 		display: inline-flex;
 		align-items: center;
 		margin: 0;

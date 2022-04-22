@@ -78,5 +78,5 @@ export default {
 @import './common/app.css';
 /* #ifndef APP-NVUE */
 @import './components/uni/uParse/src/wxParse.css';
-/* #endif */
+/* #endif */ 
 </style>

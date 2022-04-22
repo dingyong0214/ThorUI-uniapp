@@ -1,7 +1,7 @@
 /**
  * 常用方法封装 请求，文件上传等
  * @author echo. 
- **/ 
+ **/
 
 const tui = {
 	//接口地址
@@ -57,6 +57,7 @@ const tui = {
 		return time
 	},
 	delayed: null,
+	loadding: false,
 	showLoading: function(title, mask = true) {
 		uni.showLoading({
 			mask: mask,
@@ -79,18 +80,16 @@ const tui = {
 	 */
 	request: async function(url, method, postData, isDelay, isForm, hideLoading) {
 		//接口请求
-		let loadding = false;
-		tui.delayed && uni.hideLoading();
-		clearTimeout(tui.delayed);
-		tui.delayed = null;
+		tui.loadding && uni.hideLoading();
+		tui.loadding = false;
 		if (!hideLoading) {
 			if (isDelay) {
 				tui.delayed = setTimeout(() => {
-					loadding = true
+					tui.loadding = true
 					tui.showLoading()
 				}, 1000)
 			} else {
-				loadding = true
+				tui.loadding = true
 				tui.showLoading()
 			}
 		}
@@ -108,7 +107,7 @@ const tui = {
 				success: (res) => {
 					clearTimeout(tui.delayed)
 					tui.delayed = null;
-					if (loadding && !hideLoading) {
+					if (tui.loadding && !hideLoading) {
 						uni.hideLoading()
 					}
 					resolve(res.data)

@@ -251,6 +251,9 @@
 	.tui-btn-gray-primary {
 		background: #f2f2f2 !important;
 		color: #5677fc !important;
+		/* #ifdef MP-QQ */
+		border: 0 !important;
+		/* #endif */
 	}
 
 	.tui-gray-primary-hover {
@@ -260,6 +263,9 @@
 	.tui-btn-gray-green {
 		background: #f2f2f2 !important;
 		color: #07c160 !important;
+		/* #ifdef MP-QQ */
+		border: 0 !important;
+		/* #endif */
 	}
 
 	.tui-gray-green-hover {
@@ -269,6 +275,9 @@
 	.tui-btn-gray-danger {
 		background: #f2f2f2 !important;
 		color: #eb0909 !important;
+		/* #ifdef MP-QQ */
+		border: 0 !important;
+		/* #endif */
 	}
 
 	.tui-gray-danger-hover {
@@ -278,6 +287,9 @@
 	.tui-btn-gray-warning {
 		background: #f2f2f2 !important;
 		color: #fc872d !important;
+		/* #ifdef MP-QQ */
+		border: 0 !important;
+		/* #endif */
 	}
 
 	.tui-gray-warning-hover {
@@ -307,7 +319,13 @@
 	.tui-btn {
 		width: 100%;
 		position: relative;
+		/* #ifndef MP-QQ */
 		border: 0 !important;
+		/* #endif */
+		/* #ifdef MP-QQ */
+		border: 1rpx solid;
+		box-sizing: border-box;
+		/* #endif */
 		border-radius: 6rpx;
 		padding-left: 0;
 		padding-right: 0;
@@ -315,8 +333,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
 	}
 
+	/* #ifndef MP-QQ */
 	.tui-btn::after {
 		content: '';
 		position: absolute;
@@ -331,13 +351,33 @@
 		border: 0;
 	}
 
+	/* #endif */
+
+
+	/* #ifdef MP-BAIDU */
+	/* .tui-btn:active::after {
+		background-color: rgba(0, 0, 0, 0.2) !important;
+	} */
+	/* #endif */
+
 	.tui-text-bold {
 		font-weight: bold;
 	}
 
+	/* #ifdef MP-QQ */
+	.tui-btn-white {
+		border: 1rpx solid #bfbfbf;
+	}
+
+	/* #endif */
+
+	/* #ifndef MP-QQ */
 	.tui-btn-white::after {
 		border: 1px solid #bfbfbf;
 	}
+
+	/* #endif */
+
 
 	.tui-white-hover {
 		background: #e5e5e5 !important;
@@ -350,6 +390,9 @@
 	}
 
 	.tui-dark-disabled-outline {
+		/* #ifdef MP-QQ */
+		border: 0 !important;
+		/* #endif */
 		opacity: 0.5 !important;
 	}
 
@@ -360,7 +403,7 @@
 	}
 
 	.tui-outline-hover {
-		opacity: 0.5;
+		opacity: 0.5 !important;
 	}
 
 	.tui-primary-hover {
@@ -368,13 +411,19 @@
 		color: #e5e5e5 !important;
 	}
 
+	/* #ifndef MP-QQ */
 	.tui-primary-outline::after {
 		border: 1px solid #5677fc !important;
 	}
 
+	/* #endif */
+
 	.tui-primary-outline {
 		color: #5677fc !important;
 		background: transparent;
+		/* #ifdef MP-QQ */
+		border: 1rpx solid #5677fc !important;
+		/* #endif */
 	}
 
 	.tui-danger-hover {
@@ -385,11 +434,17 @@
 	.tui-danger-outline {
 		color: #eb0909 !important;
 		background: transparent;
+		/* #ifdef MP-QQ */
+		border: 1rpx solid #eb0909 !important;
+		/* #endif */
 	}
 
+	/* #ifndef MP-QQ */
 	.tui-danger-outline::after {
 		border: 1px solid #eb0909 !important;
 	}
+
+	/* #endif */
 
 	.tui-warning-hover {
 		background: #d67326 !important;
@@ -399,11 +454,17 @@
 	.tui-warning-outline {
 		color: #fc872d !important;
 		background: transparent;
+		/* #ifdef MP-QQ */
+		border: 1rpx solid #fc872d !important;
+		/* #endif */
 	}
 
+	/* #ifndef MP-QQ */
 	.tui-warning-outline::after {
 		border: 1px solid #fc872d !important;
 	}
+
+	/* #endif */
 
 	.tui-green-hover {
 		background: #06ad56 !important;
@@ -413,11 +474,17 @@
 	.tui-green-outline {
 		color: #07c160 !important;
 		background: transparent;
+		/* #ifdef MP-QQ */
+		border: 1rpx solid #07c160 !important;
+		/* #endif */
 	}
 
+	/* #ifndef MP-QQ */
 	.tui-green-outline::after {
 		border: 1px solid #07c160 !important;
 	}
+
+	/* #endif */
 
 	.tui-blue-hover {
 		background: #0062cc !important;
@@ -427,11 +494,17 @@
 	.tui-blue-outline {
 		color: #007aff !important;
 		background: transparent;
+		/* #ifdef APP-PLUS */
+		border: 1rpx solid #007aff !important;
+		/* #endif */
 	}
 
+	/* #ifndef MP-QQ */
 	.tui-blue-outline::after {
 		border: 1px solid #007aff !important;
 	}
+
+	/* #endif */
 
 	/* #ifndef APP-NVUE */
 	.tui-btn-gradual {
@@ -466,17 +539,27 @@
 	.tui-white-outline {
 		color: #fff !important;
 		background: transparent !important;
+		/* #ifdef MP-QQ */
+		border: 1rpx solid #fff !important;
+		/* #endif */
 	}
 
 	.tui-black-outline {
 		background: transparent !important;
 		color: #333 !important;
+		/* #ifdef MP-QQ */
+		border: 1rpx solid #ccc !important;
+		/* #endif */
 	}
 
+	/* #ifndef MP-QQ */
 	.tui-gray-outline::after {
 		border: 1px solid #ccc !important;
 	}
 
+	/* #endif */
+
+	/* #ifndef MP-QQ */
 	.tui-white-outline::after {
 		border: 1px solid #fff !important;
 	}
@@ -485,13 +568,18 @@
 		border: 1px solid #333 !important;
 	}
 
+	.tui-brown-outline::after {
+		border: 1px solid #ac9157 !important;
+	}
+
+	/* #endif */
+
 	.tui-brown-outline {
 		color: #ac9157 !important;
 		background: transparent;
-	}
-
-	.tui-brown-outline::after {
-		border: 1px solid #ac9157 !important;
+		/* #ifdef MP-QQ */
+		border: 1rpx solid #ac9157 !important;
+		/* #endif */
 	}
 
 	/*圆角 */
@@ -520,6 +608,12 @@
 	.tui-outline-rightAngle::after {
 		border-radius: 0;
 	}
+
+	/* #ifdef MP-QQ */
+	.tui-btn__link {
+		border: 0 !important;
+	}
+	/* #endif */
 
 	.tui-btn__link::after {
 		border: 0 !important;

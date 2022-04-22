@@ -1,6 +1,6 @@
 <template>
 	<view @touchmove.stop.prevent>
-		<view class="tui-popup-class tui-bottom-popup" :class="{ 'tui-popup-show': show, 'tui-popup-radius': radius }" :style="{ backgroundColor: backgroundColor, height: height ? height + 'rpx' : 'auto', zIndex: zIndex,transform:`translate3d(0, ${show?translateY:'100%'}, 0)`}">
+		<view class="tui-popup-class tui-bottom-popup" :class="{ 'tui-popup-show': show, 'tui-popup-radius': radius }" :style="{ background: backgroundColor, height: height ? height + 'rpx' : 'auto', zIndex: zIndex,transform:`translate3d(0, ${show?translateY:'100%'}, 0)`}">
 			<slot></slot>
 		</view>
 		<view class="tui-popup-mask" :class="[show ? 'tui-mask-show' : '']" :style="{ zIndex: maskZIndex }" v-if="mask" @tap="handleClose"></view>
@@ -74,14 +74,15 @@
 		transform-origin: center;
 		transition: all 0.3s ease-in-out;
 		min-height: 20rpx;
+		padding-bottom: env(safe-area-inset-bottom);
 	}
 
 	.tui-popup-radius {
 		border-top-left-radius: 24rpx;
 		border-top-right-radius: 24rpx;
-		padding-bottom: env(safe-area-inset-bottom);
 		overflow: hidden;
 	}
+	
 
 	.tui-popup-show {
 		opacity: 1;

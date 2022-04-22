@@ -3,7 +3,7 @@
 		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min >= inputValue ? 'tui-disabled' : '']"
 			@tap="reduce" :style="{ color: iconColor, fontSize: iconSize + 'rpx' }"></view>
 		<input type="number" v-model="inputValue" :disabled="disabled" @blur="blur" class="tui-num-input"
-			:style="{ color: color, fontSize: size + 'rpx', backgroundColor: backgroundColor, height: height + 'rpx', minHeight: height + 'rpx', width: width + 'rpx' }" />
+			:style="{ color: color, fontSize: size + 'rpx', background: backgroundColor, height: height + 'rpx', minHeight: height + 'rpx', width: width + 'rpx' }" />
 		<view class="tui-numbox-icon tui-icon-plus" :class="[disabled || inputValue >= max ? 'tui-disabled' : '']"
 			@tap="plus" :style="{ color: iconColor, fontSize: iconSize + 'rpx' }"></view>
 	</view>
@@ -214,8 +214,9 @@
 	}
 
 	.tui-numberbox {
-		display: -webkit-inline-flex;
+		/* #ifndef APP-NVUE */
 		display: inline-flex;
+		/* #endif */
 		align-items: center;
 	}
 
@@ -223,6 +224,7 @@
 		text-align: center;
 		margin: 0 12rpx;
 		font-weight: 400;
+		padding: 0;
 	}
 
 	.tui-disabled {

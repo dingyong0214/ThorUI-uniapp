@@ -241,8 +241,10 @@ export default {
 	overflow: visible;
 	margin-left: 0;
 	margin-right: 0;
+	box-sizing: border-box;
 }
 
+/* #ifndef MP-QQ */
 .tui-modal-btn::after {
 	content: ' ';
 	position: absolute;
@@ -256,6 +258,7 @@ export default {
 	border-radius: 20rpx;
 	z-index: 2;
 }
+/* #endif */
 
 .tui-btn-width {
 	width: 80% !important;
@@ -274,12 +277,17 @@ export default {
 .tui-primary-outline {
 	color: #5677fc;
 	background: transparent;
+	/* #ifdef MP-QQ */
+	border: 1rpx solid #5677fc;
+	/* #endif */
 }
 
+/* #ifndef MP-QQ */
 .tui-primary-outline::after {
 	border: 1px solid #5677fc;
 }
 
+/* #endif */
 .tui-danger {
 	background: #ed3f14;
 	color: #fff;
@@ -293,11 +301,16 @@ export default {
 .tui-danger-outline {
 	color: #ed3f14;
 	background: transparent;
+	/* #ifdef MP-QQ */
+	border: 1rpx solid #ed3f14;
+	/* #endif */
 }
 
+/* #ifndef MP-QQ */
 .tui-danger-outline::after {
 	border: 1px solid #ed3f14;
 }
+/* #endif */
 
 .tui-red {
 	background: #e41f19;
@@ -312,11 +325,16 @@ export default {
 .tui-red-outline {
 	color: #e41f19;
 	background: transparent;
+	/* #ifdef MP-QQ */
+	border: 1rpx solid #e41f19;
+	/* #endif */
 }
 
+/* #ifndef MP-QQ */
 .tui-red-outline::after {
 	border: 1px solid #e41f19;
 }
+/* #endif */
 
 .tui-warning {
 	background: #ff7900;
@@ -331,12 +349,17 @@ export default {
 .tui-warning-outline {
 	color: #ff7900;
 	background: transparent;
+	/* #ifdef MP-QQ */
+	border: 1rpx solid #ff7900;
+	/* #endif */
 }
 
+/* #ifndef MP-QQ */
 .tui-warning-outline::after {
 	border: 1px solid #ff7900;
 }
 
+/* #endif */
 .tui-green {
 	background: #19be6b;
 	color: #fff;
@@ -350,11 +373,16 @@ export default {
 .tui-green-outline {
 	color: #19be6b;
 	background: transparent;
+	/* #ifdef MP-QQ */
+	border: 1rpx solid #19be6b;
+	/* #endif */
 }
 
+/* #ifndef MP-QQ */
 .tui-green-outline::after {
 	border: 1px solid #19be6b;
 }
+/* #endif */
 
 .tui-white {
 	background: #fff;
@@ -369,11 +397,16 @@ export default {
 .tui-white-outline {
 	color: #333;
 	background: transparent;
+	/* #ifdef MP-QQ */
+	border: 1rpx solid #333;
+	/* #endif */
 }
 
+/* #ifndef MP-QQ */
 .tui-white-outline::after {
 	border: 1px solid #333;
 }
+/* #endif */
 
 .tui-gray {
 	background: #ededed;
@@ -388,11 +421,16 @@ export default {
 .tui-gray-outline {
 	color: #999;
 	background: transparent;
+	/* #ifdef MP-QQ */
+	border: 1rpx solid #999;
+	/* #endif */
 }
 
+/* #ifndef MP-QQ */
 .tui-gray-outline::after {
 	border: 1px solid #999;
 }
+/* #endif */
 
 .tui-outline-hover {
 	opacity: 0.6;
