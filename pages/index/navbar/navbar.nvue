@@ -270,7 +270,8 @@
 				this.switchTab(index);
 			},
 			tabChange(e) {
-				if (e.detail.source == 'touch') {
+				console.log(e)
+				if (e.detail.source == 'touch' || e.detail.source == 'autoplay') {
 					let index = e.target.current || e.detail.current;
 					this.switchTab(index);
 				}

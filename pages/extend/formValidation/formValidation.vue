@@ -8,10 +8,10 @@
 						maxlength="50" type="text" />
 					<radio-group class="radio-group" name="sex">
 						<label class="tui-radio">
-							<radio value="1" color="#5677fc" />男
+							<radio value="1" color="#5677fc" ></radio>男
 						</label>
 						<label class="tui-radio">
-							<radio value="2" color="#5677fc" />女
+							<radio value="2" color="#5677fc" ></radio>女
 						</label>
 					</radio-group>
 				</view>
@@ -20,7 +20,7 @@
 				<view class="tui-line-cell">
 					<view class="tui-title">年龄</view>
 					<input placeholder-class="tui-phcolor" class="tui-input" name="age" placeholder="请输入年龄"
-						maxlength="50" type="number" />
+						maxlength="50" type="number"/>
 				</view>
 			</tui-list-cell>
 			<tui-list-cell :hover="false">

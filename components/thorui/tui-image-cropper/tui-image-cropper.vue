@@ -133,10 +133,18 @@
 				default: false
 			},
 			//生成的图片尺寸相对剪裁框的比例
+			// #ifndef MP-QQ
 			scaleRatio: {
-				type: Number,
+				type: [Number, String],
 				default: 2
 			},
+			// #endif
+			// #ifdef MP-QQ
+			scaleRatio: {
+				type: [Number, String],
+				default: 3
+			},
+			// #endif
 			//图片的质量，取值范围为 (0, 1]，不在范围内时当作1.0处理
 			quality: {
 				type: Number,
@@ -194,6 +202,11 @@
 			rotateImg: {
 				type: String,
 				default: '/static/components/cropper/img_rotate.png'
+			},
+			//裁剪后图片类型：jpg/png
+			fileType:{
+				type:String,
+				default:'png'
 			}
 		},
 		data() {
@@ -371,9 +384,17 @@
 						let params = {
 							width: this.canvasWidth * this.scaleRatio,
 							height: Math.round(this.canvasHeight * this.scaleRatio),
+							// #ifdef MP-QQ
+							destWidth: this.canvasWidth * this.scaleRatio * 2 ,
+							destHeight: Math.round(this.canvasHeight) * this.scaleRatio * 2,
+							// #endif
+							
+							// #ifndef MP-QQ
 							destWidth: this.canvasWidth * this.scaleRatio,
 							destHeight: Math.round(this.canvasHeight) * this.scaleRatio,
-							fileType: 'png',
+							// #endif
+						
+							fileType: this.fileType || 'png',
 							quality: this.quality
 						};
 						let data = {
@@ -388,6 +409,13 @@
 							this.ctx.toDataURL(params).then(dataURL => {
 								data.base64 = dataURL;
 								this.loadding && uni.hideLoading();
+								this.ctx.rotate(((360 - this.angle % 360) * Math
+									.PI) / 180);
+								this.ctx.translate(-xpos * this.scaleRatio, -
+									ypos * this.scaleRatio);
+								this.ctx.clearRect(0, 0, this.canvasWidth * this
+									.scaleRatio, this.canvasHeight * this.scaleRatio);
+								this.ctx.draw();
 								this.$emit('cropper', data);
 							});
 						} else {
@@ -396,6 +424,13 @@
 								success: res => {
 									data.url = res.apFilePath;
 									this.loadding && uni.hideLoading();
+									this.ctx.rotate(((360 - this.angle % 360) * Math
+										.PI) / 180);
+									this.ctx.translate(-xpos * this.scaleRatio, -
+										ypos * this.scaleRatio);
+									this.ctx.clearRect(0, 0, this.canvasWidth * this
+										.scaleRatio, this.canvasHeight * this.scaleRatio);
+									this.ctx.draw();
 									this.$emit('cropper', data);
 								}
 							});
@@ -872,8 +907,10 @@
 			},
 			showLoading() {
 				uni.showLoading({
-					title: '请稍候...',
-					mask: true
+					// #ifndef MP-ALIPAY
+					mask: true,
+					// #endif
+					title: '请稍候...'
 				});
 			},
 			stop() {},

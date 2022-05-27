@@ -14,7 +14,7 @@
 				</view>
 			</view>
 		</scroll-view>
-		<swiper class="tui-selection-list" :current="currentTab" duration="300" @change="switchTab"
+		<swiper class="tui-selection-list" :current="defTab" duration="300" @change="switchTab"
 			:style="{ height: height, backgroundColor: backgroundColor }">
 			<swiper-item v-for="(item, index) in selectedArr" :key="index">
 				<scroll-view scroll-y :scroll-into-view="item.scrollViewId" class="tui-selection-item"
@@ -22,7 +22,7 @@
 					<view class="tui-first-item" :style="{ height: firstItemTop }"></view>
 					<view class="tui-selection-cell" :style="{ padding: padding, backgroundColor: backgroundColor }"
 						:id="`id_${subIndex}`" v-for="(subItem, subIndex) in item.list" :key="subIndex"
-						@tap="change(index, subIndex, subItem)">
+						@tap.stop="change(index, subIndex, subItem)">
 						<icon type="success_no_circle" v-if="item.index === subIndex" :color="checkMarkColor"
 							:size="checkMarkSize" class="tui-icon-success"></icon>
 						<image :src="subItem.src" v-if="subItem.src" class="tui-cell-img"
@@ -82,7 +82,9 @@
 			   */
 			defaultItemList: {
 				type: Array,
-				value: []
+				default(){
+					return []
+				}
 			},
 			defaultKey: {
 				type: String,
@@ -255,6 +257,7 @@
 		data() {
 			return {
 				currentTab: 0,
+				defTab: 0,
 				//tab栏scrollview滚动的位置
 				scrollViewId: 'id__1',
 				selectedArr: []
@@ -262,7 +265,7 @@
 		},
 		methods: {
 			setDefaultData(val) {
-				let defaultItemList = val || [];
+				let defaultItemList = JSON.parse(JSON.stringify(val || []));
 				if (defaultItemList.length > 0) {
 					if ((typeof defaultItemList[0] === 'string' || typeof defaultItemList[0] === 'number') && !this
 						.request) {
@@ -275,7 +278,7 @@
 							if (j === 0) {
 								list = this.getItemList(-1)
 							} else {
-								list = this.getItemList(j - 1, subi,selectedArr)
+								list = this.getItemList(j - 1, subi, selectedArr)
 							}
 							subi = this.getDefaultIndex(list, item)
 							if (subi !== -1) {
@@ -294,18 +297,26 @@
 							if (subi === -1) break;
 						}
 						this.selectedArr = selectedArr;
-						this.currentTab = selectedArr.length - 1;
+						this.defTab = this.currentTab;
 						this.$nextTick(() => {
-							this.checkCor();
+							setTimeout(() => {
+								this.currentTab = selectedArr.length - 1;
+								this.defTab = this.currentTab;
+								this.checkCor();
+							}, 20)
 						});
 					} else {
 						defaultItemList.map(item => {
 							item.scrollViewId = `id_${item.index}`;
 						});
 						this.selectedArr = defaultItemList;
-						this.currentTab = defaultItemList.length - 1;
+						this.defTab = this.currentTab;
 						this.$nextTick(() => {
-							this.checkCor();
+							setTimeout(() => {
+								this.currentTab = defaultItemList.length - 1;
+								this.defTab = this.currentTab;
+								this.checkCor();
+							}, 20)
 						});
 					}
 
@@ -354,12 +365,14 @@
 					list = this.removeChildren(arr);
 				} else {
 					let value = selectedArr[0].index;
-					value = value == -1 ? index : value;
-					list = arr[value].children || [];
+					value = value === undefined || value == -1 ? index : value;
+					if (arr[value] && arr[value].children) {
+						list = arr[value].children;
+					}
 					if (layer > 0) {
 						for (let i = 1; i < layer + 1; i++) {
 							let val = layer === i ? index : selectedArr[i].index;
-							list = list[val].children || [];
+							list = val === -1 ? [] : (list[val].children || []);
 							if (list.length === 0) break;
 						}
 					}
@@ -376,7 +389,11 @@
 			swichNav: function(e) {
 				let cur = e.currentTarget.dataset.current;
 				if (this.currentTab != cur) {
-					this.currentTab = cur;
+					this.defTab = this.currentTab;
+					setTimeout(() => {
+						this.currentTab = cur;
+						this.defTab = this.currentTab;
+					}, 20)
 				}
 			},
 			checkCor: function() {
@@ -386,7 +403,7 @@
 					setTimeout(() => {
 						let val = item.index < 2 ? 0 : Number(item.index - 2);
 						item.scrollViewId = `id_${val}`;
-					}, 2);
+					}, 20);
 				});
 
 				if (this.currentTab > 1) {
@@ -455,11 +472,21 @@
 					if (layer == -1) {
 						this.selectedArr = item;
 					} else {
-						let retainArr = this.selectedArr.slice(0, layer + 1);
+						let retainArr = this.selectedArr.slice(0, layer + 1) || [];
 						this.selectedArr = retainArr.concat(item);
 					}
+
+					let current = this.selectedArr.length - 1;
+					if (current >= this.currentTab) {
+						this.defTab = this.currentTab
+					}
 					this.$nextTick(() => {
-						this.currentTab = this.selectedArr.length - 1;
+						setTimeout(() => {
+							this.defTab = current;
+							this.currentTab = current;
+							this.scrollViewId = `id_${this.currentTab > 1?this.currentTab - 1:0}`;
+						}, 50)
+
 					});
 				}
 			}

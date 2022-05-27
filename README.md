@@ -37,6 +37,175 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 ## 更新日志
 
+### V1.9.0 (2022-05-28)
+
+1.card 卡片组件优化，当header部分内容不传值时可使用默认插槽自定义内容。
+
+2.修复组件使用wxs初始化报错的问题。
+
+3.优化部分组件vue3下兼容问题。
+
+4.商城模板优化，调整vue3下样式出错问题。
+
+5.优化并删除filters使用。
+
+6.tui-countdown 倒计时 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+7.tui-divider 分隔符 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+8.tui-scroll-top 回到顶部 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+9.tui-alert 弹框 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+10.tui-no-data 暂无数据 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+11.tui-toast 提示 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+12.tui-datetime 日期时间选择器 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+13.tui-fab 悬浮按钮 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+14.tui-tabbar 标签栏 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+15.tui-tabs 标签页 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+16.tui-collapse 折叠面板 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+17.tui-upload 图片上传 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+18.tui-skeleton 骨架屏 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+19.tui-calendar 日历 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+20.tui-steps 步骤条 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+21.tui-drawer 抽屉 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+22.tui-swipe-action 滑动菜单 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+23.tui-bottom-navigation 底部导航菜单 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+24.tui-cascade-selection 级联选择 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+25.tui-circular-progress 圆形进度条 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+26.tui-navigation-bar 自定义导航栏 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+27.tui-bubble-popup 气泡弹框 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+28.tui-image-group 图片组合 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+<font color="#5677fc">`扫码体验[ThorUI组件库]小程序`</font>
+
+![ThorUI组件库](https://thorui.cn/img/applets_sm.jpg) 
+
+========================
+
+【ThorUI示例V1.4.0】更新：
+
+1.修复组件使用wxs初始化报错的问题。
+
+2.内嵌ucharts图表，当thorui图表无法满足时推荐使用。
+
+3.tui-gallery 图片预览 组件优化，修复索引显示可能出错的问题。
+
+4.优化部分vue3下兼容问题。
+
+5.tui-label 标签 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+6.tui-picker 选择器 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+7.tui-swiper-dot swiper指示点 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+8.tui-progress 进度条 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+9.tui-index-list 索引列表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+10。tui-gallery 图片预览 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+11.tui-loading 加载动画 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+12.tui-dialog 对话框 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+13.tui-msg 提示页 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+14.tui-searchbar 搜索栏 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+15.tui-copy-text 长按复制 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+16.tui-tab 标签页 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+17.tui-cubic-bezier 贝塞尔曲线 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+18.tui-drag 拖拽排序 组件优化，支持支付宝、百度、QQ小程序、字节小程序。
+
+19.tui-slide-verify 滑动验证码 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+20.tui-digital-keyboard 数字键盘 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+21.tui-digital-roller 数字滚轮 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+22.tui-timer 计时器 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+23.tui-table 表格 组件优化，支持支付宝小程序。
+
+24.tui-grade 评分 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+25.tui-countdown-verify 验证码倒计时 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+26.tui-slider 滑动选择器 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+27.tui-rotate-verify 旋转图片验证 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+28.tui-scale-horizontal 刻度尺滚动选择器 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+29.tui-scale-vertical 刻度尺滚动选择器 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+30.tui-waterfall 瀑布流 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+31.tui-lazyload-img 图片懒加载 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+32.tui-overflow-hidden 内容超出隐藏 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+33.tui-org-tree 组织架构树 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+34.tui-landscape 压屏窗 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+35.tui-tree-view 树型菜单 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+36.tui-charts-column 柱状图表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+37.tui-charts-bar 横向柱状图表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+38.tui-charts-line 折线图表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+39.tui-charts-pie 饼状图表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+40.tui-charts-area 面积图表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+41.tui-charts-funnel 漏斗图表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+42.tui-charts-scatter 散点图表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+43.tui-charts-radar 雷达图表 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+44.tui-banner-arc Banner底部圆弧效果 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+45.tui-data-checkbox 数据选择器 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+46、tui-poster 绘制海报 组件优化，支持支付宝、百度、QQ、字节小程序。
+
+=====================
+
+<font color="#5677fc">`扫码体验[ThorUI示例]小程序`</font>
+
+![ThorUI示例](https://thorui.cn/img/thorui-extend__sm.jpg) 
+
+=====================
+
+其中【ThorUI示例】项目只对会员开放。点此 [开通会员](https://thorui.cn/doc/docs/member.html)。
+ 
+
 ### V1.8.0 (2022-04-19)
 
 1.tui-countdown（倒计时）组件优化，修复已知问题。

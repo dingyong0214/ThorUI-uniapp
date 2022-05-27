@@ -45,19 +45,19 @@
 								<view class="class-name">{{ item }}</view>
 								<view class="g-container">
 									<view class="g-box" @tap.stop="productList" data-key="高价回收">
-										<image src="/static/images/product/11.jpg" class="g-image" />
+										<image src="/static/images/product/11.jpg" class="g-image"></image>
 										<view class="g-title">高价回收</view>
 									</view>
 									<view class="g-box" @tap.stop="productList" data-key="好物优选">
-										<image src="/static/images/product/22.jpg" class="g-image" />
+										<image src="/static/images/product/22.jpg" class="g-image"></image>
 										<view class="g-title">好物优选</view>
 									</view>
 									<view class="g-box" @tap.stop="productList" data-key="iphone X">
-										<image src="/static/images/product/33.jpg" class="g-image" />
+										<image src="/static/images/product/33.jpg" class="g-image"></image>
 										<view class="g-title">iphone X</view>
 									</view>
 									<view class="g-box" @tap.stop="productList" data-key="电动牙刷" v-if="index % 2 === 0">
-										<image src="/static/images/product/44.jpg" class="g-image" />
+										<image src="/static/images/product/44.jpg" class="g-image"></image>
 										<view class="g-title">电动牙刷</view>
 									</view>
 								</view>

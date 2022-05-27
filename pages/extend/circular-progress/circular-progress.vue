@@ -101,7 +101,7 @@ export default {
 			this.progress2 = e.percentage * 2;
 		},
 		switchChange(type, e) {
-			this.$set(this.status, type - 1, e.target.value);
+			this.$set(this.status, type - 1, e.detail.value);
 		},
 		circular(){
 			this.tui.href("../round-progress/round-progress")

@@ -26,22 +26,24 @@
 			</view>
 			<view v-if="!inputShowed">
 				<view class="tui-list city-list">
-					<block v-for="(list,index) in lists" :key="index" v-if="list.data[0]">
-						<view class="tui-list-cell-divider" :id="list.letter">
-							{{list.letter}}
-						</view>
-						<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index2) in list.data" :key="index2"
-						 @tap="selectCity" :data-name="item.name" :hover-stay-time='150'>
-							<view class="tui-list-cell-navigate" :class="[list.data.length-1==index2?'last':'']">
-								<image :src="'/static/images/news/'+((index2%2===0 && index2!==0)?'avatar_1.jpg':'avatar_2.jpg')" class="img"></image>
-								<view class="content">
-									<view class="title">{{item.name}}</view>
-									<view class="sub-title">{{item.mobile}}</view>
-								</view>
-
+					<view v-for="(list,index) in lists" :key="index" >
+						<template v-if="list.data[0]">
+							<view class="tui-list-cell-divider" :id="list.letter">
+								{{list.letter}}
 							</view>
-						</view>
-					</block>
+							<view class="tui-list-cell" hover-class="tui-list-cell-hover" v-for="(item,index2) in list.data" :key="index2"
+							 @tap="selectCity" :data-name="item.name" :hover-stay-time='150'>
+								<view class="tui-list-cell-navigate" :class="[list.data.length-1==index2?'last':'']">
+									<image :src="'/static/images/news/'+((index2%2===0 && index2!==0)?'avatar_1.jpg':'avatar_2.jpg')" class="img"></image>
+									<view class="content">
+										<view class="title">{{item.name}}</view>
+										<view class="sub-title">{{item.mobile}}</view>
+									</view>
+							
+								</view>
+							</view>
+						</template>
+					</view>
 				</view>
 			</view>
 		</scroll-view>
@@ -82,9 +84,15 @@
 					success: function(res) {
 						let winHeight = res.windowHeight;
 						let barHeight = winHeight - uni.upx2px(204);
-						that.winHeight = winHeight;
 						that.indexBarHeight = barHeight;
+						that.winHeight = winHeight;
 						that.indexBarItemHeight = barHeight / 25;
+						// #ifdef APP-PLUS
+						 // #ifdef VUE3
+						    that.winHeight = barHeight;
+						    that.indexBarItemHeight = barHeight / 30;
+						 // #endif
+						// #endif
 						that.titleHeight = uni.upx2px(128);
 						that.lists = cityData.list
 					}

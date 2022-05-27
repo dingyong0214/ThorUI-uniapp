@@ -12,7 +12,7 @@
 					<radio-group>
 						<label class="tui-not-used  tui-top20">
 							<text>不使用优惠券</text>
-							<radio value="-1" class="tui-coupon-radio" color="#e41f19" />
+							<radio value="-1" class="tui-coupon-radio" color="#e41f19"></radio>
 						</label>
 						<label v-for="(item, index) in couponList" :key="index">
 							<view class="tui-coupon-item tui-top20">
@@ -42,7 +42,7 @@
 											</view>
 										</view>
 									</view>
-									<radio value="1" class="tui-coupon-radio" color="#e41f19" :checked="index==0" />
+									<radio value="1" class="tui-coupon-radio" color="#e41f19" :checked="index==0"></radio>
 								</view>
 							</view>
 						</label>
@@ -310,7 +310,7 @@
 	/* #endif */
 
 	/* #ifdef H5 */
-	>>>uni-radio .uni-radio-input {
+	::v-deep uni-radio .uni-radio-input {
 		margin-right: 0 !important;
 	}
 

@@ -1,7 +1,9 @@
 <template>
 	<view class="container">
 		<tui-navigation-bar splitLine @init="initNavigation" @change="opacityChange" :scrollTop="scrollTop" title="NavBar自定义导航栏" backgroundColor="#fff" color="#333">
+			<!-- #ifndef MP-ALIPAY || MP-BAIDU -->
 			<view class="tui-header-icon" :style="{ marginTop: top + 'px' }"><tui-icon name="arrowleft" :color="opacity > 0.85 ? '#333' : '#fff'" @click="back"></tui-icon></view>
+			<!-- #endif -->
 		</tui-navigation-bar>
 		<view class="tui-header-bg"><image src="/static/images/my/mine_bg_3x.png" class="tui-header-img"></image></view>
 		<view class="header">

@@ -18,18 +18,21 @@ var stickyChange = function(scrollTop, oldScrollTop, ownerInstance, ins) {
 	} else {
 		isFixed = scrollTop + distance >= top ? true : false
 	}
+	var tsb = ownerInstance.selectComponent('.tui-sticky-bar')
+	var tss = ownerInstance.selectComponent('.tui-sticky-seat')
+	if (!tsb || !tss) return;
 	if (isFixed) {
-		ownerInstance.selectComponent('.tui-sticky-bar').setStyle({
+		tsb.setStyle({
 			"top": stickyTop + 'px'
 		}).addClass('tui-sticky-fixed')
-		ownerInstance.selectComponent('.tui-sticky-seat').setStyle({
+		tss.setStyle({
 			"display": 'block'
 		})
 	} else {
-		ownerInstance.selectComponent('.tui-sticky-bar').setStyle({
+		tsb.setStyle({
 			"top": 'auto'
 		}).removeClass('tui-sticky-fixed')
-		ownerInstance.selectComponent('.tui-sticky-seat').setStyle({
+		tss.setStyle({
 			"display": 'none'
 		})
 	}

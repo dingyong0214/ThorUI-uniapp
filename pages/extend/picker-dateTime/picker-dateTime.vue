@@ -43,8 +43,9 @@
 				<tui-button type="white" shape="circle" @click="show(12)">设置圆角</tui-button>
 			</view>
 		</view>
-		<tui-datetime ref="dateTime" :type="type" :startYear="startYear" :endYear="endYear" :cancelColor="cancelColor" :color="color"
-		 :setDateTime="setDateTime" :unitTop="unitTop" :radius="radius" @confirm="change"></tui-datetime>
+		<tui-datetime ref="dateTime" :type="type" :startYear="startYear" :endYear="endYear" :cancelColor="cancelColor"
+			:color="color" :setDateTime="setDateTime" :unitTop="unitTop" :radius="radius" @confirm="change">
+		</tui-datetime>
 	</view>
 </template>
 
@@ -52,7 +53,7 @@
 	export default {
 		data() {
 			return {
-				type: 1,
+				type: 2,
 				startYear: 1980,
 				endYear: 2030,
 				cancelColor: '#888',

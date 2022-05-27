@@ -49,7 +49,7 @@
 				value: 1.1,
 				value2: 1,
 				value3: 1,
-				value4: 0,
+				value4: 1,
 				value5: 1,
 				value6: 1,
 				value7: 1

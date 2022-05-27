@@ -237,12 +237,15 @@ function cutTouchMove(e, ins) {
 			cutX = cropper.cutX;
 
 		var size_correct = function() {
-			width = width <= cropper.maxWidth ? (width >= cropper.minWidth ? width : cropper.minWidth) : cropper.maxWidth;
-			height = height <= cropper.maxHeight ? (height >= cropper.minHeight ? height : cropper.minHeight) : cropper.maxHeight;
+			width = width <= cropper.maxWidth ? (width >= cropper.minWidth ? width : cropper.minWidth) : cropper
+				.maxWidth;
+			height = height <= cropper.maxHeight ? (height >= cropper.minHeight ? height : cropper.minHeight) :
+				cropper.maxHeight;
 		}
 
 		var size_inspect = function() {
-			if ((width > cropper.maxWidth || width < cropper.minWidth || height > cropper.maxHeight || height < cropper.minHeight) &&
+			if ((width > cropper.maxWidth || width < cropper.minWidth || height > cropper.maxHeight || height <
+					cropper.minHeight) &&
 				lockRatio) {
 				size_correct();
 				return false;
@@ -389,10 +392,12 @@ function imgMarginDetectionPosition(ins, scale, delay) {
 		imgHeight = cropper.imgWidth;
 	}
 	left = cropper.cutX + (imgWidth * scale) / 2 >= left ? left : cropper.cutX + (imgWidth * scale) / 2;
-	left = cropper.cutX + cropper.canvasWidth - (imgWidth * scale) / 2 <= left ? left : cropper.cutX + cropper.canvasWidth -
+	left = cropper.cutX + cropper.canvasWidth - (imgWidth * scale) / 2 <= left ? left : cropper.cutX + cropper
+		.canvasWidth -
 		(imgWidth * scale) / 2;
 	top = cropper.cutY + (imgHeight * scale) / 2 >= top ? top : cropper.cutY + (imgHeight * scale) / 2;
-	top = cropper.cutY + cropper.canvasHeight - (imgHeight * scale) / 2 <= top ? top : cropper.cutY + cropper.canvasHeight -
+	top = cropper.cutY + cropper.canvasHeight - (imgHeight * scale) / 2 <= top ? top : cropper.cutY + cropper
+		.canvasHeight -
 		(imgHeight * scale) / 2;
 
 	cropper.imgLeft = left;
@@ -431,17 +436,22 @@ function computeCutSize(ins) {
 
 function styleUpdate(ins) {
 	if (!ins) return;
-	ins.selectComponent('.tui-cropper-box').setStyle({
+	var tcb = ins.selectComponent('.tui-cropper-box')
+	var tcm = ins.selectComponent('.tui-content-middle')
+	var tct = ins.selectComponent('.tui-content-top')
+	var twb = ins.selectComponent('.tui-wxs-bg')
+	if (!tcb || !tcm || !tct || !twb) return;
+	tcb.setStyle({
 		'width': cropper.canvasWidth + 'px',
 		'height': cropper.canvasHeight + 'px'
 	})
-	ins.selectComponent('.tui-content-middle').setStyle({
+	tcm.setStyle({
 		'height': cropper.canvasHeight + 'px'
 	})
-	ins.selectComponent('.tui-content-top').setStyle({
+	tct.setStyle({
 		'height': cropper.cutY + 'px'
 	})
-	ins.selectComponent('.tui-wxs-bg').setStyle({
+	twb.setStyle({
 		'width': cropper.cutX + 'px'
 	})
 
@@ -453,7 +463,8 @@ function imgTransform(ins) {
 	var x = cropper.imgLeft - cropper.imgWidth / 2;
 	var y = cropper.imgTop - cropper.imgHeight / 2;
 	owner.setStyle({
-		'transform': 'translate3d(' + x + 'px,' + y + 'px,0) scale(' + cropper.scale + ') rotate(' + cropper.angle + 'deg)'
+		'transform': 'translate3d(' + x + 'px,' + y + 'px,0) scale(' + cropper.scale + ') rotate(' + cropper
+			.angle + 'deg)'
 	})
 }
 

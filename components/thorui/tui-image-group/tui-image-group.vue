@@ -31,7 +31,7 @@
 				:style="{ width: width, height: height, borderRadius: radius, borderWidth: borderWidth, borderColor: borderColor }"
 				:src="item.src"
 			></image>
-			<slot />
+			<slot></slot>
 		</view>
 	</view>
 </template>

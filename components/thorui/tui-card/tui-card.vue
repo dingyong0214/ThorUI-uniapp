@@ -1,16 +1,23 @@
 <template>
-	<view class="tui-card-class tui-card" :class="[full?'tui-card-full':'',border?'tui-card-border':'']" @tap="handleClick"
-	 @longtap="longTap">
-		<view class="tui-card-header" :class="{'tui-header-line':header.line}" :style="{background:header.bgcolor || '#fff'}">
-			<view class="tui-header-left">
-				<image :src="image.url" class="tui-header-thumb" :class="{'tui-thumb-circle':image.circle}" mode="widthFix" v-if="image.url"
-				 :style="{height:(image.height || 60)+'rpx',width:(image.width || 60)+'rpx'}"></image>
-				<text class="tui-header-title" :style="{fontSize:(title.size || 30)+'rpx',color:(title.color || '#7A7A7A')}" v-if="title.text">{{title.text}}</text>
+	<view class="tui-card-class tui-card" :class="[full?'tui-card-full':'',border?'tui-card-border':'']"
+		@tap="handleClick" @longtap="longTap">
+		<slot>
+			<view class="tui-card-header" :class="{'tui-header-line':header.line}"
+				:style="{background:header.bgcolor || '#fff'}">
+				<view class="tui-header-left">
+					<image :src="image.url" class="tui-header-thumb" :class="{'tui-thumb-circle':image.circle}"
+						mode="widthFix" v-if="image.url"
+						:style="{height:(image.height || 60)+'rpx',width:(image.width || 60)+'rpx'}"></image>
+					<text class="tui-header-title"
+						:style="{fontSize:(title.size || 30)+'rpx',color:(title.color || '#7A7A7A')}"
+						v-if="title.text">{{title.text}}</text>
+				</view>
+				<view class="tui-header-right" :style="{fontSize:(tag.size || 24)+'rpx',color:(tag.color || '#b2b2b2')}"
+					v-if="tag.text">
+					{{tag.text}}
+				</view>
 			</view>
-			<view class="tui-header-right" :style="{fontSize:(tag.size || 24)+'rpx',color:(tag.color || '#b2b2b2')}" v-if="tag.text">
-				{{tag.text}}
-			</view>
-		</view>
+		</slot>
 		<view class="tui-card-body">
 			<slot name="body"></slot>
 		</view>
@@ -23,7 +30,7 @@
 <script>
 	export default {
 		name: "tuiCard",
-		emits: ['click','longclick'],
+		emits: ['click', 'longclick'],
 		props: {
 			//是否铺满
 			full: {

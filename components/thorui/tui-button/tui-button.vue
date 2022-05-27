@@ -5,12 +5,13 @@
 			getShapeClass(shape, plain),
 			getShadowClass(type, shadow, plain),
 			bold ? 'tui-text-bold' : '',
-			link ? 'tui-btn__link' : ''
+			link ? 'tui-btn__link' : '',
+			width==='100%' || !width || width===true?'tui-btn__flex-1':''
 		]" :hover-class="getHoverClass(disabled, type, plain)"
 		:style="{ width: width, height: height, lineHeight: height, fontSize: size + 'rpx', margin: margin }"
 		:loading="loading" :form-type="formType" :open-type="openType" @getuserinfo="bindgetuserinfo"
 		@getphonenumber="bindgetphonenumber" @contact="bindcontact" @error="binderror" :disabled="disabled"
-		@tap="handleClick">
+		@tap.stop="handleClick">
 		<slot></slot>
 	</button>
 </template>
@@ -336,6 +337,10 @@
 
 	}
 
+	.tui-btn__flex-1 {
+		flex: 1;
+	}
+
 	/* #ifndef MP-QQ */
 	.tui-btn::after {
 		content: '';
@@ -613,6 +618,7 @@
 	.tui-btn__link {
 		border: 0 !important;
 	}
+
 	/* #endif */
 
 	.tui-btn__link::after {

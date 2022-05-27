@@ -11,8 +11,8 @@
 <template>
 	<!--基础元素-->
 	<div class="wxParse" :class="className" :style="'user-select:' + userSelect">
-		<block v-for="(node, index) of nodes" :key="index" v-if="!loading">
-			<wxParseTemplate :node="node" />
+		<block v-for="(node, index) of nodes" :key="index">
+			<wxParseTemplate :node="node"  v-if="!loading"></wxParseTemplate>
 		</block>
 	</div>
 </template>

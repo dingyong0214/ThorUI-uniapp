@@ -51,6 +51,7 @@ export default {
 .container {
 	padding: 0;
 	background-color: #e8e8e8;
+	height:500rpx;
 }
 
 .tui-share-title {
@@ -69,6 +70,7 @@ export default {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	background-color: #e8e8e8;
 }
 
 .tui-share-item {
@@ -104,20 +106,17 @@ export default {
 
 .tui-btn-cancel {
 	width: 750rpx;
-	height: 100rpx;
+	height: 120rpx;
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	align-items: center;
 	justify-content: center;
 	background-color: #f6f6f6;
-	/* border-top-width: 1rpx;
-		border-top-style: solid;
-		border-top-color: #eaeef1; */
 }
 
 .tui-btn-cancle:active {
-	background-color: #eee;
+	background-color: rgba(0,0,0,.2) ;
 }
 
 .tui-btn-text {

@@ -89,7 +89,9 @@
 			"backgroundColorBottom": "#fff",
 			"app-plus": {
 				"navigationBarTitleText": "",
+				// #ifndef MP
 				"titleNView": false,
+				// #endif
 				"scrollIndicator": "none",
 				"popGesture": "none"
 			}
@@ -1011,7 +1013,9 @@
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "NavBar自定义导航栏",
+				// #ifndef MP
 				"titleNView": false,
+				// #endif
 				"navigationStyle": "custom",
 				"app-plus": {
 					"bounce": "vertical"
@@ -1054,7 +1058,9 @@
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "图片裁剪",
+				// #ifndef MP
 				"titleNView": false,
+				// #endif
 				"navigationStyle": "custom",
 				"mp-weixin": {
 					"disableScroll": true
@@ -1075,7 +1081,9 @@
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "图片裁剪",
+				// #ifndef MP
 				"titleNView": false,
+				// #endif
 				"navigationStyle": "custom",
 				"mp-weixin": {
 					"disableScroll": true
@@ -1155,7 +1163,9 @@
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "图片裁剪",
+				// #ifndef MP
 				"titleNView": false,
+				// #endif
 				"navigationStyle": "custom",
 				"mp-weixin": {
 					"disableScroll": true
@@ -1176,7 +1186,9 @@
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTextStyle": "black",
 				"navigationBarTitleText": "图片裁剪",
+				// #ifndef MP
 				"titleNView": false,
+				// #endif
 				"navigationStyle": "custom",
 				"mp-weixin": {
 					"disableScroll": true

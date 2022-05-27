@@ -21,7 +21,7 @@
 		</view>
 		
 		<!--table类型-->
-		<wx-parse-table v-else-if="node.tag == 'table'" :class="node.classStr" :style="node.styleStr" :node="node" />
+		<wx-parse-table v-else-if="node.tag == 'table'" :class="node.classStr" :style="node.styleStr" :node="node"></wx-parse-table>
 
 		<!--br类型-->
 		<!-- #ifndef H5 -->
@@ -32,13 +32,13 @@
 		<!-- #endif -->
 		
 		<!--video类型-->
-		<wx-parse-video :node="node" v-else-if="node.tag == 'video'"/>
+		<wx-parse-video :node="node" v-else-if="node.tag == 'video'"></wx-parse-video>
 	
 		<!--audio类型-->
-		<wx-parse-audio :node="node" v-else-if="node.tag == 'audio'"/>
+		<wx-parse-audio :node="node" v-else-if="node.tag == 'audio'"></wx-parse-audio>
 	
 		<!--img类型-->
-		<wx-parse-img :node="node" v-else-if="node.tag == 'img'"/>
+		<wx-parse-img :node="node" v-else-if="node.tag == 'img'"></wx-parse-img>
 	
 		<!--其他标签-->
 		<view v-else :class="node.classStr" :style="node.styleStr">

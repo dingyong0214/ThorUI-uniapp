@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view class="tui-box">
-			<progress :percent="percent" show-info stroke-width="3" activeColor="#5677fc" active-mode="forwards" />
+			<progress :percent="percent" show-info stroke-width="3" activeColor="#5677fc" active-mode="forwards"></progress>
 			<view class="tui-text">正在更新，请耐心等待...</view>
 		</view>
 	</view>

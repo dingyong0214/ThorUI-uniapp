@@ -3,7 +3,7 @@
 		<view class="product-list">
 			<!--商品列表-->
 			<view class="pro-item" @tap="detail" v-for="(item,index) in productList" :key="index">
-				<image :src="'/static/images/product/'+item.img+'.jpg'" class="pro-img" mode="widthFix" />
+				<image :src="'/static/images/product/'+item.img+'.jpg'" class="pro-img" mode="widthFix"></image>
 				<view class="pro-content">
 					<view class="pro-tit">{{item.name}}</view>
 					<view>

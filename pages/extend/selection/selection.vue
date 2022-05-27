@@ -309,6 +309,7 @@ export default {
 		}
 	}
 };
+
 </script>
 
 <style>

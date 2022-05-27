@@ -2,7 +2,7 @@
 	<view @touchmove.stop.prevent>
 		<view class="tui-fab-box" :class="{'tui-fab-right':!left || (left && right)}"
 			:style="{left:getLeft(),right:getRight(),bottom:bottom+'rpx'}">
-			<view class="tui-fab-btn" :class="{'tui-visible':isOpen,'tui-fab-hidden':hidden}">
+			<view class="tui-fab-btn" :class="{'tui-visible':isOpen,'tui-fab-hidden':isHidden}">
 				<view class="tui-fab-item-box" :class="{'tui-fab-item-left':left && !right && item.imgUrl}"
 					v-for="(item,index) in btnList" :key="index" @tap.stop="handleClick(index)">
 					<view :class="[left && !right?'tui-text-left':'tui-text-right']" v-if="item.imgUrl"
@@ -107,7 +107,7 @@
 		data() {
 			return {
 				isOpen: false,
-				hidden: true,
+				isHidden: true,
 				timer: null
 			};
 		},
@@ -139,7 +139,7 @@
 				return val
 			},
 			handleClick: function(index) {
-				this.hidden = false
+				this.isHidden = false
 				clearTimeout(this.timer)
 				if (index == -1 && this.btnList.length) {
 					this.isOpen = !this.isOpen
@@ -151,7 +151,7 @@
 				}
 				if (!this.isOpen) {
 					this.timer = setTimeout(() => {
-						this.hidden = true
+						this.isHidden = true
 					}, 200)
 				}
 			},

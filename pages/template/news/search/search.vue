@@ -4,7 +4,7 @@
 			<view class="tui-search-input">
 				<icon type="search" :size='13' color='#333'></icon>
 				<input confirm-type="search" placeholder="大家都在搜：2019退役球星" :focus="true" auto-focus placeholder-class="tui-input-plholder"
-				 class="tui-input" v-model.trim="key" @input="inputKey"/>
+				 class="tui-input" v-model.trim="key" @input="inputKey" />
 				<icon type="clear" :size='13' color='#bcbcbc' @tap="cleanKey" v-show="key"></icon>
 			</view>
 			<view class="tui-cancle" @tap="back">取消</view>
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-	const util = require("@/utils/util.js")
+	import util from "@/utils/util.js"
 	export default {
 		data() {
 			return {

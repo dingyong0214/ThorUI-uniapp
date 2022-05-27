@@ -8,7 +8,7 @@
 		:src="node.attr.src"
 		@tap="wxParseImgTap"
 		@load="wxParseImgLoad"
-	/>
+	></image>
 </template>
 
 <script>

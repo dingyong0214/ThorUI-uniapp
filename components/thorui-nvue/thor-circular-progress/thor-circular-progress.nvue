@@ -1,7 +1,7 @@
 <template>
 	<view class="tui-circular-container" :style="{ width: diam + 'px', height: (height || diam) + 'px' }">
 		<gcanvas :ref="progressCanvasId" :style="{ width: diam + 'px', height: (height || diam) + 'px' }"></gcanvas>
-		<slot />
+		<slot></slot>
 	</view>
 </template>
 

@@ -33,7 +33,7 @@
 						</view>
 					</view>
 
-					<view class="tui-list-item" @tap="detail" v-for="(item,index) in 8" :key="index">
+					<view class="tui-list-item" @tap="detail" v-for="(item,index) in dataList" :key="index">
 						<view class="content-box">
 							<image src='https://thorui.cn/images/mall/category/4.png' class="logo"></image>
 							<view class="des-box">
@@ -67,7 +67,7 @@
 			<template v-slot:content>
 				<!--内容 start-->
 				<view class="list-view">
-					<view class="tui-list-item" v-for="(item,index) in 8" :key="index" @tap="detail">
+					<view class="tui-list-item" v-for="(item,index) in dataList" :key="index" @tap="detail">
 						<view class="content-box">
 							<image src='/static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -129,7 +129,7 @@
 			<template v-slot:content>
 				<!--内容-->
 				<view class="list-view">
-					<view class="tui-list-item" v-for="(item,index) in 12" :key="index" @tap="detail">
+					<view class="tui-list-item" v-for="(item,index) in dataList" :key="index" @tap="detail">
 						<view class="content-box">
 							<image src='/static/images/index/logo.png' class="logo"></image>
 							<view class="des-box">
@@ -158,7 +158,8 @@
 				show: false,
 				list: [],
 				loading: false,
-				recalc: 1
+				recalc: 1,
+				dataList: [1, 2, 3, 4, 5, 6, 7, 8]
 			}
 		},
 		onLoad() {
@@ -361,7 +362,8 @@
 		width: 100%;
 		height: 240rpx;
 	}
-	.tui-color-danger{
+
+	.tui-color-danger {
 		color: #EB0909;
 	}
 </style>

@@ -3,7 +3,9 @@
 		<view class="header">
 			<view class="title">Image Cropper</view>
 			<view class="sub-title">图片裁剪（wxs）：可设置裁剪框宽高，边缘线颜色，锁定裁剪框大小，是否可触摸旋转等</view>
+			<!-- #ifdef APP-VUE || H5 || MP-WEIXIN -->
 			<view class="tui-old-version" @tap="oldCropper">切换至旧版图片裁剪</view>
+			<!-- #endif -->
 		</view>
 		<view class="tui-btn-box">
 			<tui-button margin="36rpx 0 0" type="white" shape="circle" @click="chooseImage">组件默认使用</tui-button>
@@ -26,12 +28,26 @@ export default {
 				sourceType: ['album', 'camera'],
 				success: res => {
 					const tempFilePaths = res.tempFilePaths[0];
+					// #ifdef APP-VUE || H5 || MP-WEIXIN
 					this.tui.href('../cropper-default/cropper-default?src=' + tempFilePaths);
+					// #endif
+					
+					//其他小程序使用 tui-image-cropper 组件
+					// #ifndef APP-VUE || H5 || MP-WEIXIN
+					this.tui.href('../cropper-default-old/cropper-default-old?src=' + tempFilePaths);
+					// #endif
+					
 				}
 			});
 		},
 		customCropper() {
+			// #ifdef APP-VUE || H5 || MP-WEIXIN
 			this.tui.href('../cropper-custom/cropper-custom');
+			// #endif
+			
+			// #ifndef APP-VUE || H5 || MP-WEIXIN
+			this.tui.href('../cropper-custom-old/cropper-custom-old');
+			// #endif
 		},
 		oldCropper(){
 			this.tui.href('../cropper-old/cropper-old');

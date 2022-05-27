@@ -107,8 +107,10 @@
 					type: 'gcj02',
 					altitude: true,
 					success(res) {
+						// #ifndef VUE3
 						that.lat = res.latitude;
 						that.lng = res.longitude;
+						// #endif
 						callback();
 					},
 					fail(res) {
@@ -455,9 +457,7 @@
 		text-overflow: ellipsis;
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
-		/* autoprefixer: off */
 		-webkit-box-orient: vertical;
-		/* autoprefixer: on */
 		font-size: 24rpx;
 		color: #999;
 	}

@@ -68,7 +68,6 @@
 				iosRefresh: false,
 				refreshing: false,
 				refreshText: '下拉可以刷新',
-				productList: [],
 				renderImage: false,
 				loadingText: '加载更多...',
 				pageIndex: 1,

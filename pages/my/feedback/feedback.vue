@@ -3,11 +3,11 @@
 		<view class="title">问题描述</view>
 		<view class="tui-cells">
 			<textarea class="tui-textarea" placeholder="我希望加入XXXX功能，因为XX情况下，会出现XX异常" maxlength="500" placeholder-class="phcolor"
-			 v-model="desc" />
+			 v-model="desc"></textarea>
 			<view class="textarea-counter">{{descNum}}/500</view>
 	    </view> 
 	    <view class="title top64">联系邮箱</view>
-	    <input class="tui-input"  placeholder-class="phcolor" placeholder="请输入邮箱" v-model="email" maxlength="20"></input>
+	    <input class="tui-input"  placeholder-class="phcolor" placeholder="请输入邮箱" v-model="email" maxlength="20" />
 	     <view class="tui-ptop">
 			 <tui-button :type="btnType" shadow height="88rpx" shape="circle" @click="submit">提交反馈</tui-button>
 	    </view>

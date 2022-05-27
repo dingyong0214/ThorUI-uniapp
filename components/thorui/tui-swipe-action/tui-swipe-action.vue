@@ -23,7 +23,7 @@
 			</view>
 		</view>
 		<view v-if="isShowBtn && showMask" class="swipe-action_mask" @tap.stop="closeButtonGroup"
-			@touchstart.stop.prevent="closeButtonGroup" />
+			@touchstart.stop.prevent="closeButtonGroup"></view>
 	</view>
 </template>
 

@@ -1,15 +1,18 @@
 <template>
 	<view class="tui-container">
 		<view class="tui-extend-box">
-			<block v-for="(item, index) in list" :key="index" v-if="(index + 1) % 2 != 0">
-				<view class="tui-extend-item" :class="['tui-bg-' + item.bg]" @tap.stop="detail(item.page)">
+			<block v-for="(item, index) in list" :key="index">
+				<view v-if="(index + 1) % 2 != 0" class="tui-extend-item" :class="['tui-bg-' + item.bg]"
+					@tap.stop="detail(item.page)">
 					<view class="tui-title tui-light">{{ item.name }}</view>
 					<view class="tui-sub-title">{{ item.desc }}</view>
 					<view class="tui-footer">
-						<tui-tag padding="12rpx 24rpx" size="24rpx" type="white" shape="circle" :plain="true">查看详情</tui-tag>
+						<tui-tag padding="12rpx 24rpx" size="24rpx" type="white" shape="circle" :plain="true">查看详情
+						</tui-tag>
 						<view>
 							<button @tap.stop="like(index)" class="tui-btn">
-								<tui-icon :name="item.like ? 'like-fill' : 'like'" :color="item.like ? '#f54f46' : '#fff'" :size="20" class="tui-l-icon"></tui-icon>
+								<tui-icon :name="item.like ? 'like-fill' : 'like'"
+									:color="item.like ? '#f54f46' : '#fff'" :size="20" class="tui-l-icon"></tui-icon>
 							</button>
 							<button open-type="share" @tap.stop="onshare" class="tui-btn" :data-id="index">
 								<tui-icon name="partake" color="#fff" :size="20" class="tui-r-icon"></tui-icon>
@@ -20,15 +23,18 @@
 			</block>
 		</view>
 		<view class="tui-extend-box">
-			<block v-for="(item, index) in list" :key="index" v-if="(index + 1) % 2 == 0">
-				<view class="tui-extend-item" :class="'tui-bg-' + item.bg" :id="item.page" @tap.stop="detail(item.page)">
+			<block v-for="(item, index) in list" :key="index">
+				<view v-if="(index + 1) % 2 == 0" class="tui-extend-item" :class="'tui-bg-' + item.bg" :id="item.page"
+					@tap.stop="detail(item.page)">
 					<view class="tui-title tui-light">{{ item.name }}</view>
 					<view class="tui-sub-title">{{ item.desc }}</view>
 					<view class="tui-footer">
-						<tui-tag padding="12rpx 24rpx" size="24rpx" type="white" shape="circle" :plain="true">查看详情</tui-tag>
+						<tui-tag padding="12rpx 24rpx" size="24rpx" type="white" shape="circle" :plain="true">查看详情
+						</tui-tag>
 						<view>
 							<view @tap.stop="like(index)" class="tui-btn">
-								<tui-icon :name="item.like ? 'like-fill' : 'like'" :color="item.like ? '#f54f46' : '#fff'" :size="20" class="tui-l-icon"></tui-icon>
+								<tui-icon :name="item.like ? 'like-fill' : 'like'"
+									:color="item.like ? '#f54f46' : '#fff'" :size="20" class="tui-l-icon"></tui-icon>
 							</view>
 							<button open-type="share" @tap.stop="onshare" class="tui-btn" :data-id="index">
 								<tui-icon name="partake" color="#fff" :size="20" class="tui-r-icon"></tui-icon>
@@ -445,12 +451,12 @@
 				return rnd;
 			},
 			detail: function(pageUrl) {
-				if(pageUrl=='thorui'){
+				if (pageUrl == 'thorui') {
 					this.openThorUI()
-				}else{
+				} else {
 					this.tui.href(pageUrl);
 				}
-				
+
 			},
 			like: function(index) {
 				this.$set(this.list[index], 'like', !this.list[index].like);
@@ -479,7 +485,7 @@
 					appId: 'wxd3c1da92cb8fcf40'
 				});
 				// #endif
-			
+
 				// #ifndef  MP-WEIXIN
 				if (this.sweixin) {
 					this.sweixin.launchMiniProgram({

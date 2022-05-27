@@ -37,7 +37,7 @@
 					bottom: triangleBottom
 				}"
 			 v-if="direction == 'right'"></view>
-			<slot />
+			<slot></slot>
 		</view>
 		<view @touchmove.stop.prevent="stop" class="tui-popup-mask" :class="{ 'tui-popup-show': show }" :style="{ backgroundColor: maskBgColor }"
 		 v-if="mask" @tap="handleClose"></view>

@@ -61,6 +61,11 @@
 						let pwd = this.numberArr.join('')
 						this.closeKeyboard();
 						this.tui.toast("您输入的密码为：" + pwd);
+						// #ifdef MP-ALIPAY || MP-BAIDU
+						setTimeout(()=>{
+							uni.hideLoading()
+						},200)
+						// #endif
 					}, 800);
 				}
 			},
