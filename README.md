@@ -1027,11 +1027,11 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
 
 9.新增拖拽排序组件，wxs实现，详细查看多语言模板示例。
 
-10.新增签到模板（点star获取源码）。获取步骤如下：
+10.新增签到模板（会员点star可获取源码）。获取步骤如下：
 
   1）去GitHub给ThorUI项目点star，项目地址分别为：[ThorUI](https://github.com/dingyong0214/ThorUI) 和 [ThorUI-uniapp](https://github.com/dingyong0214/ThorUI-uniapp)
 
-  2）加QQ3039218619，截图发送到该QQ即可获取源码。
+  2）加QQ3039218619，截图发送到该QQ即可获取源码（仅会员可参加）。
 
 --------------------------
 
