@@ -1,8 +1,7 @@
 <template>
 	<view class="container">
 		<view class="tui-header">
-			功能开发中，敬请期待！最新完成：
-			<text class="tui-current" @tap="currentStep">短视频</text>
+			会员模版，加入会员可免费商用！
 		</view>
 		
 		<view class="tui-template">
@@ -32,60 +31,30 @@
 	export default {
 		data() {
 			return {
-				stepList: [{
-					name: "preface",
-					state: 1,
-					stateText: "",
-					desc: ["计划前三套模板：新闻、商城、聊天。完成后再逐步追加，敬请期待！"],
-					page: "/pages/template/news/index/index"
-				}, {
+				stepList: [ {
 					name: "新闻模板",
 					state: 1,
 					stateText: "（100%）",
-					desc: ["新闻模板包含：新闻列表，新闻详情，评论等"],
+					desc: ["新闻模板包含：新闻列表，新闻详情，评论等页面"],
 					page: "/pages/template/news/index/index"
 				}, {
 					name: "聊天模板",
 					state: 1,
 					stateText: "（100%）",
-					desc: ["聊天模板包含：消息列表，好友列表，聊天界面等"],
+					desc: ["聊天模板包含：消息列表，好友列表，聊天界面等页面"],
 					page: "/pages/template/chat/msgList/msgList"
 				}, {
 					name: "商城模板",
 					state: 1,
 					stateText: "（进度100%）",
-					desc: ["商城模板包含：商品列表，商品搜索，商品详情，购物车，结算页面，我的订单等"],
+					desc: ["商城模板包含：商品列表，商品搜索，商品详情，购物车，结算页面，我的订单等页面"],
 					page: "/pages/template/mall/mall/mall"
-				}, {
-					name: "签到模板",
+				},  {
+					name: "登录模板",
 					state: 1,
 					stateText: "（进度100%）",
-					desc: ["点star获取模板，详细获取方式查看V1.5.2更新日志"],
-					page: "/pages/common/log/log"
-				}, {
-					name: "多语言模板",
-					state: 1,
-					stateText: "（进度100%）",
-					desc: ["该模板非会员仅供参考学习，源码地址查看V1.5.2更新日志"],
-					page: "/pages/common/log/log"
-				}, {
-					name: "订餐",
-					state: 0,
-					stateText: "（进度100%）",
-					desc: ["订餐模板：列表，评价，购物车，订单，我的等。该模板为付费模板不开源，会员9折"],
-					page: ""
-				}, {
-					name: "短视频",
-					state: 0,
-					stateText: "（进度100%）",
-					desc: ["短视频播放，类似抖音视频模板，该模板为付费模板不开源，会员9折"],
-					page: ""
-				}, {
-					name: "其它模板",
-					state: 0,
-					stateText: "",
-					desc: ["更多内容敬请期待！"],
-					page: "news"
+					desc: ["登录模版包含：登录，注册，忘记密码等页面"],
+					page: "/pages/template/login/login/login"
 				}]
 			}
 		},
@@ -101,9 +70,6 @@
 				} else {
 					this.tui.toast("功能开发中~")
 				}
-			},
-			currentStep: function() {
-				this.tui.toast("此版本暂不开源，敬请期待！")
 			}
 		}
 	}

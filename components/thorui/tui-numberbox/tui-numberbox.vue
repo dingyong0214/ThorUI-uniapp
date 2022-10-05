@@ -1,11 +1,17 @@
 <template>
 	<view class="tui-numberbox">
-		<view class="tui-numbox-icon tui-icon-reduce " :class="[disabled || min >= inputValue ? 'tui-disabled' : '']"
-			@tap="reduce" :style="{ color: iconColor, fontSize: iconSize + 'rpx' }"></view>
+		<view class="tui-num__icon__box" :style="{background:iconBgColor,borderRadius:radius}" @tap="reduce"
+			:class="[disabled || min >= inputValue ? 'tui-disabled' : '']">
+			<text class="tui-numbox-icon tui-num__icon-reduce"
+				:style="{ color: iconColor, fontSize: iconSize + 'rpx',lineHeight:iconSize + 'rpx' }"></text>
+		</view>
 		<input type="number" v-model="inputValue" :disabled="disabled" @blur="blur" class="tui-num-input"
 			:style="{ color: color, fontSize: size + 'rpx', background: backgroundColor, height: height + 'rpx', minHeight: height + 'rpx', width: width + 'rpx' }" />
-		<view class="tui-numbox-icon tui-icon-plus" :class="[disabled || inputValue >= max ? 'tui-disabled' : '']"
-			@tap="plus" :style="{ color: iconColor, fontSize: iconSize + 'rpx' }"></view>
+		<view class="tui-num__icon__box" :style="{background:iconBgColor,borderRadius:radius}" @tap="plus"
+			:class="[disabled || inputValue >= max ? 'tui-disabled' : '']">
+			<text class="tui-numbox-icon tui-num__icon-plus"
+				:style="{ color: iconColor, fontSize: iconSize + 'rpx',lineHeight:iconSize + 'rpx' }"></text>
+		</view>
 	</view>
 </template>
 
@@ -38,10 +44,18 @@
 				type: Boolean,
 				default: false
 			},
+			iconBgColor: {
+				type: String,
+				default: 'transparent'
+			},
+			radius:{
+				type: String,
+				default: '50%'
+			},
 			//加减图标大小 rpx
 			iconSize: {
 				type: Number,
-				default: 26
+				default: 22
 			},
 			iconColor: {
 				type: String,
@@ -96,19 +110,6 @@
 			}
 		},
 		methods: {
-			getLen(val, step) {
-				let len = 0;
-				let lenVal = 0;
-				//浮点型
-				if (!Number.isInteger(step)) {
-					len = (step + '').split('.')[1].length
-				}
-				//浮点型
-				if (!Number.isInteger(val)) {
-					lenVal = (val + '').split('.')[1].length
-				}
-				return Math.max(len, lenVal);
-			},
 			getScale(val, step) {
 				let scale = 1;
 				let scaleVal = 1;
@@ -128,7 +129,6 @@
 					return;
 				}
 				const scale = this.getScale(Number(this.inputValue), Number(this.step));
-				let len = this.getLen(Number(this.inputValue), Number(this.step));
 				let num = Number(this.inputValue) * scale;
 				let step = this.step * scale;
 				if (type === 'reduce') {
@@ -136,7 +136,7 @@
 				} else if (type === 'plus') {
 					num += step;
 				}
-				let value = this.toFixed(num / scale, len);
+				let value = Number((num / scale).toFixed(String(scale).length - 1));
 				if (value < this.min) {
 					value = this.min;
 				} else if (value > this.max) {
@@ -178,12 +178,6 @@
 					index: this.index,
 					custom: this.custom
 				});
-			},
-			toFixed(num, s) {
-				let times = Math.pow(10, s)
-				let des = num * times + 0.5
-				des = parseInt(des, 10) / times
-				return Number(des + '')
 			}
 		}
 	};
@@ -197,19 +191,29 @@
 		font-style: normal;
 	}
 
+	.tui-num__icon__box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 12rpx;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
+	}
+
 	.tui-numbox-icon {
 		font-family: 'numberbox' !important;
 		font-style: normal;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-		padding: 10rpx;
 	}
 
-	.tui-icon-reduce:before {
+	.tui-num__icon-reduce:before {
 		content: '\e691';
 	}
 
-	.tui-icon-plus:before {
+	.tui-num__icon-plus:before {
 		content: '\e605';
 	}
 
@@ -222,12 +226,15 @@
 
 	.tui-num-input {
 		text-align: center;
-		margin: 0 12rpx;
+		margin: 0 6rpx;
 		font-weight: 400;
 		padding: 0;
 	}
 
 	.tui-disabled {
-		color: #ededed !important;
+		opacity: .5;
+		/* #ifdef H5 */
+		cursor: not-allowed;
+		/* #endif */
 	}
 </style>

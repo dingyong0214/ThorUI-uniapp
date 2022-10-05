@@ -72,7 +72,6 @@
 </template>
 
 <script>
-	// vue3下动态调整type在app端设置默认值失效：type初始化设置不要动态调整
 	export default {
 		name: 'tuiDatetime',
 		emits: ['cancel', 'confirm'],
@@ -181,11 +180,9 @@
 			};
 		},
 		mounted() {
-			this.$nextTick(() => {
-				setTimeout(() => {
-					this.initData();
-				}, 50)
-			})
+			setTimeout(() => {
+				this.initData();
+			}, 20)
 		},
 		computed: {
 			yearOrMonth() {
@@ -201,10 +198,9 @@
 			},
 			propsChange() {
 				this.reset = true;
-				this.value = []
 				setTimeout(() => {
 					this.initData();
-				}, 50);
+				}, 20);
 			}
 		},
 		methods: {
@@ -226,7 +222,7 @@
 			},
 			//日期时间处理
 			initSelectValue() {
-				let fdate = this.setDateTime === true || !this.setDateTime ? '' : this.setDateTime.replace(/\-/g, '/');
+				let fdate = this.setDateTime.replace(/\-/g, '/');
 				if (this.type == 3 && this.getCharCount(fdate) === 1) {
 					fdate += '/01'
 				}
@@ -299,24 +295,16 @@
 					default:
 						break;
 				}
-				this.$nextTick(() => {
-					setTimeout(() => {
-						this.value = [...this.value]
-						this.$forceUpdate()
-					}, 50)
-				})
 			},
 			setYears() {
-				this.years = this.generateArray(Number(this.startYear), Number(this.endYear));
+				this.years = this.generateArray(this.startYear, this.endYear);
 				setTimeout(() => {
-					// this.value.splice(0, 1, this.getIndex(this.years, this.year))
 					this.$set(this.value, 0, this.getIndex(this.years, this.year));
 				}, 8);
 			},
 			setMonths() {
 				this.months = this.generateArray(1, 12);
 				setTimeout(() => {
-					// this.value.splice(1, 1, this.getIndex(this.months, this.month))
 					this.$set(this.value, 1, this.getIndex(this.months, this.month));
 				}, 8);
 			},
@@ -326,7 +314,6 @@
 				totalDays = !totalDays || totalDays < 1 ? 1 : totalDays
 				this.days = this.generateArray(1, totalDays);
 				setTimeout(() => {
-					// this.value.splice(2, 1, this.getIndex(this.days, this.day))
 					this.$set(this.value, 2, this.getIndex(this.days, this.day));
 				}, 8);
 			},
@@ -339,7 +326,6 @@
 					} else {
 						index = this.type == 5 || this.type == 7 ? this.value.length - 3 : this.value.length - 2;
 					}
-					// this.value.splice(index, 1, this.getIndex(this.hours, this.hour))
 					this.$set(this.value, index, this.getIndex(this.hours, this.hour));
 				}, 8);
 			},
@@ -347,14 +333,12 @@
 				this.minutes = this.generateArray(0, 59);
 				setTimeout(() => {
 					let index = this.type > 4 ? this.value.length - 2 : this.value.length - 1;
-					// this.value.splice(index, 1, this.getIndex(this.minutes, this.minute))
 					this.$set(this.value, index, this.getIndex(this.minutes, this.minute));
 				}, 8);
 			},
 			setSeconds() {
 				this.seconds = this.generateArray(0, 59);
 				setTimeout(() => {
-					// this.value.splice(this.value.length - 1, 1, this.getIndex(this.seconds, this.second))
 					this.$set(this.value, this.value.length - 1, this.getIndex(this.seconds, this.second));
 				}, 8);
 			},
@@ -372,6 +356,7 @@
 				this.hide()
 			},
 			change(e) {
+				if(!this.isShow) return;
 				this.value = e.detail.value;
 				switch (this.type) {
 					case 1:

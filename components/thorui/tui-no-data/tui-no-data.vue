@@ -1,6 +1,6 @@
 <template>
 	<view class="tui-nodata-box" :class="[fixed?'tui-nodata-fixed':'']">
-		<image v-if="imgUrl" :src="imgUrl" class="tui-tips-icon" :style="{width:imgWidth+'rpx',height:imgHeight+'rpx'}"></image>
+		<image v-if="imgUrl" :src="imgUrl" class="tui-tips-icon" :style="{width:imgWidth+'rpx',height:imgHeight+'rpx'}" mode="widthFix"></image>
 		<view class="tui-tips-content">
 			<slot></slot>
 		</view>

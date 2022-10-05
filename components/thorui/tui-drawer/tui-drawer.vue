@@ -40,12 +40,12 @@ export default {
 		//drawer z-index
 		zIndex: {
 			type: [Number, String],
-			default: 9999
+			default: 990
 		},
 		//mask z-index
 		maskZIndex: {
 			type: [Number, String],
-			default: 9998
+			default: 980
 		},
 		backgroundColor: {
 			type: String,

@@ -92,7 +92,7 @@
 			//z-index设置
 			zIndex: {
 				type: [Number, String],
-				default: 9998
+				default: 996
 			}
 		},
 		watch: {

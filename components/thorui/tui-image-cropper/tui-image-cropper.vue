@@ -2,12 +2,16 @@
 	<view class="tui-container" @touchmove.stop.prevent="stop">
 		<view class="tui-image-cropper" @touchend="cutTouchEnd" @touchstart="cutTouchStart" @touchmove="cutTouchMove">
 			<view class="tui-content">
-				<view class="tui-content-top tui-bg-transparent" :style="{ height: cutY + 'px', transitionProperty: cutAnimation ? '' : 'background' }"></view>
+				<view class="tui-content-top tui-bg-transparent"
+					:style="{ height: cutY + 'px', transitionProperty: cutAnimation ? '' : 'background' }"></view>
 				<view class="tui-content-middle" :style="{ height: canvasHeight + 'px' }">
-					<view class="tui-bg-transparent" :style="{ width: cutX + 'px', transitionProperty: cutAnimation ? '' : 'background' }"></view>
-					<view class="tui-cropper-box" :style="{ width: canvasWidth + 'px', height: canvasHeight + 'px', borderColor: borderColor, transitionProperty: cutAnimation ? '' : 'background' }">
-						<view v-for="(item, index) in 4" :key="index" class="tui-edge" :class="[`tui-${index < 2 ? 'top' : 'bottom'}-${index === 0 || index === 2 ? 'left' : 'right'}`]"
-						 :style="{
+					<view class="tui-bg-transparent"
+						:style="{ width: cutX + 'px', transitionProperty: cutAnimation ? '' : 'background' }"></view>
+					<view class="tui-cropper-box"
+						:style="{ width: canvasWidth + 'px', height: canvasHeight + 'px', borderColor: borderColor, transitionProperty: cutAnimation ? '' : 'background' }">
+						<view v-for="(item, index) in 4" :key="index" class="tui-edge"
+							:class="[`tui-${index < 2 ? 'top' : 'bottom'}-${index === 0 || index === 2 ? 'left' : 'right'}`]"
+							:style="{
 								width: edgeWidth,
 								height: edgeWidth,
 								borderColor: edgeColor,
@@ -18,20 +22,23 @@
 								bottom: index > 1 ? `-${edgeOffsets}` : 'auto'
 							}"></view>
 					</view>
-					<view class="tui-flex-auto tui-bg-transparent" :style="{ transitionProperty: cutAnimation ? '' : 'background' }"></view>
+					<view class="tui-flex-auto tui-bg-transparent"
+						:style="{ transitionProperty: cutAnimation ? '' : 'background' }"></view>
 				</view>
-				<view class="tui-flex-auto tui-bg-transparent" :style="{ transitionProperty: cutAnimation ? '' : 'background' }"></view>
+				<view class="tui-flex-auto tui-bg-transparent"
+					:style="{ transitionProperty: cutAnimation ? '' : 'background' }"></view>
 			</view>
 			<image @load="imageLoad" @error="imageLoad" @touchstart="start" @touchmove="move" @touchend="end" :style="{
 					width: imgWidth ? imgWidth + 'px' : 'auto',
 					height: imgHeight ? imgHeight + 'px' : 'auto',
 					transform: imgTransform,
 					transitionDuration: (cutAnimation ? 0.35 : 0) + 's'
-				}"
-			 class="tui-cropper-image" :src="imageUrl" v-if="imageUrl" mode="widthFix"></image>
+				}" class="tui-cropper-image" :class="{'tui-cropper__image-hidden':!imageUrl}" :src="imageUrl" mode="widthFix">
+			</image>
 		</view>
-		<canvas canvas-id="tui-image-cropper" id="tui-image-cropper" :disable-scroll="true" :style="{ width: CROPPER_WIDTH * scaleRatio + 'px', height: CROPPER_HEIGHT * scaleRatio + 'px' }"
-		 class="tui-cropper-canvas"></canvas>
+		<canvas canvas-id="tui-image-cropper" id="tui-image-cropper" :disable-scroll="true"
+			:style="{ width: CROPPER_WIDTH * scaleRatio + 'px', height: CROPPER_HEIGHT * scaleRatio + 'px' }"
+			class="tui-cropper-canvas"></canvas>
 		<view class="tui-cropper-tabbar" v-if="!custom">
 			<view class="tui-op-btn" @tap.stop="back">取消</view>
 			<image :src="rotateImg" class="tui-rotate-img" @tap="setAngle"></image>
@@ -49,7 +56,7 @@
 	 * */
 	export default {
 		name: 'tuiImageCropper',
-		emits: ['ready','cropper','imageLoad'],
+		emits: ['ready', 'cropper', 'imageLoad'],
 		props: {
 			//图片路径
 			imageUrl: {
@@ -204,9 +211,9 @@
 				default: '/static/components/cropper/img_rotate.png'
 			},
 			//裁剪后图片类型：jpg/png
-			fileType:{
-				type:String,
-				default:'png'
+			fileType: {
+				type: String,
+				default: 'png'
 			}
 		},
 		data() {
@@ -385,15 +392,15 @@
 							width: this.canvasWidth * this.scaleRatio,
 							height: Math.round(this.canvasHeight * this.scaleRatio),
 							// #ifdef MP-QQ
-							destWidth: this.canvasWidth * this.scaleRatio * 2 ,
+							destWidth: this.canvasWidth * this.scaleRatio * 2,
 							destHeight: Math.round(this.canvasHeight) * this.scaleRatio * 2,
 							// #endif
-							
+
 							// #ifndef MP-QQ
 							destWidth: this.canvasWidth * this.scaleRatio,
 							destHeight: Math.round(this.canvasHeight) * this.scaleRatio,
 							// #endif
-						
+
 							fileType: this.fileType || 'png',
 							quality: this.quality
 						};
@@ -438,10 +445,11 @@
 						// #endif
 
 						// #ifndef MP-ALIPAY
+						let isBase64=this.isBase64
 						// #ifdef MP-BAIDU || MP-TOUTIAO || H5
-						this.isBase64 = false;
+						isBase64 = false;
 						// #endif
-						if (this.isBase64) {
+						if (isBase64) {
 							uni.canvasGetImageData({
 								canvasId: 'tui-image-cropper',
 								x: 0,
@@ -455,7 +463,7 @@
 									this.loadding && uni.hideLoading();
 									this.$emit('cropper', data);
 								}
-							},this);
+							}, this);
 						} else {
 							uni.canvasToTempFilePath({
 									...params,
@@ -569,11 +577,13 @@
 					imgHeight = this.imgWidth;
 				}
 				left = this.cutX + (imgWidth * scale) / 2 >= left ? left : this.cutX + (imgWidth * scale) / 2;
-				left = this.cutX + this.canvasWidth - (imgWidth * scale) / 2 <= left ? left : this.cutX + this.canvasWidth - (
-					imgWidth * scale) / 2;
+				left = this.cutX + this.canvasWidth - (imgWidth * scale) / 2 <= left ? left : this.cutX + this
+					.canvasWidth - (
+						imgWidth * scale) / 2;
 				top = this.cutY + (imgHeight * scale) / 2 >= top ? top : this.cutY + (imgHeight * scale) / 2;
-				top = this.cutY + this.canvasHeight - (imgHeight * scale) / 2 <= top ? top : this.cutY + this.canvasHeight - (
-					imgHeight * scale) / 2;
+				top = this.cutY + this.canvasHeight - (imgHeight * scale) / 2 <= top ? top : this.cutY + this
+					.canvasHeight - (
+						imgHeight * scale) / 2;
 				this.imgLeft = left;
 				this.imgTop = top;
 				this.scale = scale;
@@ -707,9 +717,11 @@
 					];
 					if (!this.disableRotate) {
 						let first_atan = (180 / Math.PI) * Math.atan2(touchRelative[0].y, touchRelative[0].x);
-						let first_atan_old = (180 / Math.PI) * Math.atan2(this.touchRelative[0].y, this.touchRelative[0].x);
+						let first_atan_old = (180 / Math.PI) * Math.atan2(this.touchRelative[0].y, this.touchRelative[0]
+						.x);
 						let second_atan = (180 / Math.PI) * Math.atan2(touchRelative[1].y, touchRelative[1].x);
-						let second_atan_old = (180 / Math.PI) * Math.atan2(this.touchRelative[1].y, this.touchRelative[1].x);
+						let second_atan_old = (180 / Math.PI) * Math.atan2(this.touchRelative[1].y, this.touchRelative[1]
+							.x);
 						//当前旋转的角度
 						let first_deg = first_atan - first_atan_old,
 							second_deg = second_atan - second_atan_old;
@@ -743,11 +755,14 @@
 						cutY = this.cutY,
 						cutX = this.cutX,
 						size_correct = () => {
-							width = width <= this.maxWidth ? (width >= this.minWidth ? width : this.minWidth) : this.maxWidth;
-							height = height <= this.maxHeight ? (height >= this.minHeight ? height : this.minHeight) : this.maxHeight;
+							width = width <= this.maxWidth ? (width >= this.minWidth ? width : this.minWidth) : this
+								.maxWidth;
+							height = height <= this.maxHeight ? (height >= this.minHeight ? height : this.minHeight) : this
+								.maxHeight;
 						},
 						size_inspect = () => {
-							if ((width > this.maxWidth || width < this.minWidth || height > this.maxHeight || height < this.minHeight) &&
+							if ((width > this.maxWidth || width < this.minWidth || height > this.maxHeight || height < this
+									.minHeight) &&
 								this.lockRatio) {
 								size_correct();
 								return false;
@@ -756,7 +771,8 @@
 								return true;
 							}
 						};
-					height = this.CUT_START.height + (this.CUT_START.corner > 1 && this.CUT_START.corner < 4 ? 1 : -1) * (this.CUT_START
+					height = this.CUT_START.height + (this.CUT_START.corner > 1 && this.CUT_START.corner < 4 ? 1 : -1) * (
+						this.CUT_START
 						.y - e.touches[0].clientY);
 					switch (this.CUT_START.corner) {
 						case 1:
@@ -929,6 +945,7 @@
 	.tui-container {
 		width: 100vw;
 		height: 100vh;
+		padding: 0;
 		background-color: rgba(0, 0, 0, 0.6);
 		position: fixed;
 		top: 0;
@@ -945,6 +962,7 @@
 	.tui-content {
 		width: 100vw;
 		height: 100vh;
+		padding: 0;
 		position: absolute;
 		z-index: 9;
 		display: flex;
@@ -990,6 +1008,11 @@
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 		transform-origin: center;
+	}
+
+	.tui-cropper__image-hidden {
+		opacity: 0;
+		visibility: hidden;
 	}
 
 	.tui-cropper-canvas {

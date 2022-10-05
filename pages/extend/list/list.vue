@@ -90,6 +90,7 @@
 		</tui-list-view>
 
 		<tui-list-view title="消息列表">
+			
 			<tui-list-cell :lineLeft="false" @click="detail">
 				<view class="tui-item-box">
 					<view class="tui-msg-box">

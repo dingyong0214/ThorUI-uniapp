@@ -96,6 +96,9 @@ export default {
 				current: '', // 当前显示图片的http链接
 				urls: [e.url] // 需要预览的图片http链接列表
 			});
+			// #ifdef MP-BAIDU
+			console.log(`百度小程序previewImage Api不支持预览本地图片：${e.url}`)
+			// #endif
 		},
 		back() {
 			uni.navigateBack();

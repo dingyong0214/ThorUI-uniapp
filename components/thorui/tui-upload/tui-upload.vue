@@ -1,5 +1,5 @@
 <template>
-	<view class="tui-container">
+	<view class="tui-upload__container">
 		<view class="tui-upload-box">
 			<view class="tui-image-item" :style="{width:width+'rpx',height:height+'rpx'}"
 				v-for="(item,index) in imageList" :key="index">

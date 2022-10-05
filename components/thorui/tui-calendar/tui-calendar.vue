@@ -127,7 +127,7 @@
 </template>
 <script>
 	//easycom组件模式 无需手动引入
-	// import tuiButton from "../tui-button/tui-button"
+	// import tuiButton from "../tui-button/tui-button.vue"
 	import calendar from './tui-calendar.js';
 	export default {
 		name: 'tuiCalendar',

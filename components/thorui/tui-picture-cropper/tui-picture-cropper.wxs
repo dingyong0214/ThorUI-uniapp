@@ -436,7 +436,7 @@ function computeCutSize(ins) {
 
 function styleUpdate(ins) {
 	if (!ins) return;
-	var tcb = ins.selectComponent('.tui-cropper-box')
+	var tcb = ins.selectComponent('.tui-cropper-box');
 	var tcm = ins.selectComponent('.tui-content-middle')
 	var tct = ins.selectComponent('.tui-content-top')
 	var twb = ins.selectComponent('.tui-wxs-bg')

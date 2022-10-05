@@ -2,7 +2,7 @@
 	<view class="container">
 		<view class="header">
 			<view class="title">Image Cropper</view>
-			<view class="sub-title">图片裁剪（wxs）：可设置裁剪框宽高，边缘线颜色，锁定裁剪框大小，是否可触摸旋转等</view>
+			<view class="sub-title">图片裁剪：可设置裁剪框宽高，边缘线颜色，锁定裁剪框大小，是否可触摸旋转等</view>
 			<!-- #ifdef APP-VUE || H5 || MP-WEIXIN -->
 			<view class="tui-old-version" @tap="oldCropper">切换至旧版图片裁剪</view>
 			<!-- #endif -->

@@ -34,6 +34,14 @@
 			<tui-numberbox backgroundColor="rgba(0,0,0,0.5)" color="#fff" iconColor="rgba(0,0,0,0.5)" :value="value6" @change="change6"></tui-numberbox>
 		</view>
 		<view class="tui-number-box">
+			<view class="tui-title">调整样式</view>
+			<tui-numberbox backgroundColor="#fff" color="#333" iconBgColor="#FDCC13" iconColor="#333" radius="12rpx" :value="value8" @change="change8"></tui-numberbox>
+		</view>
+		<view class="tui-number-box">
+			<view class="tui-title">调整样式</view>
+			<tui-numberbox backgroundColor="#fff" color="#333" iconBgColor="#F8F9FA" iconColor="#333" :value="value9" @change="change9"></tui-numberbox>
+		</view>
+		<view class="tui-number-box">
 			<view class="tui-title"> 获取输入的值：{{value7}}</view>
 			<tui-numberbox :value="value7" @change="change7"></tui-numberbox>
 		</view>
@@ -52,7 +60,9 @@
 				value4: 1,
 				value5: 1,
 				value6: 1,
-				value7: 1
+				value7: 1,
+				value8:1,
+				value9:1
 			}
 		},
 		methods: {
@@ -77,6 +87,12 @@
 			},
 			change7: function(e) {
 				this.value7 = e.value
+			},
+			change8: function(e) {
+				this.value8 = e.value
+			},
+			change9: function(e) {
+				this.value9 = e.value
 			}
 		}
 	}

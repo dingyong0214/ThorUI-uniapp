@@ -221,10 +221,12 @@
 				clearInterval(this.countdown);
 				this.countdown = null;
 			},
-			endOfTime() {
+			endOfTime(isStop = false) {
 				this.ani = false;
 				this.clearTimer();
-				this.$emit('end', {});
+				if (!isStop) {
+					this.$emit('end', {});
+				}
 			},
 			doLoop: function() {
 				let seconds = Number(this.time || 0);

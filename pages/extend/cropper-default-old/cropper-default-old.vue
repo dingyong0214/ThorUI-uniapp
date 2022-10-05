@@ -26,11 +26,14 @@ export default {
 			this.imageUrl = this.src;
 		},
 		cropper(e) {
-			//裁剪完成后处理逻辑
+			//裁剪完成后处理逻辑，百度小程序不支持预览本地图片
 			uni.previewImage({
 				current: '', // 当前显示图片的http链接
 				urls: [e.url] // 需要预览的图片http链接列表
 			});
+			// #ifdef MP-BAIDU
+			console.log(`百度小程序previewImage Api不支持预览本地图片：${e.url}`)
+			// #endif
 		}
 	}
 };
