@@ -170,9 +170,9 @@
 				type: String,
 				default: ''
 			},
-			title:{
-				type:String,
-				default:'日期选择'
+			title: {
+				type: String,
+				default: '日期选择'
 			},
 			//显示圆角
 			radius: {
@@ -274,7 +274,7 @@
 			},
 			//初始化起始选中日期 格式： 2020-06-06 或 2020/06/06 【type=1 or 2】
 			initStartDate: {
-				type: [String,Array],
+				type: [String, Array],
 				default: ''
 			},
 			//初始化结束日期 格式： 2020-06-06 或 2020/06/06【type=2】
@@ -410,6 +410,13 @@
 				this.activeDate = this.today;
 				this.min = this.initDate(this.minDate);
 				this.max = this.initDate(this.maxDate || this.today);
+				if (this.openDisAbled(this.year, this.month, this.day)) {
+					this.year = this.min.year;
+					this.month = this.min.month;
+					this.day = this.min.day;
+					this.activeDate = `${this.min.year}-${this.min.month}-${this.min.day}`;
+					this.max = this.initDate(this.maxDate || this.minDate);
+				}
 				this.startDate = '';
 				this.startYear = 0;
 				this.startMonth = 0;
