@@ -1,7 +1,7 @@
 <template>
-	<text class="tui-icon"
+	<text class="tui-icon" :class="[customPrefix,customPrefix?name:'']"
 		:style="{ color: color || '#999', fontSize: size + unit, fontWeight: bold ? 'bold' : 'normal',margin:margin }"
-		@tap="handleClick">{{ icons[name] }}</text>
+		@tap="handleClick">{{ icons[name] || '' }}</text>
 
 </template>
 
@@ -19,6 +19,10 @@
 		emits: ['click'],
 		props: {
 			name: {
+				type: String,
+				default: ''
+			},
+			customPrefix: {
 				type: String,
 				default: ''
 			},
