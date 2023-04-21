@@ -1,6 +1,9 @@
 <template>
-	<view class="tui-list-view tui-view-class" :style="{backgroundColor:backgroundColor,marginTop:marginTop}">
-		<view class="tui-list-title" :style="{color:color,fontSize:size+'rpx',lineHeight:30+'rpx'}" v-if="title">{{title}}</view>
+	<view class="tui-list-view tui-view-class" :class="{'tui-radius':radius && radius!='0'}"
+		:style="{backgroundColor:backgroundColor,marginTop:marginTop,borderRadius:radius+'rpx'}">
+		<view class="tui-list-title" :style="{color:color,fontSize:size+'rpx',lineHeight:30+'rpx'}" v-if="title">
+			{{title}}
+		</view>
 		<view class="tui-list-content" :class="[unlined?'tui-border-'+unlined:'']">
 			<slot></slot>
 		</view>
@@ -15,16 +18,16 @@
 				type: String,
 				default: ''
 			},
-			color:{
+			color: {
 				type: String,
 				default: '#666'
 			},
 			//rpx
-			size:{
-				type:Number,
-				default:30
+			size: {
+				type: Number,
+				default: 30
 			},
-			backgroundColor:{
+			backgroundColor: {
 				type: String,
 				default: 'transparent'
 			},
@@ -32,9 +35,14 @@
 				type: String,
 				default: '' //top,bottom,all
 			},
-			marginTop:{
-				type:String,
-				default:'0'
+			marginTop: {
+				type: String,
+				default: '0'
+			},
+			//圆角值
+			radius: {
+				type: [Number, String],
+				default: 0
 			}
 		}
 	}
@@ -93,5 +101,9 @@
 
 	.tui-border-all::before {
 		border-top: 0;
+	}
+
+	.tui-radius {
+		overflow: hidden;
 	}
 </style>

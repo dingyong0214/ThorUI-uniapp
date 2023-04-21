@@ -229,7 +229,15 @@
 		margin: 0 6rpx;
 		font-weight: 400;
 		padding: 0;
+		border-width: 0;
 	}
+	/* #ifdef H5 */
+	::-webkit-inner-spin-button,
+	::-webkit-outer-spin-button{
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	/* #endif */
 
 	.tui-disabled {
 		opacity: .5;
