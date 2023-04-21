@@ -11,7 +11,7 @@
 		:style="{ width: width, height: height, lineHeight: height, fontSize: size + 'rpx', margin: margin }"
 		:loading="loading" :form-type="formType" :open-type="openType" @getuserinfo="bindgetuserinfo"
 		@getphonenumber="bindgetphonenumber" @contact="bindcontact" @error="binderror" :disabled="disabled"
-		@tap.stop="handleClick">
+		@tap="handleClick">
 		<slot></slot>
 	</button>
 </template>

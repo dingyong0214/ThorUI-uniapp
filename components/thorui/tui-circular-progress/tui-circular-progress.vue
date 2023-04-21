@@ -247,7 +247,7 @@
 				}
 				setTimeout(() => {
 					this.startPercentage = startPercentage;
-					if (startPercentage == this.percentage) {
+					if (startPercentage >= this.percentage) {
 						this.$emit('end', {
 							canvasId: this.progressCanvasId,
 							percentage: startPercentage
