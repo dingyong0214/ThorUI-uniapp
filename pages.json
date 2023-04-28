@@ -125,7 +125,7 @@
 			}
 		}
 	}, {
-		"path": "pages/index/color/color", 
+		"path": "pages/index/color/color",
 		"style": {
 			"navigationBarBackgroundColor": "#FFFFFF",
 			"navigationBarTextStyle": "black",
@@ -1203,6 +1203,47 @@
 					"disableScroll": true
 				}
 			}
+		}, {
+			"path": "richText/richText",
+			"style": {
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "富文本解析",
+				"app-plus": {
+					"bounce": "vertical"
+				}
+			}
+
+		}, {
+			"path": "section/section",
+			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
+				"navigationBarTitleText": "标题栏",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "whiteSpace/whiteSpace",
+			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
+				"navigationBarTitleText": "上下留白",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "wingBlank/wingBlank",
+			"style": {
+				// #ifdef H5
+				"titleNView": false,
+				// #endif
+				"navigationBarTitleText": "左右留白",
+				"enablePullDownRefresh": false
+			}
+
 		}]
 	}, {
 		"root": "pages/template/",

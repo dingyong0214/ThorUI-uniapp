@@ -91,6 +91,24 @@
 				type: Number,
 				default: 2050
 			},
+			hoursData: {
+				type: Array,
+				default () {
+					return []
+				}
+			},
+			minutesData: {
+				type: Array,
+				default () {
+					return []
+				}
+			},
+			secondsData: {
+				type: Array,
+				default () {
+					return []
+				}
+			},
 			//显示标题
 			title: {
 				type: String,
@@ -298,53 +316,82 @@
 			},
 			setYears() {
 				this.years = this.generateArray(this.startYear, this.endYear);
-				setTimeout(() => {
-					this.$set(this.value, 0, this.getIndex(this.years, this.year));
-				}, 8);
+				this.$nextTick(() => {
+					setTimeout(() => {
+						this.$set(this.value, 0, this.getIndex(this.years, this.year));
+					}, 8);
+				})
 			},
 			setMonths() {
 				this.months = this.generateArray(1, 12);
-				setTimeout(() => {
-					this.$set(this.value, 1, this.getIndex(this.months, this.month));
-				}, 8);
+				this.$nextTick(() => {
+					setTimeout(() => {
+						this.$set(this.value, 1, this.getIndex(this.months, this.month));
+					}, 8);
+				})
 			},
 			setDays() {
 				if (this.type == 3 || this.type == 4) return;
 				let totalDays = new Date(this.year, this.month, 0).getDate();
 				totalDays = !totalDays || totalDays < 1 ? 1 : totalDays
 				this.days = this.generateArray(1, totalDays);
-				setTimeout(() => {
-					this.$set(this.value, 2, this.getIndex(this.days, this.day));
-				}, 8);
+				this.$nextTick(() => {
+					setTimeout(() => {
+						this.$set(this.value, 2, this.getIndex(this.days, this.day));
+					}, 8);
+				})
 			},
 			setHours() {
-				this.hours = this.generateArray(0, 23);
-				setTimeout(() => {
-					let index = 0
-					if (this.type == 8) {
-						index = this.value.length - 1
-					} else {
-						index = this.type == 5 || this.type == 7 ? this.value.length - 3 : this.value.length - 2;
-					}
-					this.$set(this.value, index, this.getIndex(this.hours, this.hour));
-				}, 8);
+				if (this.hoursData && this.hoursData.length > 0) {
+					this.hours = this.hoursData;
+				} else {
+					this.hours = this.generateArray(0, 23);
+				}
+				this.$nextTick(() => {
+					setTimeout(() => {
+						let index = 0
+						if (this.type == 8) {
+							index = this.value.length - 1
+						} else {
+							index = this.type == 5 || this.type == 7 ? this.value.length - 3 : this.value
+								.length - 2;
+						}
+						this.$set(this.value, index, this.getIndex(this.hours, this.hour));
+					}, 8);
+				})
 			},
 			setMinutes() {
-				this.minutes = this.generateArray(0, 59);
-				setTimeout(() => {
-					let index = this.type > 4 ? this.value.length - 2 : this.value.length - 1;
-					this.$set(this.value, index, this.getIndex(this.minutes, this.minute));
-				}, 8);
+				if (this.minutesData && this.minutesData.length > 0) {
+					this.minutes = this.minutesData
+				} else {
+					this.minutes = this.generateArray(0, 59);
+				}
+				this.$nextTick(() => {
+					setTimeout(() => {
+						let index = this.type > 4 ? this.value.length - 2 : this.value.length - 1;
+						this.$set(this.value, index, this.getIndex(this.minutes, this.minute));
+					}, 8);
+				})
 			},
 			setSeconds() {
-				this.seconds = this.generateArray(0, 59);
-				setTimeout(() => {
-					this.$set(this.value, this.value.length - 1, this.getIndex(this.seconds, this.second));
-				}, 8);
+				if (this.secondsData && this.secondsData.length > 0) {
+					this.seconds = this.secondsData;
+				} else {
+					this.seconds = this.generateArray(0, 59);
+				}
+				this.$nextTick(() => {
+					setTimeout(() => {
+						this.$set(this.value, this.value.length - 1, this.getIndex(this.seconds, this
+							.second));
+					}, 8);
+				})
 			},
 			show() {
 				setTimeout(() => {
 					this.isShow = true;
+					setTimeout(() => {
+						this.value = [...this.value]
+					}, 50)
 				}, 50);
 			},
 			hide() {
@@ -356,7 +403,6 @@
 				this.hide()
 			},
 			change(e) {
-				if(!this.isShow) return;
 				this.value = e.detail.value;
 				switch (this.type) {
 					case 1:

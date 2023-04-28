@@ -8,7 +8,10 @@
 				@tap="tabbarSwitch(index, item.hump, item.pagePath, item.verify)">
 				<view class="tui-icon-box" :class="{ 'tui-tabbar-hump': item.hump }">
 					<image :src="current == index ? item.selectedIconPath : item.iconPath"
-						:class="[item.hump ? '' : 'tui-tabbar-icon']"></image>
+						:class="[item.hump ? '' : 'tui-tabbar-icon']" v-if="!item.name"></image>
+					<tui-icon :name="current===index?item.activeName:item.name" :customPrefix="item.customPrefix || ''"
+						:size="item.iconSize || iconSize" unit="rpx" :color="current == index?selectedColor:color"
+						v-else></tui-icon>
 					<view :class="[item.isDot ? 'tui-badge-dot' : 'tui-badge']"
 						:style="{ color: badgeColor, backgroundColor: badgeBgColor }" v-if="item.num">
 						{{ item.isDot ? '' : item.num }}
@@ -24,9 +27,13 @@
 </template>
 
 <script>
+	// import tuiIcon from '@/components/thorui/tui-icon/tui-icon.vue'
 	export default {
 		name: 'tuiTabbar',
 		emits: ['click'],
+		// components:{
+		// 	tuiIcon
+		// },
 		props: {
 			//当前索引
 			current: {
@@ -53,20 +60,15 @@
 				type: Boolean,
 				default: false
 			},
+			iconSize: {
+				type: [Number, String],
+				default: 52
+			},
 			//固定在底部
 			isFixed: {
 				type: Boolean,
 				default: true
 			},
-			//tabbar
-			// "pagePath": "/pages/my/my", 页面路径
-			// "text": "thor", 标题
-			// "iconPath": "thor_gray.png", 图标地址
-			// "selectedIconPath": "thor_active.png", 选中图标地址
-			// "hump": true, 是否为凸起图标
-			// "num": 2,   角标数量
-			// "isDot": true,  角标是否为圆点
-			// "verify": true  是否验证  （如登录）
 			tabBar: {
 				type: Array,
 				default () {
@@ -97,9 +99,6 @@
 				type: [Number, String],
 				default: 9999
 			}
-		},
-		watch: {
-			current() {}
 		},
 		data() {
 			return {};
@@ -148,7 +147,7 @@
 		width: 100%;
 		border-top: 1px solid #b2b2b2;
 		position: absolute;
-		top: 0;
+		top: -1rpx;
 		left: 0;
 		transform: scaleY(0.5) translateZ(0);
 		transform-origin: 0 0;

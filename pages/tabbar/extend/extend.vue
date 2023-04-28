@@ -394,6 +394,27 @@
 						bg: this.getRandom()
 					},
 					{
+						name: '标题栏',
+						desc: '标题栏组件，主要用于文章、列表详情等标题展示。',
+						page: '/pages/extend/section/section',
+						like: false,
+						bg: this.getRandom()
+					},
+					{
+						name: '上下留白',
+						desc: '布局组件，主要用于设置内容之间间距使用。',
+						page: '/pages/extend/whiteSpace/whiteSpace',
+						like: false,
+						bg: this.getRandom()
+					},
+					{
+						name: '左右留白',
+						desc: '布局组件，主要用于设置内容两侧留白的间距使用。',
+						page: '/pages/extend/wingBlank/wingBlank',
+						like: false,
+						bg: this.getRandom()
+					},
+					{
 						name: '网络请求',
 						desc: 'Network request，发起网络请求，简单的封装与使用 。',
 						page: '/pages/extend/request/request',
@@ -408,16 +429,9 @@
 						bg: this.getRandom()
 					},
 					{
-						name: '新闻模板',
-						desc: '新闻模板包含：新闻列表，新闻详情，评论等。',
-						page: '/pages/template/news/index/index',
-						like: false,
-						bg: this.getRandom()
-					},
-					{
 						name: '聊天模板',
 						desc: '聊天模板包含：消息列表，好友列表，聊天界面等。',
-						page: '/pages/template/chat/msgList/msgList',
+						page: '/pages/extend/template/template',
 						like: false,
 						bg: this.getRandom()
 					},

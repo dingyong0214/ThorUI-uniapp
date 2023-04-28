@@ -9,9 +9,9 @@
 			width==='100%' || !width || width===true?'tui-btn__flex-1':''
 		]" :hover-class="getHoverClass(disabled, type, plain)"
 		:style="{ width: width, height: height, lineHeight: height, fontSize: size + 'rpx', margin: margin }"
-		:loading="loading" :form-type="formType" :open-type="openType" @getuserinfo="bindgetuserinfo"
-		@getphonenumber="bindgetphonenumber" @contact="bindcontact" @error="binderror" :disabled="disabled"
-		@tap.stop="handleClick">
+		:loading="loading" :form-type="formType" :open-type="openType" :app-parameter="appParameter"
+		@getuserinfo="bindgetuserinfo" @getphonenumber="bindgetphonenumber" @contact="bindcontact" @error="binderror"
+		@chooseavatar="bindchooseavatar" @launchapp="bindlaunchapp" :disabled="disabled" @tap="handleClick">
 		<slot></slot>
 	</button>
 </template>
@@ -94,6 +94,10 @@
 				type: String,
 				default: ''
 			},
+			appParameter: {
+				type: String,
+				default: ''
+			},
 			index: {
 				type: [Number, String],
 				default: 0
@@ -142,6 +146,16 @@
 				detail = {}
 			} = {}) {
 				this.$emit('error', detail);
+			},
+			bindchooseavatar({
+				detail = {}
+			} = {}) {
+				this.$emit('chooseavatar', detail);
+			},
+			bindlaunchapp({
+				detail = {}
+			} = {}) {
+				this.$emit('launchapp', detail);
 			},
 			getShadowClass: function(type, shadow, plain) {
 				let className = '';

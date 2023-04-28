@@ -2,9 +2,9 @@
 	<view class="tui-circular-container" :style="{ width: diam + 'px', height: (height || diam) + 'px' }">
 		<!-- #ifndef MP-ALIPAY -->
 		<canvas class="tui-circular-default" :canvas-id="defaultCanvasId" :id="defaultCanvasId"
-			:style="{ width: diam + 'px', height: (height || diam) + 'px' }" v-if="defaultShow"></canvas>
+			:style="{ width: diam + 'px', height: (height || diam) + 'px' }" v-if="defaultShow && defaultCanvasId"></canvas>
 		<canvas class="tui-circular-progress" :canvas-id="progressCanvasId" :id="progressCanvasId"
-			:style="{ width: diam + 'px', height: (height || diam) + 'px' }"></canvas>
+			:style="{ width: diam + 'px', height: (height || diam) + 'px' }" v-if="progressCanvasId"></canvas>
 		<!-- #endif -->
 
 		<!-- #ifdef MP-ALIPAY -->
@@ -247,7 +247,7 @@
 				}
 				setTimeout(() => {
 					this.startPercentage = startPercentage;
-					if (startPercentage == this.percentage) {
+					if (startPercentage >= this.percentage) {
 						this.$emit('end', {
 							canvasId: this.progressCanvasId,
 							percentage: startPercentage
