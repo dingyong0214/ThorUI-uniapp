@@ -165,7 +165,7 @@
 			</view>
 			<view class="tui-operation-right tui-center  tui-col-5">
 				<view class="tui-flex-1 tui-center">
-					<tui-button type="danger" shape="circle" :size="28" width="80%" height="72rpx">立即购买</tui-button>
+					<tui-button type="danger" shape="circle" :size="28" width="240rpx" height="72rpx">立即购买</tui-button>
 				</view>
 			</view>
 		</view>
@@ -186,10 +186,10 @@
 			</view>
 			<view class="tui-operation-right tui-center  tui-col-7">
 				<view class="tui-flex-1">
-					<tui-button type="danger" shape="circle" :size="28" height="72rpx" width="90%">加入购物车</tui-button>
+					<tui-button type="danger" shape="circle" :size="28" height="72rpx" width="200rpx">加入购物车</tui-button>
 				</view>
 				<view class="tui-flex-1">
-					<tui-button type="warning" shape="circle" :size="28" height="72rpx" width="90%">立即购买</tui-button>
+					<tui-button type="warning" shape="circle" :size="28" height="72rpx" width="200rpx">立即购买</tui-button>
 				</view>
 			</view>
 		</view>
@@ -214,10 +214,10 @@
 			</view>
 			<view class="tui-operation-right tui-center tui-col-7 ">
 				<view class="tui-flex-1">
-					<tui-button type="danger" shape="circle" :size="28" height="72rpx" width="90%">加入购物车</tui-button>
+					<tui-button type="danger" shape="circle" :size="28" height="72rpx" width="200rpx">加入购物车</tui-button>
 				</view>
 				<view class="tui-flex-1">
-					<tui-button type="warning" shape="circle" :size="28" height="72rpx" width="90%">立即购买</tui-button>
+					<tui-button type="warning" shape="circle" :size="28" height="72rpx" width="200rpx">立即购买</tui-button>
 				</view>
 			</view>
 		</view>
