@@ -1,16 +1,14 @@
 <template>
 	<view class="tui-list-class tui-list-cell" :class="[
-			arrow ? 'tui-cell-arrow' : '',
-			arrow && arrowRight ? '' : 'tui-arrow-right',
-			unlined ? 'tui-cell-unlined' : '',
-			lineLeft ? 'tui-line-left' : '',
-			lineRight ? 'tui-line-right' : '',
-			arrow && arrowColor ? 'tui-arrow-' + arrowColor : '',
-			radius && radius!='0' ? 'tui-radius' : ''
-		]" :hover-class="hover ? 'tui-cell-hover' : ''"
-		:style="{ backgroundColor: backgroundColor, fontSize: size + 'rpx', color: color, padding: padding,borderRadius:radius+'rpx' }"
-		:hover-stay-time="150" @tap="handleClick">
+			radius && radius!='0' ? 'tui-radius' : '',
+			hover ? 'tui-cell-hover' : ''
+		]" :style="{ backgroundColor: backgroundColor, fontSize: getSize + 'rpx', color: getColor, padding: getPadding,borderRadius:radius+'rpx' }"
+		@tap="handleClick">
 		<slot></slot>
+		<view class="tui-cell__line"
+			:style="{borderBottomColor:getLineColor,left:getLineLeft+'rpx',right:lineRight+'rpx'}" v-if="!unlined">
+		</view>
+		<view class="tui-cell__arrow" :style="{borderColor:getArrowColor,right:arrowRight+'rpx'}" v-if="arrow"></view>
 	</view>
 </template>
 
@@ -18,13 +16,18 @@
 	export default {
 		name: 'tuiListCell',
 		emits: ['click'],
+		// #ifdef MP-WEIXIN
+		options: {
+			virtualHost: true
+		},
+		// #endif
 		props: {
 			//是否有箭头
 			arrow: {
 				type: Boolean,
 				default: false
 			},
-			//箭头颜色 传值： white，gray,warning,danger
+			//V2.3.0+
 			arrowColor: {
 				type: String,
 				default: ''
@@ -39,19 +42,24 @@
 				type: Boolean,
 				default: false
 			},
-			//线条是否有左偏移距离
-			lineLeft: {
-				type: Boolean,
-				default: true
+			//V2.3.0+
+			lineColor: {
+				type: String,
+				default: ''
 			},
-			//线条是否有右偏移距离
+			//线条左偏移距离
+			lineLeft: {
+				type: [Number, String],
+				default: -1
+			},
+			//线条右偏移距离
 			lineRight: {
-				type: Boolean,
-				default: false
+				type: [Number, String],
+				default: 0
 			},
 			padding: {
 				type: String,
-				default: '26rpx 30rpx'
+				default: ''
 			},
 			//背景颜色
 			backgroundColor: {
@@ -61,26 +69,50 @@
 			//字体大小
 			size: {
 				type: Number,
-				default: 28
+				default: 0
 			},
 			//字体颜色
 			color: {
 				type: String,
-				default: '#333'
+				default: ''
 			},
 			//圆角值
 			radius: {
 				type: [Number, String],
 				default: 0
 			},
-			//箭头是否有偏移距离
+			//箭头偏移距离
 			arrowRight: {
-				type: Boolean,
-				default: true
+				type: [Number, String],
+				default: 30
 			},
 			index: {
 				type: Number,
 				default: 0
+			}
+		},
+		computed: {
+			getArrowColor() {
+				return this.arrowColor || (uni && uni.$tui && uni.$tui.tuiListCell.arrowColor) || '#c0c0c0';
+			},
+			getLineColor() {
+				return this.lineColor || (uni && uni.$tui && uni.$tui.tuiListCell.lineColor) || '#eaeef1';
+			},
+			getLineLeft() {
+				let left = this.lineLeft;
+				if (left === -1) {
+					left = (uni && uni.$tui && uni.$tui.tuiListCell.lineLeft);
+				}
+				return left === undefined || left === null ? 30 : left;
+			},
+			getPadding() {
+				return this.padding || (uni && uni.$tui && uni.$tui.tuiListCell.padding) || '26rpx 30rpx';
+			},
+			getColor() {
+				return this.color || (uni && uni.$tui && uni.$tui.tuiListCell.color) || '#333';
+			},
+			getSize() {
+				return this.size || (uni && uni.$tui && uni.$tui.tuiListCell.size) || 28;
 			}
 		},
 		methods: {
@@ -101,23 +133,14 @@
 	}
 
 	.tui-radius {
-		border-radius: 6rpx;
 		overflow: hidden;
 	}
 
-	.tui-cell-hover {
-		background-color: #f1f1f1 !important;
+	.tui-cell-hover:active {
+		background-color: rgba(0, 0, 0, 0.1) !important;
 	}
 
-	/* #ifdef MP-BAIDU */
-	.tui-list-cell:active {
-		background-color: #f1f1f1 !important;
-	}
-
-	/* #endif */
-
-	.tui-list-cell::after {
-		content: '';
+	.tui-cell__line {
 		position: absolute;
 		border-bottom: 1px solid #eaeef1;
 		-webkit-transform: scaleY(0.5) translateZ(0);
@@ -129,20 +152,7 @@
 		pointer-events: none;
 	}
 
-	.tui-line-left::after {
-		left: 30rpx !important;
-	}
-
-	.tui-line-right::after {
-		right: 30rpx !important;
-	}
-
-	.tui-cell-unlined::after {
-		border-bottom: 0 !important;
-	}
-
-	.tui-cell-arrow::before {
-		content: ' ';
+	.tui-cell__arrow {
 		height: 10px;
 		width: 10px;
 		border-width: 2px 2px 0 0;
@@ -154,29 +164,5 @@
 		top: 50%;
 		margin-top: -6px;
 		right: 30rpx;
-	}
-
-	.tui-arrow-right::before {
-		right: 0 !important;
-	}
-
-	.tui-arrow-gray::before {
-		border-color: #666666 !important;
-	}
-
-	.tui-arrow-white::before {
-		border-color: #ffffff !important;
-	}
-
-	.tui-arrow-warning::before {
-		border-color: #ff7900 !important;
-	}
-
-	.tui-arrow-success::before {
-		border-color: #19be6b !important;
-	}
-
-	.tui-arrow-danger::before {
-		border-color: #eb0909 !important;
 	}
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<view class="tui-loadmore">
-		<view :class="['tui-loading-'+index, (index==3 && type)?'tui-loading-'+type:'']"></view>
+		<view :class="['tui-loading-'+index, (index==3 && type)?'tui-loading-'+type:'']" :style="{borderLeftColor:getBorderColor}"></view>
 		<view class="tui-loadmore-tips">{{text}}</view>
 	</view>
 </template>
@@ -16,13 +16,28 @@
 			},
 			//loading 样式 ：1,2,3
 			index: {
-				type: Number,
+				type: [Number, String],
 				default: 1
 			},
 			//颜色设置，只有index=3时生效：primary，red，orange，green
 			type: {
 				type: String,
 				default: ""
+			}
+		},
+		computed:{
+			getBorderColor() {
+				let color = 'transparent'
+				if (this.index == 3 && this.type) {
+					const global = uni && uni.$tui && uni.$tui.color;
+					color = {
+						'primary': (global && global.primary) || '#5677fc',
+						'red': (global && global.danger) || '#EB0909',
+						'orange': (global && global.warning) || '#ff7900',
+						'green': (global && global.success) || '#07c160'
+					} [this.type]
+				}
+				return color
 			}
 		}
 	}
@@ -86,7 +101,7 @@
 		margin: 0 6px;
 		display: inline-block;
 		vertical-align: middle;
-		clip-path: polygon(0% 0%,100% 0%,100% 30%,0% 30%);
+		clip-path: polygon(0% 0%, 100% 0%, 100% 30%, 0% 30%);
 		animation: rotate 1s linear infinite;
 	}
 

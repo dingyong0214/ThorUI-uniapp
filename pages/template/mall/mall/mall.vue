@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<!--tabbar-->
-		<view>商城模板为会员内容！</view>
+		<view>该模板为会员内容！</view>
 	</view>
 </template>
 <script>

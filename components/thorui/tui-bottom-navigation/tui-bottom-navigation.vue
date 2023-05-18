@@ -17,7 +17,7 @@
 					<text
 						class="tui-navigation-text"
 						:style="{
-							color: isDarkMode ? '#fff' : current == index && item.type == 1 ? selectedColor : item.color || color,
+							color: isDarkMode ? '#fff' : current == index && item.type == 1 ? getSelectColor : item.color || color,
 							fontWeight: current == index && bold && item.type == 1 ? 'bold' : 'normal',
 							fontSize: fontSize
 						}"
@@ -104,7 +104,7 @@ export default {
 		//选中颜色
 		selectedColor: {
 			type: String,
-			default: '#5677fc'
+			default: ''
 		},
 		fontSize: {
 			type: String,
@@ -165,6 +165,11 @@ export default {
 		return {
 			showMenuIndex: -1 //显示的菜单index
 		};
+	},
+	computed:{
+		getSelectColor(){
+			return this.selectedColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+		}
 	},
 	methods: {
 		getIcon: function(current, index, item) {

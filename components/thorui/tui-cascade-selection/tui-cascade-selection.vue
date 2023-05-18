@@ -5,11 +5,11 @@
 			:class="{ 'tui-btm-none': !headerLine }">
 			<view class="tui-selection-header" :style="{ height: tabsHeight, backgroundColor: backgroundColor }">
 				<view class="tui-header-item" :class="{ 'tui-font-bold': idx === currentTab && bold }"
-					:style="{ color: idx === currentTab ? activeColor : color, fontSize: size + 'rpx' }"
+					:style="{ color: idx === currentTab ? getActiveColor : color, fontSize: size + 'rpx' }"
 					:id="`id_${idx}`" @tap.stop="swichNav" :data-current="idx" v-for="(item, idx) in selectedArr"
 					:key="idx">
 					{{ item.text }}
-					<view class="tui-active-line" :style="{ backgroundColor: lineColor }"
+					<view class="tui-active-line" :style="{ backgroundColor: getLineColor }"
 						v-if="idx === currentTab && showLine"></view>
 				</view>
 			</view>
@@ -23,7 +23,7 @@
 					<view class="tui-selection-cell" :style="{ padding: padding, backgroundColor: backgroundColor }"
 						:id="`id_${subIndex}`" v-for="(subItem, subIndex) in item.list" :key="subIndex"
 						@tap.stop="change(index, subIndex, subItem)">
-						<icon type="success_no_circle" v-if="item.index === subIndex" :color="checkMarkColor"
+						<icon type="success_no_circle" v-if="item.index === subIndex" :color="getCkMarkColor"
 							:size="checkMarkSize" class="tui-icon-success"></icon>
 						<image :src="subItem.src" v-if="subItem.src" class="tui-cell-img"
 							:style="{ width: imgWidth, height: imgHeight, borderRadius: radius }"></image>
@@ -82,7 +82,7 @@
 			   */
 			defaultItemList: {
 				type: Array,
-				default(){
+				default () {
 					return []
 				}
 			},
@@ -123,7 +123,7 @@
 			//选中颜色
 			activeColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//选中后文字加粗
 			bold: {
@@ -138,7 +138,7 @@
 			//线条颜色
 			lineColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//icon 大小
 			checkMarkSize: {
@@ -148,7 +148,7 @@
 			//icon 颜色
 			checkMarkColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//item 图片宽度
 			imgWidth: {
@@ -235,6 +235,17 @@
 			reset: {
 				type: [Number, String],
 				default: 0
+			}
+		},
+		computed: {
+			getActiveColor() {
+				return this.activeColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getLineColor(){
+				return this.lineColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getCkMarkColor(){
+				return this.checkMarkColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},
 		watch: {

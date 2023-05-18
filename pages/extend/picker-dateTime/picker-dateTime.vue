@@ -131,7 +131,9 @@
 					default:
 						break;
 				}
-				this.$refs.dateTime.show();
+				setTimeout(()=>{
+					this.$refs.dateTime.show();
+				},50)
 			},
 			change: function(e) {
 				console.log(e);

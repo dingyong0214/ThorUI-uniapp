@@ -1,11 +1,13 @@
 <template>
 	<view class="tui-upload__container">
 		<view class="tui-upload-box">
-			<view class="tui-image-item" :style="{width:width+'rpx',height:height+'rpx'}"
+			<view class="tui-image-item" :style="{width:width+'rpx',height:height+'rpx',borderRadius:radius+'rpx'}"
 				v-for="(item,index) in imageList" :key="index">
-				<image :src="item" class="tui-item-img" :style="{width:width+'rpx',height:height+'rpx'}"
+				<image :src="item" class="tui-item-img"
+					:style="{width:width+'rpx',height:height+'rpx',borderRadius:radius+'rpx'}"
 					@tap.stop="previewImage(index)" mode="aspectFill"></image>
-				<view v-if="!forbidDel" class="tui-img-del" @tap.stop="delImage(index)"></view>
+				<view v-if="!forbidDel" class="tui-img-del" :style="{background:getDelColor}" @tap.stop="delImage(index)">
+				</view>
 				<view v-if="statusArr[index]!=1" class="tui-upload-mask">
 					<view class="tui-upload-loading" v-if="statusArr[index]==2"></view>
 					<text class="tui-tips">{{statusArr[index]==2?'上传中...':'上传失败'}}</text>
@@ -13,9 +15,13 @@
 						hover-class="tui-btn-hover" :hover-stay-time="150">重新上传</view>
 				</view>
 			</view>
-			<view v-if="isShowAdd" class="tui-upload-add" :style="{width:width+'rpx',height:height+'rpx'}"
+			<view v-if="isShowAdd" class="tui-upload-add"
+				:class="[borderColor!=='transparent'?'tui-upload__border':'tui-upload__unborder']"
+				:style="{width:width+'rpx',height:height+'rpx',background:background,borderRadius:radius+'rpx',borderColor:borderColor,borderStyle:borderSytle}"
 				@tap="chooseImage">
-				<view class="tui-upload-icon tui-icon-plus"></view>
+				<slot>
+					<view class="tui-upload-icon tui-icon-plus" :style="{color:addColor,fontSize:addSize+'rpx'}"></view>
+				</slot>
 			</view>
 		</view>
 	</view>
@@ -43,6 +49,32 @@
 					return []
 				}
 			},
+			//2.3.0+
+			radius: {
+				type: [Number, String],
+				default: 0
+			},
+			//2.3.0+
+			background: {
+				type: String,
+				default: '#F7F7F7'
+			},
+			//2.3.0+
+			borderColor: {
+				type: String,
+				default: 'transparent'
+			},
+			//2.3.0+
+			//solid、dashed、dotted
+			borderSytle: {
+				type: String,
+				default: 'dashed'
+			},
+			//2.3.0+
+			delColor: {
+				type: String,
+				default: ''
+			},
 			//删除图片前是否弹框确认
 			delConfirm: {
 				type: Boolean,
@@ -52,6 +84,16 @@
 			forbidDel: {
 				type: Boolean,
 				default: false
+			},
+			//2.3.0+
+			addColor: {
+				type: String,
+				default: '#888'
+			},
+			//2.3.0+
+			addSize: {
+				type: [Number, String],
+				default: 68
 			},
 			//禁用添加
 			forbidAdd: {
@@ -144,6 +186,9 @@
 					isShow = false;
 				}
 				return isShow
+			},
+			getDelColor(){
+				return this.delColor || (uni && uni.$tui && uni.$tui.color.danger) || '#EB0909';
 			}
 		},
 		methods: {
@@ -394,14 +439,24 @@
 	}
 
 	.tui-upload-add {
-		font-size: 68rpx;
 		font-weight: 100;
-		color: #888;
-		background-color: #F7F7F7;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding: 0;
+		overflow: hidden;
+		box-sizing: border-box;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
+	}
+
+	.tui-upload__unborder {
+		border-width: 0;
+	}
+
+	.tui-upload__border {
+		border-width: 1px;
 	}
 
 	.tui-image-item {
@@ -424,11 +479,13 @@
 		position: absolute;
 		right: -12rpx;
 		top: -12rpx;
-		background-color: #EB0909;
 		border-radius: 50%;
 		color: white;
 		font-size: 34rpx;
-		z-index: 200;
+		z-index: 5;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
 	}
 
 	.tui-img-del::before {
@@ -454,6 +511,7 @@
 		padding: 40rpx 0;
 		box-sizing: border-box;
 		background-color: rgba(0, 0, 0, 0.6);
+		z-index: 3;
 	}
 
 	.tui-upload-loading {

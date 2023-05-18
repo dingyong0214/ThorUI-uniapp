@@ -2,7 +2,8 @@
 	<view class="tui-circular-container" :style="{ width: diam + 'px', height: (height || diam) + 'px' }">
 		<!-- #ifndef MP-ALIPAY -->
 		<canvas class="tui-circular-default" :canvas-id="defaultCanvasId" :id="defaultCanvasId"
-			:style="{ width: diam + 'px', height: (height || diam) + 'px' }" v-if="defaultShow && defaultCanvasId"></canvas>
+			:style="{ width: diam + 'px', height: (height || diam) + 'px' }"
+			v-if="defaultShow && defaultCanvasId"></canvas>
 		<canvas class="tui-circular-progress" :canvas-id="progressCanvasId" :id="progressCanvasId"
 			:style="{ width: diam + 'px', height: (height || diam) + 'px' }" v-if="progressCanvasId"></canvas>
 		<!-- #endif -->
@@ -59,7 +60,7 @@
 			//圆环进度字体颜色
 			fontColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//是否显示进度文字
 			fontShow: {
@@ -87,7 +88,7 @@
 			//进度条颜色
 			progressColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//进度条渐变颜色[结合progressColor使用，默认为空]
 			gradualColor: {
@@ -193,15 +194,16 @@
 					// #ifdef MP-ALIPAY
 					diam = diam * 4
 					// #endif
+					const progressColor = this.progressColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 					gradient = ctx.createLinearGradient(0, 0, diam, 0);
-					gradient.addColorStop('0', this.progressColor);
+					gradient.addColorStop('0', progressColor);
 					if (this.gradualColor) {
 						gradient.addColorStop('1', this.gradualColor);
 					}
 					// #ifdef APP-PLUS || MP
 					const res = uni.getSystemInfoSync();
 					if (!this.gradualColor && res.platform.toLocaleLowerCase() == 'android') {
-						gradient.addColorStop('1', this.progressColor);
+						gradient.addColorStop('1', progressColor);
 					}
 					// #endif
 					this.progressContext = ctx;
@@ -224,7 +226,8 @@
 					fontSize = fontSize * 4
 					// #endif
 					ctx.setFontSize(fontSize);
-					ctx.setFillStyle(this.fontColor);
+					const fontColor = this.fontColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+					ctx.setFillStyle(fontColor);
 					ctx.setTextAlign('center');
 					ctx.setTextBaseline('middle');
 					let percentage = this.percentText;

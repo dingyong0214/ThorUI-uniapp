@@ -10,15 +10,15 @@
 					<image :src="current == index ? item.selectedIconPath : item.iconPath"
 						:class="[item.hump ? '' : 'tui-tabbar-icon']" v-if="!item.name"></image>
 					<tui-icon :name="current===index?item.activeName:item.name" :customPrefix="item.customPrefix || ''"
-						:size="item.iconSize || iconSize" unit="rpx" :color="current == index?selectedColor:color"
+						:size="item.iconSize || iconSize" unit="rpx" :color="current == index?getActiveColor:color"
 						v-else></tui-icon>
 					<view :class="[item.isDot ? 'tui-badge-dot' : 'tui-badge']"
-						:style="{ color: badgeColor, backgroundColor: badgeBgColor }" v-if="item.num">
+						:style="{ color: badgeColor, backgroundColor: getBadgeBgColor }" v-if="item.num">
 						{{ item.isDot ? '' : item.num }}
 					</view>
 				</view>
 				<view class="tui-text-scale" :class="{ 'tui-text-hump': item.hump }"
-					:style="{ color: current == index ? selectedColor : color }">{{ item.text }}</view>
+					:style="{ color: current == index ? getActiveColor : color }">{{ item.text }}</view>
 			</view>
 		</block>
 		<view :style="{ background: backgroundColor }" :class="{ 'tui-hump-box': hump }"
@@ -48,7 +48,7 @@
 			//字体选中颜色
 			selectedColor: {
 				type: String,
-				default: '#5677FC'
+				default: ''
 			},
 			//背景颜色
 			backgroundColor: {
@@ -83,7 +83,7 @@
 			//角标背景颜色
 			badgeBgColor: {
 				type: String,
-				default: '#F74D54'
+				default: ''
 			},
 			unlined: {
 				type: Boolean,
@@ -102,6 +102,14 @@
 		},
 		data() {
 			return {};
+		},
+		computed:{
+			getActiveColor(){
+				return this.selectedColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getBadgeBgColor(){
+				return this.badgeBgColor || (uni && uni.$tui && uni.$tui.color.pink) || '#f74d54';
+			}
 		},
 		methods: {
 			tabbarSwitch(index, hump, pagePath, verify) {

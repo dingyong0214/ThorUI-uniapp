@@ -194,15 +194,15 @@
 							},
 							{
 								name: '新闻模板',
-								page: '/pages/template/news/index/index'
+								page: '/pages/template/mall/mall/mall'
 							},
 							{
 								name: '聊天模板',
-								page: '/pages/template/chat/msgList/msgList'
+								page: '/pages/template/mall/mall/mall'
 							},
 							{
 								name: '登录模板',
-								page: '/pages/template/login/login/login'
+								page: '/pages/template/mall/mall/mall'
 							}
 						]
 					}

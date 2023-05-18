@@ -9,8 +9,14 @@
 		<view class="tui-mtop">
 			<tui-tabbar :tabBar="tabBar2" :isFixed="false" :unlined="true" backgroundColor="#F7F7F7" :current="current" @click="tabbarSwitch"></tui-tabbar>
 		</view>
-		<view class="tui-mtop"><tui-tabbar :isFixed="false" :tabBar="tabBar2" hump :current="current" @click="tabbarSwitch"></tui-tabbar></view>
 		
+		<view class="tui-mtop">
+			<tui-tabbar :isFixed="false" :tabBar="tabBar2" hump :current="current" @click="tabbarSwitch"></tui-tabbar>
+		</view>
+		
+		<view class="tui-mtop">
+			<tui-tabbar selectedColor="#ff7900" :tabBar="tabBar3" :isFixed="false" :current="current" @click="tabbarSwitch"></tui-tabbar>
+		</view>
 		<view style="height: 300px;"></view>
 		<image src="/static/images/my/mine_bg_3x.png" class="tui-image" mode="widthFix"></image>
 
@@ -70,6 +76,35 @@ export default {
 					num: 2,
 					isDot: true,
 					verify: true
+				}
+			],
+			//字体图标
+			tabBar3: [
+				{
+					text: '首页',
+					name:'home',
+					activeName:'home-fill',
+					num: 1,
+					isDot: false
+				},
+				{
+					text: '购物车',
+					name:'cart',
+					activeName:'cart-fill'
+				},
+				{
+					text: '我的',
+					name:'people',
+					activeName:'people-fill',
+					num: 2,
+					isDot: true
+				},
+				{
+					text: '自定义',
+					customPrefix:'tui-icon__extend',
+					name:'icon-caution',
+					activeName:'icon-caution-fill',
+					isDot: true
 				}
 			],
 			backgroundColor: 'rgba(248,248,248,.7)'

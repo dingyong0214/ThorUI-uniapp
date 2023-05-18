@@ -9,8 +9,8 @@
 					:hover-stay-time="150" @tap="hide">取消</view>
 				<view class="tui-pickerdate__title" :style="{fontSize:titleSize+'rpx',color:titleColor}">{{title}}
 				</view>
-				<view class="tui-btn-picker" :style="{ color: color }" hover-class="tui-opacity" :hover-stay-time="150"
-					@tap="btnFix">确定</view>
+				<view class="tui-btn-picker" :style="{ color: getColor }" hover-class="tui-opacity"
+					:hover-stay-time="150" @tap="btnFix">确定</view>
 			</view>
 			<view class="tui-date-header" :style="{ backgroundColor: unitBackground }" v-if="unitTop">
 				<view class="tui-date-unit" v-if="type < 4 || type == 7 || type==8">年</view>
@@ -22,43 +22,43 @@
 			</view>
 			<view @touchstart.stop="pickerstart" class="tui-date__picker-body"
 				:style="{ backgroundColor: bodyBackground,height:height+'rpx' }">
-				<picker-view :value="value" @change="change" class="tui-picker-view">
-					<picker-view-column v-if="!reset && (type < 4 || type == 7 || type==8)">
+				<picker-view :key="type" immediate-change :value="value" @change="change" class="tui-picker-view">
+					<picker-view-column v-if="type < 4 || type == 7 || type==8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in years" :key="index">
 							{{ item }}
 							<text class="tui-date__unit-text" v-if="!unitTop">年</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="!reset && (type < 4 || type == 7 || type==8)">
+					<picker-view-column v-if="type < 4 || type == 7 || type==8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in months" :key="index">
 							{{ formatNum(item) }}
 							<text class="tui-date__unit-text" v-if="!unitTop">月</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="!reset && (type == 1 || type == 2 || type == 7 || type==8)">
+					<picker-view-column v-if="type == 1 || type == 2 || type == 7 || type==8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in days" :key="index">
 							{{ formatNum(item) }}
 							<text class="tui-date__unit-text" v-if="!unitTop">日</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="!reset && (type == 1 || type == 4 || type == 5 || type == 7 || type==8)">
+					<picker-view-column v-if="type == 1 || type == 4 || type == 5 || type == 7 || type==8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in hours" :key="index">
 							{{ formatNum(item) }}
 							<text class="tui-date__unit-text" v-if="!unitTop">时</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="!reset && (type == 1 || type > 3)  && type!=8">
+					<picker-view-column v-if="(type == 1 || type > 3)  && type!=8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in minutes" :key="index">
 							{{ formatNum(item) }}
 							<text class="tui-date__unit-text" v-if="!unitTop">分</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="!reset && type > 4 && type!=8">
+					<picker-view-column v-if="type > 4 && type!=8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in seconds" :key="index">
 							{{ formatNum(item) }}
@@ -78,7 +78,7 @@
 		props: {
 			//1-日期+时间（年月日+时分） 2-日期(年月日) 3-日期(年月) 4-时间（时分） 5-时分秒 6-分秒 7-年月日 时分秒 8-年月日+小时
 			type: {
-				type: Number,
+				type: [Number, String],
 				default: 1
 			},
 			//年份区间
@@ -132,7 +132,7 @@
 			//"确定"字体颜色
 			color: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//设置默认显示日期 2019-08-01 || 2019-08-01 17:01 || 2019/08/01
 			setDateTime: {
@@ -192,8 +192,7 @@
 				second: 0,
 				startDate: '',
 				endDate: '',
-				value: [0, 0, 0, 0, 0, 0],
-				reset: false,
+				value: [],
 				isEnd: true
 			};
 		},
@@ -208,6 +207,9 @@
 			},
 			propsChange() {
 				return `${this.setDateTime}-${this.type}-${this.startYear}-${this.endYear}`;
+			},
+			getColor() {
+				return this.color || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},
 		watch: {
@@ -215,10 +217,11 @@
 				this.setDays();
 			},
 			propsChange() {
-				this.reset = true;
-				setTimeout(() => {
-					this.initData();
-				}, 20);
+				this.$nextTick(() => {
+					setTimeout(() => {
+						this.initData();
+					}, 20);
+				})
 			}
 		},
 		methods: {
@@ -230,6 +233,7 @@
 				return Array.from(new Array(end + 1).keys()).slice(start);
 			},
 			getIndex: function(arr, val) {
+				if (!arr || arr.length === 0) return 0;
 				let index = arr.indexOf(val);
 				return ~index ? index : 0;
 			},
@@ -257,10 +261,9 @@
 			},
 			initData() {
 				this.initSelectValue();
-				this.reset = false;
-				switch (this.type) {
+				const type = Number(this.type)
+				switch (type) {
 					case 1:
-						this.value = [0, 0, 0, 0, 0];
 						this.setYears();
 						this.setMonths();
 						this.setDays();
@@ -268,34 +271,28 @@
 						this.setMinutes();
 						break;
 					case 2:
-						this.value = [0, 0, 0];
 						this.setYears();
 						this.setMonths();
 						this.setDays();
 						break;
 					case 3:
-						this.value = [0, 0];
 						this.setYears();
 						this.setMonths();
 						break;
 					case 4:
-						this.value = [0, 0];
 						this.setHours();
 						this.setMinutes();
 						break;
 					case 5:
-						this.value = [0, 0, 0];
 						this.setHours();
 						this.setMinutes();
 						this.setSeconds();
 						break;
 					case 6:
-						this.value = [0, 0];
 						this.setMinutes();
 						this.setSeconds();
 						break;
 					case 7:
-						this.value = [0, 0, 0, 0, 0, 0];
 						this.setYears();
 						this.setMonths();
 						this.setDays();
@@ -304,7 +301,6 @@
 						this.setSeconds();
 						break;
 					case 8:
-						this.value = [0, 0, 0, 0];
 						this.setYears();
 						this.setMonths();
 						this.setDays();
@@ -313,33 +309,67 @@
 					default:
 						break;
 				}
+				setTimeout(() => {
+					this.setDefaultValues();
+				}, 20)
+			},
+			setDefaultValues() {
+				let vals = []
+				// 1-年月日+时分 2-年月日 3-年月 4-时分 5-时分秒 6-分秒 7-年月日 时分秒 8-年月日+小时
+				const year = this.getIndex(this.years, this.year);
+				const month = this.getIndex(this.months, this.month)
+				const day = this.getIndex(this.days, this.day)
+				const hour = this.getIndex(this.hours, this.hour)
+				const minute = this.getIndex(this.minutes, this.minute)
+				const second = this.getIndex(this.seconds, this.second)
+				const type = Number(this.type)
+				switch (type) {
+					case 1:
+						vals = [year, month, day, hour, minute]
+						break;
+					case 2:
+						vals = [year, month, day]
+						break;
+					case 3:
+						vals = [year, month]
+						break;
+					case 4:
+						vals = [hour, minute]
+						break;
+					case 5:
+						vals = [hour, minute, second]
+						break;
+					case 6:
+						vals = [minute, second]
+						break;
+					case 7:
+						vals = [year, month, day, hour, minute, second]
+						break;
+					case 8:
+						vals = [year, month, day, hour]
+						break;
+					default:
+						break;
+				}
+				this.$nextTick(() => {
+					setTimeout(() => {
+						this.value = vals;
+					}, 200);
+				})
+
 			},
 			setYears() {
 				this.years = this.generateArray(this.startYear, this.endYear);
-				this.$nextTick(() => {
-					setTimeout(() => {
-						this.$set(this.value, 0, this.getIndex(this.years, this.year));
-					}, 8);
-				})
 			},
 			setMonths() {
 				this.months = this.generateArray(1, 12);
-				this.$nextTick(() => {
-					setTimeout(() => {
-						this.$set(this.value, 1, this.getIndex(this.months, this.month));
-					}, 8);
-				})
+
 			},
 			setDays() {
 				if (this.type == 3 || this.type == 4) return;
 				let totalDays = new Date(this.year, this.month, 0).getDate();
 				totalDays = !totalDays || totalDays < 1 ? 1 : totalDays
 				this.days = this.generateArray(1, totalDays);
-				this.$nextTick(() => {
-					setTimeout(() => {
-						this.$set(this.value, 2, this.getIndex(this.days, this.day));
-					}, 8);
-				})
 			},
 			setHours() {
 				if (this.hoursData && this.hoursData.length > 0) {
@@ -347,18 +377,6 @@
 				} else {
 					this.hours = this.generateArray(0, 23);
 				}
-				this.$nextTick(() => {
-					setTimeout(() => {
-						let index = 0
-						if (this.type == 8) {
-							index = this.value.length - 1
-						} else {
-							index = this.type == 5 || this.type == 7 ? this.value.length - 3 : this.value
-								.length - 2;
-						}
-						this.$set(this.value, index, this.getIndex(this.hours, this.hour));
-					}, 8);
-				})
 			},
 			setMinutes() {
 				if (this.minutesData && this.minutesData.length > 0) {
@@ -366,12 +384,6 @@
 				} else {
 					this.minutes = this.generateArray(0, 59);
 				}
-				this.$nextTick(() => {
-					setTimeout(() => {
-						let index = this.type > 4 ? this.value.length - 2 : this.value.length - 1;
-						this.$set(this.value, index, this.getIndex(this.minutes, this.minute));
-					}, 8);
-				})
 			},
 			setSeconds() {
 				if (this.secondsData && this.secondsData.length > 0) {
@@ -379,12 +391,6 @@
 				} else {
 					this.seconds = this.generateArray(0, 59);
 				}
-				this.$nextTick(() => {
-					setTimeout(() => {
-						this.$set(this.value, this.value.length - 1, this.getIndex(this.seconds, this
-							.second));
-					}, 8);
-				})
 			},
 			show() {
 				setTimeout(() => {

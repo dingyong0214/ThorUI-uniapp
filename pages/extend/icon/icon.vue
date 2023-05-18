@@ -9,6 +9,13 @@
 					<text class="tui-grid-label">{{item.name}}</text>
 				</tui-grid-item>
 			</block>
+			<!-- 以下为自定义扩展图标 -->
+			<tui-grid-item v-for="(item,index) in extendIcons" :key="index">
+				<view class="tui-grid-icon">
+					<tui-icon custom-prefix="tui-icon__extend" :name="item.name" :size="item.size" color="#999"></tui-icon>
+				</view>
+				<text class="tui-grid-label">{{item.name}}</text>
+			</tui-grid-item>
 		</tui-grid>
 	</view>
 </template>
@@ -239,7 +246,7 @@
 					size: 28
 				}, {
 					name: "house",
-					size:28
+					size: 28
 				}, {
 					name: "imface",
 					size: 28
@@ -585,11 +592,39 @@
 				}, {
 					name: "wifi",
 					size: 30
+				}],
+				extendIcons: [{
+					name: 'icon-forbidden',
+					size: 30
+				}, {
+					name: 'icon-forbidden-fill',
+					size: 30
+				}, {
+					name: 'icon-caution',
+					size: 30
+				}, {
+					name: 'icon-caution-fill',
+					size: 30
+				}, {
+					name: 'icon-fb',
+					size: 30
+				}, {
+					name: 'icon-google',
+					size: 30
+				}, {
+					name: 'icon-stackflow',
+					size: 30
+				}, {
+					name: 'icon-youtube',
+					size: 30
+				}, {
+					name: 'icon-github',
+					size: 30
 				}]
 			}
 		},
-		methods:{
-			show(name){
+		methods: {
+			show(name) {
 				thorui.getClipboardData(name, res => {
 					// #ifdef H5 || MP-ALIPAY
 					if (res) {

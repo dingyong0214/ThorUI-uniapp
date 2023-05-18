@@ -9,16 +9,15 @@
 			zIndex: isFixed ? zIndex : 'auto'
 		}" v-if="tabsWidth>0">
 		<view v-for="(item, index) in tabs" :key="index" class="tui-tabs-item"
-			:style="{ width: itemWidth,height: height + 'rpx' }" @tap.stop="swichTabs(index)">
-			<view class="tui-tabs-title"
-				:class="{ 'tui-tabs-active': currentTab == index, 'tui-tabs-disabled': item.disabled }" :style="{
-					color: currentTab == index ? selectedColor : color,
+			:style="{ width: getItemWidth,height: height + 'rpx' }" @tap.stop="swichTabs(index)">
+			<view class="tui-tabs-title" :class="{'tui-tabs-disabled': item.disabled }" :style="{
+					color: currentTab == index ? getSelectedColor : color,
 					fontSize: size + 'rpx',
-					fontWeight: bold && currentTab == index ? 'bold' : 'normal'
+					fontWeight: bold && currentTab == index ? 'bold' : 'normal',transform:`scale(${currentTab == index?scale:1})`
 				}">
 				{{ item.name }}
 				<view :class="[item.isDot ? 'tui-badge__dot' : 'tui-tabs__badge']"
-					:style="{ color: badgeColor, backgroundColor: badgeBgColor }" v-if="item.num || item.isDot">
+					:style="{ color: badgeColor, backgroundColor: getBadgeBgColor }" v-if="item.num || item.isDot">
 					{{ item.isDot ? '' : item.num }}
 				</view>
 			</view>
@@ -29,7 +28,7 @@
 				height: sliderHeight + 'rpx',
 				borderRadius: sliderRadius,
 				bottom: bottom,
-				background: sliderBgColor,
+				background: getSliderBgColor,
 				marginBottom: bottom == '50%' ? '-' + sliderHeight / 2 + 'rpx' : 0
 			}"></view>
 	</view>
@@ -109,7 +108,7 @@
 			//滑块背景颜色
 			sliderBgColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			sliderRadius: {
 				type: String,
@@ -123,7 +122,7 @@
 			//标签页宽度
 			itemWidth: {
 				type: String,
-				default: '25%'
+				default: ''
 			},
 			//字体颜色
 			color: {
@@ -133,7 +132,7 @@
 			//选中后字体颜色
 			selectedColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//字体大小
 			size: {
@@ -145,6 +144,11 @@
 				type: Boolean,
 				default: false
 			},
+			//2.3.0+
+			scale: {
+				type: [Number, String],
+				default: 1
+			},
 			//角标字体颜色
 			badgeColor: {
 				type: String,
@@ -153,7 +157,7 @@
 			//角标背景颜色
 			badgeBgColor: {
 				type: String,
-				default: '#F74D54'
+				default: ''
 			},
 			zIndex: {
 				type: [Number, String],
@@ -170,6 +174,21 @@
 			width(val) {
 				this.tabsWidth = val;
 				this.checkCor();
+			}
+		},
+		computed: {
+			getItemWidth() {
+				let width = 100 / (this.tabs.length || 4) + '%'
+				return this.itemWidth ? this.itemWidth : width
+			},
+			getSliderBgColor() {
+				return this.sliderBgColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getSelectedColor() {
+				return this.selectedColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getBadgeBgColor() {
+				return this.badgeBgColor || (uni && uni.$tui && uni.$tui.color.pink) || '#f74d54';
 			}
 		},
 		created() {
@@ -275,9 +294,6 @@
 		position: relative;
 		z-index: 3;
 		overflow: visible;
-	}
-
-	.tui-tabs-active {
 		transition: all 0.15s ease-in-out;
 	}
 

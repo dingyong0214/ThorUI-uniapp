@@ -1,6 +1,6 @@
 <template>
 	<text class="tui-icon" :class="[customPrefix,customPrefix?name:'']"
-		:style="{ color: color || '#999', fontSize: size + unit, fontWeight: bold ? 'bold' : 'normal',margin:margin }"
+		:style="{ color: getColor, fontSize: getSize, fontWeight: bold ? 'bold' : 'normal',margin:margin }"
 		@tap="handleClick">{{ icons[name] || '' }}</text>
 
 </template>
@@ -28,16 +28,16 @@
 			},
 			size: {
 				type: [Number, String],
-				default: 32
+				default: 0
 			},
 			//px或者rpx
 			unit: {
 				type: String,
-				default: 'px'
+				default: ''
 			},
 			color: {
 				type: String,
-				default: '#999'
+				default: ''
 			},
 			bold: {
 				type: Boolean,
@@ -50,6 +50,16 @@
 			index: {
 				type: Number,
 				default: 0
+			}
+		},
+		computed: {
+			getColor() {
+				return this.color || (uni && uni.$tui && uni.$tui.tuiIcon.color) || '#999';
+			},
+			getSize() {
+				const size = this.size || (uni && uni.$tui && uni.$tui.tuiIcon.size) || 32;
+				const unit = this.unit || (uni && uni.$tui && uni.$tui.tuiIcon.unit) || 'px';
+				return size + unit
 			}
 		},
 		data() {

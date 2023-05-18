@@ -34,7 +34,7 @@
 			isFixed
 			:minDate="minDate"
 			:maxDate="maxDate"
-			:btnType="btnType"
+			:btnBgColor="btnBgColor"
 			:activeBgColor="activeBgColor"
 			:rangeBgColor="rangeBgColor"
 			:rangeColor="rangeColor"
@@ -59,7 +59,7 @@ export default {
 			arrowType: 1,
 			minDate: '1920-01-01',
 			maxDate: '',
-			btnType: 'primary',
+			btnBgColor: '#5677fc',
 			activeBgColor: '#5677fc',
 			rangeBgColor: 'rgba(86,119,252,0.1)',
 			rangeColor: '#5677fc',
@@ -80,7 +80,7 @@ export default {
 			this.arrowType = 1;
 			this.minDate = '1920-01-01';
 			this.maxDate = '';
-			this.btnType = 'primary';
+			this.btnBgColor = '#5677fc';
 			this.activeBgColor = '#5677fc';
 			this.rangeBgColor = 'rgba(86,119,252,0.1)';
 			this.rangeColor = '#5677fc';
@@ -96,13 +96,13 @@ export default {
 					this.type = 2;
 					break;
 				case 3:
-					this.minDate = '2021-01-01';
-					this.maxDate = '2022-12-12';
+					this.minDate = '2022-10-07';
+					this.maxDate = '2023-12-12';
 					this.type = 1;
 					break;
 				case 4:
 					this.type = 2;
-					this.btnType = 'danger';
+					this.btnBgColor = '#EB0909';
 					this.activeBgColor = '#EB0909';
 					this.rangeBgColor = 'rgba(235,9,9,0.1)';
 					this.rangeColor = '#EB0909';

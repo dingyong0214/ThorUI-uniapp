@@ -2,21 +2,19 @@
 	<view class="container">
 		<tui-tabs :top="0" :tabs="tabs3" :isFixed="true" :currentTab="currentTab" @change="change" bottom="50%"
 			:backgroundColor="backgroundColor" color="#fff" selectedColor="#EB0909" :sliderWidth="146"
-			:sliderHeight="52" sliderBgColor="#fff" :unlined="true" :itemWidth="(100/tabs3.length)+'%'"></tui-tabs>
+			:sliderHeight="52" sliderBgColor="#fff" :unlined="true"></tui-tabs>
 		<view class="header">
 			<view class="title">tabs</view>
 			<view class="sub-title">tabs标签页，支持自定义设置，具体查看文档。暂不支持超出一屏，滚动标签页 <text class="tui-primary"
 					@tap="goNavBar">参考这里</text>。
 			</view>
 		</view>
-		<tui-tabs :tabs="navbar" :currentTab="currentTab>1?0:currentTab" @change="change"
-			:itemWidth="(100/navbar.length)+'%'"></tui-tabs>
+		<tui-tabs :tabs="navbar" :currentTab="currentTab>1?0:currentTab" @change="change"></tui-tabs>
 		<view class="tui-mtop">
-			<tui-tabs :tabs="tabs" :currentTab="currentTab>2?0:currentTab" @change="change"
-				:itemWidth="(100/tabs.length)+'%'"></tui-tabs>
+			<tui-tabs :tabs="tabs" :currentTab="currentTab>2?0:currentTab" @change="change"></tui-tabs>
 		</view>
 		<view class="tui-mtop">
-			<tui-tabs :tabs="tabs2" :currentTab="currentTab" selectedColor="#EB0909" sliderBgColor="#EB0909"
+			<tui-tabs scale="1.2" :tabs="tabs2" :currentTab="currentTab" selectedColor="#EB0909" sliderBgColor="#EB0909"
 				@change="change"></tui-tabs>
 		</view>
 		<view class="tui-mtop">
@@ -27,7 +25,7 @@
 		<view class="tui-mtop">
 			<tui-tabs :tabs="navbar" backgroundColor="#fafafa" :height="88" :currentTab="currentTab>1?0:currentTab"
 				:sliderWidth="150" :sliderHeight="60" bottom="50%" color="#888" selectedColor="#11CDFC" :bold="true"
-				sliderBgColor="#E5FAFF" @change="change" itemWidth="50%" :width="200" unlined></tui-tabs>
+				sliderBgColor="#E5FAFF" @change="change" :width="200" unlined></tui-tabs>
 		</view>
 	</view>
 </template>

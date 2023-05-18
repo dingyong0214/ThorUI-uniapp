@@ -1,6 +1,7 @@
 <template>
-	<view :class="[dot ? 'tui-badge-dot' : 'tui-badge', 'tui-' + type, !dot ? 'tui-badge-scale' : '']" :style="{ top: top, right: right, position: absolute ? 'absolute' : 'static', transform: getStyle, margin: margin }"
-	 @tap="handleClick">
+	<view :class="[dot ? 'tui-badge-dot' : 'tui-badge', !dot ? 'tui-badge-scale' : '']"
+		:style="{ top: top, right: right, position: absolute ? 'absolute' : 'static', transform: getStyle, margin: margin,background:getBackground,color:getColor }"
+		@tap="handleClick">
 		<slot></slot>
 	</view>
 </template>
@@ -51,6 +52,46 @@
 		computed: {
 			getStyle() {
 				return `scale(${this.scaleRatio}) translateX(${this.translateX})`;
+			},
+			getBackground() {
+				const global = uni && uni.$tui && uni.$tui.color;
+				let color = {
+					'primary': (global && global.primary) || '#5677fc',
+					'green': (global && global.success) || '#07c160',
+					'warning': (global && global.warning) || '#ff7900',
+					'danger': (global && global.danger) || '#EB0909',
+					'white': '#fff',
+					'black': '#000',
+					'gray': '#ededed',
+					'red': (global && global.pink) || '#f74d54',
+					'pink': (global && global.pink) || '#f74d54',
+					'white_red': '#fff',
+					'white_primary': '#fff',
+					'white_green': '#fff',
+					'white_warning': '#fff',
+					'white_pink': '#fff'
+				} [this.type]
+				return color
+			},
+			getColor() {
+				const global = uni && uni.$tui && uni.$tui.color;
+				let color = {
+					'primary': '#fff',
+					'green': '#fff',
+					'warning': '#fff',
+					'danger': '#fff',
+					'white': '#333',
+					'black': '#fff',
+					'gray': '#999',
+					'red': '#fff',
+					'pink': (global && global.pink) || '#f74d54',
+					'white_red': (global && global.danger) || '#EB0909',
+					'white_primary': (global && global.primary) || '#5677fc',
+					'white_green': (global && global.success) || '#07c160',
+					'white_warning': (global && global.warning) || '#ff7900',
+					'white_pink': (global && global.pink) || '#f74d54',
+				} [this.type]
+				return color
 			}
 		},
 		methods: {
@@ -62,72 +103,6 @@
 </script>
 
 <style scoped>
-	/* color start*/
-
-	.tui-primary {
-		background-color: #5677fc;
-		color: #fff;
-	}
-
-	.tui-danger {
-		background-color: #ed3f14;
-		color: #fff;
-	}
-
-	.tui-red {
-		background-color: #F74D54;
-		color: #fff;
-	}
-
-	.tui-warning {
-		background-color: #ff7900;
-		color: #fff;
-	}
-
-	.tui-green {
-		background-color: #19be6b;
-		color: #fff;
-	}
-
-	.tui-white {
-		background-color: #fff;
-		color: #333;
-	}
-
-	.tui-white_red {
-		background-color: #fff;
-		color: #F74D54;
-	}
-
-	.tui-white_primary {
-		background-color: #fff;
-		color: #5677fc;
-	}
-
-	.tui-white_green {
-		background-color: #fff;
-		color: #19be6b;
-	}
-
-	.tui-white_warning {
-		background-color: #fff;
-		color: #ff7900;
-	}
-
-	.tui-black {
-		background-color: #000;
-		color: #fff;
-	}
-
-	.tui-gray {
-		background-color: #ededed;
-		color: #999;
-	}
-
-	/* color end*/
-
-	/* badge start*/
-
 	.tui-badge-dot {
 		height: 8px;
 		width: 8px;
@@ -151,6 +126,4 @@
 	.tui-badge-scale {
 		transform-origin: center center;
 	}
-
-	/* badge end*/
 </style>

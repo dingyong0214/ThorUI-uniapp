@@ -1,9 +1,12 @@
 <template>
 	<view @touchmove.stop.prevent>
-		<view class="tui-popup-class tui-bottom-popup" :class="{ 'tui-popup-show': show, 'tui-popup-radius': radius }" :style="{ background: backgroundColor, height: height ? height + 'rpx' : 'auto', zIndex: zIndex,transform:`translate3d(0, ${show?translateY:'100%'}, 0)`}">
+		<view class="tui-popup-class tui-bottom-popup"
+			:class="{ 'tui-popup-show': show, 'tui-popup-radius': radius,'tui-bp__safearea':isSafeArea }"
+			:style="{ background: backgroundColor, height: height ? height + 'rpx' : 'auto', zIndex: zIndex,transform:`translate3d(0, ${show?translateY:'100%'}, 0)`}">
 			<slot></slot>
 		</view>
-		<view class="tui-popup-mask" :class="[show ? 'tui-mask-show' : '']" :style="{ zIndex: maskZIndex }" v-if="mask" @tap="handleClose"></view>
+		<view class="tui-popup-mask" :class="[show ? 'tui-mask-show' : '']" :style="{ zIndex: maskZIndex }" v-if="mask"
+			@tap="handleClose"></view>
 	</view>
 </template>
 
@@ -49,6 +52,11 @@
 			translateY: {
 				type: String,
 				default: '0'
+			},
+			//是否需要判断底部安全区域（主要针对iphonex以上机型）
+			isSafeArea: {
+				type: Boolean,
+				default: true
 			}
 		},
 		methods: {
@@ -74,6 +82,9 @@
 		transform-origin: center;
 		transition: all 0.3s ease-in-out;
 		min-height: 20rpx;
+	}
+
+	.tui-bp__safearea {
 		padding-bottom: env(safe-area-inset-bottom);
 	}
 
@@ -82,7 +93,7 @@
 		border-top-right-radius: 24rpx;
 		overflow: hidden;
 	}
-	
+
 
 	.tui-popup-show {
 		opacity: 1;

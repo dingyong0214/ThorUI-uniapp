@@ -1,3 +1,5 @@
+var isH5 = false;
+if (typeof window === 'object') isH5 = true;
 var stickyChange = function(scrollTop, oldScrollTop, ownerInstance, ins) {
 	if (!oldScrollTop && scrollTop === 0) return false;
 	var dataset = ins.getDataset()
@@ -7,12 +9,10 @@ var stickyChange = function(scrollTop, oldScrollTop, ownerInstance, ins) {
 	var isNativeHeader = dataset.isnativeheader;
 	var isFixed = false;
 	var distance = stickyTop
-	// #ifdef H5
-	if (isNativeHeader) {
+	if (isNativeHeader && isH5) {
 		distance = distance - 44
 		distance = distance < 0 ? 0 : distance
 	}
-	// #endif
 	if (dataset.container) {
 		isFixed = (scrollTop + distance >= top && scrollTop + distance < top + height) ? true : false
 	} else {

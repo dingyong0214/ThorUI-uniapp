@@ -1,29 +1,31 @@
 <template>
-	<button class="tui-btn" :class="[
-			plain ? 'tui-' + type + '-outline' : 'tui-btn-' + (type || 'primary'),
-			getDisabledClass(disabled, type, plain),
-			getShapeClass(shape, plain),
-			getShadowClass(type, shadow, plain),
-			bold ? 'tui-text-bold' : '',
-			link ? 'tui-btn__link' : '',
-			width==='100%' || !width || width===true?'tui-btn__flex-1':''
-		]" :hover-class="getHoverClass(disabled, type, plain)"
-		:style="{ width: width, height: height, lineHeight: height, fontSize: size + 'rpx', margin: margin }"
-		:loading="loading" :form-type="formType" :open-type="openType" :app-parameter="appParameter"
-		@getuserinfo="bindgetuserinfo" @getphonenumber="bindgetphonenumber" @contact="bindcontact" @error="binderror"
-		@chooseavatar="bindchooseavatar" @launchapp="bindlaunchapp" :disabled="disabled" @tap="handleClick">
-		<slot></slot>
-	</button>
+	<view class="tui-button__wrap"
+		:class="[(width==='100%' || !width || width===true) && (!btnSize || btnSize===true)?'tui-btn__flex-1':'',getShapeClass(shape, plain),!disabled?'tui-button__hover':'']"
+		:style="{width: getWidth, height: getHeight, margin: margin}">
+		<button class="tui-btn" :class="[
+				plain ? 'tui-' + type + '-outline' : 'tui-btn-' + (type || 'primary'),
+				getDisabledClass(disabled, type, plain),
+				getShapeClass(shape, plain),
+				bold ? 'tui-text-bold' : '',
+				link ? 'tui-btn__link' : ''
+			]" :style="{ width: getWidth, height: getHeight, lineHeight: getHeight, fontSize: getSize + 'rpx',background:getBgColor(type,plain),color:getColor(type,plain),boxShadow:shadow?getShadow(type,plain):'none' }"
+			:loading="loading" :form-type="formType" :open-type="openType" :app-parameter="appParameter"
+			@getuserinfo="bindgetuserinfo" @getphonenumber="bindgetphonenumber" @contact="bindcontact"
+			@error="binderror" @chooseavatar="bindchooseavatar" @launchapp="bindlaunchapp" :disabled="disabled"
+			@tap="handleClick">
+			<slot></slot>
+		</button>
+		<view class="tui-button__border" :class="[getShapeClass(shape, plain),getDisabledClass(disabled, type, plain)]"
+			:style="{borderColor:getBgColor(type)}" v-if="!link && plain"></view>
+	</view>
 </template>
 
 <script>
 	export default {
 		name: 'tuiButton',
 		emits: ['click', 'getuserinfo', 'contact', 'getphonenumber', 'error'],
-		// #ifndef VUE3
 		// #ifndef MP-QQ
 		behaviors: ['wx://form-field-button'],
-		// #endif
 		// #endif
 		props: {
 			//样式类型 primary, white, danger, warning, green,blue, gray，black,brown,gray-primary,gray-danger,gray-warning,gray-green
@@ -31,7 +33,7 @@
 				type: String,
 				default: 'primary'
 			},
-			//是否加阴影
+			//是否加阴影 移除
 			shadow: {
 				type: Boolean,
 				default: false
@@ -44,12 +46,17 @@
 			//高度 rpx
 			height: {
 				type: String,
-				default: '96rpx'
+				default: ''
+			},
+			//medium 184*40 / small 120 40/ mini 58*32
+			btnSize: {
+				type: String,
+				default: ''
 			},
 			//字体大小 rpx
 			size: {
-				type: Number,
-				default: 32
+				type: [Number, String],
+				default: 0
 			},
 			bold: {
 				type: Boolean,
@@ -108,12 +115,101 @@
 				default: false
 			}
 		},
+		computed: {
+			getWidth() {
+				//medium 184*40 / small 120 40/ mini 58*32
+				let width = this.width;
+				if (this.btnSize && this.btnSize !== true) {
+					width = {
+						'medium': '368rpx',
+						'small': '240rpx',
+						'mini': '116rpx'
+					} [this.btnSize] || this.width
+				}
+				return width
+			},
+			getHeight() {
+				//medium 184*40 / small 120 40/ mini 58*32
+				let height = this.height || (uni && uni.$tui && uni.$tui.tuiButton.height) || '96rpx';
+				if (this.btnSize && this.btnSize !== true) {
+					height = {
+						'medium': '80rpx',
+						'small': '80rpx',
+						'mini': '64rpx'
+					} [this.btnSize] || '96rpx'
+				}
+				return height
+			},
+			getSize() {
+				return this.size || (uni && uni.$tui && uni.$tui.tuiButton.size) || 32;
+			}
+		},
 		data() {
 			return {
 				time: 0
 			};
 		},
 		methods: {
+			hexToRGB(hex) {
+				if (hex.length === 4) {
+					let text = hex.substring(1, 4);
+					hex = '#' + text + text;
+				}
+				let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+				return result ? {
+					r: parseInt(result[1], 16),
+					g: parseInt(result[2], 16),
+					b: parseInt(result[3], 16)
+				} : {};
+			},
+			getColorByType(type, isText, plain) {
+				const global = uni && uni.$tui && uni.$tui.color;
+				let color = ''
+				const colors = {
+					'primary': (global && global.primary) || '#5677fc',
+					'white': '#fff',
+					'danger': (global && global.danger) || '#EB0909',
+					'warning': (global && global.warning) || '#ff7900',
+					'green': (global && global.success) || '#07c160',
+					'blue': (global && global.blue) || '#007aff',
+					'gray': '#bfbfbf',
+					'black': '#333333',
+					'brown': '#ac9157',
+					'gray-primary': '#f2f2f2',
+					'gray-danger': '#f2f2f2',
+					'gray-warning': '#f2f2f2',
+					'gray-green': '#f2f2f2'
+				}
+				if (isText) {
+					if (type && ~type.indexOf('gray-')) {
+						const tp = type.replace('gray-', '')
+						color = colors[tp]
+					} else if (type === 'white') {
+						color = '#333'
+					} else {
+						if (plain) {
+							color = colors[type]
+						} else {
+							color = '#fff'
+						}
+					}
+				} else {
+					color = colors[type] || colors.primary
+				}
+				return color;
+			},
+			getShadow(type, plain) {
+				const color = this.getColorByType(type)
+				if (plain || !color) return 'none';
+				const rgb = this.hexToRGB(color)
+				return `0 10rpx 14rpx 0 rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.2)`
+			},
+			getBgColor(type, plain) {
+				return plain ? 'transparent' : this.getColorByType(type)
+			},
+			getColor(type, plain) {
+				return this.getColorByType(type, true, plain)
+			},
 			handleClick() {
 				if (this.disabled) return;
 				if (this.preventClick) {
@@ -157,13 +253,6 @@
 			} = {}) {
 				this.$emit('launchapp', detail);
 			},
-			getShadowClass: function(type, shadow, plain) {
-				let className = '';
-				if (shadow && type != 'white' && !plain) {
-					className = 'tui-shadow-' + type;
-				}
-				return className;
-			},
 			getDisabledClass: function(disabled, type, plain) {
 				let className = '';
 				if (disabled && type != 'white' && type.indexOf('-') == -1) {
@@ -193,140 +282,20 @@
 </script>
 
 <style scoped>
-	.tui-btn-primary {
-		background: #5677fc !important;
-		color: #fff;
+	.tui-button__wrap {
+		position: relative;
 	}
 
-	.tui-shadow-primary {
-		box-shadow: 0 10rpx 14rpx 0 rgba(86, 119, 252, 0.2);
-	}
-
-	.tui-btn-danger {
-		background: #eb0909 !important;
-		color: #fff;
-	}
-
-	.tui-shadow-danger {
-		box-shadow: 0 10rpx 14rpx 0 rgba(235, 9, 9, 0.2);
-	}
-
-	.tui-btn-warning {
-		background: #fc872d !important;
-		color: #fff;
-	}
-
-	.tui-shadow-warning {
-		box-shadow: 0 10rpx 14rpx 0 rgba(252, 135, 45, 0.2);
-	}
-
-	.tui-btn-green {
-		background: #07c160 !important;
-		color: #fff;
-	}
-
-	.tui-shadow-green {
-		box-shadow: 0 10rpx 14rpx 0 rgba(7, 193, 96, 0.2);
-	}
-
-	.tui-btn-blue {
-		background: #007aff !important;
-		color: #fff;
-	}
-
-	.tui-shadow-blue {
-		box-shadow: 0 10rpx 14rpx 0 rgba(0, 122, 255, 0.2);
-	}
-
-	.tui-btn-white {
-		background: #fff !important;
-		color: #333 !important;
-	}
-
-	.tui-btn-gray {
-		background: #bfbfbf !important;
-		color: #fff !important;
-	}
-
-	.tui-btn-black {
-		background: #333 !important;
-		color: #fff !important;
-	}
-
-	.tui-btn-brown {
-		background: #ac9157 !important;
-		color: #fff !important;
-	}
-
-	.tui-btn-gray-black {
-		background: #f2f2f2 !important;
-		color: #333;
-	}
-
-	.tui-btn-gray-primary {
-		background: #f2f2f2 !important;
-		color: #5677fc !important;
-		/* #ifdef MP-QQ */
-		border: 0 !important;
-		/* #endif */
-	}
-
-	.tui-gray-primary-hover {
-		background: #d9d9d9 !important;
-	}
-
-	.tui-btn-gray-green {
-		background: #f2f2f2 !important;
-		color: #07c160 !important;
-		/* #ifdef MP-QQ */
-		border: 0 !important;
-		/* #endif */
-	}
-
-	.tui-gray-green-hover {
-		background: #d9d9d9 !important;
-	}
-
-	.tui-btn-gray-danger {
-		background: #f2f2f2 !important;
-		color: #eb0909 !important;
-		/* #ifdef MP-QQ */
-		border: 0 !important;
-		/* #endif */
-	}
-
-	.tui-gray-danger-hover {
-		background: #d9d9d9 !important;
-	}
-
-	.tui-btn-gray-warning {
-		background: #f2f2f2 !important;
-		color: #fc872d !important;
-		/* #ifdef MP-QQ */
-		border: 0 !important;
-		/* #endif */
-	}
-
-	.tui-gray-warning-hover {
-		background: #d9d9d9 !important;
-	}
-
-	.tui-shadow-gray {
-		box-shadow: 0 10rpx 14rpx 0 rgba(191, 191, 191, 0.2);
-	}
-
-	.tui-hover-gray {
-		background: #f7f7f9 !important;
-	}
-
-	.tui-black-hover {
-		background: #555 !important;
-		color: #e5e5e5 !important;
-	}
-
-	.tui-brown-hover {
-		background: #A37F49 !important;
-		color: #e5e5e5 !important;
+	.tui-button__hover:active::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: rgba(0, 0, 0, 0.15);
+		border-radius: 6rpx;
+		pointer-events: none;
 	}
 
 	/* button start*/
@@ -334,13 +303,8 @@
 	.tui-btn {
 		width: 100%;
 		position: relative;
-		/* #ifndef MP-QQ */
 		border: 0 !important;
-		/* #endif */
-		/* #ifdef MP-QQ */
-		border: 1rpx solid;
 		box-sizing: border-box;
-		/* #endif */
 		border-radius: 6rpx;
 		padding-left: 0;
 		padding-right: 0;
@@ -348,16 +312,17 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
 
+	.tui-btn::after {
+		border: 0;
 	}
 
 	.tui-btn__flex-1 {
 		flex: 1;
 	}
 
-	/* #ifndef MP-QQ */
-	.tui-btn::after {
-		content: '';
+	.tui-button__border {
 		position: absolute;
 		width: 200%;
 		height: 200%;
@@ -367,40 +332,12 @@
 		left: 0;
 		top: 0;
 		border-radius: 12rpx;
-		border: 0;
+		border: 1px solid transparent;
+		pointer-events: none;
 	}
-
-	/* #endif */
-
-
-	/* #ifdef MP-BAIDU */
-	/* .tui-btn:active::after {
-		background-color: rgba(0, 0, 0, 0.2) !important;
-	} */
-	/* #endif */
 
 	.tui-text-bold {
 		font-weight: bold;
-	}
-
-	/* #ifdef MP-QQ */
-	.tui-btn-white {
-		border: 1rpx solid #bfbfbf;
-	}
-
-	/* #endif */
-
-	/* #ifndef MP-QQ */
-	.tui-btn-white::after {
-		border: 1px solid #bfbfbf;
-	}
-
-	/* #endif */
-
-
-	.tui-white-hover {
-		background: #e5e5e5 !important;
-		color: #2e2e2e !important;
 	}
 
 	.tui-dark-disabled {
@@ -409,9 +346,6 @@
 	}
 
 	.tui-dark-disabled-outline {
-		/* #ifdef MP-QQ */
-		border: 0 !important;
-		/* #endif */
 		opacity: 0.5 !important;
 	}
 
@@ -421,219 +355,40 @@
 		box-shadow: none;
 	}
 
-	.tui-outline-hover {
-		opacity: 0.5 !important;
-	}
-
-	.tui-primary-hover {
-		background: #4a67d6 !important;
-		color: #e5e5e5 !important;
-	}
-
-	/* #ifndef MP-QQ */
-	.tui-primary-outline::after {
-		border: 1px solid #5677fc !important;
-	}
-
-	/* #endif */
-
-	.tui-primary-outline {
-		color: #5677fc !important;
-		background: transparent;
-		/* #ifdef MP-QQ */
-		border: 1rpx solid #5677fc !important;
-		/* #endif */
-	}
-
-	.tui-danger-hover {
-		background: #c80808 !important;
-		color: #e5e5e5 !important;
-	}
-
-	.tui-danger-outline {
-		color: #eb0909 !important;
-		background: transparent;
-		/* #ifdef MP-QQ */
-		border: 1rpx solid #eb0909 !important;
-		/* #endif */
-	}
-
-	/* #ifndef MP-QQ */
-	.tui-danger-outline::after {
-		border: 1px solid #eb0909 !important;
-	}
-
-	/* #endif */
-
-	.tui-warning-hover {
-		background: #d67326 !important;
-		color: #e5e5e5 !important;
-	}
-
-	.tui-warning-outline {
-		color: #fc872d !important;
-		background: transparent;
-		/* #ifdef MP-QQ */
-		border: 1rpx solid #fc872d !important;
-		/* #endif */
-	}
-
-	/* #ifndef MP-QQ */
-	.tui-warning-outline::after {
-		border: 1px solid #fc872d !important;
-	}
-
-	/* #endif */
-
-	.tui-green-hover {
-		background: #06ad56 !important;
-		color: #e5e5e5 !important;
-	}
-
-	.tui-green-outline {
-		color: #07c160 !important;
-		background: transparent;
-		/* #ifdef MP-QQ */
-		border: 1rpx solid #07c160 !important;
-		/* #endif */
-	}
-
-	/* #ifndef MP-QQ */
-	.tui-green-outline::after {
-		border: 1px solid #07c160 !important;
-	}
-
-	/* #endif */
-
-	.tui-blue-hover {
-		background: #0062cc !important;
-		color: #e5e5e5 !important;
-	}
-
-	.tui-blue-outline {
-		color: #007aff !important;
-		background: transparent;
-		/* #ifdef APP-PLUS */
-		border: 1rpx solid #007aff !important;
-		/* #endif */
-	}
-
-	/* #ifndef MP-QQ */
-	.tui-blue-outline::after {
-		border: 1px solid #007aff !important;
-	}
-
-	/* #endif */
-
-	/* #ifndef APP-NVUE */
-	.tui-btn-gradual {
-		background: linear-gradient(90deg, rgb(255, 89, 38), rgb(240, 14, 44)) !important;
-		color: #fff !important;
-	}
-
-	.tui-shadow-gradual {
-		box-shadow: 0 10rpx 14rpx 0 rgba(235, 9, 9, 0.15);
-	}
-
-	/* #endif */
-
-	.tui-gray-hover {
-		background: #a3a3a3 !important;
-		color: #898989;
-	}
-
-	/* #ifndef APP-NVUE */
-	.tui-gradual-hover {
-		background: linear-gradient(90deg, #d74620, #cd1225) !important;
-		color: #fff !important;
-	}
-
-	/* #endif */
-
-	.tui-gray-outline {
-		color: #999 !important;
-		background: transparent !important;
-	}
-
-	.tui-white-outline {
-		color: #fff !important;
-		background: transparent !important;
-		/* #ifdef MP-QQ */
-		border: 1rpx solid #fff !important;
-		/* #endif */
-	}
-
-	.tui-black-outline {
-		background: transparent !important;
-		color: #333 !important;
-		/* #ifdef MP-QQ */
-		border: 1rpx solid #ccc !important;
-		/* #endif */
-	}
-
-	/* #ifndef MP-QQ */
-	.tui-gray-outline::after {
-		border: 1px solid #ccc !important;
-	}
-
-	/* #endif */
-
-	/* #ifndef MP-QQ */
-	.tui-white-outline::after {
-		border: 1px solid #fff !important;
-	}
-
-	.tui-black-outline::after {
-		border: 1px solid #333 !important;
-	}
-
-	.tui-brown-outline::after {
-		border: 1px solid #ac9157 !important;
-	}
-
-	/* #endif */
-
-	.tui-brown-outline {
-		color: #ac9157 !important;
-		background: transparent;
-		/* #ifdef MP-QQ */
-		border: 1rpx solid #ac9157 !important;
-		/* #endif */
-	}
-
 	/*圆角 */
 
 	.tui-fillet {
-		border-radius: 50rpx;
+		border-radius: 220rpx !important;
 	}
 
-	.tui-btn-white.tui-fillet::after {
-		border-radius: 98rpx;
+	.tui-fillet::after {
+		border-radius: 220rpx !important;
+	}
+
+	.tui-outline-fillet {
+		border-radius: 220rpx !important;
 	}
 
 	.tui-outline-fillet::after {
-		border-radius: 98rpx;
+		border-radius: 220rpx !important;
 	}
 
 	/*平角*/
 	.tui-rightAngle {
-		border-radius: 0;
+		border-radius: 0 !important;
 	}
 
-	.tui-btn-white.tui-rightAngle::after {
-		border-radius: 0;
+	.tui-rightAngle::after {
+		border-radius: 0 !important;
+	}
+
+	.tui-outline-rightAngle {
+		border-radius: 0 !important;
 	}
 
 	.tui-outline-rightAngle::after {
-		border-radius: 0;
+		border-radius: 0 !important;
 	}
-
-	/* #ifdef MP-QQ */
-	.tui-btn__link {
-		border: 0 !important;
-	}
-
-	/* #endif */
 
 	.tui-btn__link::after {
 		border: 0 !important;

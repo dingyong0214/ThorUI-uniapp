@@ -64,9 +64,8 @@
 					<text v-if="endDate">至{{ endDate }}</text>
 				</view>
 				<view class="tui-calendar-btn_box">
-					<tui-button :type="btnType" height="72rpx" shape="circle" :size="28" :disabled="disabled"
-						@click="btnFix(false)">确定
-					</tui-button>
+					<view :style="{background:getBtnBgColor}" @tap.stop="btnFix(false)" class="tui-btn__confirm"
+						:class="{'tui-btn__disabled':disabled,'tui-btn__confirm-hover':!disabled}">确定</view>
 				</view>
 			</view>
 		</view>
@@ -126,15 +125,10 @@
 	</view>
 </template>
 <script>
-	//easycom组件模式 无需手动引入
-	// import tuiButton from "../tui-button/tui-button.vue"
 	import calendar from './tui-calendar.js';
 	export default {
 		name: 'tuiCalendar',
 		emits: ['hide', 'change'],
-		// components:{
-		// 	tuiButton
-		// },
 		props: {
 			//1-切换月份和年份 2-切换月份
 			arrowType: {
@@ -215,7 +209,7 @@
 			//选中|起始结束日期背景色
 			activeBgColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//选中|起始结束日期字体颜色
 			activeColor: {
@@ -230,7 +224,7 @@
 			//范围内日期字体颜色
 			rangeColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//type=2时生效，起始日期自定义文案
 			startText: {
@@ -242,10 +236,10 @@
 				type: String,
 				default: '结束'
 			},
-			//按钮样式类型
-			btnType: {
+			//按钮背景色 V2.3.0+
+			btnBgColor: {
 				type: String,
-				default: 'primary'
+				default: ''
 			},
 			//固定在底部
 			isFixed: {
@@ -316,6 +310,15 @@
 			},
 			disabled() {
 				return this.type == 2 && (!this.startDate || !this.endDate)
+			},
+			getActiveBgColor(){
+				return this.activeBgColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getBtnBgColor() {
+				return this.btnBgColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getRangeColor(){
+				return this.rangeColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},
 		watch: {
@@ -340,9 +343,9 @@
 				let start = this.startDate.replace(/\-/g, '/');
 				let end = this.endDate.replace(/\-/g, '/');
 				if ((this.isActiveCurrent && this.activeDate == date) || this.startDate == date || this.endDate == date) {
-					color = type == 1 ? this.activeBgColor : this.activeColor;
+					color = type == 1 ? this.getActiveBgColor : this.activeColor;
 				} else if (this.endDate && timestamp > new Date(start).getTime() && timestamp < new Date(end).getTime()) {
-					color = type == 1 ? this.rangeBgColor : this.rangeColor;
+					color = type == 1 ? this.rangeBgColor : this.getRangeColor;
 				}
 				return color;
 			},
@@ -589,6 +592,7 @@
 			},
 			btnFix(show) {
 				if (!show) {
+					if(this.disabled) return;
 					this.hide();
 				}
 				if (this.type == 1) {
@@ -922,5 +926,39 @@
 
 	.tui-calendar-btn_box {
 		width: 100%;
+	}
+
+	.tui-btn__confirm {
+		width: 100%;
+		height: 72rpx;
+		border-radius: 72rpx;
+		font-size: 28rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
+		color: #fff;
+		position: relative;
+	}
+
+	.tui-btn__confirm-hover:active::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 72rpx;
+		background: rgba(0, 0, 0, .2);
+		border-radius: 72rpx;
+		pointer-events: none;
+	}
+
+	.tui-btn__disabled {
+		opacity: .5;
+		/* #ifdef H5 */
+		cursor: not-allowed;
+		/* #endif */
 	}
 </style>

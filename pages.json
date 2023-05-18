@@ -1276,7 +1276,7 @@
 				"navigationBarTextStyle": "black",
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7",
-				"navigationBarTitleText": "ThorUI商城",
+				"navigationBarTitleText": "会员模板",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50
 			}

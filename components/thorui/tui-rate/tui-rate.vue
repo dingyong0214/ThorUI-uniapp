@@ -4,9 +4,10 @@
 			<view class="tui-icon"
 				:class="['tui-relative','tui-icon-collection' + (hollow && (current <= index || (disabled && current <= index + 1)) ? '' : '-fill')]"
 				:data-index="index" @tap="handleTap"
-				:style="{ fontSize: size + 'px', color: current > index + 1 || (!disabled && current > index) ? active : normal }">
-				<view class="tui-icon" :class="['tui-icon-main','tui-icon-collection-fill']" v-if="disabled && current == index + 1"
-					:style="{ fontSize: size + 'px', color: active, width: percent + '%' }"></view>
+				:style="{ fontSize: size + 'px', color: current > index + 1 || (!disabled && current > index) ? getActiveColor : normal }">
+				<view class="tui-icon" :class="['tui-icon-main','tui-icon-collection-fill']"
+					v-if="disabled && current == index + 1"
+					:style="{ fontSize: size + 'px', color: getActiveColor, width: percent + '%' }"></view>
 			</view>
 		</block>
 	</view>
@@ -19,7 +20,7 @@
 		props: {
 			//数量
 			quantity: {
-				type: [Number,String],
+				type: [Number, String],
 				default: 5
 			},
 			//当前选中
@@ -50,7 +51,7 @@
 			//选中颜色
 			active: {
 				type: String,
-				default: '#e41f19'
+				default: ''
 			},
 			//未选中是否为空心
 			hollow: {
@@ -63,11 +64,16 @@
 				default: 0
 			}
 		},
+		computed: {
+			getActiveColor() {
+				return this.active || (uni && uni.$tui && uni.$tui.color.danger) || '#EB0909';
+			}
+		},
 		data() {
 			return {
 				pageX: 0,
 				percent: 0,
-				numbers:[]
+				numbers: []
 			};
 		},
 		created() {
@@ -78,7 +84,7 @@
 			score(newVal, oldVal) {
 				this.percent = Number(newVal || 0) * 100;
 			},
-			quantity(val){
+			quantity(val) {
 				this.handleQuantity(val)
 			}
 		},
@@ -113,14 +119,14 @@
 					params: this.params
 				});
 			},
-			handleQuantity(quantity){
+			handleQuantity(quantity) {
 				quantity = Number(quantity) || 5
 				quantity = Math.ceil(quantity)
 				this.numbers = Array.from(new Array(quantity + 1).keys()).slice(1)
 			}
 		},
 		mounted() {
-			setTimeout(()=>{
+			setTimeout(() => {
 				const className = '.tui-rate-box';
 				let query = uni.createSelectorQuery().in(this);
 				query
@@ -129,7 +135,7 @@
 						this.pageX = res.left || 0;
 					})
 					.exec();
-			},80)
+			}, 80)
 		}
 	};
 </script>

@@ -8,7 +8,7 @@
 					<view :class="[left && !right?'tui-text-left':'tui-text-right']" v-if="item.imgUrl"
 						:style="{fontSize:item.fontSize+'rpx',color:item.color}">{{item.text || ""}}</view>
 					<view class="tui-fab-item"
-						:style="{width:width+'rpx',height:height+'rpx',background:item.bgColor || bgColor,borderRadius:radius}">
+						:style="{width:width+'rpx',height:height+'rpx',background:item.bgColor || getBgColor,borderRadius:radius}">
 						<view class="tui-fab-title" v-if="!item.imgUrl"
 							:style="{fontSize:item.fontSize+'rpx',color:item.color}">{{item.text || ""}}</view>
 						<image :src="item.imgUrl" class="tui-fab-img" v-else
@@ -17,7 +17,7 @@
 				</view>
 			</view>
 			<view class="tui-fab-item" :class="{'tui-active':isOpen}"
-				:style="{width:width+'rpx',height:height+'rpx',borderRadius:radius,background:bgColor,color:color}"
+				:style="{width:width+'rpx',height:height+'rpx',borderRadius:radius,background:getBgColor,color:color}"
 				@tap.stop="handleClick(-1)">
 				<text class="tui-fab-icon tui-icon-plus" v-if="!custom"></text>
 				<slot></slot>
@@ -71,7 +71,7 @@
 			//默认按钮背景颜色
 			bgColor: {
 				type: String,
-				default: "#5677fc"
+				default: ""
 			},
 			//字体颜色
 			color: {
@@ -102,6 +102,11 @@
 			maskClosable: {
 				type: Boolean,
 				default: false
+			}
+		},
+		computed: {
+			getBgColor() {
+				return this.bgColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},
 		data() {

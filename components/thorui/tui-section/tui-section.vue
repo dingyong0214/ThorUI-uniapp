@@ -2,7 +2,7 @@
 	<view class="tui-section" :style="{margin:margin,background:background,padding:padding}">
 		<view class="tui-section__title" @tap="handleClick">
 			<view class="tui-section__decorate" v-if="isLine"
-				:style="{background:lineColor,width:lineWidth+'rpx',left:`-${lineRight}rpx`,top:lineGap+'rpx',bottom:lineGap+'rpx',borderRadius:lineCap==='circle'?`${lineWidth}rpx`:0}">
+				:style="{background:getLineColor,width:lineWidth+'rpx',left:`-${lineRight}rpx`,top:lineGap+'rpx',bottom:lineGap+'rpx',borderRadius:lineCap==='circle'?`${lineWidth}rpx`:0}">
 			</view>
 			<slot name="left"></slot>
 			<text :style="{fontSize:size+'rpx',color:color,fontWeight:fontWeight}" v-if="title">{{title}}</text>
@@ -63,7 +63,7 @@
 			},
 			lineColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//square、circle
 			lineCap: {
@@ -89,6 +89,11 @@
 			margin: {
 				type: String,
 				default: '0'
+			}
+		},
+		computed:{
+			getLineColor(){
+				return this.lineColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},
 		methods: {

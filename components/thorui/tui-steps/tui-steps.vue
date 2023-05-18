@@ -8,8 +8,8 @@
 					 :style="{
 						width: type == 2 || activeSteps === index ? '36rpx' : '16rpx',
 						height: type == 2 || activeSteps === index ? '36rpx' : '16rpx',
-						backgroundColor: index <= activeSteps ? activeColor : type == 2 ? '#fff' : deactiveColor,
-						borderColor: index <= activeSteps ? activeColor : deactiveColor
+						backgroundColor: index <= activeSteps ? getActiveColor : type == 2 ? '#fff' : deactiveColor,
+						borderColor: index <= activeSteps ? getActiveColor : deactiveColor
 					}">
 					<text v-if="activeSteps !== index"
 						:style="{ color: index <= activeSteps ? '#fff' : '' }">{{ type == 1 ? '' : index + 1 }}</text>
@@ -17,7 +17,7 @@
 				</view>
 				<view class="tui-step-custom" :style="{ backgroundColor: backgroundColor }"
 					v-if="item.name || item.icon">
-					<tui-icon :name="item.name" :size="item.size || 20" :color="index <= activeSteps ? activeColor : deactiveColor"
+					<tui-icon :name="item.name" :size="item.size || 20" :color="index <= activeSteps ? getActiveColor : deactiveColor"
 						v-if="item.name"></tui-icon>
 					<image :src="index <= activeSteps ? item.activeIcon : item.icon" class="tui-step-img"
 						mode="widthFix" v-if="!item.name"></image>
@@ -25,14 +25,14 @@
 				<view class="tui-step-line"
 					:class="['tui-step-' + direction + '_line', direction == 'column' && (item.name || item.icon) ? 'tui-custom-left' : '']"
 					:style="{
-						borderColor: index <= activeSteps - 1 ? activeColor : deactiveColor,
+						borderColor: index <= activeSteps - 1 ? getActiveColor : deactiveColor,
 						borderRightStyle: direction == 'column' ? lineStyle : '',
 						borderTopStyle: direction == 'column' ? '' : lineStyle
 					}" v-if="index != items.length - 1"></view>
 			</view>
 			<view class="tui-step-item-main" :class="['tui-step-' + direction + '_item_main']">
 				<view class="tui-step-item-title" :style="{
-						color: index <= activeSteps ? activeColor : deactiveColor,
+						color: index <= activeSteps ? getActiveColor : deactiveColor,
 						fontSize: titleSize + 'rpx',
 						lineHeight: titleSize + 'rpx',
 						fontWeight: bold ? 'bold' : 'normal'
@@ -40,7 +40,7 @@
 					{{ item.title }}
 				</view>
 				<view class="tui-step-item-content"
-					:style="{ color: index <= activeSteps ? activeColor : deactiveColor, fontSize: descSize + 'rpx' }">
+					:style="{ color: index <= activeSteps ? getActiveColor : deactiveColor, fontSize: descSize + 'rpx' }">
 					{{ item.desc }}</view>
 			</view>
 		</view>
@@ -70,7 +70,7 @@
 			// 激活状态成功颜色
 			activeColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			// 未激活状态颜色
 			deactiveColor: {
@@ -122,6 +122,11 @@
 			backgroundColor: {
 				type: String,
 				default: '#fff'
+			}
+		},
+		computed:{
+			getActiveColor(){
+				return this.activeColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},
 		data() {

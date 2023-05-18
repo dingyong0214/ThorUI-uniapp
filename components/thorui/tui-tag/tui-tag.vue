@@ -1,8 +1,11 @@
 <template>
-	<view class="tui-tag" :hover-class="hover ? 'tui-tag-opcity' : ''" :hover-stay-time="150" :class="[originLeft ? 'tui-origin-left' : '', originRight ? 'tui-origin-right' : '', getClassName(shape, plain), getTypeClass(type, plain)]"
-	 :style="{ transform: `scale(${scaleMultiple})`, padding: padding, margin: margin, fontSize: size, lineHeight: size }"
-	 @tap="handleClick">
+	<view class="tui-tag" :hover-class="hover ? 'tui-tag-opcity' : ''" :hover-stay-time="150"
+		:class="[originLeft ? 'tui-origin-left' : '', originRight ? 'tui-origin-right' : '', getClassName(shape, plain), getTypeClass(type, plain)]"
+		:style="{ transform: `scale(${scaleMultiple})`, padding: padding, margin: margin, fontSize: size, lineHeight: size,background:getBgColor(type,plain),color:getColor(type,plain) }"
+		@tap="handleClick">
 		<slot></slot>
+		<view class="tui-tag__border" :class="[getClassName(shape, plain)]" :style="{borderColor:getBgColor(type)}"
+			v-if="plain"></view>
 	</view>
 </template>
 
@@ -68,6 +71,77 @@
 					index: this.index
 				});
 			},
+			hexToRGB(hex) {
+				if (hex.length === 4) {
+					let text = hex.substring(1, 4);
+					hex = '#' + text + text;
+				}
+				let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+				return result ? {
+					r: parseInt(result[1], 16),
+					g: parseInt(result[2], 16),
+					b: parseInt(result[3], 16)
+				} : {};
+			},
+			getColorByType(type, isText, plain) {
+				//primary， white， danger， warning， green， gray，black，light-blue，light-brownish，light-orange，light-green
+				const global = uni && uni.$tui && uni.$tui.color;
+				let color = ''
+				const _primary = this.hexToRGB((global && global.primary) || '#5677fc')
+				const _blue = this.hexToRGB((global && global.blue) || '#007aff')
+				const _warning = this.hexToRGB((global && global.warning) || '#ff7900')
+				const _danger = this.hexToRGB((global && global.danger) || '#EB0909')
+				const _green = this.hexToRGB((global && global.success) || '#07c160')
+				const colors = {
+					'primary': (global && global.primary) || '#5677fc',
+					'white': '#fff',
+					'danger': (global && global.danger) || '#EB0909',
+					'red': (global && global.pink) || '#f74d54',
+					'pink': (global && global.pink) || '#f74d54',
+					'warning': (global && global.warning) || '#ff7900',
+					'orange': (global && global.warning) || '#ff7900',
+					'green': (global && global.success) || '#07c160',
+					'blue': (global && global.blue) || '#007aff',
+					'gray': '#ededed',
+					'btn-gray': '#ededed',
+					'black': '#000',
+					'light-primary': `rgba(${_primary.r}, ${_primary.g}, ${_primary.b}, 0.08)`,
+					'light-blue': `rgba(${_blue.r}, ${_blue.g}, ${_blue.b}, 0.08)`,
+					'brownish': '#8a5966',
+					'light-brownish': '#fcebef',
+					'light-danger': `rgba(${_danger.r}, ${_danger.g}, ${_danger.b}, 0.08)`,
+					'light-orange': `rgba(${_warning.r}, ${_warning.g}, ${_warning.b}, 0.08)`,
+					'light-warning': `rgba(${_warning.r}, ${_warning.g}, ${_warning.b}, 0.08)`,
+					'light-green': `rgba(${_green.r}, ${_green.g}, ${_green.b}, 0.08)`,
+					'light-black': '#333',
+					'translucent': 'rgba(0, 0, 0, 0.7)'
+				}
+				if (isText) {
+					if (type && ~type.indexOf('light-') && type !== 'light-black') {
+						const tp = type.replace('light-', '')
+						color = colors[tp]
+					} else if (type === 'white') {
+						color = plain ? '#fff' : '#333'
+					} else if (type === 'btn-gray') {
+						color = '#999'
+					} else {
+						if (plain) {
+							color = colors[type]
+						} else {
+							color = '#fff'
+						}
+					}
+				} else {
+					color = colors[type] || colors.primary
+				}
+				return color;
+			},
+			getBgColor(type, plain) {
+				return plain ? 'transparent' : this.getColorByType(type)
+			},
+			getColor(type, plain) {
+				return this.getColorByType(type, true, plain)
+			},
 			getTypeClass: function(type, plain) {
 				return plain ? 'tui-' + type + '-outline' : 'tui-' + type;
 			},
@@ -90,217 +164,16 @@
 </script>
 
 <style scoped>
-	/* color start*/
-
-	.tui-primary {
-		background-color: #5677fc !important;
-		color: #fff;
-	}
-
-	.tui-light-primary {
-		background-color: #5c8dff !important;
-		color: #fff;
-	}
-
-	.tui-dark-primary {
-		background-color: #4a67d6 !important;
-		color: #fff;
-	}
-
-	.tui-dLight-primary {
-		background-color: #4e77d9 !important;
-		color: #fff;
-	}
-
-	.tui-danger {
-		background-color: #ed3f14 !important;
-		color: #fff;
-	}
-
-	.tui-red {
-		background-color: #ff201f !important;
-		color: #fff;
-	}
-
-	.tui-warning {
-		background-color: #ff7900 !important;
-		color: #fff;
-	}
-
-	.tui-green {
-		background-color: #19be6b !important;
-		color: #fff;
-	}
-
-	.tui-high-green {
-		background-color: #52dcae !important;
-		color: #52dcae;
-	}
-
-	.tui-black {
-		background-color: #000 !important;
-		color: #fff;
-	}
-
-	.tui-white {
-		background-color: #fff !important;
-		color: #333 !important;
-	}
-
-	.tui-translucent {
-		background-color: rgba(0, 0, 0, 0.7);
-	}
-
-	.tui-light-black {
-		background-color: #333 !important;
-	}
-
-	.tui-gray {
-		background-color: #ededed !important;
-	}
-
-	.tui-phcolor-gray {
-		background-color: #ccc !important;
-	}
-
-	.tui-divider-gray {
-		background-color: #eaeef1 !important;
-	}
-
-	.tui-btn-gray {
-		background-color: #ededed !important;
-		color: #999 !important;
-	}
-
-	.tui-hover-gray {
-		background-color: #f7f7f9 !important;
-	}
-
-	.tui-bg-gray {
-		background-color: #fafafa !important;
-	}
-
-	.tui-light-blue {
-		background-color: #ecf6fd;
-		color: #4dabeb !important;
-	}
-
-	.tui-light-brownish {
-		background-color: #fcebef;
-		color: #8a5966 !important;
-	}
-
-	.tui-light-orange {
-		background-color: #fef5eb;
-		color: #faa851 !important;
-	}
-
-	.tui-light-green {
-		background-color: #e8f6e8;
-		color: #44cf85 !important;
-	}
-
-	.tui-primary-outline::after {
-		border: 1px solid #5677fc !important;
-	}
-
-	.tui-primary-outline {
-		color: #5677fc !important;
-		background-color: none;
-	}
-
-	.tui-danger-outline {
-		color: #ed3f14 !important;
-		background-color: none;
-	}
-
-	.tui-danger-outline::after {
-		border: 1px solid #ed3f14 !important;
-	}
-
-	.tui-red-outline {
-		color: #ff201f !important;
-		background-color: none;
-	}
-
-	.tui-red-outline::after {
-		border: 1px solid #ff201f !important;
-	}
-
-	.tui-warning-outline {
-		color: #ff7900 !important;
-		background-color: none;
-	}
-
-	.tui-warning-outline::after {
-		border: 1px solid #ff7900 !important;
-	}
-
-	.tui-green-outline {
-		color: #44cf85 !important;
-		background-color: none;
-	}
-
-	.tui-green-outline::after {
-		border: 1px solid #44cf85 !important;
-	}
-
-	.tui-high-green-outline {
-		color: #52dcae !important;
-		background-color: none;
-	}
-
-	.tui-high-green-outline::after {
-		border: 1px solid #52dcae !important;
-	}
-
-	.tui-gray-outline {
-		color: #999 !important;
-		background-color: none;
-	}
-
-	.tui-gray-outline::after {
-		border: 1px solid #ccc !important;
-	}
-
-	.tui-black-outline {
-		color: #333 !important;
-		background-color: none;
-	}
-
-	.tui-black-outline::after {
-		border: 1px solid #333 !important;
-	}
-
-	.tui-white-outline {
-		color: #fff !important;
-		background-color: none;
-	}
-
-	.tui-white-outline::after {
-		border: 1px solid #fff !important;
-	}
-
-	/* color end*/
-
-	/* tag start*/
-
 	.tui-tag {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 6rpx;
 		flex-shrink: 0;
-	}
-
-	.tui-tag-outline {
 		position: relative;
-		background-color: none;
-		color: #5677fc;
 	}
 
-	.tui-tag-outline::after {
-		content: ' ';
+	.tui-tag__border {
 		position: absolute;
 		width: 200%;
 		height: 200%;
@@ -310,35 +183,30 @@
 		left: 0;
 		top: 0;
 		border-radius: 12rpx;
+		border: 1px solid;
+		pointer-events: none;
 	}
 
 	.tui-tag-fillet {
-		border-radius: 50rpx;
+		border-radius: 100rpx;
 	}
 
-	.tui-white.tui-tag-fillet::after {
-		border-radius: 80rpx;
+	.tui-white.tui-tag-fillet {
+		border-radius: 160rpx;
 	}
 
-	.tui-tag-outline-fillet::after {
-		border-radius: 80rpx;
+	.tui-tag-outline-fillet {
+		border-radius: 160rpx;
 	}
 
 	.tui-tag-fillet-left {
-		border-radius: 50rpx 0 0 50rpx;
-	}
-
-	.tui-tag-fillet-right {
-		border-radius: 0 50rpx 50rpx 0;
-	}
-
-	.tui-tag-fillet-left.tui-tag-outline::after {
 		border-radius: 100rpx 0 0 100rpx;
 	}
 
-	.tui-tag-fillet-right.tui-tag-outline::after {
+	.tui-tag-fillet-right {
 		border-radius: 0 100rpx 100rpx 0;
 	}
+
 
 	/* tag end*/
 	.tui-origin-left {

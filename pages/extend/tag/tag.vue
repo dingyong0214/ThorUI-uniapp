@@ -12,6 +12,7 @@
 			<tui-tag margin="20rpx 20rpx 0 0" type="green" @click="show">实心标签</tui-tag>
 			<tui-tag margin="20rpx 20rpx 0 0" type="btn-gray" @click="show">实心标签</tui-tag>
 			<tui-tag margin="20rpx 20rpx 0 0" type="light-blue" @click="show">实心标签</tui-tag>
+			<tui-tag margin="20rpx 20rpx 0 0" type="light-danger" @click="show">实心标签</tui-tag>
 			<tui-tag margin="20rpx 20rpx 0 0" type="light-brownish" @click="show">实心标签</tui-tag>
 			<tui-tag margin="20rpx 20rpx 0 0" type="light-orange" @click="show">实心标签</tui-tag>
 			<tui-tag margin="20rpx 20rpx 0 0" type="light-green" @click="show">实心标签</tui-tag>

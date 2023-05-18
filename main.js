@@ -1,6 +1,10 @@
 import App from './App'
 import store from './store'
 import tui from './common/httpRequest'
+import propsConfig from './components/thorui/tui-config/index.js'
+
+//全局组件配置
+uni.$tui = propsConfig
 
 // #ifdef H5
 window.QQmap = null;

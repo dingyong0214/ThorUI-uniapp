@@ -1,9 +1,9 @@
 <template>
 	<view class="tui-circular-container" :style="{ width: diam + 'px', height: (height || diam) + 'px' }">
 		<canvas :start="percent" :change:start="parse.initDraw" :data-width="diam" :data-height="height"
-			:data-lineWidth="lineWidth" :data-lineCap="lineCap" :data-fontSize="fontSize" :data-fontColor="fontColor"
+			:data-lineWidth="lineWidth" :data-lineCap="lineCap" :data-fontSize="fontSize" :data-fontColor="getFontColor"
 			:data-fontShow="fontShow" :data-percentText="percentText" :data-defaultShow="defaultShow"
-			:data-defaultColor="defaultColor" :data-progressColor="progressColor" :data-gradualColor="gradualColor"
+			:data-defaultColor="defaultColor" :data-progressColor="getProgressColor" :data-gradualColor="gradualColor"
 			:data-sAngle="sAngle" :data-counterclockwise="counterclockwise" :data-multiple="multiple"
 			:data-speed="speed" :data-activeMode="activeMode" :data-cid="progressCanvasId" :canvas-id="progressCanvasId"
 			:class="[progressCanvasId]" :style="{ width: diam + 'px', height: (height || diam) + 'px' }"></canvas>
@@ -152,7 +152,7 @@
 <script>
 	export default {
 		name: 'tuiRoundProgress',
-		emits: ['change','end'],
+		emits: ['change', 'end'],
 		props: {
 			/*
 			  传值需使用rpx进行转换保证各终端兼容
@@ -191,7 +191,7 @@
 			//圆环进度字体颜色
 			fontColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//是否显示进度文字
 			fontShow: {
@@ -219,7 +219,7 @@
 			//进度条颜色
 			progressColor: {
 				type: String,
-				default: '#5677fc'
+				default: ''
 			},
 			//进度条渐变颜色[结合progressColor使用，默认为空]
 			gradualColor: {
@@ -255,6 +255,14 @@
 			activeMode: {
 				type: String,
 				default: 'backwards'
+			}
+		},
+		computed: {
+			getFontColor() {
+				return this.fontColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getProgressColor() {
+				return this.progressColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},
 		watch: {

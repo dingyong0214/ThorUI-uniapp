@@ -4,8 +4,8 @@
 			<view class="tui-alert-content" :style="{fontSize:size+'rpx',color:color}">
 				<slot></slot>
 			</view>
-			<view class="tui-alert-btn" :style="{color:btnColor}" hover-class="tui-alert-btn-hover" :hover-stay-time="150"
-			 @tap.stop="handleClick">{{btnText}}</view>
+			<view class="tui-alert-btn" :style="{color:getColor}" hover-class="tui-alert-btn-hover"
+				:hover-stay-time="150" @tap.stop="handleClick">{{btnText}}</view>
 		</view>
 		<view class="tui-alert-mask" :class="[show?'tui-alert-mask-show':'']" @tap.stop="handleClickCancel"></view>
 	</view>
@@ -13,8 +13,8 @@
 
 <script>
 	export default {
-		name:"tuiAlert",
-		emits: ['click','cancel'],
+		name: "tuiAlert",
+		emits: ['click', 'cancel'],
 		props: {
 			//控制显示
 			show: {
@@ -34,9 +34,9 @@
 			//按钮字体颜色
 			btnColor: {
 				type: String,
-				default: "#EB0909"
+				default: ""
 			},
-			btnText:{
+			btnText: {
 				type: String,
 				default: "确定"
 			},
@@ -44,6 +44,11 @@
 			maskClosable: {
 				type: Boolean,
 				default: false
+			}
+		},
+		computed: {
+			getColor() {
+				return this.btnColor || (uni && uni.$tui && uni.$tui.color.danger) || '#EB0909';
 			}
 		},
 		methods: {

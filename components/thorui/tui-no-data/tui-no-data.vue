@@ -1,10 +1,12 @@
 <template>
-	<view class="tui-nodata-box" :class="[fixed?'tui-nodata-fixed':'']">
-		<image v-if="imgUrl" :src="imgUrl" class="tui-tips-icon" :style="{width:imgWidth+'rpx',height:imgHeight+'rpx'}" mode="widthFix"></image>
+	<view class="tui-nodata-box" :class="[fixed?'tui-nodata-fixed':'']" :style="{marginTop:marginTop+'rpx'}">
+		<image v-if="imgUrl" :src="imgUrl" class="tui-tips-icon" :style="{width:imgWidth+'rpx',height:imgHeight+'rpx',marginBottom:imgBottom+'rpx'}"
+			mode="widthFix"></image>
 		<view class="tui-tips-content">
 			<slot></slot>
 		</view>
-		<view class="tui-tips-btn" hover-class="tui-btn__hover" :hover-stay-time="150" :style="{width:btnWidth+'rpx',height:btnHeight+'rpx',background:backgroundColor,borderRadius:radius,fontSize:size+'rpx'}" v-if="btnText"  @tap="handleClick">{{btnText}}</view>
+		<view class="tui-tips-btn" :style="{width:btnWidth+'rpx',height:btnHeight+'rpx',background:getBgColor,borderRadius:radius,fontSize:size+'rpx'}"
+			v-if="btnText" @tap="handleClick">{{btnText}}</view>
 	</view>
 </template>
 
@@ -25,40 +27,55 @@
 			},
 			//图片宽度
 			imgWidth: {
-				type: Number,
+				type: [Number, String],
 				default: 200
 			},
 			//图片高度
-			imgHeight:{
-				type: Number,
+			imgHeight: {
+				type: [Number, String],
 				default: 200
+			},
+			//V2.3.0+
+			imgBottom:{
+				type: [Number, String],
+				default: 30
 			},
 			//按钮宽度
-			btnWidth:{
-				type: Number,
+			btnWidth: {
+				type: [Number, String],
 				default: 200
 			},
-			btnHeight:{
-				type: Number,
+			btnHeight: {
+				type: [Number, String],
 				default: 60
 			},
 			//按钮文字，没有则不显示
-			btnText:{
-				type:String,
+			btnText: {
+				type: String,
 				default: ""
 			},
 			//按钮背景色
-			backgroundColor:{
-				type:String,
-				default: "#EB0909"
+			backgroundColor: {
+				type: String,
+				default: ""
 			},
-			size:{
-				type:Number,
-				default:28
+			size: {
+				type: [Number,String],
+				default: 28
 			},
-			radius:{
-				type:String,
-				default:'8rpx'
+			radius: {
+				type: String,
+				default: '8rpx'
+			},
+			//2.3.0+
+			marginTop: {
+				type: [Number, String],
+				default: 0
+			}
+		},
+		computed:{
+			getBgColor(){
+				return this.backgroundColor || (uni && uni.$tui && uni.$tui.color.danger) || '#EB0909';
 			}
 		},
 		methods: {
@@ -91,7 +108,6 @@
 		flex-shrink: 0;
 		width: 280rpx;
 		height: 280rpx;
-		margin-bottom: 40rpx;
 	}
 
 	.tui-tips-content {
@@ -110,9 +126,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
-	.tui-btn__hover{
-		opacity: 0.5;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
 	}
 	
+	.tui-tips-btn:active{
+		opacity: 0.5;
+	}
 </style>

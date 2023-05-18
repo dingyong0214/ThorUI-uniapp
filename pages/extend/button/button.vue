@@ -78,16 +78,17 @@
 		<view class="tui-btn-box"><tui-button shadow type="warning" disabled>页面辅助操作 Disabled</tui-button></view>
 		<view class="tui-btn-box"><tui-button shadow type="green" @click="detail">页面辅助操作</tui-button></view>
 		<view class="tui-btn-box"><tui-button shadow type="green" disabled>页面辅助操作 Disabled</tui-button></view>
-		<view class="tui-title">渐变按钮</view>
-		<view class="tui-btn-box"><tui-button type="gradual" @click="detail">页面主操作</tui-button></view>
-		<view class="tui-btn-box"><tui-button type="gradual" shadow @click="detail">页面主操作</tui-button></view>
-		<view class="tui-btn-box"><tui-button type="gradual" shadow disabled loading @click="detail">页面主操作</tui-button></view>
-
+	
 		<view class="tui-title">扩展色</view>
 		<view class="tui-btn-box"><tui-button bold type="gray-primary" @click="detail">页面主操作</tui-button></view>
 		<view class="tui-btn-box"><tui-button bold type="gray-green" @click="detail">页面主操作</tui-button></view>
 		<view class="tui-btn-box"><tui-button bold type="gray-danger" @click="detail">页面主操作</tui-button></view>
 		<view class="tui-btn-box"><tui-button bold type="gray-warning" @click="detail">页面主操作</tui-button></view>
+		<view class="tui-title">按钮大小：medium/ small/ mini</view>
+		<view class="tui-btn-box"><tui-button btn-size="medium"  @click="detail">medium</tui-button></view>
+		<view class="tui-btn-box"><tui-button btn-size="small"  @click="detail">small</tui-button></view>
+		<view class="tui-btn-box"><tui-button btn-size="mini" :size="26" @click="detail">mini</tui-button></view>
+		
 		<view class="tui-title">自定义尺寸按钮</view>
 
 		<view class="tui-flex-box">

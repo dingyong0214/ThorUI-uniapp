@@ -78,5 +78,6 @@ export default {
 @import './common/app.css';
 /* #ifndef APP-NVUE */
 @import './components/uni/uParse/src/wxParse.css';
+@import './static/fonts/icon-extend.css';
 /* #endif */ 
 </style>
