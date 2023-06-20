@@ -54,6 +54,21 @@
 				</view>
 			</view>
 		</tui-navigation-bar>
+		
+		<view class="tui-title">渐变色（isOpacity 必须为false）</view>
+		<tui-navigation-bar backgroundColor="linear-gradient(90deg, rgb(255, 118, 38), rgb(252, 30, 82))" :isFixed="false" :isOpacity="false" :isImmersive="false">
+			<view class="tui-content-box">
+				<view class="tui-avatar-box"><image src="/static/images/news/2.jpg" class="tui-avatar"></image></view>
+				<view class="tui-search-box tui-bg-white">
+					<tui-icon name="search-2" :size="18" color="#bfbfbf"></tui-icon>
+					<view class="tui-search-text">请输入搜索关键字</view>
+				</view>
+				<view class="tui-notice-box">
+					<tui-icon name="message" color="#fff" :size="32"></tui-icon>
+					<tui-badge type="white_red" absolute :scaleRatio="0.8" top="-4rpx">1</tui-badge>
+				</view>
+			</view>
+		</tui-navigation-bar>
 
 		<view style="height: 800px"></view>
 	</view>

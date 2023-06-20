@@ -2,7 +2,7 @@
 	<view class="tui-list-class tui-list-cell" :class="[
 			radius && radius!='0' ? 'tui-radius' : '',
 			hover ? 'tui-cell-hover' : ''
-		]" :style="{ backgroundColor: backgroundColor, fontSize: getSize + 'rpx', color: getColor, padding: getPadding,borderRadius:radius+'rpx' }"
+		]" :style="{ backgroundColor: backgroundColor, fontSize: getSize + 'rpx', color: getColor, padding: getPadding,borderRadius:radius+'rpx',marginTop:marginTop+'rpx',marginBottom:marginBottom+'rpx' }"
 		@tap="handleClick">
 		<slot></slot>
 		<view class="tui-cell__line"
@@ -60,6 +60,14 @@
 			padding: {
 				type: String,
 				default: ''
+			},
+			marginTop: {
+				type: [Number, String],
+				default: 0
+			},
+			marginBottom: {
+				type: [Number, String],
+				default: 0
 			},
 			//背景颜色
 			backgroundColor: {

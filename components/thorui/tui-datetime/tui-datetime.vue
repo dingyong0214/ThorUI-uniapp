@@ -193,7 +193,8 @@
 				startDate: '',
 				endDate: '',
 				value: [],
-				isEnd: true
+				isEnd: true,
+				firstShow: false
 			};
 		},
 		mounted() {
@@ -393,6 +394,7 @@
 				}
 			},
 			show() {
+				this.firstShow = true
 				setTimeout(() => {
 					this.isShow = true;
 					setTimeout(() => {
@@ -409,6 +411,7 @@
 				this.hide()
 			},
 			change(e) {
+				if (!this.firstShow) return;
 				this.value = e.detail.value;
 				switch (this.type) {
 					case 1:
@@ -467,7 +470,8 @@
 				let hour = this.formatNum(this.hour || 0);
 				let minute = this.formatNum(this.minute || 0);
 				let second = this.formatNum(this.second || 0);
-				switch (this.type) {
+				const type = Number(this.type)
+				switch (type) {
 					case 1:
 						result = {
 							year: year,

@@ -228,8 +228,8 @@
 					this.$emit('end', {});
 				}
 			},
-			doLoop: function() {
-				let seconds = Number(this.time || 0);
+			doLoop(time = 0) {
+				let seconds = time || Number(this.time || 0);
 				this.ani = true;
 				this.countDown(seconds);
 				this.countdown = setInterval(() => {
@@ -261,6 +261,13 @@
 				this.h = hour;
 				this.i = minute;
 				this.s = second;
+			},
+			reset(seconds = 0) {
+				let time = seconds || Number(this.time);
+				this.clearTimer();
+				if (time > 0) {
+					this.doLoop(time);
+				}
 			}
 		}
 	};

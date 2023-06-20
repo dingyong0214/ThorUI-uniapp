@@ -1,10 +1,9 @@
 <template>
 	<view @touchmove.stop.prevent="stop">
-		<view class="tui-bottom-navigation" :class="{ 'tui-navigation-fixed': isFixed, 'tui-remove-splitLine': unlined }">
+		<view class="tui-bottom-navigation" :style="{ backgroundColor: isDarkMode ? '#202020' : backgroundColor }" :class="{ 'tui-navigation-fixed': isFixed, 'tui-remove-splitLine': unlined }">
 			<view
 				class="tui-navigation-item"
 				:class="{ 'tui-item-after_height': splitLineScale, 'tui-last-item': index == itemList.length - 1 }"
-				:style="{ backgroundColor: isDarkMode ? '#202020' : backgroundColor }"
 				v-for="(item, index) in itemList"
 				:key="index"
 			>
@@ -228,7 +227,9 @@ export default {
 	position: fixed !important;
 	left: 0;
 	bottom: 0;
+	padding-bottom: constant(safe-area-inset-bottom);
 	padding-bottom: env(safe-area-inset-bottom);
+	box-sizing: content-box;
 }
 
 .tui-bottom-navigation::after {

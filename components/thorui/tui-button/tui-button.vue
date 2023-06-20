@@ -24,8 +24,11 @@
 	export default {
 		name: 'tuiButton',
 		emits: ['click', 'getuserinfo', 'contact', 'getphonenumber', 'error'],
-		// #ifndef MP-QQ
+		// #ifdef MP-WEIXIN
 		behaviors: ['wx://form-field-button'],
+		// #endif
+		// #ifdef MP-BAIDU || MP-QQ
+		behaviors: ['uni://form-field'],
 		// #endif
 		props: {
 			//样式类型 primary, white, danger, warning, green,blue, gray，black,brown,gray-primary,gray-danger,gray-warning,gray-green
