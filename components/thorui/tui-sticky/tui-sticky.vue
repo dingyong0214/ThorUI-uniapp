@@ -84,9 +84,11 @@
 			this.initialize = this.recalc
 		},
 		mounted() {
-			setTimeout(() => {
-				this.updateScrollChange();
-			}, 50)
+			this.$nextTick(() => {
+				setTimeout(() => {
+					this.updateScrollChange();
+				}, 50)
+			})
 		},
 		data() {
 			const Id = `tui_${Math.ceil(Math.random() * 10e5).toString(36)}`

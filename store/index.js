@@ -22,7 +22,7 @@ const store = createStore({
 		//登录后跳转的页面路径 + 页面参数
 		returnUrl: "",
 		//app版本
-		version: "2.9.0",
+		version: "2.9.1",
 		//当前是否有网络连接
 		networkConnected: true,
 		isOnline: true

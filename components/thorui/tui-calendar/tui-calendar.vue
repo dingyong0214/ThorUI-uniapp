@@ -135,7 +135,7 @@
 				type: [Number, String],
 				default: 1
 			},
-			//1-单个日期选择 2-开始日期+结束日期选择 3-多个日期
+			//1-单个日期选择 2-开始日期+结束日期选择
 			type: {
 				type: Number,
 				default: 1
@@ -414,10 +414,10 @@
 				this.min = this.initDate(this.minDate);
 				this.max = this.initDate(this.maxDate || this.today);
 				if (this.openDisAbled(this.year, this.month, this.day)) {
-					this.year = this.min.year;
-					this.month = this.min.month;
-					this.day = this.min.day;
-					this.activeDate = `${this.min.year}-${this.min.month}-${this.min.day}`;
+					this.year = this.max.year;
+					this.month = this.max.month;
+					this.day = this.max.day;
+					this.activeDate = `${this.max.year}-${this.max.month}-${this.max.day}`;
 					this.max = this.initDate(this.maxDate || this.minDate);
 				}
 				this.startDate = '';

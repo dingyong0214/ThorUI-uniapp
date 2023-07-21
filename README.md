@@ -37,6 +37,44 @@ ThorUI组件库，uni-app版本，v3编译，支持nvue uni-app编译模式（�
  
 ## 更新日志
 
+### 2.9.1（2023-07-21）
+
+1.tui-picker（选择器）组件优化，修复初始化可能显示不正确的问题。
+
+2.tui-datetime（日期时间选择器）组件优化，修复已知问题。
+
+3.tui-sticky（吸顶容器）组件优化，修复已知问题。
+
+4.tui-countdown（倒计时）组件优化，调整结束逻辑。
+
+5.tui-rate（评分）组件优化。
+
+6.tui-datetime（日期时间选择器）组件优化，新增属性设置z-index值。
+
+7.tui-picker（选择器）组件优化，新增属性设置z-index值。
+
+8.tui-slider（滑动选择器）组件优化，uni-app版支持在pc端使用。
+
+9.tui-drag 拖拽排序 组件优化，uni-app版支持在pc端使用。
+
+10.tui-slide-verify 滑动验证码 组件优化，uni-app版支持在pc端使用。
+
+11.tui-rotate-verify 旋转图片验证 组件优化，uni-app版支持在pc端使用。
+
+12.tui-upload（图片上传）组件优化，新增upload方法进行上传，此方法可满足更多上传需求，具体使用请查看文档。
+
+13.tui-modal（弹框）组件优化，新增属性设置遮罩颜色，是否显示遮罩等。
+
+14.tui-input（输入框）组件优化，修复小程序端圆角全局配置失效的问题。
+
+15.tui-calendar（日历）组件优化，当最大日期小于今天时调整默认显示日期。
+
+16.tui-actionsheet（操作菜单）组件优化，新增属性设置遮罩背景色。
+
+17.ThorUI 文档优化，请刷新查看。
+
+18.优化部分已知问题。
+
 ### 2.9.0（2023-06-20）
 
 1.tui-lottie（动画）组件优化。

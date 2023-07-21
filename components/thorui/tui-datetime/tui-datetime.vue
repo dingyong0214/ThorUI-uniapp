@@ -1,8 +1,8 @@
 <template>
-	<view class="tui-datetime-picker">
-		<view class="tui-mask" :class="{ 'tui-mask-show': isShow }" @touchmove.stop.prevent="stop" catchtouchmove="stop"
-			@tap="maskClick"></view>
-		<view class="tui-header" :class="{ 'tui-show': isShow }">
+	<view class="tui-datetime-picker" :style="{zIndex}">
+		<view class="tui-datetime__mask" :class="{ 'tui-datetime__mask-show': isShow }" :style="{zIndex:getMaskZIndex}"
+			@touchmove.stop.prevent="stop" catchtouchmove="stop" @tap="maskClick"></view>
+		<view class="tui-datetime__header" :class="{ 'tui-show': isShow }" :style="{zIndex:getPickerZIndex}">
 			<view class="tui-picker-header" :class="{ 'tui-date-radius': radius }"
 				:style="{ backgroundColor: headerBackground }" @touchmove.stop.prevent="stop" catchtouchmove="stop">
 				<view class="tui-btn-picker" :style="{ color: cancelColor }" hover-class="tui-opacity"
@@ -22,7 +22,8 @@
 			</view>
 			<view @touchstart.stop="pickerstart" class="tui-date__picker-body"
 				:style="{ backgroundColor: bodyBackground,height:height+'rpx' }">
-				<picker-view :key="type" immediate-change :value="value" @change="change" class="tui-picker-view">
+				<picker-view :key="type" immediate-change :value="value" @change="change"
+					class="tui-datetime__picker-view">
 					<picker-view-column v-if="type < 4 || type == 7 || type==8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in years" :key="index">
@@ -172,6 +173,10 @@
 			maskClosable: {
 				type: Boolean,
 				default: true
+			},
+			zIndex: {
+				type: [Number, String],
+				default: 998
 			}
 
 		},
@@ -198,9 +203,11 @@
 			};
 		},
 		mounted() {
-			setTimeout(() => {
-				this.initData();
-			}, 20)
+			this.$nextTick(() => {
+				setTimeout(() => {
+					this.initData();
+				}, 20)
+			})
 		},
 		computed: {
 			yearOrMonth() {
@@ -211,6 +218,12 @@
 			},
 			getColor() {
 				return this.color || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
+			},
+			getMaskZIndex() {
+				return Number(this.zIndex) + 1
+			},
+			getPickerZIndex() {
+				return Number(this.zIndex) + 2
 			}
 		},
 		watch: {
@@ -352,6 +365,7 @@
 					default:
 						break;
 				}
+				this.value = []
 				this.$nextTick(() => {
 					setTimeout(() => {
 						this.value = vals;
@@ -569,17 +583,15 @@
 <style scoped>
 	.tui-datetime-picker {
 		position: relative;
-		z-index: 996;
 	}
 
-	.tui-picker-view {
+	.tui-datetime__picker-view {
 		height: 100%;
 		box-sizing: border-box;
 	}
 
-	.tui-mask {
+	.tui-datetime__mask {
 		position: fixed;
-		z-index: 997;
 		top: 0;
 		right: 0;
 		bottom: 0;
@@ -590,13 +602,12 @@
 		transition: all 0.3s ease-in-out;
 	}
 
-	.tui-mask-show {
+	.tui-datetime__mask-show {
 		visibility: visible !important;
 		opacity: 1 !important;
 	}
 
-	.tui-header {
-		z-index: 998;
+	.tui-datetime__header {
 		position: fixed;
 		bottom: 0;
 		left: 0;

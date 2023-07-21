@@ -25,8 +25,8 @@
 				<slot></slot>
 			</view>
 		</view>
-		<view class="tui-modal-mask" :class="[show ? 'tui-mask-show' : '']" :style="{zIndex:maskZIndex}"
-			@tap="handleClickCancel"></view>
+		<view v-if="isMask" class="tui-modal-mask" :class="[show ? 'tui-mask-show' : '']"
+			:style="{zIndex:maskZIndex,background:maskColor}" @tap="handleClickCancel"></view>
 	</view>
 </template>
 
@@ -101,6 +101,15 @@
 			maskClosable: {
 				type: Boolean,
 				default: true
+			},
+			//是否显示mask
+			isMask: {
+				type: Boolean,
+				default: true
+			},
+			maskColor: {
+				type: String,
+				default: 'rgba(0, 0, 0, 0.6)'
 			},
 			//淡入效果，自定义弹框插入input输入框时传true
 			fadeIn: {
@@ -215,7 +224,6 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-color: rgba(0, 0, 0, 0.6);
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		visibility: hidden;

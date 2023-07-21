@@ -1,7 +1,7 @@
 <template>
 	<view class="tui-navigation-bar"
 		:class="{ 'tui-bar-line': opacity > 0.85 && splitLine, 'tui-navbar-fixed': isFixed, 'tui-backdrop__filter': backdropFilter && dropDownOpacity > 0  }"
-		:style="{ height: height + 'px', backgroundColor: `rgba(${background},${opacity})`, opacity: dropDownOpacity, zIndex: isFixed ? zIndex : 'auto' }">
+		:style="{ height: height + 'px', background: isOpacity? `rgba(${background},${opacity})`:background, opacity: dropDownOpacity, zIndex: isFixed ? zIndex : 'auto' }">
 		<view class="tui-status-bar" :style="{ height: statusBarHeight + 'px' }" v-if="isImmersive"></view>
 		<view class="tui-navigation_bar-title"
 			:style="{ opacity: transparent || opacity >= maxOpacity ? 1 : opacity, color: color, paddingTop: top - statusBarHeight + 'px' }"
@@ -103,7 +103,11 @@
 			},
 			backgroundColor(val) {
 				if (val) {
-					this.background = this.hexToRgb(val);
+					if (this.isOpacity) {
+						this.background = this.hexToRgb(val);
+					} else {
+						this.background = this.transparent ? 'rgba(0, 0, 0, 0)' : val
+					}
 				}
 			}
 		},
@@ -123,7 +127,11 @@
 		created() {
 			this.dropDownOpacity = this.backdropFilter && 0;
 			this.opacity = this.isOpacity || this.transparent ? 0 : this.maxOpacity;
-			this.background = this.hexToRgb(this.backgroundColor);
+			if (this.isOpacity) {
+				this.background = this.hexToRgb(this.backgroundColor);
+			} else {
+				this.background = this.transparent ? 'rgba(0, 0, 0, 0)' : this.backgroundColor
+			}
 			let obj = {};
 			// #ifdef MP-WEIXIN
 			obj = wx.getMenuButtonBoundingClientRect();
@@ -185,7 +193,7 @@
 				let scroll = this.scrollTop <= 1 ? 0 : this.scrollTop;
 				let opacity = scroll / this.scrollH;
 				if ((this.opacity >= this.maxOpacity && opacity >= this.maxOpacity) || (this.opacity == 0 && opacity ==
-					0)) {
+						0)) {
 					return;
 				}
 				this.opacity = opacity > this.maxOpacity ? this.maxOpacity : opacity;

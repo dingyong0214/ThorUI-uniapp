@@ -1,33 +1,31 @@
 <template>
 	<view @touchmove.stop.prevent>
-		<view class="tui-actionsheet" :class="{'tui-actionsheet-show':show,'tui-actionsheet-radius':radius}">
+		<view class="tui-actionsheet" :class="{'tui-actionsheet-show':show,'tui-actionsheet-radius':radius}"
+			:style="{zIndex:getZIndex}">
 			<view class="tui-actionsheet-tips" :style="{fontSize:size+'rpx',color:color}" v-if="tips">
 				{{tips}}
 			</view>
 			<view :class="[isCancel?'tui-operate-box':'']">
 				<block v-for="(item,index) in itemList" :key="index">
-					<view class="tui-actionsheet-btn tui-actionsheet-divider" :class="{'tui-btn-last':!isCancel && index==itemList.length-1}"
-					 hover-class="tui-actionsheet-hover" :hover-stay-time="150" :data-index="index" :style="{color:item.color || '#2B2B2B'}"
-					 @tap="handleClickItem">{{item.text}}</view>
+					<view class="tui-actionsheet-btn tui-actionsheet-divider"
+						:class="{'tui-btn-last':!isCancel && index==itemList.length-1}"
+						hover-class="tui-actionsheet-hover" :hover-stay-time="150" :data-index="index"
+						:style="{color:item.color || '#2B2B2B'}" @tap="handleClickItem">{{item.text}}</view>
 				</block>
 			</view>
-			<view class="tui-actionsheet-btn tui-actionsheet-cancel" hover-class="tui-actionsheet-hover" :hover-stay-time="150"
-			 v-if="isCancel" @tap="handleClickCancel">取消</view>
+			<view class="tui-actionsheet-btn tui-actionsheet-cancel" hover-class="tui-actionsheet-hover"
+				:hover-stay-time="150" v-if="isCancel" @tap="handleClickCancel">取消</view>
 		</view>
-		<view class="tui-actionsheet-mask" :class="{'tui-mask-show':show}" @tap="handleClickMask"></view>
+		<view class="tui-actionsheet-mask" :class="{'tui-mask-show':show}" :style="{background:maskColor,zIndex:zIndex}"
+			@tap="handleClickMask"></view>
 	</view>
 </template>
 
 <script>
 	export default {
 		name: "tuiActionsheet",
-		emits: ['click','cancel'],
+		emits: ['click', 'cancel'],
 		props: {
-			//点击遮罩 是否可关闭
-			maskClosable: {
-				type: Boolean,
-				default: true
-			},
 			//显示操作菜单
 			show: {
 				type: Boolean,
@@ -42,6 +40,16 @@
 						color: "#2B2B2B"
 					}]
 				}
+			},
+			//点击遮罩 是否可关闭
+			maskClosable: {
+				type: Boolean,
+				default: true
+			},
+			//v2.1.0
+			maskColor: {
+				type: String,
+				default: "rgba(0, 0, 0, 0.6)"
 			},
 			//提示文字
 			tips: {
@@ -67,6 +75,15 @@
 			isCancel: {
 				type: Boolean,
 				default: true
+			},
+			zIndex: {
+				type: [Number, String],
+				default: 998
+			}
+		},
+		computed: {
+			getZIndex() {
+				return Number(this.zIndex) + 2
 			}
 		},
 		methods: {
@@ -96,7 +113,6 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: 9999;
 		visibility: hidden;
 		transform: translate3d(0, 100%, 0);
 		transform-origin: center;
@@ -173,8 +189,6 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-color: rgba(0, 0, 0, 0.6);
-		z-index: 9996;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		visibility: hidden;

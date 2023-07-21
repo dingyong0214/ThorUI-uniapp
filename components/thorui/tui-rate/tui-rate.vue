@@ -126,16 +126,18 @@
 			}
 		},
 		mounted() {
-			setTimeout(() => {
-				const className = '.tui-rate-box';
-				let query = uni.createSelectorQuery().in(this);
-				query
-					.select(className)
-					.boundingClientRect(res => {
-						this.pageX = res.left || 0;
-					})
-					.exec();
-			}, 80)
+			this.$nextTick(()=>{
+				setTimeout(() => {
+					const className = '.tui-rate-box';
+					let query = uni.createSelectorQuery().in(this);
+					query
+						.select(className)
+						.boundingClientRect(res => {
+							this.pageX = res.left || 0;
+						})
+						.exec();
+				}, 80)
+			})
 		}
 	};
 </script>

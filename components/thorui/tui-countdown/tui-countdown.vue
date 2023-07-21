@@ -234,15 +234,15 @@
 				this.countDown(seconds);
 				this.countdown = setInterval(() => {
 					seconds--;
-					if (seconds < 0) {
-						this.endOfTime();
-						return;
-					}
 					this.countDown(seconds);
 					if (this.returnTime) {
 						this.$emit('time', {
 							seconds: seconds
 						});
+					}
+					if (seconds <= 0) {
+						this.endOfTime();
+						return;
 					}
 				}, 1000);
 			},

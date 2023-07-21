@@ -6,7 +6,8 @@
 				<image :src="item" class="tui-item-img"
 					:style="{width:width+'rpx',height:height+'rpx',borderRadius:radius+'rpx'}"
 					@tap.stop="previewImage(index)" mode="aspectFill"></image>
-				<view v-if="!forbidDel" class="tui-img-del" :style="{background:getDelColor}" @tap.stop="delImage(index)">
+				<view v-if="!forbidDel" class="tui-img-del" :style="{background:getDelColor}"
+					@tap.stop="delImage(index)">
 				</view>
 				<view v-if="statusArr[index]!=1" class="tui-upload-mask">
 					<view class="tui-upload-loading" v-if="statusArr[index]==2"></view>
@@ -30,7 +31,7 @@
 <script>
 	export default {
 		name: 'tuiUpload',
-		emits: ['remove', 'complete'],
+		emits: ['remove', 'complete', 'reupload'],
 		props: {
 			//展示图片宽度
 			width: {
@@ -165,8 +166,11 @@
 			return {
 				//图片地址
 				imageList: [],
+				tempFiles: [],
 				//上传状态：1-上传成功 2-上传中 3-上传失败
-				statusArr: []
+				statusArr: [],
+				//传入回调函数上传
+				callUpload: false
 			}
 		},
 		created() {
@@ -187,7 +191,7 @@
 				}
 				return isShow
 			},
-			getDelColor(){
+			getDelColor() {
 				return this.delColor || (uni && uni.$tui && uni.$tui.color.danger) || '#EB0909';
 			}
 		},
@@ -195,19 +199,28 @@
 			initImages() {
 				this.statusArr = [];
 				this.imageList = [...this.value];
+				let tempFiles = []
 				for (let item of this.imageList) {
 					this.statusArr.push("1")
+					tempFiles.push({
+						path: item
+					})
 				}
+				this.tempFiles = tempFiles;
 			},
 			// 重新上传
 			reUpLoad(index) {
 				this.$set(this.statusArr, index, "2")
-				this.change()
-				this.uploadImage(index, this.imageList[index]).then(() => {
-					this.change()
-				}).catch(() => {
-					this.change()
+				this.$emit('reupload', {
+					index
 				})
+				if (!this.callUpload) {
+					this.uploadImage(index, this.imageList[index]).then(() => {
+						this.change()
+					}).catch(() => {
+						this.change()
+					})
+				}
 			},
 			/**
 			 * @param manual 是否手动上传
@@ -276,6 +289,7 @@
 							}
 							imageArr.push(path)
 							_this.imageList.push(path)
+							_this.tempFiles.push(e.tempFiles[i])
 							_this.statusArr.push("2")
 						}
 						_this.change()
@@ -348,6 +362,7 @@
 						success(res) {
 							if (res.confirm) {
 								that.imageList.splice(index, 1)
+								that.tempFiles.splice(index, 1)
 								that.statusArr.splice(index, 1)
 								that.$emit("remove", {
 									index: index,
@@ -359,6 +374,7 @@
 					})
 				} else {
 					that.imageList.splice(index, 1)
+					that.tempFiles.splice(index, 1)
 					that.statusArr.splice(index, 1)
 					that.$emit("remove", {
 						index: index,
@@ -400,6 +416,43 @@
 							if (i === len - 1) {
 								this.change(true)
 							}
+						})
+					}
+				}
+			},
+			upload(callback, index) {
+				// 传入一个返回Promise的文件上传的函数
+				//上传状态：1-上传成功 2-上传中 3-上传失败
+				this.callUpload = true;
+				if (index === undefined || index === null) {
+					let urls = [...this.imageList]
+					const len = urls.length
+					for (let i = 0; i < len; i++) {
+						if (urls[i].startsWith('https')) {
+							continue;
+						} else {
+							this.$set(this.statusArr, i, "2")
+							if (typeof callback === 'function') {
+								callback(this.tempFiles[i]).then(res => {
+									this.$set(this.statusArr, i, '1')
+									this.imageList[i] = res
+									this.change(true)
+								}).catch(err => {
+									this.$set(this.statusArr, i, '3')
+								})
+							}
+						}
+					}
+				} else {
+					//如果传入index，则是重新上传时调用
+					this.$set(this.statusArr, index, "2")
+					if (typeof callback === 'function') {
+						callback(this.tempFiles[index]).then(res => {
+							this.$set(this.statusArr, index, '1')
+							this.imageList[index] = res
+							this.change(true)
+						}).catch(err => {
+							this.$set(this.statusArr, index, '3')
 						})
 					}
 				}
