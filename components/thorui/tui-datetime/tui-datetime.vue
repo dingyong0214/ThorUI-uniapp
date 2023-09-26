@@ -77,7 +77,7 @@
 		name: 'tuiDatetime',
 		emits: ['cancel', 'confirm'],
 		props: {
-			//1-日期+时间（年月日+时分） 2-日期(年月日) 3-日期(年月) 4-时间（时分） 5-时分秒 6-分秒 7-年月日 时分秒 8-年月日+小时
+			//0-年 1-日期+时间（年月日+时分） 2-日期(年月日) 3-日期(年月) 4-时间（时分） 5-时分秒 6-分秒 7-年月日 时分秒 8-年月日+小时
 			type: {
 				type: [Number, String],
 				default: 1
@@ -277,6 +277,9 @@
 				this.initSelectValue();
 				const type = Number(this.type)
 				switch (type) {
+					case 0:
+						this.setYears();
+						break;
 					case 1:
 						this.setYears();
 						this.setMonths();
@@ -338,6 +341,9 @@
 				const second = this.getIndex(this.seconds, this.second)
 				const type = Number(this.type)
 				switch (type) {
+					case 0:
+						vals = [year]
+						break;
 					case 1:
 						vals = [year, month, day, hour, minute]
 						break;
@@ -428,6 +434,9 @@
 				if (!this.firstShow) return;
 				this.value = e.detail.value;
 				switch (this.type) {
+					case 0:
+						this.year = this.years[this.value[0]];
+						break;
 					case 1:
 						this.year = this.years[this.value[0]];
 						this.month = this.months[this.value[1]];
@@ -486,6 +495,12 @@
 				let second = this.formatNum(this.second || 0);
 				const type = Number(this.type)
 				switch (type) {
+					case 0:
+						result = {
+							year: year,
+							result: `${year}`
+						};
+						break;
 					case 1:
 						result = {
 							year: year,
