@@ -214,7 +214,7 @@
 				return `${this.year}-${this.month}`;
 			},
 			propsChange() {
-				return `${this.setDateTime}-${this.type}-${this.startYear}-${this.endYear}`;
+				return `${this.setDateTime}-${this.type}-${this.startYear}-${this.endYear}-${this.hoursData}-${this.minutesData}-${this.secondsData}`;
 			},
 			getColor() {
 				return this.color || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
