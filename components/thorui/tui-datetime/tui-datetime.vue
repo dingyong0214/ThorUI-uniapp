@@ -14,7 +14,7 @@
 			</view>
 			<view class="tui-date-header" :style="{ backgroundColor: unitBackground }" v-if="unitTop">
 				<view class="tui-date-unit" v-if="type < 4 || type == 7 || type==8">年</view>
-				<view class="tui-date-unit" v-if="type < 4 || type == 7 || type==8">月</view>
+				<view class="tui-date-unit" v-if="(type < 4 || type == 7 || type==8) && type!=0">月</view>
 				<view class="tui-date-unit" v-if="type == 1 || type == 2 || type == 7 || type==8">日</view>
 				<view class="tui-date-unit" v-if="type == 1 || type == 4 || type == 5 || type == 7 || type==8">时</view>
 				<view class="tui-date-unit" v-if="(type == 1 || type > 3) && type!=8">分</view>
@@ -31,7 +31,7 @@
 							<text class="tui-date__unit-text" v-if="!unitTop">年</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="type < 4 || type == 7 || type==8">
+					<picker-view-column v-if="(type < 4 || type == 7 || type==8) && type !== 0 ">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in months" :key="index">
 							{{ formatNum(item) }}
