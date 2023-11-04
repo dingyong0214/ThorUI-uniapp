@@ -14,7 +14,7 @@
 			</view>
 			<view class="tui-date-header" :style="{ backgroundColor: unitBackground }" v-if="unitTop">
 				<view class="tui-date-unit" v-if="type < 4 || type == 7 || type==8">年</view>
-				<view class="tui-date-unit" v-if="(type < 4 || type == 7 || type==8) && type!=0">月</view>
+				<view class="tui-date-unit" v-if="(type < 4 && type>0) || type == 7 || type==8">月</view>
 				<view class="tui-date-unit" v-if="type == 1 || type == 2 || type == 7 || type==8">日</view>
 				<view class="tui-date-unit" v-if="type == 1 || type == 4 || type == 5 || type == 7 || type==8">时</view>
 				<view class="tui-date-unit" v-if="(type == 1 || type > 3) && type!=8">分</view>
@@ -22,7 +22,7 @@
 			</view>
 			<view @touchstart.stop="pickerstart" class="tui-date__picker-body"
 				:style="{ backgroundColor: bodyBackground,height:height+'rpx' }">
-				<picker-view :key="type" immediate-change :value="value" @change="change"
+				<picker-view :key="type" :immediate-change="immediate" :value="value" @change="change"
 					class="tui-datetime__picker-view">
 					<picker-view-column v-if="type < 4 || type == 7 || type==8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
@@ -31,7 +31,7 @@
 							<text class="tui-date__unit-text" v-if="!unitTop">年</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column v-if="(type < 4 || type == 7 || type==8) && type !== 0 ">
+					<picker-view-column v-if="(type < 4 && type>0) || type == 7 || type==8">
 						<view class="tui-date__column-item" :class="{ 'tui-font-size_32': !unitTop && type == 7 }"
 							v-for="(item, index) in months" :key="index">
 							{{ formatNum(item) }}
@@ -181,7 +181,12 @@
 
 		},
 		data() {
+			let immediate = true;
+			// #ifdef MP-TOUTIAO
+			immediate = false
+			// #endif
 			return {
+				immediate,
 				isShow: false,
 				years: [],
 				months: [],
@@ -214,7 +219,7 @@
 				return `${this.year}-${this.month}`;
 			},
 			propsChange() {
-				return `${this.setDateTime}-${this.type}-${this.startYear}-${this.endYear}-${this.hoursData}-${this.minutesData}-${this.secondsData}`;
+				return `${this.type}-${this.startYear}-${this.endYear}-${this.hoursData}-${this.minutesData}-${this.secondsData}`;
 			},
 			getColor() {
 				return this.color || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
@@ -236,6 +241,13 @@
 						this.initData();
 					}, 20);
 				})
+			},
+			setDateTime(val) {
+				if (val && val !== true) {
+					setTimeout(() => {
+						this.initData();
+					}, 20);
+				}
 			}
 		},
 		methods: {
@@ -258,11 +270,16 @@
 			},
 			//日期时间处理
 			initSelectValue() {
-				let fdate = this.setDateTime.replace(/\-/g, '/');
-				if (this.type == 3 && this.getCharCount(fdate) === 1) {
-					fdate += '/01'
+				let fdate = ''
+				if (this.setDateTime && this.setDateTime !== true) {
+					fdate = this.setDateTime.replace(/\-/g, '/');
+					if (this.type == 3 && this.getCharCount(fdate) === 1) {
+						fdate += '/01'
+					} else if (this.type == 0) {
+						fdate += '/01/01'
+					}
+					fdate = fdate && fdate.indexOf('/') == -1 ? `2023/01/01 ${fdate}` : fdate;
 				}
-				fdate = fdate && fdate.indexOf('/') == -1 ? `2020/01/01 ${fdate}` : fdate;
 				let time = null;
 				if (fdate) time = new Date(fdate);
 				else time = new Date();
@@ -326,9 +343,11 @@
 					default:
 						break;
 				}
-				setTimeout(() => {
-					this.setDefaultValues();
-				}, 20)
+				this.$nextTick(() => {
+					setTimeout(() => {
+						this.setDefaultValues();
+					}, 0)
+				})
 			},
 			setDefaultValues() {
 				let vals = []
@@ -343,7 +362,6 @@
 				switch (type) {
 					case 0:
 						vals = [year]
-						break;
 					case 1:
 						vals = [year, month, day, hour, minute]
 						break;
@@ -371,12 +389,10 @@
 					default:
 						break;
 				}
-				this.value = []
-				this.$nextTick(() => {
-					setTimeout(() => {
-						this.value = vals;
-					}, 200);
-				})
+				if (this.value.join(',') === vals.join(',')) return;
+				setTimeout(() => {
+					this.value = vals;
+				}, 200);
 
 			},
 			setYears() {
@@ -417,9 +433,14 @@
 				this.firstShow = true
 				setTimeout(() => {
 					this.isShow = true;
-					setTimeout(() => {
-						this.value = [...this.value]
-					}, 50)
+					// #ifndef MP || H5
+					this.value = []
+					this.$nextTick(() => {
+						setTimeout(() => {
+							this.value = [...this.value]
+						}, 50)
+					})
+					// #endif
 				}, 50);
 			},
 			hide() {
@@ -433,7 +454,8 @@
 			change(e) {
 				if (!this.firstShow) return;
 				this.value = e.detail.value;
-				switch (this.type) {
+				const type = Number(this.type)
+				switch (type) {
 					case 0:
 						this.year = this.years[this.value[0]];
 						break;
@@ -498,7 +520,7 @@
 					case 0:
 						result = {
 							year: year,
-							result: `${year}`
+							result: year
 						};
 						break;
 					case 1:
@@ -627,6 +649,7 @@
 		bottom: 0;
 		left: 0;
 		width: 100%;
+		opacity: 0;
 		transition: all 0.3s ease-in-out;
 		transform: translateY(100%);
 	}
@@ -656,6 +679,7 @@
 
 	.tui-show {
 		transform: translateY(0);
+		opacity: 1;
 	}
 
 	.tui-picker-header {

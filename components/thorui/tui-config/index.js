@@ -34,8 +34,8 @@ const propsConfig = {
 	tuiListCell: {
 		arrowColor: '#c0c0c0',
 		lineColor: '#eaeef1',
-		lineLeft: 30,
-		padding: '26rpx 30rpx',
+		lineLeft: 44,
+		padding: '26rpx 44rpx',
 		color: '#333',
 		size: 28
 	},
@@ -66,7 +66,7 @@ const propsConfig = {
 	},
 	//表单项组件 tui-form-item
 	tuiFormItem: {
-		padding: '26rpx 30rpx',
+		padding: '28rpx 30rpx',
 		labelSize: 32,
 		labelColor: '#333',
 		labelFontWeight: 400,
@@ -74,7 +74,8 @@ const propsConfig = {
 		background: '#fff',
 		arrowColor: '#c0c0c0',
 		borderColor: '#eaeef1',
-		radius: '0rpx'
+		radius: '0rpx',
+		position: 2
 	},
 	//表单校验组件 tui-form
 	tuiForm: {
@@ -120,7 +121,7 @@ const propsConfig = {
 			});
 		}
 	},
-	rpx2px(value){
+	rpx2px(value) {
 		return uni.upx2px(value)
 	}
 }

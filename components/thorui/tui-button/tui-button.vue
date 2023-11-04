@@ -23,7 +23,7 @@
 <script>
 	export default {
 		name: 'tuiButton',
-		emits: ['click', 'getuserinfo', 'contact', 'getphonenumber', 'error'],
+		emits: ['click', 'getuserinfo', 'contact', 'getphonenumber', 'error','chooseavatar','launchapp'],
 		// #ifdef MP-WEIXIN
 		behaviors: ['wx://form-field-button'],
 		// #endif

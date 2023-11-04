@@ -36,12 +36,12 @@
 			//展示图片宽度
 			width: {
 				type: [Number, String],
-				default: 220
+				default: 218
 			},
 			//展示图片高度
 			height: {
 				type: [Number, String],
-				default: 220
+				default: 218
 			},
 			//初始化图片路径
 			value: {
@@ -516,10 +516,7 @@
 		position: relative;
 		margin-right: 20rpx;
 		margin-bottom: 20rpx;
-	}
-
-	.tui-image-item:nth-of-type(3n) {
-		margin-right: 0;
+		flex-shrink: 0;
 	}
 
 	.tui-item-img {
