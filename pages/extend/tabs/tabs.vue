@@ -25,7 +25,7 @@
 		<view class="tui-mtop">
 			<tui-tabs :tabs="navbar" backgroundColor="#fafafa" :height="88" :currentTab="currentTab>1?0:currentTab"
 				:sliderWidth="150" :sliderHeight="60" bottom="50%" color="#888" selectedColor="#11CDFC" :bold="true"
-				sliderBgColor="#E5FAFF" @change="change" :width="400" unlined></tui-tabs>
+				sliderBgColor="#E5FAFF" @change="change" :width="width" unlined></tui-tabs>
 		</view>
 	</view>
 </template>
@@ -37,6 +37,7 @@
 			return {
 				currentTab: 0,
 				backgroundColor: "linear-gradient(90deg, rgb(255, 118, 38), rgb(252, 30, 82))",
+				width: uni.upx2px(400),
 				navbar: [{
 					name: "正在疯抢",
 					num: 2
