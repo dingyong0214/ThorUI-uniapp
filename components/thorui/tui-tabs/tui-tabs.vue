@@ -213,9 +213,9 @@
 		methods: {
 			checkCor: function() {
 				let tabsNum = this.tabs.length;
-				let padding = (this.winWidth / 750) * this.padding;
+				let padding = uni.upx2px(Number(this.padding));
 				let width = this.tabsWidth - padding * 2;
-				let left = (width / tabsNum - (this.winWidth / 750) * this.sliderWidth) / 2 + padding;
+				let left = (width / tabsNum - uni.upx2px(Number(this.sliderWidth))) / 2 + padding;
 				let scrollLeft = left;
 				if (this.currentTab > 0) {
 					scrollLeft = scrollLeft + (width / tabsNum) * this.currentTab;
