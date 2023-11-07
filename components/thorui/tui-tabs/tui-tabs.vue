@@ -46,9 +46,9 @@
 					return [];
 				}
 			},
-			//tabs宽度，不传值则默认使用windowWidth，单位px
+			//tabs宽度，不传值则默认使用windowWidth，单位rpx
 			width: {
-				type: Number,
+				type: [Number, String],
 				default: 0
 			},
 			//rpx
@@ -172,7 +172,7 @@
 				this.checkCor();
 			},
 			width(val) {
-				this.tabsWidth = val;
+				this.tabsWidth = uni.upx2px(Number(val));
 				this.checkCor();
 			}
 		},
@@ -197,7 +197,8 @@
 				uni.getSystemInfo({
 					success: res => {
 						this.winWidth = res.windowWidth;
-						this.tabsWidth = this.width == 0 ? this.winWidth : this.width;
+						let width = uni.upx2px(Number(this.width))
+						this.tabsWidth = this.width == 0 ? this.winWidth : width;
 						this.checkCor();
 					}
 				});
