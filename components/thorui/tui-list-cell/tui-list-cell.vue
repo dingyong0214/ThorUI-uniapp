@@ -158,6 +158,7 @@
 		right: 0;
 		left: 0;
 		pointer-events: none;
+		z-index: 1;
 	}
 
 	.tui-cell__arrow {

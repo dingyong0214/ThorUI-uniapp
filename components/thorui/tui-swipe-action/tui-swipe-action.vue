@@ -1,19 +1,19 @@
 <template>
 	<view class="tui-swipeout-wrap" :style="{ backgroundColor: backgroundColor }">
-		<view class="tui-swipeout-item" :class="[isShowBtn ? 'swipe-action-show' : '']" 
+		<view class="tui-swipeout-item" :class="[isShowBtn ? 'swipe-action-show' : '']"
 			:style="{ transform: 'translate(' + position.pageX + 'px,0)' }">
-			<view class="tui-swipeout-content" @touchstart="handlerTouchstart"
-			@touchmove="handlerTouchmove" @touchend="handlerTouchend" @mousedown="handlerTouchstart"
-			@mousemove="handlerTouchmove" @mouseup="handlerTouchend">
+			<view class="tui-swipeout-content" @touchstart="handlerTouchstart" @touchmove="handlerTouchmove"
+				@touchend="handlerTouchend" @mousedown="handlerTouchstart" @mousemove="handlerTouchmove"
+				@mouseup="handlerTouchend">
 				<slot name="content"></slot>
 			</view>
 			<view class="tui-swipeout-button-right-group" v-if="actions.length > 0" @touchend.stop="loop">
 				<view class="tui-swipeout-button-right-item" v-for="(item, index) in actions" :key="index"
-					:style="{ backgroundColor: item.background || '#f7f7f7', color: item.color, width: item.width + 'px' }"
+					:style="{ backgroundColor: item.background || '#f7f7f7', color: item.color || color, width: (item.width || width) + 'px' }"
 					:data-index="index" @tap="handlerButton">
-					<image :src="item.icon" v-if="item.icon"
-						:style="{ width: px(item.imgWidth), height: px(item.imgHeight) }"></image>
-					<text :style="{ fontSize: px(item.fontsize) }">{{ item.name }}</text>
+					<image :src="item[iconField]" v-if="item[iconField]"
+						:style="{ width: px(item.imgWidth || 48), height: px(item.imgHeight || 48) }"></image>
+					<text :style="{ fontSize: px(item.fontsize || 32) }">{{ item[nameField] }}</text>
 				</view>
 			</view>
 			<!--actions长度设置为0，可直接传按钮进来-->
@@ -43,6 +43,22 @@
 				default () {
 					return [];
 				}
+			},
+			nameField: {
+				type: String,
+				default: 'name'
+			},
+			color: {
+				type: String,
+				default: '#fff'
+			},
+			iconField: {
+				type: String,
+				default: 'icon'
+			},
+			width: {
+				type: [String, Number],
+				default: 70
 			},
 			//点击按钮时是否自动关闭
 			closable: {
@@ -115,8 +131,7 @@
 					'Down';
 			},
 			//阻止事件冒泡
-			loop() {
-			},
+			loop() {},
 			updateButtonSize() {
 				const actions = this.actions;
 				if (actions.length > 0) {
@@ -202,11 +217,11 @@
 					} else {
 						spacing.pageX = 0;
 					}
-					if (spacing.pageX== 0) {
+					if (spacing.pageX == 0) {
 						this.isShowBtn = false;
 					}
 					this.position = spacing;
-					
+
 				}
 			},
 			handlerButton(event) {

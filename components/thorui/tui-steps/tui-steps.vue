@@ -3,9 +3,10 @@
 		<view class="tui-step-item" :style="{ width: direction === 'column' ? '100%' : spacing }"
 			:class="[direction === 'row' ? 'tui-step-horizontal' : 'tui-step-vertical']" v-for="(item, index) in items"
 			:key="index" @tap.stop="handleClick(index)">
-			<view class="tui-step-item-ico" :class="[direction === 'column' ? 'tui-step-column_ico' : 'tui-step-row_ico']" :style="{ width: direction === 'column' ? '36rpx' : '100%' }">
-				<view v-if="!item.name && !item.icon" class="tui-step-ico"
-					 :style="{
+			<view class="tui-step-item-ico"
+				:class="[direction === 'column' ? 'tui-step-column_ico' : 'tui-step-row_ico']"
+				:style="{ width: direction === 'column' ? '36rpx' : '100%' }">
+				<view v-if="!item.name && !item.icon" class="tui-step-ico" :style="{
 						width: type == 2 || activeSteps === index ? '36rpx' : '16rpx',
 						height: type == 2 || activeSteps === index ? '36rpx' : '16rpx',
 						backgroundColor: index <= activeSteps ? getActiveColor : type == 2 ? '#fff' : deactiveColor,
@@ -17,8 +18,8 @@
 				</view>
 				<view class="tui-step-custom" :style="{ backgroundColor: backgroundColor }"
 					v-if="item.name || item.icon">
-					<tui-icon :name="item.name" :size="item.size || 20" :color="index <= activeSteps ? getActiveColor : deactiveColor"
-						v-if="item.name"></tui-icon>
+					<tui-icon :name="item.name" :size="item.size || 20"
+						:color="index <= activeSteps ? getActiveColor : deactiveColor" v-if="item.name"></tui-icon>
 					<image :src="index <= activeSteps ? item.activeIcon : item.icon" class="tui-step-img"
 						mode="widthFix" v-if="!item.name"></image>
 				</view>
@@ -37,11 +38,12 @@
 						lineHeight: titleSize + 'rpx',
 						fontWeight: bold ? 'bold' : 'normal'
 					}">
-					{{ item.title }}
+					{{ item[titleField] }}
 				</view>
 				<view class="tui-step-item-content"
 					:style="{ color: index <= activeSteps ? getActiveColor : deactiveColor, fontSize: descSize + 'rpx' }">
-					{{ item.desc }}</view>
+					{{ item[descrField] }}
+				</view>
 			</view>
 		</view>
 	</view>
@@ -118,14 +120,22 @@
 					return [];
 				}
 			},
+			titleField: {
+				type: String,
+				default: 'title'
+			},
+			descrField: {
+				type: String,
+				default: 'desc'
+			},
 			//自定义item内容时背景色
 			backgroundColor: {
 				type: String,
 				default: '#fff'
 			}
 		},
-		computed:{
-			getActiveColor(){
+		computed: {
+			getActiveColor() {
 				return this.activeColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},

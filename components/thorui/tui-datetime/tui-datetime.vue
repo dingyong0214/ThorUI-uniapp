@@ -204,7 +204,8 @@
 				endDate: '',
 				value: [],
 				isEnd: true,
-				firstShow: false
+				isChange: false,
+				isSelect: false
 			};
 		},
 		mounted() {
@@ -236,10 +237,13 @@
 				this.setDays();
 			},
 			propsChange() {
+				if (this.isChange) return;
+				this.isChange = true;
 				this.$nextTick(() => {
 					setTimeout(() => {
+						this.isChange = false;
 						this.initData();
-					}, 20);
+					}, 50);
 				})
 			},
 			setDateTime(val) {
@@ -259,9 +263,9 @@
 				return Array.from(new Array(end + 1).keys()).slice(start);
 			},
 			getIndex: function(arr, val) {
-				if (!arr || arr.length === 0) return 0;
+				if (!arr || arr.length === 0 || val === undefined) return 0;
 				let index = arr.indexOf(val);
-				return ~index ? index : 0;
+				return index == -1 ? 0 : index;
 			},
 			getCharCount(str) {
 				let regex = new RegExp('/', 'g');
@@ -283,15 +287,28 @@
 				let time = null;
 				if (fdate) time = new Date(fdate);
 				else time = new Date();
-				this.year = time.getFullYear();
-				this.month = time.getMonth() + 1;
-				this.day = time.getDate();
-				this.hour = time.getHours();
-				this.minute = time.getMinutes();
-				this.second = time.getSeconds();
+				let year = time.getFullYear();
+				if (year > this.endYear) {
+					year = this.endYear
+				} else if (year < this.startYear) {
+					year = this.startYear
+				}
+				const month = time.getMonth() + 1;
+				const day = time.getDate();
+				const hour = time.getHours();
+				const minute = time.getMinutes();
+				const second = time.getSeconds();
+				this.year = year;
+				this.month = month;
+				this.day = day;
+				this.hour = hour;
+				this.minute = minute;
+				this.second = second;
+
+				return [year, month, day, hour, minute, second]
 			},
 			initData() {
-				this.initSelectValue();
+				const def = this.initSelectValue();
 				const type = Number(this.type)
 				switch (type) {
 					case 0:
@@ -345,19 +362,22 @@
 				}
 				this.$nextTick(() => {
 					setTimeout(() => {
-						this.setDefaultValues();
-					}, 0)
+						this.setDefaultValues(def);
+					}, 50)
 				})
 			},
-			setDefaultValues() {
+			setDefaultValues(def) {
 				let vals = []
 				// 1-年月日+时分 2-年月日 3-年月 4-时分 5-时分秒 6-分秒 7-年月日 时分秒 8-年月日+小时
-				const year = this.getIndex(this.years, this.year);
-				const month = this.getIndex(this.months, this.month)
-				const day = this.getIndex(this.days, this.day)
-				const hour = this.getIndex(this.hours, this.hour)
-				const minute = this.getIndex(this.minutes, this.minute)
-				const second = this.getIndex(this.seconds, this.second)
+				const year = this.getIndex(this.years, def[0]);
+
+				const month = this.getIndex(this.months, def[1])
+				const day = this.getIndex(this.days, def[2])
+				const hour = this.getIndex(this.hours, def[3])
+				const minute = this.getIndex(this.minutes, def[4])
+				const second = this.getIndex(this.seconds, def[5])
+
+				// console.log(year, month, day, hour, minute, second)
 				const type = Number(this.type)
 				switch (type) {
 					case 0:
@@ -392,7 +412,7 @@
 				if (this.value.join(',') === vals.join(',')) return;
 				setTimeout(() => {
 					this.value = vals;
-				}, 200);
+				}, 150);
 
 			},
 			setYears() {
@@ -430,18 +450,9 @@
 				}
 			},
 			show() {
-				this.firstShow = true
 				setTimeout(() => {
 					this.isShow = true;
-					// #ifndef MP || H5
-					this.value = []
-					this.$nextTick(() => {
-						setTimeout(() => {
-							this.value = [...this.value]
-						}, 50)
-					})
-					// #endif
-				}, 50);
+				}, 250);
 			},
 			hide() {
 				this.isShow = false;
@@ -452,7 +463,6 @@
 				this.hide()
 			},
 			change(e) {
-				if (!this.firstShow) return;
 				this.value = e.detail.value;
 				const type = Number(this.type)
 				switch (type) {
@@ -595,12 +605,16 @@
 				}
 				this.$emit('confirm', result);
 			},
-			waitFix() {
+			waitFix(index = 0) {
 				if (this.isEnd) {
 					this.selectResult()
 				} else {
+					index++;
+					if (index >= 20) {
+						this.isEnd = true
+					}
 					setTimeout(() => {
-						this.waitFix()
+						this.waitFix(index)
 					}, 50)
 				}
 			},

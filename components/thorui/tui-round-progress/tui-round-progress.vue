@@ -33,6 +33,7 @@
 					const height = res.height == 0 ? res.width : res.height;
 					let ele = `.${res.cid}>canvas`
 					const canvas = document.querySelectorAll(this.format(ele))[0];
+					if (!canvas) return;
 					const ctx = canvas.getContext('2d');
 					// const dpr =uni.getSystemInfoSync().pixelRatio;
 					// canvas.style.width=width+'px';
@@ -267,16 +268,20 @@
 		},
 		watch: {
 			percentage(val) {
-				this.percent = val;
+				if (this.isInit) {
+					this.percent = val;
+				}
 			}
 		},
 		mounted() {
 			setTimeout(() => {
 				this.percent = this.percentage;
+				this.isInit = true;
 			}, 50);
 		},
 		data() {
 			return {
+				isInit: false,
 				percent: -1,
 				progressCanvasId: this.getCanvasId()
 			};

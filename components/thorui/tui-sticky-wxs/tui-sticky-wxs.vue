@@ -1,6 +1,7 @@
 <template>
-	<view class="tui-sticky-class" :change:prop="parse.stickyChange" :prop="scrollTop" :data-top="top" :data-height="height"
-	 :data-stickytop="stickyTop" :data-container="container" :data-isNativeHeader="isNativeHeader" :data-index="index">
+	<view class="tui-sticky-class" :change:prop="parse.stickyChange" :prop="scrollTop" :data-top="top"
+		:data-height="height" :data-stickytop="stickyTop" :data-container="container"
+		:data-isNativeHeader="isNativeHeader" :data-index="index">
 		<!--sticky 容器-->
 		<view class="tui-sticky-seat" :style="{ height: stickyHeight, backgroundColor: backgroundColor }"></view>
 		<view class="tui-sticky-bar">
@@ -66,14 +67,16 @@
 			recalc(newValue, oldValue) {
 				this.updateScrollChange(() => {
 					//更新prop scrollTop值(+0.1即可),触发change事件
-					this.$emit("prop",{})
+					this.$emit("prop", {})
 				});
 			}
 		},
 		mounted() {
-			setTimeout(() => {
-				this.updateScrollChange();
-			}, 20);
+			this.$nextTick(() => {
+				setTimeout(() => {
+					this.updateScrollChange();
+				}, 50);
+			})
 		},
 		data() {
 			return {

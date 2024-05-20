@@ -450,6 +450,7 @@
 						isBase64 = false;
 						// #endif
 						if (isBase64) {
+							// #ifndef MP-WEIXIN
 							uni.canvasGetImageData({
 								canvasId: 'tui-image-cropper',
 								x: 0,
@@ -464,6 +465,30 @@
 									this.$emit('cropper', data);
 								}
 							}, this);
+							// #endif
+							
+							// #ifdef MP-WEIXIN
+							uni.canvasToTempFilePath({
+									...params,
+									canvasId: 'tui-image-cropper',
+									success: res => {
+										data.url = res.tempFilePath;
+										const fs = wx.getFileSystemManager()
+										// 读取文件， base64 格式
+										const base64Str = fs.readFileSync(res.tempFilePath,
+											'base64')
+										const imgBase64 = `data:image/png;base64,${base64Str}`
+										data.base64 = imgBase64;
+										this.loadding && uni.hideLoading();
+										this.$emit('cropper', data);
+									},
+									fail(res) {
+										console.log(res);
+									}
+								},
+								this
+							);
+							// #endif
 						} else {
 							uni.canvasToTempFilePath({
 									...params,

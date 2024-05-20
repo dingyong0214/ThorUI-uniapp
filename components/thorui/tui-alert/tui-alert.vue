@@ -76,7 +76,7 @@
 		opacity: 0;
 		border-radius: 6rpx;
 		overflow: hidden;
-		z-index: 99998;
+		z-index: 1001;
 	}
 
 	.tui-alert-show {
@@ -91,7 +91,7 @@
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 99996;
+		z-index: 999;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
 		visibility: hidden;

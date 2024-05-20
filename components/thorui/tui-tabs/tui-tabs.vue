@@ -15,10 +15,11 @@
 					fontSize: size + 'rpx',
 					fontWeight: bold && currentTab == index ? 'bold' : 'normal',transform:`scale(${currentTab == index?scale:1})`
 				}">
-				{{ item.name }}
+				{{ item[field] }}
 				<view :class="[item.isDot ? 'tui-badge__dot' : 'tui-tabs__badge']"
-					:style="{ color: badgeColor, backgroundColor: getBadgeBgColor }" v-if="item.num || item.isDot">
-					{{ item.isDot ? '' : item.num }}
+					:style="{ color: badgeColor, backgroundColor: getBadgeBgColor }"
+					v-if="item[badgeField] || item.isDot">
+					{{ item.isDot ? '' : item[badgeField] }}
 				</view>
 			</view>
 		</view>
@@ -46,9 +47,18 @@
 					return [];
 				}
 			},
+			//显示文本字段名称
+			field: {
+				type: String,
+				default: 'name'
+			},
+			badgeField: {
+				type: String,
+				default: 'num'
+			},
 			//tabs宽度，不传值则默认使用windowWidth，单位px
 			width: {
-				type: [Number,String],
+				type: [Number, String],
 				default: 0
 			},
 			//rpx
@@ -230,7 +240,8 @@
 					return false;
 				} else {
 					this.$emit('change', {
-						index: Number(index)
+						index: Number(index),
+						item: item
 					});
 				}
 			}
@@ -300,7 +311,7 @@
 	.tui-tabs-slider {
 		position: absolute;
 		left: 0;
-		transition: all 0.15s ease-in-out;
+		transition: all 0.3s ease-in-out;
 		z-index: 1;
 		transform-style: preserve-3d;
 	}

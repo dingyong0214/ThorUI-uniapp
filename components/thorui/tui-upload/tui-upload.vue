@@ -86,6 +86,11 @@
 				type: Boolean,
 				default: false
 			},
+			//V2.9.6+ 删除图片是否触发 @complete 事件
+			delTrigger:{
+				type: Boolean,
+				default: true
+			},
 			//2.3.0+
 			addColor: {
 				type: String,
@@ -368,7 +373,7 @@
 									index: index,
 									params: that.params
 								})
-								that.change()
+								that.delTrigger && that.change()
 							}
 						}
 					})
@@ -380,7 +385,7 @@
 						index: index,
 						params: that.params
 					})
-					that.change()
+					that.delTrigger && that.change()
 				}
 			},
 			previewImage: function(index) {

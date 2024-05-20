@@ -10,7 +10,7 @@
 					<view class="tui-actionsheet-btn tui-actionsheet-divider"
 						:class="{'tui-btn-last':!isCancel && index==itemList.length-1}"
 						hover-class="tui-actionsheet-hover" :hover-stay-time="150" :data-index="index"
-						:style="{color:item.color || '#2B2B2B'}" @tap="handleClickItem">{{item.text}}</view>
+						:style="{color:item.color || textColor}" @tap="handleClickItem">{{item[textField]}}</view>
 				</block>
 			</view>
 			<view class="tui-actionsheet-btn tui-actionsheet-cancel" hover-class="tui-actionsheet-hover"
@@ -40,6 +40,14 @@
 						color: "#2B2B2B"
 					}]
 				}
+			},
+			textField: {
+				type: String,
+				default: "text"
+			},
+			textColor: {
+				type: String,
+				default: '#2B2B2B'
 			},
 			//点击遮罩 是否可关闭
 			maskClosable: {

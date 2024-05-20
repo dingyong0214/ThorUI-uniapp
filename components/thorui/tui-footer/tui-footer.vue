@@ -1,10 +1,13 @@
 <template>
-	<view class="tui-footer-class tui-footer" :class="[fixed?'tui-fixed':'']" :style='{backgroundColor:backgroundColor}'>
+	<view class="tui-footer-class tui-footer" :class="[fixed?'tui-fixed':'']"
+		:style='{backgroundColor:backgroundColor}'>
 		<view class="tui-footer-link" v-if="navigate.length>0" :style="{color:getLinkColor}">
 			<block v-for="(item,index) in navigate" :key="index">
-				<navigator class="tui-link" hover-class="tui-link-hover" :hover-stop-propagation="true" :style="{color:(item.color || getLinkColor),fontSize:(item.size || 28)+'rpx'}"
-				 :open-type="item.type" :url="item.url" :target="item.target" :delta="item.delta" :app-id="item.appid"
-				 :path="item.path" :extra-data="item.extradata" :bindsuccess="item.bindsuccess" :bindfail="item.bindfail">{{item.text}}</navigator>
+				<navigator class="tui-link" hover-class="tui-link-hover" :hover-stop-propagation="true"
+					:style="{color:(item.color || getLinkColor),fontSize:(item.size || 28)+'rpx'}"
+					:open-type="item.type" :url="item[urlField]" :target="item.target" :delta="item.delta"
+					:app-id="item.appid" :path="item.path" :extra-data="item.extradata" :bindsuccess="item.bindsuccess"
+					:bindfail="item.bindfail">{{item[textField]}}</navigator>
 			</block>
 		</view>
 		<view class="tui-footer-copyright" :style="{color:color,fontSize:size+'rpx'}">
@@ -21,9 +24,17 @@
 			//链接设置  数据格式对应上面注释的属性值
 			navigate: {
 				type: Array,
-				default:function(){
-					return  []
+				default: function() {
+					return []
 				}
+			},
+			urlField: {
+				type: String,
+				default: "url"
+			},
+			textField: {
+				type: String,
+				default: "text"
 			},
 			//底部文本
 			copyright: {
@@ -46,7 +57,7 @@
 				default: "transparent"
 			},
 			//V2.8.0+
-			linkColor:{
+			linkColor: {
 				type: String,
 				default: ""
 			},
@@ -56,8 +67,8 @@
 				default: true
 			}
 		},
-		computed:{
-			getLinkColor(){
+		computed: {
+			getLinkColor() {
 				return this.linkColor || (uni && uni.$tui && uni.$tui.color.link) || '#586c94'
 			}
 		}
@@ -121,6 +132,6 @@
 		line-height: 1;
 		text-align: center;
 		padding-top: 16rpx;
-		padding-bottom:env(safe-area-inset-bottom);
+		padding-bottom: env(safe-area-inset-bottom);
 	}
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<view class="tui-cascade-selection">
-		<scroll-view scroll-x scroll-with-animation :scroll-into-view="scrollViewId"
+		<scroll-view :scroll-x="true" scroll-with-animation :scroll-into-view="scrollViewId"
 			:style="{ backgroundColor: headerBgColor }" class="tui-bottom-line"
 			:class="{ 'tui-btm-none': !headerLine }">
 			<view class="tui-selection-header" :style="{ height: tabsHeight, backgroundColor: backgroundColor }">
@@ -8,7 +8,7 @@
 					:style="{ color: idx === currentTab ? getActiveColor : color, fontSize: size + 'rpx' }"
 					:id="`id_${idx}`" @tap.stop="swichNav" :data-current="idx" v-for="(item, idx) in selectedArr"
 					:key="idx">
-					{{ item.text }}
+					{{ item[textField] }}
 					<view class="tui-active-line" :style="{ backgroundColor: getLineColor }"
 						v-if="idx === currentTab && showLine"></view>
 				</view>
@@ -25,15 +25,15 @@
 						@tap.stop="change(index, subIndex, subItem)">
 						<icon type="success_no_circle" v-if="item.index === subIndex" :color="getCkMarkColor"
 							:size="checkMarkSize" class="tui-icon-success"></icon>
-						<image :src="subItem.src" v-if="subItem.src" class="tui-cell-img"
+						<image :src="subItem[srcField]" v-if="subItem[srcField]" class="tui-cell-img"
 							:style="{ width: imgWidth, height: imgHeight, borderRadius: radius }"></image>
 						<view class="tui-cell-title"
 							:class="{ 'tui-font-bold': item.index === subIndex && textBold, 'tui-flex-shrink': nowrap }"
 							:style="{ color: item.index === subIndex ? textActiveColor : textColor, fontSize: textSize + 'rpx' }">
-							{{ subItem.text }}
+							{{ subItem[textField] }}
 						</view>
 						<view class="tui-cell-sub_title" :style="{ color: subTextColor, fontSize: subTextSize + 'rpx' }"
-							v-if="subItem.subText">{{ subItem.subText }}</view>
+							v-if="subItem[subTextField]">{{ subItem[subTextField] }}</view>
 					</view>
 				</scroll-view>
 			</swiper-item>
@@ -47,26 +47,34 @@
 		emits: ['change', 'complete'],
 		props: {
 			/**
-				 * 如果下一级是请求返回，则为第一级数据，否则所有数据
-				 * 数据格式
-				  [{
-					  src: "",
-					  text: "",
-					  subText: "",
-					  value: 0,
-					  children:[{
-						  text: "",
-						  subText: "",
-						  value: 0,
-						  children:[]
-				   }]
-				  }]
-				 * */
+			 * 如果下一级是请求返回，则为第一级数据，否则所有数据
+			 * 数据格式
+			 * */
 			itemList: {
 				type: Array,
 				default: () => {
 					return [];
 				}
+			},
+			srcField: {
+				type: String,
+				default: 'src'
+			},
+			textField: {
+				type: String,
+				default: 'text'
+			},
+			subTextField: {
+				type: String,
+				default: 'subText'
+			},
+			valueField: {
+				type: String,
+				default: 'value'
+			},
+			childrenField: {
+				type: String,
+				default: 'children'
 			},
 			/*
 			   初始化默认选中数据
@@ -241,10 +249,10 @@
 			getActiveColor() {
 				return this.activeColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			},
-			getLineColor(){
+			getLineColor() {
 				return this.lineColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			},
-			getCkMarkColor(){
+			getCkMarkColor() {
 				return this.checkMarkColor || (uni && uni.$tui && uni.$tui.color.primary) || '#5677fc';
 			}
 		},
@@ -295,10 +303,10 @@
 							if (subi !== -1) {
 								obj = list[subi]
 								selectedArr.push({
-									text: obj.text || this.text,
-									value: obj.value || '',
-									src: obj.src || '',
-									subText: obj.subText || '',
+									[this.textField]: obj[this.textField] || this.text,
+									[this.valueField]: obj[this.valueField] || '',
+									[this.srcField]: obj[this.srcField] || '',
+									[this.subTextField]: obj[this.subTextField] || '',
 									index: subi,
 									scrollViewId: `id_${subi}`,
 									list: list
@@ -363,7 +371,7 @@
 			},
 			removeChildren(data) {
 				let list = data.map(item => {
-					delete item['children'];
+					delete item[this.childrenField];
 					return item;
 				});
 				return list;
@@ -377,13 +385,13 @@
 				} else {
 					let value = selectedArr[0].index;
 					value = value === undefined || value == -1 ? index : value;
-					if (arr[value] && arr[value].children) {
-						list = arr[value].children;
+					if (arr[value] && arr[value][this.childrenField]) {
+						list = arr[value][this.childrenField];
 					}
 					if (layer > 0) {
 						for (let i = 1; i < layer + 1; i++) {
 							let val = layer === i ? index : selectedArr[i].index;
-							list = val === -1 ? [] : (list[val].children || []);
+							list = val === -1 ? [] : (list[val][this.childrenField] || []);
 							if (list.length === 0) break;
 						}
 					}
@@ -427,10 +435,10 @@
 				let item = this.selectedArr[index];
 				if (item.index == subIndex) return;
 				item.index = subIndex;
-				item.text = subItem.text;
-				item.value = subItem.value;
-				item.subText = subItem.subText || '';
-				item.src = subItem.src || '';
+				item[this.textField] = subItem[this.textField]
+				item[this.valueField] = subItem[this.valueField];
+				item[this.subTextField] = subItem[this.subTextField] || '';
+				item[this.srcField] = subItem[this.srcField] || '';
 				this.$emit('change', {
 					layer: index,
 					subIndex: subIndex, //layer=> Array index
@@ -456,7 +464,7 @@
 					let lastItem = result[result.length - 1] || {};
 					let text = '';
 					result.map(item => {
-						text += item.text;
+						text += item[this.textField];
 						delete item['list'];
 						//delete item['index'];
 						delete item['scrollViewId'];
@@ -464,18 +472,18 @@
 					});
 					this.$emit('complete', {
 						result: result,
-						value: lastItem.value,
-						text: text,
-						subText: lastItem.subText,
-						src: lastItem.src
+						[this.valueField]: lastItem[this.valueField],
+						[this.textField]: text,
+						[this.subTextField]: lastItem[this.subTextField],
+						[this.srcField]: lastItem[this.srcField]
 					});
 				} else {
 					//重置数据（ >layer层级）
 					let item = [{
-						text: this.text,
-						subText: '',
-						value: '',
-						src: '',
+						[this.textField]: this.text,
+						[this.subTextField]: '',
+						[this.valueField]: '',
+						[this.srcField]: '',
 						index: -1,
 						scrollViewId: 'id__1',
 						list: data
@@ -534,6 +542,8 @@
 		bottom: 0;
 		right: 0;
 		left: 0;
+		z-index: 1;
+		pointer-events: none;
 	}
 
 	.tui-btm-none::after {

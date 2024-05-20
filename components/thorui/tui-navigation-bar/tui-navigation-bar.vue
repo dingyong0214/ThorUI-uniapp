@@ -225,6 +225,7 @@
 		position: fixed;
 		left: 0;
 		top: 0;
+		transform: translateZ(0);
 	}
 
 	.tui-status-bar {

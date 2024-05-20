@@ -122,7 +122,7 @@
 						color = colors[tp]
 					} else if (type === 'white') {
 						color = plain ? '#fff' : '#333'
-					} else if (type === 'btn-gray') {
+					} else if (type === 'btn-gray' || type==='gray') {
 						color = '#999'
 					} else {
 						if (plain) {
