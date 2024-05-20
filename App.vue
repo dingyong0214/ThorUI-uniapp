@@ -3,7 +3,7 @@ export default {
 	onLaunch: function() {
 		let that = this;
 		// #ifdef APP-PLUS
-		/* 5+环境锁定屏幕方向 */
+		/* 5+环境锁定屏幕方向  */ 
 		plus.screen.lockOrientation('portrait-primary'); //锁定
 		
 		/* 5+环境升级提示 */

@@ -7,7 +7,7 @@ import propsConfig from './components/thorui/tui-config/index.js'
 uni.$tui = propsConfig
 
 // #ifdef H5
-window.QQmap = null;
+window.QQmap = null; 
 // #endif
 // #ifndef MP-TOUTIAO
 //网络监听
