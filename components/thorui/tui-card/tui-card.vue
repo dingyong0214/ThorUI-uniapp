@@ -5,8 +5,8 @@
 			<view class="tui-card-header" :class="{'tui-header-line':header.line}"
 				:style="{background:header.bgcolor || '#fff'}">
 				<view class="tui-header-left">
-					<image :src="url || image.url" class="tui-header-thumb" :class="{'tui-thumb-circle':image.circle}"
-						mode="widthFix" v-if="url || image.url"
+					<image :src="imageUrl || image.url" class="tui-header-thumb"
+						:class="{'tui-thumb-circle':image.circle}" mode="widthFix" v-if="imageUrl || image.url"
 						:style="{height:(image.height || 60)+'rpx',width:(image.width || 60)+'rpx'}"></image>
 					<text class="tui-header-title"
 						:style="{fontSize:(title.size || 30)+'rpx',color:(title.color || '#7A7A7A')}"

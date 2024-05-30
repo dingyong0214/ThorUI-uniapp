@@ -27,7 +27,13 @@
 		// #ifdef MP-WEIXIN
 		behaviors: ['wx://form-field-button'],
 		// #endif
-		// #ifdef MP-BAIDU || MP-QQ
+		// #ifdef MP-BAIDU
+		behaviors: ['swan://form-field'],
+		// #endif
+		// #ifdef MP-QQ
+		behaviors: ['qq://form-field'],
+		// #endif
+		// #ifdef H5
 		behaviors: ['uni://form-field'],
 		// #endif
 		props: {
